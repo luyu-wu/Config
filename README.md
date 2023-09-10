@@ -28,7 +28,10 @@ Live config files from my system.
 ## Demonstration
 Disclaimer: copyrighted music ya
 
-https://github.com/luyu-wu/Config/assets/116970666/47ce0b30-ba46-4ada-912c-7d8218201b1e
+
+https://github.com/luyu-wu/Config/assets/116970666/2196a43f-0af6-429e-af46-0fc9fc250ad8
+
+
 
 
 ## Features
