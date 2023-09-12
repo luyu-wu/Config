@@ -1,0 +1,25 @@
+{
+    "clock": {
+        "format": "{:%I:%M%p}",
+        "tooltip-format": "{: %A, %B %e %Y}"
+    },
+
+    "custom/weather": {
+        //shows the current weather and forecast
+        "tooltip" : true,
+        "format" : "{}",
+        "interval" : 30,
+        "exec" : "~/.config/HyprV/waybar/scripts/waybar-wttr.py",
+        "return-type" : "json"
+    },
+
+    "temperature": {
+        "thermal-zone": 1,
+        "format": "",
+        "format-alt-click": "click-right",
+        "format-alt": " {temperatureF}°F",
+        "critical-threshold": 70,
+        "format-critical": " {temperatureF}°F",
+        "on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'"
+    }
+}
