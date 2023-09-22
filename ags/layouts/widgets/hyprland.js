@@ -53,6 +53,9 @@ export const Client = props => Button({
                     { from: 'org.gnome.Nautilus', to: 'Files' },
                     { from: 'libreoffice-writer', to: 'Writer' },
                     { from: '', to: 'Desktop' },
+                    {from: 'discord', to:'Discord'},
+                    {from: 'kitty', to:'Terminal'},
+                    {from: 'firefox-nightly', to:'Browser'}
                 ],
             }),
         ],
