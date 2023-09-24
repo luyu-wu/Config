@@ -17,8 +17,6 @@ const Bar = monitor => shared.Bar({
     start: [
         Launcher({ child: DistroIcon() }),
         Separator({ valign: 'center' }),
-        Workspaces(),
-        Separator({ valign: 'center' }),
         Client(),
         MediaIndicator({ hexpand: true, halign: 'end' }),
     ],
@@ -29,7 +27,6 @@ const Bar = monitor => shared.Bar({
         NotificationIndicator({ direction: 'right', hexpand: true, halign: 'start' }),
         ags.Widget.Box({ hexpand: true }),
         ScreenRecord(),
-        ColorPicker(),
         Separator({ valign: 'center' }),
         QuickSettings(),
         Separator({ valign: 'center' }),
