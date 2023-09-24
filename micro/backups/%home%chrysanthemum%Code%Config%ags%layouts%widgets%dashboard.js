@@ -9,23 +9,9 @@ const { Button, Box } = ags.Widget;
 
 export const PanelButton = ({ format } = {}) => Button({
     className: 'dashboard panel-button',
-    onClicked: () => App.toggleWindow('dashboard'),
-    connections: [[App, (btn, win, visible) => {
-        btn.toggleClassName('active', win === 'dashboard' && visible);
-    }]],
     child: Clock({
         format,
         justification: 'center',
     }),
 });
 
-export const PopupContent = () => Box({
-    className: 'dashboard',
-    vexpand: false,
-    children: [
-        Box({
-            vertical: true,
-            children: [datemenu.PopupContent()],
-        }),
-    ],
-});

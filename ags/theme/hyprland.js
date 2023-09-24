@@ -4,7 +4,6 @@ import { execAsync } from 'resource:///com/github/Aylur/ags/utils.js';
 
 export function setupHyprland({
     wm_gaps,
-    border_width,
     hypr_active_border,
     hypr_inactive_border,
     radii,
@@ -47,7 +46,6 @@ export function setupHyprland({
             }
         });
 
-        execAsync(`hyprctl keyword general:border_size ${border_width}`);
         execAsync(`hyprctl keyword general:gaps_out ${wm_gaps}`);
         execAsync(`hyprctl keyword general:gaps_in ${wm_gaps / 2}`);
         execAsync(`hyprctl keyword general:col.active_border ${hypr_active_border}`);
