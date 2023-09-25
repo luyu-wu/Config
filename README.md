@@ -36,13 +36,14 @@ https://github.com/luyu-wu/Config/assets/116970666/2196a43f-0af6-429e-af46-0fc9f
 
 ## Features
 - Full tiled windows experience (Hyprland)
-- AGS (sourced from aylur)
+- Javascript GTK OS Interface
+- Custom Bezier animation curves (back animations cause they look amazing with windows)
 - kitty and micro colorschemes
 
 ## Packages
 
 ```
-yay -S hyprland-git wayland-git swww aylur-gtk-shell firefox-nightly-bin vscodium grimshot hyprshot, sddm-git
+yay -S hyprland-git wayland-git swww aylur-gtk-shell firefox-nightly-bin vscodium grimshot hyprshot, sddm-git, nautilus, kitty, armcord-git, spotify
 ```
 (non-exhaustive list, i just forget the rest of the important dependencies, u prob need nerd-fonts or smth)
 ## Credits
