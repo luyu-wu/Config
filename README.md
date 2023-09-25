@@ -31,6 +31,8 @@ Disclaimer: copyrighted music ya
 
 https://github.com/luyu-wu/Config/assets/116970666/2196a43f-0af6-429e-af46-0fc9fc250ad8
 
+## Screenshots
+![image](https://github.com/luyu-wu/Config/assets/116970666/b5a7dfb7-0007-4b55-82b0-c63e74570fb8)
 
 
 
