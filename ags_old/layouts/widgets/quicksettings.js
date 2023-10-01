@@ -118,7 +118,7 @@ const SystemBox = () => Box({
                 Box({
                     className: 'uptime',
                     children: [
-                        Label('uptime: '),
+                        Label('Uptime: '),
                         Uptime(),
                     ],
                 }),

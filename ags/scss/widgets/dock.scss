@@ -1,29 +1,18 @@
 @mixin dock($spacing: $spacing * 0.7) {
-    .separator {
+    separator {
         border-radius: $radii;
         background-color: transparentize($fg_color, 0.8);
         margin: 0 $spacing;
     }
 
     &.horizontal {
-        .separator {
+        separator {
             min-width: 2px;
             min-height: 2em;
         }
 
         button.focused .indicator {
             min-width: 18px;
-        }
-    }
-
-    &.vertical {
-        .separator {
-            min-width: 2em;
-            min-height: 2px;
-        }
-
-        button.focused .indicator {
-            min-height: 18px;
         }
     }
 
@@ -58,22 +47,12 @@
     }
 }
 
-.floating-dock .dock {
+window.floating-dock .dock {
     @include dock;
     @include floating_widget;
     padding: $spacing / 2;
 
     button image {
         font-size: 48px;
-    }
-}
-
-.dock.vertical {
-    @include dock;
-    background-color: $bg_color;
-
-    .launcher .distro-icon {
-        margin: $spacing/2;
-        color: $accent;
     }
 }
