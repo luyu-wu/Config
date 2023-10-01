@@ -50,50 +50,6 @@ const Desktop = () => EventBox({
         ],
     }).popup_at_pointer(event),
     onMiddleClick: print,
-    child: Box({
-        vertical: true,
-        vexpand: true,
-        hexpand: true,
-        connections: [[Theme, box => {
-            const [halign = 'center', valign = 'center', offset = 64] =
-                Theme.getSetting('desktop_clock')?.split(' ') || [];
-
-            box.halign = imports.gi.Gtk.Align[halign.toUpperCase()];
-            box.valign = imports.gi.Gtk.Align[valign.toUpperCase()];
-            box.setStyle(`margin: ${Number(offset)}px;`);
-        }]],
-        children: [
-            Box({
-                className: 'clock-box-shadow',
-                children: [CenterBox({
-                    className: 'clock-box',
-                    children: [
-                        Clock({
-                            className: 'clock',
-                            halign: 'center',
-                            format: '%H',
-                        }),
-                        Box({
-                            className: 'separator-box',
-                            vertical: true,
-                            hexpand: true,
-                            halign: 'center',
-                            children: [
-                                Separator({ valign: 'center', vexpand: true }),
-                                Separator({ valign: 'center', vexpand: true }),
-                            ],
-                        }),
-                        Clock({
-                            className: 'clock',
-                            halign: 'center',
-                            format: '%M',
-                        }),
-                    ],
-                })],
-            }),
-            Clock({ format: '%B %e. %A', className: 'date' }),
-        ],
-    }),
 });
 
 export default monitor => Window({

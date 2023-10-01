@@ -7,8 +7,6 @@ export default ({ workspaces = options.workspaces } = {}) => Box({
     className: 'workspaces panel-button',
     child: Box({
         children: [EventBox({
-            onScrollUp: () => execAsync('hyprctl dispatch workspace +1'),
-            onScrollDown: () => execAsync('hyprctl dispatch workspace -1'),
             className: 'eventbox',
             child: Box({
                 children: Array.from({ length: workspaces }, (_, i) => i + 1).map(i => Button({
