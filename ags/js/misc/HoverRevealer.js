@@ -36,8 +36,8 @@ export default ({
         onHoverLost: () => {
             if (!open)
                 return;
-			if (open)
-				return
+			//if (open)
+				//return
             revealer.revealChild = false;
             open = false;
         },
