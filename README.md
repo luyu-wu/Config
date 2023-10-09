@@ -26,14 +26,12 @@ Live config files from my system.
 ```
 
 ## Demonstration
-Disclaimer: copyrighted music ya
-
-
-https://github.com/luyu-wu/Config/assets/116970666/2196a43f-0af6-429e-af46-0fc9fc250ad8
-
+Disclaimer: a lot of the wallpapers arent mine
 ## Screenshots
 ![image](https://github.com/luyu-wu/Config/assets/116970666/b5a7dfb7-0007-4b55-82b0-c63e74570fb8)
 ![2023-10-04-161630_hyprshot](https://github.com/luyu-wu/Config/assets/116970666/9b58ba1f-e6d5-408f-b4ab-a6ab9e317fdd)
+![2023-10-08-215258_hyprshot](https://github.com/luyu-wu/Config/assets/116970666/69eac52d-1342-48d6-bbe9-1d1c98f70490)
+
 
 
 
