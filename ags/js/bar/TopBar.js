@@ -55,16 +55,14 @@ const End = () => Box({
         SubMenu({
             items: submenuItems,
             children: [
-                SysTray(),
+                            SysTray(),
             ],
         }),
-        SeparatorDot(),
         ScreenRecord(),
         SeparatorDot('Recorder', r => r.recording),
         SystemIndicators(),
-        SeparatorDot('Battery', b => b.available),
+        //SeparatorDot('Battery', b => b.available),
         BatteryBar(),
-        SeparatorDot(),
         PowerMenu(),
     ],
 });
