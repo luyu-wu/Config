@@ -4,25 +4,25 @@
 Live config files from my system.
 
 ```
-                   -`                    chrysanthemum@Chrysanthemum 
-                  .o+`                   --------------------------- 
-                 `ooo/                   OS: Arch Linux x86_64 
-                `+oooo:                  Host: Laptop AA 
-               `+oooooo:                 Kernel: 6.4.12-arch1-1 
-               -+oooooo+:                Uptime: 23 hours, 47 mins 
-             `/:-:++oooo+:               Packages: 914 (pacman), 18 (flatpak) 
-            `/++++/+++++++:              Shell: bash 5.1.16 
-           `/++++++++++++++:             Resolution: 2256x1504 
-          `/+++ooooooooooooo/`           DE: Hyprland 
-         ./ooosssso++osssssso+`          CPU: 11th Gen Intel i5-1135G7 (8) @ 4.200GHz 
-        .oossssso-````/ossssss+`         GPU: Intel TigerLake-LP GT2 [Iris Xe Graphics] 
-       -osssssso.      :ssssssso.        Memory: 9124MiB / 31886MiB 
-      :osssssss/        osssso+++.
-     /ossssssss/        +ssssooo/-
-   `/ossssso+/:-        -:/+osssso+-
-  `+sso+:-`                 `.-/+oso:
- `++:.                           `-/+/
- .`                                 `/
+                  -`                     chrysanthemum@Chrysanthemum
+                 .o+`                    ---------------------------
+                `ooo/                    OS: Arch Linux x86_64
+               `+oooo:                   Host: Laptop (AA)
+              `+oooooo:                  Kernel: 6.5.7-arch1-1
+              -+oooooo+:                 Uptime: 1 hour, 39 mins
+            `/:-:++oooo+:                Disk (/): 156.48 GiB / 456.89 GiB (34%) - ext4
+           `/++++/+++++++:               Shell: bash 5.1.16
+          `/++++++++++++++:              Display (BOE095F): 2256x1504 @ 60Hz [Built-in]
+         `/+++ooooooooooooo/`            WM: Hyprland (Wayland)
+        ./ooosssso++osssssso+`           Theme: WhiteSur-Dark [GTK2/3]
+       .oossssso-````/ossssss+`          Icons: Adwaita [GTK2/3]
+      -osssssso.      :ssssssso.         Font: Cantarell (11pt) [GTK2/3]
+     :osssssss/        osssso+++.        Cursor: Adwaita
+    /ossssssss/        +ssssooo/-        Terminal: kitty 0.29.2
+  `/ossssso+/:-        -:/+osssso+-      Terminal Font: jetbrains mono nerd font (12pt)
+ `+sso+:-`                 `.-/+oso:     CPU: 11th Gen Intel(R) Core(TM) i5-1135G7 (8) @ 4.20 GHz
+`++:.                           `-/+/    GPU: Intel Iris Xe Graphics
+.`                                 `/    Memory: 8.64 GiB / 31.14 GiB (28%)
 ```
 
 ## Demonstration
