@@ -3,26 +3,26 @@ export default {
     preferredMpris: 'spotify',
 
     // number of workspaces shown on panel and overview
-    workspaces: 10,
+    workspaces: 7,
 
     //
     dockItemSize: 56,
 
     battaryBar: {
         // wether to show percentage by deafult
-        showPercentage: true,
+        showPercentage: false,
 
         // at what percentages should the battery-bar change color
-        low: 30,
-        medium: 70,
+        low: 0,
+        medium: 0,
     },
 
     // path to read temperature from
     temperature: '/sys/class/thermal/thermal_zone0/temp',
 
     // at what intervals should cpu, ram, temperature refresh
-    systemFetchInterval: 5000,
+    systemFetchInterval: 50000,
 
     // the slide down animation on quicksettings and dashboard
-    windowAnimationDuration: 400,
+    windowAnimationDuration: 600,
 };

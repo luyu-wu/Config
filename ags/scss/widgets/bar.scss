@@ -111,18 +111,18 @@ $float: $spacing * 0.7;
 
         .battery {
             &.low { color: $red; }
-            &.charged, &.charging { color: $green; }
+            &.charged, &.charging { color: $blue; }
         }
     }
 
     .media {
-        &.spotify image { color: $green; }
-        &.firefox image { color: $orange; }
+        &.spotify image { color: $blue; }
+        &.firefox image { color: $blue; }
         &.mpv image { color: $magenta; }
     }
 
     .notifications {
-        image { color: $yellow; }
+        image { color: $orange; }
     }
 
     .battery-bar {
@@ -148,9 +148,9 @@ $float: $spacing * 0.7;
             }
         }
 
-        .medium { @include color($yellow) }
+        .medium { @include color($red) }
         .low { @include color($red) }
-        .charging { @include color($green) }
+        .charging { @include color($blue) }
         &:active { @include color($accent_fg) }
     }
 

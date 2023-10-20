@@ -13,10 +13,10 @@ const AppItem = (app, window) => Button({
     }]],
     child: Box({
         children: [
-            Icon({
-                icon: app.app.get_string('Icon'),
-                size: 42,
-            }),
+            //Icon({
+            //    icon: app.app.get_string('Icon'),
+            //    size: 42,
+            //}),
             Box({
                 vertical: true,
                 children: [
