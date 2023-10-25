@@ -49,8 +49,6 @@ const Placeholder = () => Box({
     vexpand: true,
     hexpand: true,
     children: [
-        Icon(icons.notifications.silent),
-        Label('Your inbox is empty'),
     ],
     connections: [[Notifications, box => {
         box.visible = Notifications.notifications.length === 0;

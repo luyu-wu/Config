@@ -24,5 +24,5 @@ export default {
     systemFetchInterval: 50000,
 
     // the slide down animation on quicksettings and dashboard
-    windowAnimationDuration: 600,
+    windowAnimationDuration: 500,
 };

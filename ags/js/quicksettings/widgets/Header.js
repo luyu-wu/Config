@@ -40,7 +40,7 @@ export const BatteryProgress = () => Box({
 export default () => Box({
     className: 'header',
     children: [
-        Avatar(),
+        //Avatar(),
         Box({
             className: 'system-box',
             vertical: true,
@@ -53,14 +53,6 @@ export default () => Box({
                             onClicked: Theme.openSettings,
                             child: Icon(icons.settings),
                         }),
-                        //Label({
-                        //    className: 'uptime',
-                        //    hexpand: true,
-                        //    valign: 'center',
-                        //    connections: [[uptime, label => {
-                        //        label.label = `Uptime: ${uptime.value}`;
-                        //    }]],
-                        //}),
                         Button({
                             valign: 'center',
                             onClicked: Lockscreen.lockscreen,

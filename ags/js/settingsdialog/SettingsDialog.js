@@ -155,12 +155,6 @@ const Layout = pages => Box({
                 className: 'tabs',
                 children: [
                     ...Object.keys(pages).map(page => Tab(page)),
-                    Button({
-                        className: 'tab',
-                        onClicked: Theme.reset,
-                        child: Label('󰦛 Reset'),
-                        hexpand: true,
-                    }),
                 ],
             })],
         }),
@@ -229,13 +223,6 @@ export const SettingsDialog = () => Widget({
             Color('Border Color', 'border_color'),
             SpinButton('Border Width', 'border_width'),
             SpinButton('Border Opacity', 'border_opacity'),
-        ]),
-        '󰠱 Miscellaneous': Page([
-            Color('Shadow', 'shadow'),
-            SwitchButton('Drop Shadow', 'drop_shadow'),
-            SpinButton('Transition', 'transition', 1000),
-            Text('Desktop Clock Position', 'desktop_clock'),
-            Color('Wallpaper Foreground Color', 'wallpaper_fg'),
         ]),
     }),
     connections: [['delete-event', win => {

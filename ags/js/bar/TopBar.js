@@ -55,7 +55,7 @@ const End = () => Box({
         SubMenu({
             items: submenuItems,
             children: [
-                            SysTray(),
+            	SysTray(),
             ],
         }),
         ScreenRecord(),
