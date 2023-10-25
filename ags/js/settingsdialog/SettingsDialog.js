@@ -168,12 +168,6 @@ const Layout = pages => Box({
                 }]],
             })],
         }),
-        Label({
-            wrap: true,
-            className: 'disclaimer',
-            label: 'These settings override all preset themes. ' +
-                'To make them permanent: edit ~/.config/ags/theme/themes.js',
-        }),
     ],
 });
 
@@ -195,34 +189,10 @@ export const SettingsDialog = () => Widget({
                 vexpand: true,
             }),
             Img('Wallpaper', 'wallpaper'),
-            Img('Avatar', 'avatar'),
-            SpinButton('Useless Gaps', 'wm_gaps', 128),
             SpinButton('Spacing', 'spacing', 18),
             SpinButton('Roundness', 'radii', 36),
-            // TextSpinButton('Layout', 'layout', ['topbar', 'bottombar']),
             TextSpinButton('Bar Style', 'bar_style', ['normal', 'floating', 'separated']),
             SwitchButton('Screen Corners', 'screen_corners'),
-        ]),
-        '󰏘 Colors': Page([
-            TextSpinButton('Color Theme', 'color_scheme', ['light', 'dark']),
-            ...['Red', 'Green', 'Yellow', 'Blue', 'Magenta', 'Teal', 'Orange']
-                .map(c => Color(c, c.toLowerCase())),
-        ]),
-        '󰃟 Theme': Page([
-            TextSpinButton('Theme', 'theme', themes.map(t => t.name)),
-            Color('Background Color', 'bg_color'),
-            Color('Foreground Color', 'fg_color'),
-            Color('Hovered Foreground Color', 'hover_fg'),
-            Text('Hyprland Active Border Color', 'hypr_active_border'),
-            Text('Hyprland Inactive Border Color', 'hypr_inactive_border'),
-            Color('Accent Color', 'accent'),
-            Color('Accent Foreground', 'accent_fg'),
-            Text('Active Gradient', 'active_gradient'),
-            Color('Widget Background', 'widget_bg'),
-            SpinButton('Widget Opacity', 'widget_opacity'),
-            Color('Border Color', 'border_color'),
-            SpinButton('Border Width', 'border_width'),
-            SpinButton('Border Opacity', 'border_opacity'),
         ]),
     }),
     connections: [['delete-event', win => {
