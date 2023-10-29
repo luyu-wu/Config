@@ -33,10 +33,10 @@ export default () => PopupWindow({
         className: 'quicksettings',
         vertical: true,
         children: [
-            Row(
-                [Header()],
-            ),
-            Row([Box({
+            //Row(
+                //[Header()],
+            //),
+            Row([Header(),Box({
                 className: 'slider-box',
                 vertical: true,
                 children: [
@@ -53,9 +53,6 @@ export default () => PopupWindow({
                 [Homogeneous([NetworkToggle(), BluetoothToggle()])],
                 [WifiSelection(), BluetoothDevices()],
             ),
-            //Row(
-            //     [DND(), MicMute()],
-            //),
             Media(),
         ],
     }),

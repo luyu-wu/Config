@@ -11,6 +11,8 @@ export default () => SimpleToggleButton({
                 : icons.audio.mic.unmuted;
         }, 'microphone-changed']],
     }),
+    valign: 'center',
+
     toggle: 'pactl set-source-mute @DEFAULT_SOURCE@ toggle',
     connection: [Audio, () => Audio.microphone?.isMuted],
 });

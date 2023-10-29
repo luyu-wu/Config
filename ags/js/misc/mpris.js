@@ -17,23 +17,23 @@ export const BlurredCoverArt = (player, props) => Box({
     ...props,
     className: 'blurred-cover',
     connections: [[player, box => {
-        const url = player.coverPath;
-        if (!url)
-            return;
+        //const url = player.coverPath;
+        //if (!url)
+            //return;
 
-        const blurredPath = MEDIA_CACHE_PATH + '/blurred';
-        const blurred = blurredPath +
-            url.substring(MEDIA_CACHE_PATH.length);
+        //const blurredPath = MEDIA_CACHE_PATH + '/blurred';
+        //const blurred = blurredPath +
+            //url.substring(MEDIA_CACHE_PATH.length);
 
-        if (GLib.file_test(blurred, GLib.FileTest.EXISTS)) {
-            box.setStyle(`background-image: url("${blurred}")`);
-            return;
-        }
+        //if (GLib.file_test(blurred, GLib.FileTest.EXISTS)) {
+            //box.setStyle(`background-image: url("${blurred}")`);
+            //return;
+        //}
 
-        ensureDirectory(blurredPath);
-        execAsync(['convert', url, '-blur', '0x22', blurred])
-            .then(() => box.setStyle(`background-image: url("${blurred}")`))
-            .catch(() => { });
+        //ensureDirectory(blurredPath);
+        //execAsync(['convert', url, '-blur', '0x22', blurred])
+            //.then(() => box.setStyle(`background-image: url("${blurred}")`))
+            //.catch(() => { });
     }]],
 });
 

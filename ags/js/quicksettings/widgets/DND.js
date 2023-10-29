@@ -11,6 +11,8 @@ export default () => SimpleToggleButton({
                 : icons.notifications.noisy;
         }]],
     }),
+   	valign: 'center',
+
     toggle: () => Notifications.dnd = !Notifications.dnd,
     connection: [Notifications, () => Notifications.dnd],
 });

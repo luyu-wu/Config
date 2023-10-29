@@ -2,35 +2,7 @@ import * as mpris from '../../misc/mpris.js';
 const { Mpris } = ags.Service;
 const { Box, CenterBox } = ags.Widget;
 
-const Footer = player => CenterBox({
-    className: 'footer-box',
-    children: [
-        Box({
-            className: 'position',
-            children: [
-                mpris.PositionLabel(player),
-                mpris.Slash(player),
-                mpris.LengthLabel(player),
-            ],
-        }),
-        Box({
-            className: 'controls',
-            children: [
-                mpris.ShuffleButton(player),
-                mpris.PreviousButton(player),
-                mpris.PlayPauseButton(player),
-                mpris.NextButton(player),
-                mpris.LoopButton(player),
-            ],
-        }),
-        mpris.PlayerIcon(player, {
-            symbolic: false,
-            hexpand: true,
-            halign: 'end',
-            tooltipText: player.name,
-        }),
-    ],
-});
+
 
 const TextBox = player => Box({
     children: [
@@ -75,7 +47,7 @@ const PlayerBox = player => Box({
                 children: [
                     TextBox(player),
                     mpris.PositionSlider(player),
-                    Footer(player),
+                    //Footer(player),
                 ],
             })],
         }),

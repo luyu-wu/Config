@@ -53,11 +53,6 @@ export default () => Box({
                             onClicked: Theme.openSettings,
                             child: Icon(icons.settings),
                         }),
-                        Button({
-                            valign: 'center',
-                            onClicked: Lockscreen.lockscreen,
-                            child: Icon(icons.lock),
-                        }),
                         DND(),
                        	MicMute(),
                         Button({
