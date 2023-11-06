@@ -1,0 +1,20 @@
+{
+  "wallpaper": "/home/chrysanthemum/Assets/Pictures/Wallpapers/TotoroWallpaper.jpg",
+  "spacing": 10,
+  "radii": 0,
+  "wm_gaps": 20,
+  "screen_corners": false,
+  "theme": "leaves_dark",
+  "bar_style": "normal",
+  "accent": "rgb(255,255,255)",
+  "bg_color": "transparentize(#171717, 0.39)",
+  "fg_color": "#eee",
+  "hypr_active_border": "rgba(ffffffDD)",
+  "hover_fg": "#f1f1f1",
+  "avatar": "/home/chrysanthemum/Assets/Pictures/Profiles/mafuhead.jpg",
+  "drop_shadow": false,
+  "widget_opacity": 90,
+  "border_opacity": 90,
+  "active_gradient": "to right, $accent",
+  "border_width": 2
+}
