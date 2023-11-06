@@ -1,0 +1,25 @@
+{
+    "name": "ags-dotfiles",
+    "version": "1.5.0",
+    "description": "My config files for AGS",
+    "main": "config.js",
+    "scripts": {
+        "lint": "eslint . --fix",
+        "stylelint": "stylelint"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Aylur/dotfiles.git"
+    },
+    "author": "Aylur",
+    "bugs": {
+        "url": "https://github.com/Aylur/dotfiles/issues"
+    },
+    "homepage": "https://github.com/Aylur/dotfiles#readme",
+    "devDependencies": {
+        "stylelint-config-standard-scss": "^10.0.0",
+        "@typescript-eslint/eslint-plugin": "^5.33.0",
+        "@typescript-eslint/parser": "^5.33.0",
+        "eslint": "^8.44.0"
+    }
+}
