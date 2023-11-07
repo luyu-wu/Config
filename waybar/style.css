@@ -78,3 +78,12 @@ window#waybar.PCSX2 #window {
 	background: transparent;
 }
 
+
+#cava {
+	color: #ffffff;
+	margin-bottom: -15px;
+	margin-left: 20px;
+
+	background: transparent;
+	font-size: 20px;
+}
