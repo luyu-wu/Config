@@ -1,22 +1,26 @@
 
 * {
 	border: none;
-	border-radius: 3;
+	border-radius: 12px;
 	font-family: Nerd Font Hack;
 	font-size: 20px;
-	min-height: 45px;
+	min-height: 30px;
 }
 
 window#waybar {
 	background: rgba(0, 0, 0, 0.3);
-	border-bottom: 2px solid rgba(150, 150, 150, 0.5);}
+	/* border-radius: 0px 0px 20px 20px; */
+	border-radius: 0px 0px 0px 0px;
+
+	border-bottom: 1px solid rgba(150, 150, 150, 0.5);
+
+}
 
 window#waybar.hidden {
 	opacity: 0.2;
 }
 
 #window {
-	border-radius: 26px;
 	transition: none;
 
     color: transparent;
@@ -28,6 +32,18 @@ window#waybar.PCSX2 #window {
     color: #4d4d4d;
 	background: #e6e6e6;
 }
+
+
+#workspaces button:hover {
+    transition: none;
+    box-shadow: inherit;
+    text-shadow: inherit;
+    border-radius: inherit;
+    color: #383c4a;
+    background: #7c818c;
+}
+
+
 
 #workspaces {
 	margin-left: 12px;
@@ -48,42 +64,84 @@ window#waybar.PCSX2 #window {
 	font-size: 18px;
 }
 
-#workspaces button:hover {
-	transition: none;
-	box-shadow: inherit;
-	text-shadow: inherit;
-	color: #ff79c6;
-}
 
 
 #network {
 	transition: none;
 	color: #ffffff;
-	background: transparent;
-}
+	background-color: rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(100, 114, 125, 0.5);
+    border-radius: 0px 10px 10px 0px;
 
+    border-left: 0px transparent;
+
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+#bluetooth {
+	
+	transition: none;
+	color: #ffffff;
+	background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 10px 0px 0px 10px;
+
+    border: 1px solid rgba(100, 114, 125, 0.5);
+    border-right: 0px transparent;
+
+	margin-bottom: 5px;
+    margin-top: 5px;
+    margin-left: 20px;
+
+}
 #battery {
-    background-color: transparent;
+	background-color: rgba(0, 0, 0, 0.15);
+
+    border: 1px solid rgba(100, 114, 125, 0.5);
+	border-left: 0px transparent;
+
+	border-radius: 0px 10px 10px 0px;
+
+
+	margin-right: 20px;
+	margin-bottom: 5px;
+	margin-top: 5px;
+
     color: white;
 }
 
+#backlight {
+	transition: none;
+	color: #ffffff;
+	background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 10px 0px 0px 10px;
+
+    border: 1px solid rgba(100, 114, 125, 0.5);
+    border-right: 0px transparent;
+
+	margin-bottom: 5px;
+    margin-top: 5px;
+    margin-left: 10px;
+} 
+#wireplumber {
+    transition: none;
+   	color: #ffffff;
+   	background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 0px 0px 0px 0px;
+
+    border: 1px solid rgba(100, 114, 125, 0.5);
+    border-right: 0px transparent;
+    border-left: 0px transparent;
+   
+   	margin-bottom: 5px;
+    margin-top: 5px;
+}
+
 #battery.charging {
-    color: green;
-    background-color: transparent;
+	background-color: rgba(0, 125, 0, 0.15);
 }
 
 #clock {
 	transition: none;
 	color: #ffffff;
 	background: transparent;
-}
-
-
-#cava {
-	color: #ffffff;
-	margin-bottom: -15px;
-	margin-left: 20px;
-
-	background: transparent;
-	font-size: 20px;
 }
