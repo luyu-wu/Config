@@ -137,7 +137,7 @@ window#waybar.PCSX2 #window {
 }
 
 #battery.charging {
-	background-color: rgba(0, 125, 0, 0.15);
+	background-color: rgba(0, 125, 0, 0.3);
 }
 
 #clock {
