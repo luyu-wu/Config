@@ -1,8 +1,8 @@
 * {
 	border: none;
 	border-radius: 12px;
-	/*font-family: Fira Code Nerd Font; */
-	font-family: Source Code Pro;
+	font-family: Fira Code Nerd Font;
+	/*font-family: Source Code Pro; */
 	font-size: 20px;
 	min-height: 30px;
 }
