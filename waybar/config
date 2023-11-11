@@ -7,15 +7,16 @@
 	    "format": "{icon} {volume}%  ",
 	    "format-muted": " MUTE ",
 	    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-		
+		"on-click-right": "pavucontrol",
 	    "max-volume": 100,
 	    "format-icons": ["","","", "", ""],
-	    "reverse-scrolling": 1,
+	    "reverse-scrolling": true,
 	    "scroll-step": 0.4
 	},
 	"backlight": {
+		"reverse-scrolling": false,
 		"scroll-step": 0.6,
-		"reverse-scrolling": 1,
+
 
 	    "device": "intel_backlight",
 	    "format": "    {percent}%   ",
