@@ -11,8 +11,8 @@
 
 window {
   padding: 1em;
-  border-color: #888888;
-  border:       2px;
+  border-color: #444444;
+  border:       1px;
   border-radius: 3px;
   background-color: argb:50000000;
 
@@ -96,7 +96,7 @@ element {
     border:  1px;
     border-radius: 0px;
     padding: 5px;
-    border-color: #666666;
+    border-color: #444444;
 }
 element-text {
     background-color: transparent;
