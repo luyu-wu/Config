@@ -52,7 +52,9 @@
 	"network": {
 		"format-wifi": "    ",
 		"format": "    ",
-		"tooltip-format": "{signaldBm}dBm {essid} {frequency}GHz"
+		"tooltip-format": "{signaldBm}dBm {essid} {frequency}GHz",
+		"on-click": "nm-connection-editor",
+
 	},
 	"bluetooth": {
 		"format": " ",
