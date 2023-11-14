@@ -6,16 +6,16 @@
 ## Twitter : @adi1090x
 
 dir="$HOME/.config/rofi/styles"
-rofi_command="rofi -theme $dir/five.rasi"
+rofi_command="rofi"
 
 uptime=$(uptime -p | sed -e 's/up //g')
 
 # Options
-shutdown=""
-reboot=""
-lock=""
-suspend=""
-logout=""
+shutdown="⏻"
+reboot="󰜉"
+lock=""
+suspend="󰤄"
+logout=""
 
 # Confirmation
 confirm_exit() {
