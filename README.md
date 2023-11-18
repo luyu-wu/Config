@@ -27,7 +27,6 @@ Live config files from my system.
 
 ## Screenshots
 ![image](https://github.com/luyu-wu/Config/assets/116970666/b5a7dfb7-0007-4b55-82b0-c63e74570fb8)
-![2023-10-04-161630_hyprshot](https://github.com/luyu-wu/Config/assets/116970666/9b58ba1f-e6d5-408f-b4ab-a6ab9e317fdd)
 ![2023-10-08-215637_hyprshot](https://github.com/luyu-wu/Config/assets/116970666/4ab97eb8-e90e-4e81-a6aa-022572b2a080)
 
 
