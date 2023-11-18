@@ -4,26 +4,25 @@
 Live config files from my system.
 
 ```
-                  -`                     chrysanthemum@Chrysanthemum
-                 .o+`                    ---------------------------
-                `ooo/                    OS: Arch Linux x86_64
-               `+oooo:                   Host: Laptop (AA)
-              `+oooooo:                  Kernel: 6.6.1-arch1-1
-              -+oooooo+:                 Uptime: 1 day, 13 hours, 35 mins
-            `/:-:++oooo+:                Packages: 1528 (pacman), 78 (flatpak)
-           `/++++/+++++++:               Shell: bash 5.2.15
-          `/++++++++++++++:              Display (ASUS VP239): 1920x1080 @ 60Hz
-         `/+++ooooooooooooo/`            Display (BOE095F): 2256x1504 @ 60Hz [Built-in]
-        ./ooosssso++osssssso+`           WM: Hyprland (Wayland)
-       .oossssso-````/ossssss+`          Theme: WhiteSur-Dark [GTK2]
-      -osssssso.      :ssssssso.         Icons: Adwaita [GTK2]
-     :osssssss/        osssso+++.        Font: Cantarell (11pt) [GTK2]
-    /ossssssss/        +ssssooo/-        Cursor: Adwaita
-  `/ossssso+/:-        -:/+osssso+-      Terminal: kitty 0.30.1
- `+sso+:-`                 `.-/+oso:     Terminal Font: JetBrainsMonoNF-Regular (12pt)
-`++:.                           `-/+/    CPU: 11th Gen Intel(R) Core(TM) i5-1135G7 (8) @ 4.20 GHz
-.`                                 `/    GPU: Intel Iris Xe Graphics
-                                         Memory: 8.74 GiB / 31.14 GiB (28%)
+                  -`                     ┌───────── Hardware Information┐
+                 .o+`                      󰍹  Laptop (AA)
+                `ooo/                        11th Gen Intel(R) Core(TMz
+               `+oooo:                       Intel Iris Xe Graphics
+              `+oooooo:                  ├───────── Software Information┤
+              -+oooooo+:                     Arch Linux x86_64
+            `/:-:++oooo+:                    6.6.1-arch1-1
+           `/++++/+++++++:                   Hyprland (Wayland)
+          `/++++++++++++++:                  fish 3.6.1
+         `/+++ooooooooooooo/`                kitty 0.31.0
+        ./ooosssso++osssssso+`               FiraCodeNF-Reg (12pt)
+       .oossssso-````/ossssss+`              1546 (pacman), 77 (flatpa)
+      -osssssso.      :ssssssso.         └──────────────────────────────┘
+     :osssssss/        osssso+++.                   
+    /ossssssss/        +ssssooo/-    
+  `/ossssso+/:-        -:/+osssso+-    
+ `+sso+:-`                 `.-/+oso:    
+`++:.                           `-/+/    
+.`                                 `/
 ```
 
 ## Screenshots
@@ -41,7 +40,7 @@ Live config files from my system.
 - Custom waybar configuration
 - Low resource utilization
 - Custom bezier curves
-- kitty and micro configurations
+- kitty configuration
 
 ## Packages
 
