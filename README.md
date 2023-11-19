@@ -4,25 +4,25 @@
 Live config files from my system.
 
 ```
-                  -`                     ┌───────── Hardware Information┐
-                 .o+`                      󰍹  Laptop (AA)
-                `ooo/                        11th Gen Intel(R) Core(TMz
-               `+oooo:                       Intel Iris Xe Graphics
-              `+oooooo:                  ├───────── Software Information┤
-              -+oooooo+:                     Arch Linux x86_64
-            `/:-:++oooo+:                    6.6.1-arch1-1
-           `/++++/+++++++:                   Hyprland (Wayland)
-          `/++++++++++++++:                  fish 3.6.1
-         `/+++ooooooooooooo/`                kitty 0.31.0
-        ./ooosssso++osssssso+`               FiraCodeNF-Reg (12pt)
-       .oossssso-````/ossssss+`              1546 (pacman), 77 (flatpa)
-      -osssssso.      :ssssssso.         └──────────────────────────────┘
-     :osssssss/        osssso+++.                   
-    /ossssssss/        +ssssooo/-    
-  `/ossssso+/:-        -:/+osssso+-    
- `+sso+:-`                 `.-/+oso:    
-`++:.                           `-/+/    
-.`                                 `/
+                  -`                     ┌───────── Hardware Information ─────────┐
+                 .o+`                      󰍹   Laptop (AA)
+                `ooo/                         11th Gen Intel(R) Core(TM) i5-1135G7 (8) @ 4.20 GHz
+               `+oooo:                        Intel Iris Xe Graphics
+              `+oooooo:                       12.36 GiB / 31.14 GiB (40%)
+              -+oooooo+:                      100.44 GiB / 456.89 GiB (22%) - ext4
+            `/:-:++oooo+:                  󰍹   1920x1080 @ 60Hz
+           `/++++/+++++++:                 󰍹   2256x1504 @ 60Hz [Built-in]
+          `/++++++++++++++:                   100% [Not charging]
+         `/+++ooooooooooooo/`            ├───────── Software Information ─────────┤
+        ./ooosssso++osssssso+`                Arch Linux x86_64
+       .oossssso-````/ossssss+`               6.6.1-arch1-1
+      -osssssso.      :ssssssso.              Hyprland (Wayland)
+     :osssssss/        osssso+++.          󰧨   sddm-autologin 0.20.0 (Wayland)
+    /ossssssss/        +ssssooo/-             fish 3.6.1
+  `/ossssso+/:-        -:/+osssso+-           kitty 0.31.0
+ `+sso+:-`                 `.-/+oso:          FiraCodeNF-Reg (12pt)
+`++:.                           `-/+/         1548 (pacman), 77 (flatpak)
+.`                                 `/    └────────────────────────────────────────┘
 ```
 
 ## Video Showcase
