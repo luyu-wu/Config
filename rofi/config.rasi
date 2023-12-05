@@ -3,17 +3,17 @@
   /* Default background color */
     background-color: transparent;
 
-  text-color:       #ffffff;
+  text-color:       #000000;
   font: "Fira Code Nerd Font 14";
 }
 
 
 window {
   padding: 1em;
-  border-color: #444444;
-  border:       1px;
-  border-radius: 3px;
-  background-color: argb:50000000;
+  border-color: #bbbbbb;
+  border:       3px;
+  border-radius: 6px;
+  background-color: argb:aaffffff;
 
 }
 
@@ -27,7 +27,7 @@ message {
     margin:                      0px 100px;
     padding:                     15px;
     border:                      0px;
-    border-radius:               0px;
+    border-radius:               6px;
     border-color:                inherit;
     background-color:            inherit;
     text-color:                  inherit;
@@ -48,7 +48,7 @@ textbox {
 error-message {
     padding:                     12px;
     border:                      0px solid;
-    border-radius:               0px;
+    border-radius:               6px;
     border-color:                inherit;
     background-color:            inherit;
     text-color:                  inherit;
@@ -66,7 +66,8 @@ inputbar {
   margin: 0px 10px;
   spacing: 0.4em;
   border:        0px;
-  background-color: argb:60000000;
+  border-radius: 6px;
+  background-color: argb:60cccccc;
   children: [entry,overlay,case-indicator];
 }
 
@@ -74,53 +75,54 @@ inputbar {
 listview, message {
   padding: 0.5em;
   border-color: #ffffff;
-  border:        1px;
+  border:        0px;
   border-radius: 0px;
   background-color: transparent;
 
-  columns: 1;
+  columns: 2;
   lines:   6;
 }
 
 listview {
   border:       0px;
-  spacing: 10px;
+  spacing: 15px;
   background-color: transparent;
-  border-color:     #ffffff;
-  scrollbar:    false;
+  scrollbar: false;
 }
 
 
 element {
-    border:  1px;
-    border-radius: 0px;
+    border:  0px;
+    border-radius: 4px;
     padding: 5px;
     border-color: #444444;
 }
 element-text {
     background-color: transparent;
-    text-color:       #FFFFFF;
+    text-color:       #333333;
     font: "Fira Code Nerd Font 13";
 }
 
 element normal.normal {
-    background-color: argb:55000000;
+    background-color: argb:55cccccc;
 }
 element.alternate.normal {
-    background-color: argb:55000000;
+    background-color: argb:55cccccc;
 }
 
 
 element.selected.normal {
-    background-color: argb:20ffffff;
+    background-color: argb:20000000;
 }
 
 
 entry {
     placeholder: "Search here";
-    placeholder-color: #888888;
+
+    placeholder-color: #444444;
+
     border-color: transparent;
     background-color: transparent;
     border:        10px;
-    text-color: #ffffff;
+    text-color: #222222;
 }
