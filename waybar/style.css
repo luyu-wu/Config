@@ -2,17 +2,18 @@
 	border: none;
 	border-radius: 12px;
 	font-family: Fira Code Nerd Font;
+	/*color: rgb(0,0,0);*/
 	/*font-family: Source Code Pro; */
 	font-size: 20px;
 	min-height: 34px;
 }
 
 window#waybar {
-	background: rgba(0, 0, 0, 0.5);
+	background: rgba(255, 255, 255, 0.5);
 	/* border-radius: 0px 0px 20px 20px; */
 	border-radius: 0px 0px 0px 0px;
 
-	border-bottom: 2px solid rgba(150, 150, 150, 0.5);
+	border-bottom: 2px solid rgba(100, 100, 100, 0.5);
 
 }
 
@@ -68,8 +69,8 @@ window#waybar.PCSX2 #window {
 
 #network {
 	transition: none;
-	color: #ffffff;
-	background-color: rgba(0, 0, 0, 0.15);
+	color: #000000;
+	background-color: rgba(0, 0, 0, 0.05);
     border: 1px solid rgba(100, 114, 125, 0.7);
     border-radius: 0px 10px 10px 0px;
 
@@ -81,8 +82,8 @@ window#waybar.PCSX2 #window {
 #bluetooth {
 	
 	transition: none;
-	color: #ffffff;
-	background-color: rgba(0, 0, 0, 0.15);
+	color: #000000;
+	background-color: rgba(0, 0, 0, 0.05);
     border-radius: 10px 0px 0px 10px;
 
     border: 1px solid rgba(100, 114, 125, 0.7);
@@ -94,7 +95,7 @@ window#waybar.PCSX2 #window {
 
 }
 #battery {
-	background-color: rgba(0, 0, 0, 0.15);
+	background-color: rgba(0, 0, 0, 0.05);
 
     border: 1px solid rgba(100, 114, 125, 0.7);
 	border-left: 0px transparent;
@@ -106,13 +107,14 @@ window#waybar.PCSX2 #window {
 	margin-bottom: 5px;
 	margin-top: 3px;
 
-    color: white;
+	color: #000000;
+
 }
 
 #backlight {
 	transition: none;
-	color: #ffffff;
-	background-color: rgba(0, 0, 0, 0.15);
+	color: #000000;
+	background-color: rgba(0, 0, 0, 0.05);
     border-radius: 10px 0px 0px 10px;
 
     border: 1px solid rgba(100, 114, 125, 0.7);
@@ -124,8 +126,8 @@ window#waybar.PCSX2 #window {
 } 
 #wireplumber {
     transition: none;
-   	color: #ffffff;
-   	background-color: rgba(0, 0, 0, 0.15);
+	color: #000000;
+   	background-color: rgba(0, 0, 0, 0.05);
     border-radius: 0px 0px 0px 0px;
 
     border: 1px solid rgba(100, 114, 125, 0.7);
@@ -142,13 +144,14 @@ window#waybar.PCSX2 #window {
 
 #clock {
 	transition: none;
-	color: #ffffff;
+	color: #000000;
+
 	background: transparent;
 }
 #mpris {
     transition: none;
-   	color: #ffffff;
-   	background-color: rgba(0, 0, 0, 0.15);
+	color: #000000;
+   	background-color: rgba(0, 0, 0, 0.05);
     border-radius: 10px 10px 10px 10px;
 
 	font-size: 16px;
