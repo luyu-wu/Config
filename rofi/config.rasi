@@ -79,7 +79,7 @@ listview, message {
   border-radius: 0px;
   background-color: transparent;
 
-  columns: 2;
+  columns: 3;
   lines:   6;
 }
 
