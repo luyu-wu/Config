@@ -31,13 +31,13 @@ color-link diff-deleted "#D20F39"
 color-link gutter-error "#D20F39"
 color-link gutter-warning "#DF8E1D"
 
-color-link statusline "#4C4F69,#DCE0E8"
-color-link tabbar "#4C4F69,#DCE0E8"
+color-link statusline "#4C4F69,#FFFFFF"
+#color-link tabbar "#4C4F69,#DCE0E8"
 color-link indent-char "#BCC0CC"
 color-link line-number "#BCC0CC"
-color-link current-line-number "#7287FD"
+#color-link current-line-number "#7287FD"
 
-color-link cursor-line "#CCD0DA,#4C4F69"
+#color-link cursor-line "#CCD0DA,#4C4F69"
 color-link color-column "#CCD0DA"
 color-link type.extended "default"
 
