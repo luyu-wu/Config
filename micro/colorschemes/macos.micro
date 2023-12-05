@@ -40,3 +40,5 @@ color-link current-line-number "#7287FD"
 color-link cursor-line "#CCD0DA,#4C4F69"
 color-link color-column "#CCD0DA"
 color-link type.extended "default"
+
+color-link selection "#4C4F69,#C2DAF7"
