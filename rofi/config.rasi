@@ -3,17 +3,17 @@
   /* Default background color */
     background-color: transparent;
 
-  text-color:       #000000;
+  text-color:       #333333;
   font: "Fira Code Nerd Font 14";
 }
 
 
 window {
   padding: 1em;
-  border-color: #bbbbbb;
-  border:       3px;
-  border-radius: 6px;
-  background-color: argb:aaffffff;
+  border-color: argb:90dddddd;
+  border:       4px;
+  border-radius: 12px;
+  background-color: argb:70ffffff;
 
 }
 
@@ -31,7 +31,7 @@ message {
     border-color:                inherit;
     background-color:            inherit;
     text-color:                  inherit;
-    size:                        400em;
+    size:                        500em;
 }
 textbox {
     background-color:            inherit;
@@ -39,11 +39,8 @@ textbox {
     vertical-align:              0.5;
     horizontal-align:            0.5;
     placeholder-color:           inherit;
-    blink:                       true;
     markup:                      true;
     size:                        400em;
-    font: "Fira Code Nerd Font 15";
-
 }
 error-message {
     padding:                     12px;
@@ -65,26 +62,23 @@ element,element-text,element-icon, button {
 inputbar {
   margin: 0px 10px;
   spacing: 0.4em;
-  border:        0px;
   border-radius: 6px;
-  background-color: argb:60cccccc;
+  background-color: argb:10000000;
   children: [entry,overlay,case-indicator];
 }
 
 
 listview, message {
   padding: 0.5em;
-  border-color: #ffffff;
-  border:        0px;
   border-radius: 0px;
-  background-color: transparent;
+  background-color: #222222;
 
   columns: 3;
   lines:   6;
 }
 
 listview {
-  border:       0px;
+  border: 0px;
   spacing: 15px;
   background-color: transparent;
   scrollbar: false;
@@ -92,10 +86,8 @@ listview {
 
 
 element {
-    border:  0px;
     border-radius: 4px;
-    padding: 5px;
-    border-color: #444444;
+    padding: 10px;
 }
 element-text {
     background-color: transparent;
@@ -104,10 +96,10 @@ element-text {
 }
 
 element normal.normal {
-    background-color: argb:55cccccc;
+    background-color: argb:10000000;
 }
 element.alternate.normal {
-    background-color: argb:55cccccc;
+    background-color: argb:10000000;
 }
 
 
@@ -117,12 +109,12 @@ element.selected.normal {
 
 
 entry {
-    placeholder: "Search here";
+    placeholder: "  Search";
 
-    placeholder-color: #444444;
+    placeholder-color: #aaaaaa;
 
-    border-color: transparent;
     background-color: transparent;
-    border:        10px;
-    text-color: #222222;
+
+    text-color: #555555;
+	padding: 15px;
 }
