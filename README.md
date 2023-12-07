@@ -1,4 +1,4 @@
-# My HYPRLAND .config Files
+# Config Files
 
 ## About
 Live config files from my system.
