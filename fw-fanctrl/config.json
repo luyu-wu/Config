@@ -15,7 +15,7 @@
             "movingAverageInterval": 3,
             "speedCurve": [
                 { "temp": 0, "speed": 0 },
-                { "temp": 45, "speed": 0 },
+                { "temp": 55, "speed": 0 },
                 { "temp": 65, "speed": 25 },
                 { "temp": 70, "speed": 35 },
                 { "temp": 75, "speed": 50 },
