@@ -10,8 +10,8 @@
 
 window {
   padding: 1em;
-  border-color: argb:90dddddd;
-  border:       4px;
+  border-color: argb:90aaaaaa;
+  border:       2px;
   border-radius: 12px;
   background-color: argb:70ffffff;
 
