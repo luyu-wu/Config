@@ -104,7 +104,7 @@ element.alternate.normal {
 
 
 element.selected.normal {
-    background-color: argb:20000000;
+    background-color: argb:30000000;
 }
 
 
