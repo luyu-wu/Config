@@ -1,3 +1,4 @@
+/* @import "customChrome.css"; add this to make this script work */
 /* Add your own custom styles here */
 #context-navigation,
 #context-sep-navigation {
@@ -10,7 +11,7 @@
   display: none !important;
 }
 
-/* Remove close button*/ 
+/* Remove browser close button*/ 
 .titlebar-buttonbox-container{ 
 	display:none !important
 } 
@@ -24,3 +25,5 @@
 #alltabs-button {
     display: none !important;
 }
+.titlebar-spacer[type="post-tabs"]{ display:none }
+
