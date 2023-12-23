@@ -35,10 +35,10 @@
 	"mpris": {
 		"format": " {status_icon} {title} - {artist}  ",
 		"status-icons": {
-			"paused": " ⏸",
-			"playing": " ♫"
+			"paused": " ⏸ ",
+			"playing": "  "
 		},
-		"max-length":70
+		"max-length":35
 	},
 	"tray": {
 	    "icon-size": 15,
