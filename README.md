@@ -37,13 +37,13 @@ https://github.com/luyu-wu/Config/assets/116970666/931e6ccb-48a4-4f85-8b93-5ca14
 
 
 ## Features
-- Full Tiled WM experience (Hyprland)
-- Intuitive keybinds
-- Rofi launcher
-- Custom waybar configuration
-- Low resource utilization
-- Custom bezier curves
-- kitty configuration
+- Expressive tiled window manager Experience
+- Intuitive keybinds for screenshots, launchers, and more!
+- Fully custom rofi launcher
+- Fully custom waybar configuration
+- Low resource utilization for low-battery utilization (no JS >:)
+- Custom bezier curves for smooth animations
+- Consistent theming across all applications
 
 ## Packages
 
