@@ -35,7 +35,7 @@ color-link statusline "#4C4F69,#AAAAAA"
 #color-link tabbar "#4C4F69,#DCE0E8"
 color-link indent-char "#BCC0CC"
 color-link line-number "#8C808C"
-color-link current-line-number "#000000"
+color-link current-line-number "#FFFFFF"
 
 #color-link cursor-line "#CCD0DA,#4C4F69"
 color-link color-column "#CCD0DA"
