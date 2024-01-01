@@ -2,7 +2,7 @@
 @import "icons/extension-icons.css";
 @import "window-controls/no-wc-without-tabline.css";
 @import "hide-tabline.css";
-@import "userChrome-hover.css";
+@import "userChrome-static.css";
 :root {
   --ap-radius-s: 4px;
   --ap-radius-m: 8px;
@@ -100,6 +100,7 @@ for a sidebar which pops out on hover
 one that stays (static)
  * @import "userChrome-static.css"
 */
+/* @import "userChrome-static.css" */
 :root {
   --dark-0: var(--ap-color-dp0);
   --dark-base: var(--ap-color-dp0);
