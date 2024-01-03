@@ -14,7 +14,7 @@ window#waybar {
 	/* border-radius: 0px 0px 20px 20px; */
 	border-radius: 0px 0px 0px 0px;
 
-	border-bottom: 2px solid rgba(100, 100, 100, 0.5);
+	border-bottom: 1px solid rgb(114, 114, 114);
 
 }
 
@@ -31,7 +31,7 @@ window#waybar.hidden {
 
 
 #network {
-	border: 1px solid rgba(100, 114, 125, 0.7);
+	border: 1px solid rgb(114, 114, 114);
    	background-color: rgba(0, 0, 0, 0.15);
    	
 	transition: none;	
@@ -43,7 +43,7 @@ window#waybar.hidden {
     margin-bottom: 5px;
 }
 #bluetooth {
-	border: 1px solid rgba(100, 114, 125, 0.7);
+	border: 1px solid rgb(114, 114, 114);
    	background-color: rgba(0, 0, 0, 0.15);
    	
 	transition: none;
@@ -58,7 +58,7 @@ window#waybar.hidden {
 }
 #battery {
 
-	border: 1px solid rgba(100, 114, 125, 0.7);
+	border: 1px solid rgb(114, 114, 114);
    	background-color: rgba(0, 0, 0, 0.15);
 	
 	border-left: 0px transparent;
@@ -72,7 +72,7 @@ window#waybar.hidden {
 }
 
 #backlight {
-	border: 1px solid rgba(100, 114, 125, 0.7);
+	border: 1px solid rgb(114, 114, 114);
 	background-color: rgba(0, 0, 0, 0.15);
 	   	
 	transition: none;
@@ -85,7 +85,7 @@ window#waybar.hidden {
     margin-left: 10px;
 } 
 #wireplumber {
-	border: 1px solid rgba(100, 114, 125, 0.7);
+	border: 1px solid rgb(114, 114, 114);
    	background-color: rgba(0, 0, 0, 0.15);
    	
     transition: none;
@@ -99,7 +99,7 @@ window#waybar.hidden {
 }
 
 #battery.charging {
-	background-color: rgba(125, 125, 125, 0.3);
+	border: 1px solid rgb(114, 114, 114);
 	border-radius: 10px 10px 10px 10px;
 }
 
@@ -109,7 +109,7 @@ window#waybar.hidden {
 	background: transparent;
 }
 #mpris {
-	border: 1px solid rgba(100, 114, 125, 0.7);
+	border: 1px solid rgb(114, 114, 114);
    	background-color: rgba(0, 0, 0, 0.15);
    	
     transition: none;

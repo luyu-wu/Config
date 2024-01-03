@@ -1,24 +1,13 @@
 # See dunst(5) for all configuration options
 
 [global]
-    ### Display ###
-
-    # Which monitor should the notifications be displayed on.
-    monitor = 0
-
     # Display notification on focused monitor.  Possible modes are:
     #   mouse: follow mouse pointer
     #   keyboard: follow window with keyboard focus
     #   none: don't follow anything
-    #
-    # "keyboard" needs a window manager that exports the
-    # _NET_ACTIVE_WINDOW property.
-    # This should be the case for almost all modern window managers.
-    #
-    # If this option is set to mouse or keyboard, the monitor option
-    # will be ignored.
-    follow = none
 
+    follow = mouse
+    
     ### Geometry ###
 
     # dynamic width from 0 to 300
@@ -30,7 +19,7 @@
     height = 300
     
     # Position the notification in the top right corner
-    origin = top-right
+    origin = top-center
 
     # Offset from the origin
     offset = 10x10
@@ -70,12 +59,6 @@
     # notification_limit).
     indicate_hidden = no
 
-    # Draw a line of "separator_height" pixel height between two
-    # notifications.
-    # Set to 0 to disable.
-    # If gap_size is greater than 0, this setting will be ignored.
-    separator_height = 1
-
     # Padding between text and separator.
     padding = 8
 
@@ -87,23 +70,17 @@
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
-    frame_width = 1
+    frame_width = 2
 
     # Defines color of the frame around the notification window.
-    frame_color = "#60606050"
+    frame_color = "#ffffff"
 
     # Size of gap to display between notifications - requires a compositor.
     # If value is greater than 0, separator_height will be ignored and a border
     # of size frame_width will be drawn around each notification instead.
     # Click events on gaps do not currently propagate to applications below.
-    gap_size = 0
+    gap_size = 10
 
-    # Define a color for the separator.
-    # possible values are:
-    #  * auto: dunst tries to find a color fitting to the background;
-    #  * foreground: use the same color as the foreground;
-    #  * frame: use the same color as the frame;
-    #  * anything else will be interpreted as a X color.
     separator_color = frame
 
     # Sort messages by urgency.
@@ -239,7 +216,7 @@
     # corners.
     # The radius will be automatically lowered if it exceeds half of the
     # notification height to avoid clipping text and/or icons.
-    corner_radius = 8
+    corner_radius = 0
 
     # Ignore the dbus closeNotification message.
     # Useful to enforce the timeout set by dunst configuration. Without this
