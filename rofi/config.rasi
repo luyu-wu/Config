@@ -3,17 +3,17 @@
   /* Default background color */
     background-color: transparent;
 
-  text-color:       #333333;
+  text-color:       #ffffff;
   font: "Fira Code Nerd Font 14";
 }
 
 
 window {
   padding: 1em;
-  border-color: argb:90aaaaaa;
-  border:       2px;
-  border-radius: 12px;
-  background-color: argb:70ffffff;
+  border-color: #444444;
+  border:       1px;
+  border-radius: 3px;
+  background-color: argb:50000000;
 
 }
 
@@ -27,11 +27,11 @@ message {
     margin:                      0px 100px;
     padding:                     15px;
     border:                      0px;
-    border-radius:               6px;
+    border-radius:               0px;
     border-color:                inherit;
     background-color:            inherit;
     text-color:                  inherit;
-    size:                        500em;
+    size:                        400em;
 }
 textbox {
     background-color:            inherit;
@@ -39,13 +39,16 @@ textbox {
     vertical-align:              0.5;
     horizontal-align:            0.5;
     placeholder-color:           inherit;
+    blink:                       true;
     markup:                      true;
     size:                        400em;
+    font: "Fira Code Nerd Font 15";
+
 }
 error-message {
     padding:                     12px;
     border:                      0px solid;
-    border-radius:               6px;
+    border-radius:               0px;
     border-color:                inherit;
     background-color:            inherit;
     text-color:                  inherit;
@@ -62,59 +65,62 @@ element,element-text,element-icon, button {
 inputbar {
   margin: 0px 10px;
   spacing: 0.4em;
-  border-radius: 6px;
-  background-color: argb:10000000;
+  border:        0px;
+  background-color: argb:60000000;
   children: [entry,overlay,case-indicator];
 }
 
 
 listview, message {
   padding: 0.5em;
+  border-color: #ffffff;
+  border:        1px;
   border-radius: 0px;
-  background-color: #222222;
+  background-color: transparent;
 
-  columns: 3;
+  columns: 1;
   lines:   6;
 }
 
 listview {
-  border: 0px;
-  spacing: 15px;
+  border:       0px;
+  spacing: 10px;
   background-color: transparent;
-  scrollbar: false;
+  border-color:     #ffffff;
+  scrollbar:    false;
 }
 
 
 element {
-    border-radius: 4px;
-    padding: 10px;
+    border:  1px;
+    border-radius: 0px;
+    padding: 5px;
+    border-color: #444444;
 }
 element-text {
     background-color: transparent;
-    text-color:       #333333;
+    text-color:       #FFFFFF;
     font: "Fira Code Nerd Font 13";
 }
 
 element normal.normal {
-    background-color: argb:10000000;
+    background-color: argb:55000000;
 }
 element.alternate.normal {
-    background-color: argb:10000000;
+    background-color: argb:55000000;
 }
 
 
 element.selected.normal {
-    background-color: argb:30000000;
+    background-color: argb:20ffffff;
 }
 
 
 entry {
-    placeholder: "  Search";
-
-    placeholder-color: #aaaaaa;
-
+    placeholder: "Search here";
+    placeholder-color: #888888;
+    border-color: transparent;
     background-color: transparent;
-
-    text-color: #555555;
-	padding: 15px;
+    border:        10px;
+    text-color: #ffffff;
 }

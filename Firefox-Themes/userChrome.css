@@ -1,10 +1,9 @@
-/*------------------------USAGE----------------------------
- * Remove "/*" at the begining of "@import" line to ENABLE.
- * Add "/*" at the begining of "@import" line to DISABLE.
- */
-
-
-
-@import "customChrome.css"; /**/
-
-.titlebar-spacer[type="post-tabs"]{ display:none }
+@import "config.css";
+@import "variables.css";
+@import "icons/icons.css";
+@import "urlbar/urlbar.css";
+@import "navbar/navbar.css";
+@import "popup/popup.css";
+@import "interface/interface.css";
+@import "userChrome-tabline.css";
+@import "content/inner-rounded.css";

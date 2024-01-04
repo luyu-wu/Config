@@ -1,19 +1,20 @@
 * {
-	border: none;
 	border-radius: 12px;
+	
+
 	font-family: Fira Code Nerd Font;
-	/*color: rgb(0,0,0);*/
+    color: #ffffff;
 	/*font-family: Source Code Pro; */
 	font-size: 20px;
 	min-height: 34px;
 }
 
 window#waybar {
-	background: rgba(255, 255, 255, 0.5);
+	background: rgba(0, 0, 0, 0.6);
 	/* border-radius: 0px 0px 20px 20px; */
 	border-radius: 0px 0px 0px 0px;
 
-	border-bottom: 2px solid rgba(100, 100, 100, 0.5);
+	border-bottom: 1px solid rgb(114, 114, 114);
 
 }
 
@@ -29,49 +30,11 @@ window#waybar.hidden {
 }
 
 
-window#waybar.PCSX2 #window {
-    color: #4d4d4d;
-	background: #e6e6e6;
-}
-
-
-#workspaces button:hover {
-    transition: none;
-    box-shadow: inherit;
-    text-shadow: inherit;
-    border-radius: inherit;
-    color: #383c4a;
-    background: #7c818c;
-}
-
-
-
-#workspaces {
-	margin-left: 12px;
-	margin-bottom: 0;
-	background: transparent;
-	transition: none;
-}
-
-#workspaces button {
-	transition: none;
-	color: #ffffff;
-	background: transparent;
-	font-size: 10px;
-}
-
-#workspaces button.focused {
-	color: #9aedfe;
-	font-size: 18px;
-}
-
-
-
 #network {
-	transition: none;
-	color: #000000;
-	background-color: rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(100, 114, 125, 0.7);
+	border: 1px solid rgb(114, 114, 114);
+   	background-color: rgba(0, 0, 0, 0.15);
+   	
+	transition: none;	
     border-radius: 0px 10px 10px 0px;
 
     border-left: 0px transparent;
@@ -80,13 +43,12 @@ window#waybar.PCSX2 #window {
     margin-bottom: 5px;
 }
 #bluetooth {
-	
+	border: 1px solid rgb(114, 114, 114);
+   	background-color: rgba(0, 0, 0, 0.15);
+   	
 	transition: none;
-	color: #000000;
-	background-color: rgba(0, 0, 0, 0.05);
     border-radius: 10px 0px 0px 10px;
 
-    border: 1px solid rgba(100, 114, 125, 0.7);
     border-right: 0px transparent;
 
 	margin-bottom: 5px;
@@ -95,9 +57,10 @@ window#waybar.PCSX2 #window {
 
 }
 #battery {
-	background-color: rgba(0, 0, 0, 0.05);
 
-    border: 1px solid rgba(100, 114, 125, 0.7);
+	border: 1px solid rgb(114, 114, 114);
+   	background-color: rgba(0, 0, 0, 0.15);
+	
 	border-left: 0px transparent;
 
 	border-radius: 0px 10px 10px 0px;
@@ -106,18 +69,15 @@ window#waybar.PCSX2 #window {
 	margin-right: 20px;
 	margin-bottom: 5px;
 	margin-top: 3px;
-
-	color: #000000;
-
 }
 
 #backlight {
+	border: 1px solid rgb(114, 114, 114);
+	background-color: rgba(0, 0, 0, 0.15);
+	   	
 	transition: none;
-	color: #000000;
-	background-color: rgba(0, 0, 0, 0.05);
     border-radius: 10px 0px 0px 10px;
 
-    border: 1px solid rgba(100, 114, 125, 0.7);
     border-right: 0px transparent;
 
 	margin-bottom: 5px;
@@ -125,12 +85,12 @@ window#waybar.PCSX2 #window {
     margin-left: 10px;
 } 
 #wireplumber {
+	border: 1px solid rgb(114, 114, 114);
+   	background-color: rgba(0, 0, 0, 0.15);
+   	
     transition: none;
-	color: #000000;
-   	background-color: rgba(0, 0, 0, 0.05);
     border-radius: 0px 0px 0px 0px;
 
-    border: 1px solid rgba(100, 114, 125, 0.7);
     border-right: 0px transparent;
     border-left: 0px transparent;
    
@@ -139,25 +99,29 @@ window#waybar.PCSX2 #window {
 }
 
 #battery.charging {
-	background-color: rgba(0, 125, 0, 0.3);
+	border: 1px solid rgb(114, 114, 114);
+	border-radius: 10px 10px 10px 10px;
 }
 
 #clock {
 	transition: none;
-	color: #000000;
-
+	border: none;
 	background: transparent;
 }
 #mpris {
+	border: 1px solid rgb(114, 114, 114);
+   	background-color: rgba(0, 0, 0, 0.15);
+   	
     transition: none;
-	color: #000000;
-   	background-color: rgba(0, 0, 0, 0.05);
     border-radius: 10px 10px 10px 10px;
 
 	font-size: 16px;
-    border: 1px solid rgba(100, 114, 125, 0.7);
 
    	margin-left: 16px;
    	margin-bottom: 5px;
     margin-top: 3px;
+}
+#mpris.playing {
+	background-color: rgba(125, 125, 125, 0.3);
+
 }
