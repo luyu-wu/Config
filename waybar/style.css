@@ -100,6 +100,8 @@ window#waybar.hidden {
 
 #battery.charging {
 	border: 1px solid rgb(114, 114, 114);
+	background-color: rgba(255, 255, 255, 0.2);
+
 	border-radius: 10px 10px 10px 10px;
 }
 
