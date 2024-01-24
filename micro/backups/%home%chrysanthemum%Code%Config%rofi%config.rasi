@@ -97,6 +97,7 @@ element {
     padding: 5px;
     border-color: #444444;
 }
+
 element-text {
     background-color: transparent;
     text-color:       #FFFFFF;
