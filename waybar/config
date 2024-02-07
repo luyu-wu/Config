@@ -30,8 +30,10 @@
 		"format": "{icon}",
 		"format-icons": {
 			"active": "",
-			"default": ""
-		}
+			"default": ""
+		},
+		"sort-by-number": true,
+		"on-click": "activate",
 	},
 	"mpris": {
 		"format": " {status_icon} {title} - {artist}  ",
