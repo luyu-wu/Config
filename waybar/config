@@ -41,7 +41,7 @@
 			"paused": " ⏸ ",
 			"playing": "  "
 		},
-		"max-length":35,
+		"max-length":70,
 		"tooltip-format": "Player: {player_icon}{player} Info: {dynamic}"
 	},
 	"tray": {
