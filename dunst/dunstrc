@@ -1,49 +1,41 @@
-# See dunst(5) for all configuration options
-
 [global]
-    # Display notification on focused monitor.  Possible modes are:
-    #   mouse: follow mouse pointer
-    #   keyboard: follow window with keyboard focus
-    #   none: don't follow anything
 
     follow = mouse
-    
+    stack_duplicates = false
+
     ### Geometry ###
 
     width = 400
     height = 300
-    
-    # Position the notification in the top right corner
-    origin = top-center
+    origin = top-right
+    offset = 20x20
 
-    # Offset from the origin
-    offset = 0x10
-
-    # Corner radius for the icon image.
     icon_corner_radius = 6
 
     padding = 8
     horizontal_padding = 8
     text_icon_padding = 0
 
-    # Defines width in pixels of frame around the notification window.
     frame_width = 1
+    frame_color = "#505050"
 
-    # Defines color of the frame around the notification window.
-    frame_color = "#ffffff"
+    gap_size = 16
 
-    # Size of gap to display between notifications - requires a compositor.
-    gap_size = 10
-
+	### PROGRESS BAR
+	progress_bar = true
+	progress_bar_height = 10
+	progress_bar_frame_width = 1
+	progress_bar_corner_radius = 5
+	
     ### Text ###
 
-    font = Fira Code Nerd Font 12
+    font = SF Pro Display 12
 
-    line_height = 20
+    line_height = 6
 
     format = "<b>%s</b>\n%b"
 
-    alignment = center
+    alignment = left
 
     vertical_alignment = center
 
@@ -53,15 +45,15 @@
 
 
     # Align icons left/right/top/off
-    icon_position = off
+    icon_position = left
 
     # Scale small icons up to this size, set to 0 to disable. Helpful
     # for e.g. small files or high-dpi screens. In case of conflict,
     # max_icon_size takes precedence over this.
-    min_icon_size = 32
+    min_icon_size = 64
 
     # Scale larger icons down to this size, set to 0 to disable
-    max_icon_size = 128
+    max_icon_size = 64
 
 
     ### Misc/Advanced ###
@@ -69,16 +61,12 @@
     # Browser for opening urls in context menu.
     browser = /usr/bin/xdg-open
 
-    # Always run rule-defined scripts, even if the notification is suppressed
-    always_run_script = true
-
     # Define the title of the windows spawned by dunst
     title = Dunst
 
-    # Define the class of the windows spawned by dunst
     class = Dunst
 
-    corner_radius = 3
+    corner_radius = 6
 
     # Ignore the dbus closeNotification message.
     # Useful to enforce the timeout set by dunst configuration. Without this
@@ -96,21 +84,21 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#00000090"
+    background = "#00000040"
     foreground = "#ffffff"
     timeout = 5
     # Icon for notifications with low urgency, uncomment to enable
     #default_icon = /path/to/icon
 
 [urgency_normal]
-    background = "#00000090"
+    background = "#00000040"
     foreground = "#ffffff"
     timeout = 5
     # Icon for notifications with normal urgency, uncomment to enable
     #default_icon = /path/to/icon
 
 [urgency_critical]
-    background = "#55000090"
+    background = "#00000040"
     foreground = "#ffffff"
     timeout = 0
     # Icon for notifications with critical urgency, uncomment to enable
