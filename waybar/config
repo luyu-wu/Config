@@ -1,9 +1,10 @@
 {
 	"layer": "top",
+	"position":"bottom",
 	"output": "!DP-4",
 	"modules-left": ["mpris"],
 	"modules-center": ["clock"],
-	"modules-right": ["tray","bluetooth", "network","backlight", "wireplumber", "battery"],
+	"modules-right": ["bluetooth", "network","backlight", "wireplumber", "battery"],
 	"wireplumber": {
 	    "format": "{icon} {volume}%  ",
 	    "format-muted": " MUTE ",
