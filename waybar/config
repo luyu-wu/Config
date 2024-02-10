@@ -1,7 +1,7 @@
 {
 	"layer": "top",
 	"position":"bottom",
-	"output": "!DP-4",
+	"output": "eDP-1",
 	"modules-left": ["mpris"],
 	"modules-center": ["clock"],
 	"modules-right": ["bluetooth", "network","backlight", "wireplumber", "battery"],
