@@ -7,8 +7,8 @@
 	/*font-family: SF Pro Display;*/
     color: #ffffff;
 	/*font-family: Source Code Pro; */
-	font-size: 20px;
-	min-height: 34px;
+	font-size: 22px;
+	min-height: 40px;
 }
 
 window#waybar {
@@ -34,10 +34,10 @@ window#waybar.hidden {
 
 #network {
 	border: 1px solid rgb(80,80,80);
-   	background-color: rgba(255, 255, 255, 0.15);
+   	background-color: rgba(255, 255, 255, 0.1);
    	
 	transition: none;	
-    border-radius: 0px 10px 10px 0px;
+    border-radius: 0px 6px 6px 0px;
 
     border-left: 0px transparent;
 
@@ -46,10 +46,10 @@ window#waybar.hidden {
 }
 #bluetooth {
 	border: 1px solid rgb(80,80,80);
-   	background-color: rgba(255, 255, 255, 0.15);
+   	background-color: rgba(255, 255, 255, 0.1);
    	
 	transition: none;
-    border-radius: 10px 0px 0px 10px;
+    border-radius: 6px 0px 0px 6px;
 
     border-right: 0px transparent;
 
@@ -59,13 +59,12 @@ window#waybar.hidden {
 
 }
 #battery {
-
 	border: 1px solid rgb(80,80,80);
-   	background-color: rgba(255, 255, 255, 0.15);
+   	background-color: rgba(255, 255, 255, 0.1);
 	
 	border-left: 0px transparent;
 
-	border-radius: 0px 10px 10px 0px;
+	border-radius: 0px 6px 6px 0px;
 
 
 	margin-right: 20px;
@@ -76,10 +75,10 @@ window#waybar.hidden {
 
 #backlight {
 	border: 1px solid rgb(80,80,80);
-   	background-color: rgba(255, 255, 255, 0.15);
+   	background-color: rgba(255, 255, 255, 0.1);
 	   	
 	transition: none;
-    border-radius: 10px 0px 0px 10px;
+    border-radius: 6px 0px 0px 6px;
 
     border-right: 0px transparent;
 
@@ -90,7 +89,7 @@ window#waybar.hidden {
 } 
 #wireplumber {
 	border: 1px solid rgb(80,80,80);
-   	background-color: rgba(255, 255, 255, 0.15);
+   	background-color: rgba(255, 255, 255, 0.1);
    	
     transition: none;
     border-radius: 0px 0px 0px 0px;
@@ -103,10 +102,8 @@ window#waybar.hidden {
 }
 
 #battery.charging {
-	border: 1px solid rgb(80,80,80);
-	background-color: rgba(255, 255, 255, 0.2);
-
-	border-radius: 10px 10px 10px 10px;
+	border-left: 2px solid rgba(255,255,255,0.2);
+	background-color: rgba(150, 150, 255, 0.3);
 }
 
 #clock {
@@ -119,18 +116,18 @@ window#waybar.hidden {
 }
 #mpris {
 	border: 1px solid rgb(80,80,80);
-   	background-color: rgba(255, 255, 255, 0.15);
+   	background-color: rgba(255, 255, 255, 0.1);
    	
     transition: none;
-    border-radius: 10px 10px 10px 10px;
+    border-radius: 6px 6px 6px 6px;
 
-	font-size: 16px;
+	font-size: 18px;
 
    	margin-left: 16px;
     margin-top: 6px;
     margin-bottom: 0px;
 }
 #mpris.playing {
-	background-color: rgba(125, 125, 125, 0.3);
+	background-color: rgba(150, 150, 255, 0.3);
 
 }

@@ -52,7 +52,8 @@
 	"battery": {
 		"format": " {icon}   {capacity}%   ",
 		"format-icons": ["", "", "", "", ""],
-		"max-length": 16
+		"format-charging": "  󰢝 {capacity}%  ",
+		"max-length": 16,
 	},
 	"network": {
 		"format-wifi": "    ",
