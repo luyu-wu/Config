@@ -26,8 +26,8 @@ Live config files from my system.
 ```
 
 ## Video Showcase
-https://github.com/luyu-wu/Config/assets/116970666/931e6ccb-48a4-4f85-8b93-5ca1465e43d0
 
+https://github.com/luyu-wu/Config/assets/116970666/be134b9c-3be1-4819-a608-9a625e6e0e84
 
 ## Screenshots
 ![image](https://github.com/luyu-wu/Config/assets/116970666/d6f0f849-df94-4bd8-8f35-c07e3d81da66)
