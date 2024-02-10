@@ -34,21 +34,25 @@ https://github.com/luyu-wu/Config/assets/116970666/be134b9c-3be1-4819-a608-9a625
 ![2023-12-23-132749_hyprshot](https://github.com/luyu-wu/Config/assets/116970666/4a6c67d1-d88b-4a78-8ff7-740f403eb6d2)
 
 
-
-
-
 ## Features
-- Expressive tiled window manager Experience
-- Intuitive keybinds for screenshots, launchers, and more!
-- Fully custom rofi launcher
-- Fully custom waybar configuration
-- Low resource utilization for low-battery utilization (no JS >:)
+- Expressive tiled window manager experience
+- Intuitive keybinds for screenshots, launchers, tiling, and more!
+- Fully custom rofi launcher and waybar
+- Low resource utilization for low-battery utilization (no JS >:), 0% idle usage
+- Low memory usage (once again no JS)
 - Custom bezier curves for smooth animations
 - Consistent theming across all applications
+- Custom Firefox CSS
 
 ## Packages
+in the packages.txt or smth, flatpaks r in the flatpak one!
 
-```
-yay -S hyprland-git micro fastfetch wayland-git swww firefox-beta-bin waybar-git dunst vscodium grimshot hyprshot sddm-git nautilus kitty armcord-git spotify rofi
-```
 (non-exhaustive list, i just forget the rest of the important dependencies, u prob need nerd-fonts or smth)
+
+## Credits
+
+wavefox (which I worked upon)
+catppuccin discord + spotify themes
+tokyo-night starship theme
+
+all the great tools that made this possible at all :D
