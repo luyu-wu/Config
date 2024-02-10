@@ -31,11 +31,11 @@
 	
     ### Text ###
 
-    font = SF Pro Display 16
+    font = SF Pro Display 15
 
     line_height = 6
 
-    format = "<b>%s</b>\n%b"
+    format = "<b>%s</b>\n<i>%b</i>"
 	show_indicators = false
     alignment = left
 
