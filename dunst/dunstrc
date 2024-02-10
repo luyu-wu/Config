@@ -7,8 +7,10 @@
 
     width = 400
     height = 300
-    origin = top-right
+    origin = bottom-right
     offset = 20x20
+
+    corner_radius = 6
 
     icon_corner_radius = 6
 
@@ -29,7 +31,7 @@
 	
     ### Text ###
 
-    font = SF Pro Display 12
+    font = SF Pro Display 14
 
     line_height = 6
 
@@ -66,7 +68,6 @@
 
     class = Dunst
 
-    corner_radius = 6
 
     # Ignore the dbus closeNotification message.
     # Useful to enforce the timeout set by dunst configuration. Without this
@@ -84,21 +85,21 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#00000040"
+    background = "#00000030"
     foreground = "#ffffff"
     timeout = 5
     # Icon for notifications with low urgency, uncomment to enable
     #default_icon = /path/to/icon
 
 [urgency_normal]
-    background = "#00000040"
+    background = "#00000030"
     foreground = "#ffffff"
     timeout = 5
     # Icon for notifications with normal urgency, uncomment to enable
     #default_icon = /path/to/icon
 
 [urgency_critical]
-    background = "#00000040"
+    background = "#00000030"
     foreground = "#ffffff"
     timeout = 0
     # Icon for notifications with critical urgency, uncomment to enable
