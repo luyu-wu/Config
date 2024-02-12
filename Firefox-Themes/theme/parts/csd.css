@@ -1,0 +1,175 @@
+/* GNOME CSD styles for headerbar on Firefox [tabsintitlebar] */
+
+@namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+/* Headerbar top border corners rounded */
+:root[tabsintitlebar][sizemode="normal"]:not([gtktiledwindow="true"]) #nav-bar {
+	border-radius: env(-moz-gtk-csd-titlebar-radius) env(-moz-gtk-csd-titlebar-radius) 0 0 !important;
+}
+
+/* Window buttons: at least 1 button */
+@media (-moz-gtk-csd-minimize-button), (-moz-gtk-csd-maximize-button), (-moz-gtk-csd-close-button) {
+	:root {
+		--gnome-navbar-csd-offset: 43px;
+	}
+}
+/* Window buttons: at least 2 buttons */
+@media (-moz-gtk-csd-minimize-button) and (-moz-gtk-csd-maximize-button),
+       (-moz-gtk-csd-minimize-button) and (-moz-gtk-csd-close-button),
+       (-moz-gtk-csd-maximize-button) and (-moz-gtk-csd-close-button) {
+	:root {
+		--gnome-navbar-csd-offset: 80px;
+	}
+}
+/* Window buttons: 3 buttons */
+@media (-moz-gtk-csd-minimize-button) and (-moz-gtk-csd-maximize-button) and (-moz-gtk-csd-close-button) {
+	:root {
+		--gnome-navbar-csd-offset: 117px;
+	}
+}
+
+/* Right window buttons offset by button count */
+:root[tabsintitlebar]:not([inFullscreen]) #nav-bar {
+	padding-left: 3px !important;
+	padding-right: var(--gnome-navbar-csd-offset) !important;
+}
+/* Fullscreen headerbar padding for 1 button */
+:root[tabsintitlebar][inFullscreen] #nav-bar {
+	padding-right: 43px !important;
+}
+
+/* Left window buttons */
+@media (-moz-gtk-csd-reversed-placement) {
+	/* Window controls offset by button count */
+	:root[tabsintitlebar]:not([inFullscreen]) #nav-bar {
+		padding-left: var(--gnome-navbar-csd-offset) !important;
+		padding-right: 3px !important;
+	}
+	
+	/* Window buttons box */
+	:root[tabsintitlebar] #titlebar .titlebar-buttonbox-container {
+		left: 0;
+		right: auto !important;
+	}
+	
+	/* Fullscreen headerbar padding for 1 button */
+	:root[tabsintitlebar][inFullscreen] #nav-bar {
+		padding-left: 50px !important;
+		padding-right: 3px !important
+	}
+}
+
+/* Remove close and minimize buttons from fullscreen buttons */
+:root[tabsintitlebar][inFullscreen] #titlebar .titlebar-buttonbox-container .titlebar-min,
+:root[tabsintitlebar][inFullscreen] #titlebar .titlebar-buttonbox-container .titlebar-close {
+	display: none !important;
+}
+
+/* Force the restore button to appear regardless of maximize button's status */
+:root[tabsintitlebar][inFullscreen]:not([inDOMFullscreen]) #titlebar .titlebar-buttonbox-container {
+  visibility: visible !important;
+}
+:root[tabsintitlebar][inFullscreen]:not([inDOMFullscreen]) #titlebar .titlebar-buttonbox-container .titlebar-restore {
+	display: inherit !important;
+}
+
+/* Remove tabsbar titlebar blank spaces */
+:root[tabsintitlebar] #TabsToolbar .titlebar-placeholder {
+	display: none !important;
+}
+
+/* Prevent menubar from breaking */
+:root[tabsintitlebar] #toolbar-menubar:not([inactive=true]) {
+	height: 30px !important;
+	margin-bottom: 8px;
+}
+
+/* Remove default style of titlebar */
+:root[tabsintitlebar] #titlebar {
+	-moz-appearance: none !important;
+}
+
+/* Fix the issue when dragging tabs */
+:root[tabsintitlebar] #navigator-toolbox[movingtab] #TabsToolbar {
+	padding-bottom: 0 !important;
+}
+
+/* Window buttons box */
+:root[tabsintitlebar] #titlebar .titlebar-buttonbox-container {
+	-moz-appearance: none !important;
+	padding: 5px;
+	position: absolute !important;	
+	right: 0;
+	top: 0;
+	display: block !important;
+}
+:root[tabsintitlebar] #titlebar .titlebar-buttonbox {
+	-moz-appearance: none !important;
+}
+
+/* Window buttons style */
+:root[tabsintitlebar]:not([inFullscreen]) #titlebar .titlebar-button {
+	-moz-appearance: none !important;
+	padding: 0 2px !important;
+	background: var(--gnome-button-background) !important;
+	transition: background 0.3s;
+}
+
+:root[tabsintitlebar] #titlebar .titlebar-button {
+	border-radius: 100% !important;
+	height: 24px !important;
+	margin: 6px 6.5px !important;
+	width: 24px !important;
+}
+
+:root[tabsintitlebar][inFullscreen] #titlebar .titlebar-buttonbox {
+  background: transparent !important;
+	border-radius: 6px !important;
+	height: 34px !important;
+	width: 34px !important;
+	transition: background .3s;
+}
+
+:root[tabsintitlebar][inFullscreen] #titlebar .titlebar-buttonbox:hover {
+  outline: 0 !important;
+  background: var(--gnome-hover-color) !important;
+}
+
+:root[tabsintitlebar] #titlebar toolbarbutton > .toolbarbutton-icon {
+	padding: 0 !important;
+	stroke: none !important;
+	-moz-context-properties: fill, fill-opacity !important;
+}
+
+:root[tabsintitlebar] #titlebar .titlebar-button .toolbarbutton-icon,
+:root[tabsintitlebar][inFullscreen] #window-controls toolbarbutton .toolbarbutton-icon {
+	width: 16px;
+}
+:root[tabsintitlebar] #titlebar .titlebar-button:not([disabled]):hover,
+:root[tabsintitlebar][inFullscreen] #window-controls toolbarbutton:not([disabled]):hover {
+	background: var(--gnome-button-hover-background) !important;
+}
+:root[tabsintitlebar] #titlebar .titlebar-button:not([disabled]):active,
+:root[tabsintitlebar][inFullscreen] #window-controls toolbarbutton:not([disabled]):active {
+	background: var(--gnome-button-active-background) !important;
+}
+
+:root[tabsintitlebar] #titlebar .titlebar-button:-moz-window-inactive,
+:root[tabsintitlebar][inFullscreen] #window-controls toolbarbutton:-moz-window-inactive {
+	filter: opacity(0.5);
+}
+
+/* OPTIONAL: Allow draging the window from headerbar buttons */
+@media (-moz-bool-pref: "gnomeTheme.dragWindowHeaderbarButtons") {
+	:root[tabsintitlebar] #nav-bar *,
+	:root[tabsintitlebar] #titlebar .titlebar-button,
+	:root[tabsintitlebar][inFullscreen] #window-controls toolbarbutton {
+		-moz-window-dragging: drag;
+	}
+	
+	/* Avoid window dragging from urlbar */
+	:root[tabsintitlebar] #nav-bar .urlbar-input-box,
+	:root[tabsintitlebar] #nav-bar .urlbar-input-box * {
+		-moz-window-dragging: no-drag !important;
+	}
+}
