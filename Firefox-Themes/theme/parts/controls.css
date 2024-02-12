@@ -1,0 +1,80 @@
+/* Controls */
+/* Switchers, Checkboxes, etc. */
+
+@namespace xul "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
+
+/* Checkbox */
+input[type="checkbox"],
+checkbox:not(.treenode-checkbox) > .checkbox-check {
+	appearance: none !important;
+	border: 0 !important;
+	border-radius: 6px !important;
+	color: var(--gnome-window-color) !important;
+	height: 20px !important;
+	width: 20px !important;
+}
+input[type="checkbox"]:not(:checked),
+checkbox:not(.treenode-checkbox) > .checkbox-check:not([checked]) {
+	background-color: transparent !important;
+	box-shadow: inset 0 0 0 2px var(--gnome-trough-background);
+}
+input[type="checkbox"]:not(:checked):hover,
+checkbox:not(.treenode-checkbox) > .checkbox-check:not([checked]):hover {
+	box-shadow: inset 0 0 0 2px var(--gnome-trough-hover-background);
+}
+input[type="checkbox"]:checked,
+checkbox:not(.treenode-checkbox) > .checkbox-check[checked] {
+	background-color: var(--gnome-accent-bg) !important;
+	background-image: url("../icons/select-symbolic.svg") !important;
+	background-size: 14px !important;
+	background-repeat: no-repeat;
+	background-position: center;
+	fill: white !important;
+	-moz-context-properties: fill;
+}
+
+/* Radio */
+radio > .radio-check {
+	appearance: none !important;
+	border: 0 !important;
+	border-radius: 50% !important;
+	color: var(--gnome-window-color) !important;
+	height: 20px !important;
+	padding: 3px !important;
+	width: 20px !important;
+}
+radio > .radio-check:not([selected]) {
+	background-color: transparent !important;
+	box-shadow: inset 0 0 0 2px var(--gnome-trough-background);
+}
+radio > .radio-check:not([selected]):hover {
+	box-shadow: inset 0 0 0 2px var(--gnome-trough-hover-background);
+}
+radio > .radio-check[selected] {
+	background-color: var(--gnome-accent-bg) !important;
+	list-style-image: url("../icons/bullet-symbolic.svg") !important;
+	fill: white !important;
+	-moz-context-properties: fill;
+}
+
+.radio-label {
+	margin-inline-start: 3px !important;
+}
+
+/* Switchers */
+.toggle-button {
+	--toggle-height: 26px !important;
+	--toggle-width: 48px !important;
+	--toggle-border-radius: 24px !important;
+	--toggle-border-color: var(--gnome-trough-background) !important;
+	--toggle-background-color:  var(--gnome-trough-background) !important;
+	--toggle-background-color-pressed: var(--gnome-accent-bg) !important;
+	--toggle-dot-height: 22px !important;
+	--toggle-dot-background-color: #FFF !important;
+	--toggle-dot-background-color-on-pressed: #FFF !important;
+	
+	border: 0 !important;
+}
+.toggle-button::before {
+	box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+}

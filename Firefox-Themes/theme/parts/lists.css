@@ -1,0 +1,51 @@
+/* Lists */
+
+@namespace xul "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
+
+/* TODO: create list color vars */
+/* List container */
+#permission-popup-permission-list,
+richlistbox#items {
+	--in-content-item-selected: var(--gnome-accent-bg) !important;
+	--in-content-item-selected-text: #fff !important;
+	background: var(--gnome-card-background) !important;
+	border: 0 !important;
+	border-radius: 12px !important;
+	padding: 0 !important;
+	overflow: hidden;
+}
+
+richlistbox#items {
+	box-shadow: 0 0 0 1px rgba(0, 0, 0, .03),
+                0 1px 3px 1px rgba(0, 0, 0, .07),
+                0 2px 6px 2px rgba(0, 0, 0, .03);
+}
+
+/* List item */
+.permission-popup-permission-item,
+richlistbox#items richlistitem {
+	padding: 6px !important;
+	margin: 0 !important;
+}
+.permission-popup-permission-list-anchor {
+	padding: 0 !important;
+}
+.permission-popup-permission-list-anchor:not(:has(.permission-popup-permission-item)) {
+	visibility: collapse;
+}
+richlistbox#items richlistitem:not(:last-child) {
+	border-bottom: 1px solid var(--gnome-card-shade-color);
+}
+.permission-popup-permission-list-anchor:not(#permission-popup-permission-list-default-anchor):has(.permission-popup-permission-item) {
+	border-top: 1px solid var(--gnome-card-shade-color);
+}
+#permission-popup-permission-list-default-anchor:empty + .permission-popup-permission-list-anchor {
+	border: 0 !important;
+}
+
+/* Fix list buttons on selected state */
+@media (prefers-color-scheme: light) {
+	richlistbox#items richlistitem[selected=true] button {
+		filter: invert() brightness(200%) !important;
+	}
+}
