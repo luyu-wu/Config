@@ -1,7 +1,7 @@
 
 * {
   /* Default background color */
-    background-color: transparent;
+  background-color: transparent;
 
   text-color:       #ffffff20;
   font: "Fira Code Nerd Font 14";
@@ -13,7 +13,7 @@ window {
   border-color: #ffffff30;
   border:       1px;
   border-radius: 6px;
-  background-color: #00000060;
+  background-color: #15151580;
 
 }
 
