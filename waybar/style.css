@@ -12,7 +12,7 @@
 }
 
 window#waybar {
-	background: rgba(20, 20, 20, 0.4);
+	background: rgba(15, 15, 15, 0.65);
 	/* border-radius: 0px 0px 20px 20px; */
 	border-radius: 0px 0px 0px 0px;
 
@@ -34,11 +34,10 @@ window#waybar.hidden {
 
 #network {
 	border: 1px solid rgb(80,80,80);
-   	background-color: rgba(255, 255, 255, 0.1);
+   	background-color: rgba(255, 255, 255, 0.05);
    	
 	transition: none;	
     border-radius: 0px 6px 6px 0px;
-
     border-left: 0px transparent;
 
     margin-top: 6px;
@@ -46,7 +45,7 @@ window#waybar.hidden {
 }
 #bluetooth {
 	border: 1px solid rgb(80,80,80);
-   	background-color: rgba(255, 255, 255, 0.1);
+   	background-color: rgba(255, 255, 255, 0.05);
    	
 	transition: none;
     border-radius: 6px 0px 0px 6px;
@@ -60,7 +59,7 @@ window#waybar.hidden {
 }
 #battery {
 	border: 1px solid rgb(80,80,80);
-   	background-color: rgba(255, 255, 255, 0.1);
+   	background-color: rgba(255, 255, 255, 0.05);
 	
 	border-left: 0px transparent;
 
@@ -75,7 +74,7 @@ window#waybar.hidden {
 
 #backlight {
 	border: 1px solid rgb(80,80,80);
-   	background-color: rgba(255, 255, 255, 0.1);
+   	background-color: rgba(255, 255, 255, 0.05);
 	   	
 	transition: none;
     border-radius: 6px 0px 0px 6px;
@@ -89,7 +88,7 @@ window#waybar.hidden {
 } 
 #wireplumber {
 	border: 1px solid rgb(80,80,80);
-   	background-color: rgba(255, 255, 255, 0.1);
+   	background-color: rgba(255, 255, 255, 0.05);
    	
     transition: none;
     border-radius: 0px 0px 0px 0px;
@@ -103,7 +102,7 @@ window#waybar.hidden {
 
 #battery.charging {
 	border-left: 2px solid rgba(255,255,255,0.2);
-	background-color: rgba(150, 150, 255, 0.3);
+	background-color: rgba(60, 60, 92, 0.8);
 }
 
 #clock {
@@ -116,7 +115,7 @@ window#waybar.hidden {
 }
 #mpris {
 	border: 1px solid rgb(80,80,80);
-   	background-color: rgba(255, 255, 255, 0.1);
+   	background-color: rgba(255, 255, 255, 0.05);
    	
     transition: none;
     border-radius: 6px 6px 6px 6px;
@@ -128,6 +127,5 @@ window#waybar.hidden {
     margin-bottom: 0px;
 }
 #mpris.playing {
-	background-color: rgba(150, 150, 255, 0.3);
-
+	background-color: rgba(60, 60, 92, 0.8);
 }
