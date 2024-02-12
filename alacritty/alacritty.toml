@@ -1,4 +1,3 @@
-
 [bell]
 animation = "EaseOutExpo"
 color = "0xffffff"
@@ -32,7 +31,7 @@ white = "0xc5c8c6"
 yellow = "0xf0c674"
 
 [colors.primary]
-background = "0x151311"
+background = "0x101015"
 foreground = "0xc5c8c6"
 
 [cursor]
@@ -364,7 +363,7 @@ program = "/usr/bin/fish"
 [window]
 decorations = "none"
 dynamic_padding = false
-opacity = 0.8
+opacity = 0.85
 startup_mode = "Windowed"
 
 [window.dimensions]
