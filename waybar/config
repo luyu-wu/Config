@@ -3,7 +3,7 @@
 	"position":"bottom",
 	"output": "eDP-1",
 	"modules-left": ["mpris"],
-	"modules-center": ["clock"],
+	"modules-center": ["clock"], 
 	"modules-right": ["bluetooth", "network","backlight", "wireplumber", "battery"],
 	"wireplumber": {
 	    "format": "{icon} {volume}%  ",
@@ -15,11 +15,16 @@
 	    "reverse-scrolling": true,
 	    "scroll-step": 0.4
 	},
+    "custom/updates": {
+        "format": "{} ",
+        "exec": "~/.config/waybar/scripts/update",
+        "on-click": "~/.config/waybar/scripts/update update",
+        "on-click-right": "~/.config/waybar/scripts/update",
+        "interval": 1800,
+    },
 	"backlight": {
 		"reverse-scrolling": false,
 		"scroll-step": 0.6,
-
-
 	    "device": "intel_backlight",
 	    "format": "    {percent}%   ",
 	},

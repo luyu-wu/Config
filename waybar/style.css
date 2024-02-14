@@ -43,6 +43,16 @@ window#waybar.hidden {
     margin-top: 6px;
     margin-bottom: 0px;
 }
+
+#custom-updates {
+	transition: none;
+	border: none;
+	background: transparent;
+	
+    margin-top: 6px;
+    margin-bottom: 0px;
+}
+
 #bluetooth {
 	border: 1px solid rgb(80,80,80);
    	background-color: rgba(255, 255, 255, 0.05);
