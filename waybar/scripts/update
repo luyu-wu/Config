@@ -1,0 +1,18 @@
+AUR=$(yay -Qua | wc -l)
+OFFICIAL=$(checkupdates | wc -l)
+
+if [ "$1" = "update" ]; then
+    alacritty -e yay -Syu
+fi
+
+if [ "$1" = "" ]; then
+    COUNT=$((OFFICIAL+AUR))
+
+    if [[ "$COUNT" = "0" ]]
+    then
+        echo ""
+    else
+        echo " $COUNT"
+    fi
+    exit 0
+fi
