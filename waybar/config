@@ -64,12 +64,14 @@
 		"format-wifi": "    ",
 		"format": "    ",
 		"tooltip-format": "{signaldBm}dBm {essid} {frequency}GHz",
-		"on-click": "nm-connection-editor",
+		"on-click": "alacritty --class floatterm -e nmtui",
+
+		"on-click-right": "nm-connection-editor",
 
 	},
 	"bluetooth": {
 		"format": " ",
-		"on-click": "blueman-manager",
+		"on-click": "alacritty --class floatterm -e bluetuith",
 		"format-connected": "    {device_alias}",
 		"format-connected-battery": " {device_alias} {device_battery_percentage}%",
 		"tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
