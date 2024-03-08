@@ -1,54 +1,39 @@
 * {
-	border-radius: 12px;
-	
-
-
 	font-family: Fira Code Nerd Font;
 	/*font-family: SF Pro Display;*/
-    color: #ffffff;
+    color: @theme_text_color;;
 	/*font-family: Source Code Pro; */
 	font-size: 22px;
 	min-height: 40px;
+	
 }
 
 window#waybar {
-	background: rgba(15, 15, 15, 0.65);
-	/* border-radius: 0px 0px 20px 20px; */
+ 	background: alpha(@theme_base_color,0.9);
 	border-radius: 0px 0px 0px 0px;
 
 	border-top: 1px solid rgb(80,80,80);
-
+	margin-bottom: 10px;
 }
 
-window#waybar.hidden {
-	opacity: 0.2;
+tooltip {
+	background: alpha(@theme_base_color,0.5);
+	border: 1px solid rgb(80,80,80);
+
 }
-
-#window {
-	transition: none;
-
-    color: transparent;
-	background: transparent;
+tooltip label{
+	font-family: Source Code Pro;
+	font-size: 18px;
 }
-
 
 #network {
 	border: 1px solid rgb(80,80,80);
    	background-color: rgba(255, 255, 255, 0.05);
-   	
-	transition: none;	
+   	   	
+	
     border-radius: 0px 6px 6px 0px;
     border-left: 0px transparent;
 
-    margin-top: 6px;
-    margin-bottom: 0px;
-}
-
-#custom-updates {
-	transition: none;
-	border: none;
-	background: transparent;
-	
     margin-top: 6px;
     margin-bottom: 0px;
 }
@@ -57,7 +42,6 @@ window#waybar.hidden {
 	border: 1px solid rgb(80,80,80);
    	background-color: rgba(255, 255, 255, 0.05);
    	
-	transition: none;
     border-radius: 6px 0px 0px 6px;
 
     border-right: 0px transparent;
@@ -86,7 +70,6 @@ window#waybar.hidden {
 	border: 1px solid rgb(80,80,80);
    	background-color: rgba(255, 255, 255, 0.05);
 	   	
-	transition: none;
     border-radius: 6px 0px 0px 6px;
 
     border-right: 0px transparent;
@@ -100,7 +83,6 @@ window#waybar.hidden {
 	border: 1px solid rgb(80,80,80);
    	background-color: rgba(255, 255, 255, 0.05);
    	
-    transition: none;
     border-radius: 0px 0px 0px 0px;
 
     border-right: 0px transparent;
@@ -116,7 +98,6 @@ window#waybar.hidden {
 }
 
 #clock {
-	transition: none;
 	border: none;
 	background: transparent;
 	
@@ -127,7 +108,6 @@ window#waybar.hidden {
 	border: 1px solid rgb(80,80,80);
    	background-color: rgba(255, 255, 255, 0.05);
    	
-    transition: none;
     border-radius: 6px 6px 6px 6px;
 
 	font-size: 18px;
