@@ -1,6 +1,5 @@
 * {
 	font-family: Fira Code Nerd Font;
-	/*font-family: SF Pro Display;*/
     color: @theme_text_color;;
 	/*font-family: Source Code Pro; */
 	font-size: 22px;
@@ -10,15 +9,14 @@
 
 window#waybar {
  	background: alpha(@theme_base_color,0.9);
-	border-radius: 0px 0px 0px 0px;
-
-	border-top: 1px solid rgb(80,80,80);
-	margin-bottom: 10px;
+	border-radius: 10px;
+	border: 1px solid rgb(60,60,60);
 }
 
 tooltip {
 	background: alpha(@theme_base_color,0.5);
-	border: 1px solid rgb(80,80,80);
+	border: 1px solid rgb(60,60,60);
+	border-radius: 18px;
 
 }
 tooltip label{
@@ -26,8 +24,10 @@ tooltip label{
 	font-size: 18px;
 }
 
+
+/* Group Right 1 */
 #network {
-	border: 1px solid rgb(80,80,80);
+	border: 1px solid rgb(60,60,60);
    	background-color: rgba(255, 255, 255, 0.05);
    	   	
 	
@@ -35,11 +35,10 @@ tooltip label{
     border-left: 0px transparent;
 
     margin-top: 6px;
-    margin-bottom: 0px;
+    margin-bottom: 6px;
 }
-
 #bluetooth {
-	border: 1px solid rgb(80,80,80);
+	border: 1px solid rgb(60,60,60);
    	background-color: rgba(255, 255, 255, 0.05);
    	
     border-radius: 6px 0px 0px 6px;
@@ -47,12 +46,14 @@ tooltip label{
     border-right: 0px transparent;
 
     margin-top: 6px;
-    margin-bottom: 0px;
+    margin-bottom: 6px;
     margin-left: 20px;
 
 }
+
+/* Group Right 2 */
 #battery {
-	border: 1px solid rgb(80,80,80);
+	border: 1px solid rgb(60,60,60);
    	background-color: rgba(255, 255, 255, 0.05);
 	
 	border-left: 0px transparent;
@@ -60,14 +61,14 @@ tooltip label{
 	border-radius: 0px 6px 6px 0px;
 
 
-	margin-right: 20px;
+	margin-right: 6px;
 	
     margin-top: 6px;
-    margin-bottom: 0px;
+    margin-bottom: 6px;
 }
 
 #backlight {
-	border: 1px solid rgb(80,80,80);
+	border: 1px solid rgb(60,60,60);
    	background-color: rgba(255, 255, 255, 0.05);
 	   	
     border-radius: 6px 0px 0px 6px;
@@ -75,12 +76,12 @@ tooltip label{
     border-right: 0px transparent;
 
     margin-top: 6px;
-    margin-bottom: 0px;
+    margin-bottom: 6px;
     
     margin-left: 10px;
 } 
 #wireplumber {
-	border: 1px solid rgb(80,80,80);
+	border: 1px solid rgb(60,60,60);
    	background-color: rgba(255, 255, 255, 0.05);
    	
     border-radius: 0px 0px 0px 0px;
@@ -89,33 +90,39 @@ tooltip label{
     border-left: 0px transparent;
    
     margin-top: 6px;
-    margin-bottom: 0px;
+    margin-bottom: 6px;
 }
 
 #battery.charging {
-	border-left: 2px solid rgba(255,255,255,0.2);
-	background-color: rgba(60, 60, 92, 0.8);
+	border-left: 1px solid rgba(255,255,255,0.2);
+	background-color: rgba(120, 120, 180, 0.5);
 }
+
+
+/* Group Center */
 
 #clock {
 	border: none;
 	background: transparent;
 	
     margin-top: 6px;
-    margin-bottom: 0px;
+    margin-bottom: 6px;
 }
+
+
+/* Group Left */
 #mpris {
-	border: 1px solid rgb(80,80,80);
+	border: 1px solid rgb(60,60,60);
    	background-color: rgba(255, 255, 255, 0.05);
    	
     border-radius: 6px 6px 6px 6px;
 
 	font-size: 18px;
 
-   	margin-left: 16px;
+   	margin-left: 6px;
     margin-top: 6px;
-    margin-bottom: 0px;
+    margin-bottom: 6px;
 }
 #mpris.playing {
-	background-color: rgba(60, 60, 92, 0.8);
+	background-color: rgba(120, 120, 180, 0.5);
 }

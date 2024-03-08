@@ -4,11 +4,14 @@
 	"output": "eDP-1",
 	"modules-left": ["mpris"],
 	"modules-center": ["clock"], 
+	"margin-bottom": 15,
+	"margin-right":30,
+	"margin-left":30,
 	"modules-right": ["bluetooth", "network","backlight", "wireplumber", "battery"],
 	"wireplumber": {
 	    "format": "{icon} {volume}%  ",
 	    "format-muted": " MUTE ",
-	    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+	    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ tiggle",
 		"on-click-right": "pavucontrol",
 	    "max-volume": 100,
 	    "format-icons": ["","","", "", ""],
@@ -42,7 +45,7 @@
 		"on-click": "activate",
 	},
 	"mpris": {
-		"format": " {status_icon} {title} - {artist}  ",
+		"format": "{status_icon} {title} - {artist}  ",
 		"status-icons": {
 			"paused": " ⏸ ",
 			"playing": "  "
