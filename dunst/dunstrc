@@ -10,16 +10,16 @@
     origin = bottom-right
     offset = 20x20
 
-    corner_radius = 6
+    corner_radius = 12
 
-    icon_corner_radius = 6
+    icon_corner_radius = 12
 
     padding = 8
     horizontal_padding = 8
     text_icon_padding = 0
 
     frame_width = 1
-    frame_color = "#505050"
+    frame_color = "#AAAAAA"
 
     gap_size = 16
 
@@ -31,11 +31,11 @@
 	
     ### Text ###
 
-    font = SF Pro Display 15
+    font = SF Pro Display 16
 
     line_height = 6
 
-    format = "<b>%s</b>\n<i>%b</i>"
+    format = "<b>%s</b>\n%b"
 	show_indicators = false
     alignment = left
 
@@ -75,16 +75,16 @@
 
 
 [urgency_low]
-    background = "#15151580"
-    foreground = "#ffffff"
+    background = "#FFFFFF40"
+    foreground = "#000000"
     timeout = 5
 
 [urgency_normal]
-    background = "#15151580"
-    foreground = "#ffffff"
+    background = "#FFFFFF40"
+    foreground = "#000000"
     timeout = 5
 
 [urgency_critical]
-    background = "#15151580"
+    background = "#FFFFFF40"
     foreground = "#ffffff"
     timeout = 0

@@ -1,0 +1,108 @@
+
+* {
+  /* Default background color */
+  background-color: transparent;
+
+  text-color:       #ffffff20;
+  font: "Fira Code Nerd Font 14";
+}
+
+
+configuration {
+	modes: "drun";
+}
+window {
+	padding: 1em;
+	border-color: #ffffff30;
+	border:       1px;
+	border-radius: 10px;
+	background-color: #15151590;
+	location:   west;
+	width:   25%;
+	/*x-offset:   30px; */
+	/*height:    96.5%;*/ 
+	
+	x-offset:   -8px;
+	height:    97%; 
+}
+
+mainbox {
+  spacing: 0px;
+  children: [message,inputbar,listview];
+}
+
+element {
+  background: transparent;
+  children: [ element-icon, element-text ];
+}
+element,element-text,element-icon, button {
+    cursor: pointer;
+}
+
+inputbar {
+  margin: 0px 10px;
+  spacing: 0.4em;
+  border-radius: 6px;
+
+  border:        1px;
+  background-color: #00000055;
+  border-color:		#ffffff20;
+  children: [entry,overlay,case-indicator];
+}
+
+
+
+listview, message {
+  padding: 0.5em;
+  border:  1px;
+  border-radius: 0px;
+  border-color: #ffffff20;
+  background-color: transparent;
+
+  columns: 1;
+  lines:   7;
+}
+listview {
+  border: 0px;
+  spacing: 10px;
+  background-color: transparent;
+  border-color:     #ffffff20;
+  scrollbar:    false;
+}
+
+
+element {
+    border:  1px;
+    border-radius: 6px;
+    padding: 5px;
+    border-color: #ffffff20;
+}
+
+element-text {
+    background-color: transparent;
+    text-color:       #ffffffcc;
+    font: "Fira Code Nerd Font 13";
+    padding: 5px;
+}
+
+element normal.normal {
+    background-color: #00000055;
+}
+element.alternate.normal {
+    background-color: #00000055;
+}
+
+
+element.selected.normal {
+    background-color: #ffffff20;
+}
+
+
+entry {
+    placeholder: "Search here";
+    placeholder-color: #ffffff20;
+    border-color: transparent;
+    background-color: transparent;
+    border:        10px;
+    text-color: #ffffffcc;
+}
