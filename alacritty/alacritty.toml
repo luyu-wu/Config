@@ -5,38 +5,46 @@ duration = 0
 
 [colors]
 draw_bold_text_with_bright_colors = false
+transparent_background_colors = false
+# Default colors
+[colors.primary]
+background = '#ffffff'
+foreground = '#24292f'
 
+# Normal colors
+[colors.normal]
+black   = '#24292e'
+red     = '#d73a49'
+green   = '#28a745'
+yellow  = '#dbab09'
+blue    = '#0366d6'
+magenta = '#5a32a3'
+cyan    = '#0598bc'
+white   = '#6a737d'
+
+# Bright colors
 [colors.bright]
-black=   '0x8e908c'
-red=     '0xf5871f'
-green=   '0xe0e0e0'
-yellow=  '0xd6d6d6'
-blue=    '0x969896'
-magenta= '0x282a2e'
-cyan=    '0xa3685a'
-white=   '0x1d1f21'
+black   = '#959da5'
+red     = '#cb2431'
+green   = '#22863a'
+yellow  = '#b08800'
+blue    = '#005cc5'
+magenta = '#5a32a3'
+cyan    = '#3192aa'
+white   = '#d1d5da'
+
 
 [colors.cursor]
-cursor = "0xc5c8c6"
-text = "0xC2DAF7"
+text = '#000000'
+cursor = '#000000' 
 
-[colors.normal]
-black=   '0xffffff'
-red=     '0xc82829'
-green=   '0x718c00'
-yellow=  '0xeab700'
-blue=    '0x4271ae'
-magenta= '0x8959a8'
-cyan=    '0x3e999f'
-white=   '0x4d4d4c'
-
-[colors.primary]
-background = "0xffffff"
-foreground = "0x4d4d4c"
-
+[colors.selection]
+text = '#4C4F69'
+background = '#C2DAF7'
 [cursor]
 style = "Beam"
-unfocused_hollow = true
+unfocused_hollow = false
+
 
 [debug]
 log_level = "OFF"
@@ -49,7 +57,7 @@ size = 13.0
 
 [font.bold]
 family = "Fira Code Nerd Font"
-style = "Medium"
+style = "Bold"
 
 [font.glyph_offset]
 x = 0
@@ -66,6 +74,36 @@ style = "Regular"
 [font.offset]
 x = 0
 y = 0
+
+[mouse]
+hide_when_typing = false
+
+
+[scrolling]
+history = 600
+multiplier = 5
+
+[selection]
+save_to_clipboard = false
+semantic_escape_chars = ",│`|:\"' ()[]{}<>"
+
+[shell]
+program = "/usr/bin/fish"
+
+[window]
+decorations = "none"
+dynamic_padding = false
+opacity = 0.5
+startup_mode = "Windowed"
+
+[window.dimensions]
+columns = 0
+lines = 0
+
+[window.padding]
+x = 0
+y = 0
+
 
 [[keyboard.bindings]]
 action = "Paste"
@@ -344,32 +382,3 @@ mods = "Command"
 chars = "\u0002/"
 key = "F"
 mods = "Command"
-
-[mouse]
-hide_when_typing = false
-
-
-[scrolling]
-history = 300
-multiplier = 3
-
-[selection]
-save_to_clipboard = false
-semantic_escape_chars = ",│`|:\"' ()[]{}<>"
-
-[shell]
-program = "/usr/bin/fish"
-
-[window]
-decorations = "none"
-dynamic_padding = false
-opacity = 0.8
-startup_mode = "Windowed"
-
-[window.dimensions]
-columns = 0
-lines = 0
-
-[window.padding]
-x = 0
-y = 0
