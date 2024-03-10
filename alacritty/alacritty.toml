@@ -57,7 +57,7 @@ size = 13.0
 
 [font.bold]
 family = "Fira Code Nerd Font"
-style = "Bold"
+style = "Normal"
 
 [font.glyph_offset]
 x = 0
