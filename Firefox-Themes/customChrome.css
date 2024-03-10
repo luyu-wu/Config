@@ -27,3 +27,6 @@
 }
 .titlebar-spacer[type="post-tabs"]{ display:none }
 
+.tab-label-container {
+    mask-image: none !important;
+}
