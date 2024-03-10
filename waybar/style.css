@@ -14,8 +14,9 @@
 window#waybar {
  	background: alpha(@theme_base_color,0.4);
 	border-radius: 10px;
-	box-shadow: inset -1 -2px @border_box;
-    border: 1px solid @border_box;
+	box-shadow: inset -0px -3px @border_box;
+    border: 1px solid #909090;
+
 }
 
 tooltip {
@@ -78,7 +79,7 @@ tooltip label{
     margin-bottom: 6px;
 }
 
-#backlight {
+#wireplumber {
 	border: 1px solid @border_box;
    	background-color: @background_box;
 	box-shadow: inset 0 -2px @border_box;
@@ -92,7 +93,7 @@ tooltip label{
     
     margin-left: 10px;
 } 
-#wireplumber {
+#backlight {
 	border: 1px solid @border_box;
    	background-color: @background_box;
    	box-shadow: inset 0 -2px @border_box;
