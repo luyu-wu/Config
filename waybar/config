@@ -10,7 +10,7 @@
 	"modules-right": ["bluetooth", "network","backlight", "wireplumber", "battery"],
 	"wireplumber": {
 	    "format": "{icon} {volume}%  ",
-	    "format-muted": " MUTE ",
+	    "format-muted": "  MUTE ",
 	    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ tiggle",
 		"on-click-right": "pavucontrol",
 	    "max-volume": 100,
@@ -29,7 +29,7 @@
 		"reverse-scrolling": false,
 		"scroll-step": 0.6,
 	    "device": "intel_backlight",
-	    "format": "    {percent}%   ",
+	    "format": "   {percent}% ",
 	},
 	"clock": {
         "format": "{:%H:%M}",
@@ -47,7 +47,7 @@
 	"mpris": {
 		"format": "{status_icon} {title} - {artist}  ",
 		"status-icons": {
-			"paused": " ⏸ ",
+			"paused": " ⏸  ",
 			"playing": "  "
 		},
 		"max-length":70,
