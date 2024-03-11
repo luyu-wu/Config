@@ -1,7 +1,7 @@
 {
 	"layer": "top",
 	"position":"bottom",
-	"output": "HDMI-A-1",
+	"output": "eDP-1",
 	"modules-left": ["mpris"],
 	"modules-center": ["clock"], 
 	"margin-bottom": 10,

@@ -1,0 +1,33 @@
+color-link statusline "#888888,#FFFFFF99"
+color-link line-number "#CCCCCC"
+color-link current-line-number "#606060"
+color-link type.extended "default"
+color-link selection "#4C4F69,#C2DAF7"
+
+color-link comment "#6C706E"
+
+color-link identifier "#1E66A5"
+color-link identifier.class "#1E66A5"
+color-link identifier.var "#1E66A5"
+
+color-link constant "#CE340B"
+color-link constant.number "#CE340B"
+color-link constant.string "#20701B"
+
+color-link symbol "#AA469B"
+color-link symbol.brackets "#9D3838"
+color-link symbol.tag "#1E66C5"
+
+color-link type "#1E66A5"
+color-link type.keyword "#AF5E0D"
+
+color-link special "#AA469B"
+color-link statement "#48297F"
+color-link preproc "#8A365B"
+
+color-link underlined "#046595"
+color-link error "bold #D20F39"
+color-link todo "bold #AF5E0D"
+
+color-link gutter-error "#820A39"
+color-link gutter-warning "#8F5E0D"
