@@ -14,7 +14,6 @@
 window#waybar {
  	background: alpha(@theme_base_color,0.4);
 	border-radius: 10px;
-	box-shadow: inset -0px -3px @border_box;
     border: 1px solid #909090;
 
 }
