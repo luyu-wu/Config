@@ -10,8 +10,8 @@
 	"modules-right": ["bluetooth", "network", "wireplumber","backlight", "battery"],
 	"wireplumber": {
 	    "format": "  {icon} {volume}%  ",
-	    "format-muted": "  MUTE ",
-	    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ tiggle",
+	    "format-muted": "   MUTE ",
+	    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
 		"on-click-right": "pavucontrol",
 	    "max-volume": 100,
 	    "format-icons": ["","","", "", ""],
