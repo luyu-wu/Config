@@ -33,7 +33,7 @@ tooltip label{
 #custom-ddcutil {
 	border: 1px solid @border_box;
    	background-color: @background_box;
-	box-shadow: inset -2px 0px @border_box;
+	box-shadow: inset -1px 0px @border_box;
     border-bottom: 0px;
     border-radius: 6px 6px 0px 0px;
     margin-left: 6px;
@@ -44,7 +44,7 @@ tooltip label{
 #wireplumber {
 	border: 1px solid @border_box;
    	background-color: @background_box;
-	box-shadow: inset -2px -1px @border_box;
+	box-shadow: inset -1px -2px @border_box;
     border-radius: 0px 0px 6px 6px;
     border-top:0px;
     margin-left: 6px;

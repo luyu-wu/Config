@@ -14,13 +14,11 @@ window {
 	border:       1px;
 	border-color: #888888;
 	border-radius: 12px;
-	background-color: #ffffffA0;
-	location:   west;
+	background-color: #ffffff80;
+	location:   east;
 	width:   25%;
-	/*x-offset:   30px; */
-	/*height:    96.5%;*/ 
 	
-	x-offset:   -10px;
+	x-offset:   10px;
 	height:    90%; 
 }
 
