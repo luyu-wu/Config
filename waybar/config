@@ -1,11 +1,11 @@
 {
-	"layer": "top",
-	"position":"bottom",
+ 	"layer": "top",
+	"position":"left",
 	"modules-left": ["mpris"],
 	"modules-center": ["clock"], 
-	"margin-bottom": 10,
-	"margin-right":20,
-	"margin-left":20,
+	"margin-bottom": 0,
+	"margin-top":0,
+	"margin-left":0,
 	"modules-right": ["tray","custom/ddcutil","wireplumber"],
 	"wireplumber": {
 	    "format": "  {icon} {volume}%  ",
@@ -15,23 +15,36 @@
 	    "max-volume": 100,
 	    "format-icons": ["","","", "", ""],
 	    "reverse-scrolling": true,
-	    "scroll-step": 0.4
+	    "scroll-step": 0.4,
+	    "rotate":90
 	},
+	"custom/ddcutil": {
+	        "format": " 󰃝 {percentage}%  ",
+	        "exec": "~/.config/waybar/scripts/waybar-ddc-module.sh",
+	        "return-type": "json",
+	        "on-scroll-up": "echo '+' > /tmp/waybar-ddc-module-rx",
+	        "on-scroll-down": "echo '-' > /tmp/waybar-ddc-module-rx",
+	        "on-click": "echo 'min' > /tmp/waybar-ddc-module-rx",
+	        "on-click-right": "echo 'max' > /tmp/waybar-ddc-module-rx",
+	        "tooltip": false,
+	        "rotate":90
+	    },
 	"clock": {
-        "format": "{:%H:%M}",
+        "format": "{:%H\n%M}",
         "tooltip-format": "{:%A, %B %d, %Y (%R)}",
 	},
 	"mpris": {
-		"format": "{status_icon} {title} - {artist}  ",
+		"format": "    {title} - {artist} {status_icon} ",
 		"status-icons": {
-			"paused": " ⏸  ",
+			"paused": " ⏸ ",
 			"playing": "  "
 		},
 		"max-length":70,
-		"tooltip-format": "Player: {player_icon}{player} Info: {dynamic}"
+		"tooltip-format": "Player: {player_icon}{player} Info: {dynamic}",
+		"rotate":90
 	},
 	"tray": {
 	    "icon-size": 15,
-	    "spacing": 20
+	    "spacing": 10
 	},
 }
