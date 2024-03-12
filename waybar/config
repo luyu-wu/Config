@@ -1,48 +1,25 @@
 {
 	"layer": "top",
 	"position":"bottom",
-	"output": "eDP-1",
 	"modules-left": ["mpris"],
 	"modules-center": ["clock"], 
 	"margin-bottom": 10,
 	"margin-right":20,
 	"margin-left":20,
-	"modules-right": ["bluetooth", "network", "wireplumber","backlight", "battery"],
+	"modules-right": ["tray","custom/ddcutil","wireplumber"],
 	"wireplumber": {
 	    "format": "  {icon} {volume}%  ",
-	    "format-muted": "  MUTE ",
-	    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ tiggle",
+	    "format-muted": "   MUTE ",
+	    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
 		"on-click-right": "pavucontrol",
 	    "max-volume": 100,
 	    "format-icons": ["","","", "", ""],
 	    "reverse-scrolling": true,
 	    "scroll-step": 0.4
 	},
-    "custom/updates": {
-        "format": "{} ",
-        "exec": "~/.config/waybar/scripts/update",
-        "on-click": "~/.config/waybar/scripts/update update",
-        "on-click-right": "~/.config/waybar/scripts/update",
-        "interval": 1800,
-    },
-	"backlight": {
-		"reverse-scrolling": false,
-		"scroll-step": 0.6,
-	    "device": "intel_backlight",
-	    "format": "   {percent}% ",
-	},
 	"clock": {
         "format": "{:%H:%M}",
         "tooltip-format": "{:%A, %B %d, %Y (%R)}",
-	},
-	"hyprland/workspaces": {
-		"format": "{icon}",
-		"format-icons": {
-			"active": "",
-			"default": ""
-		},
-		"sort-by-number": true,
-		"on-click": "activate",
 	},
 	"mpris": {
 		"format": "{status_icon} {title} - {artist}  ",
@@ -57,29 +34,4 @@
 	    "icon-size": 15,
 	    "spacing": 20
 	},
-	"battery": {
-		"format": " {icon}   {capacity}%   ",
-		"format-icons": ["", "", "", "", ""],
-		"format-charging": "  󰢝 {capacity}%  ",
-		"max-length": 16,
-	},
-	"network": {
-		"format-wifi": "    ",
-		"format": "    ",
-		"tooltip-format": "{signaldBm}dBm {essid} {frequency}GHz",
-		"on-click": "alacritty --class floatterm -e nmtui",
-
-		"on-click-right": "nm-connection-editor",
-
-	},
-	"bluetooth": {
-		"format": " ",
-		"on-click": "alacritty --class floatterm -e bluetuith",
-		"format-connected": "    {device_alias}",
-		"format-connected-battery": " {device_alias} {device_battery_percentage}%",
-		"tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
-		"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
-		"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-		"tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
-	}
 }
