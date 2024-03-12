@@ -3,6 +3,7 @@
     color: @theme_text_color;;
 	font-size: 16px;
 	min-height: 34px;
+	min-width: 34px;
 	margin-bottom: 1px;
 }
 
@@ -12,8 +13,7 @@
 
 window#waybar {
  	background: alpha(@theme_base_color,0.4);
-	border-radius: 10px;
-    border: 1px solid #909090;
+    border-left: 1px solid #909090;
 
 }
 
@@ -21,59 +21,35 @@ tooltip {
 	background: alpha(@theme_base_color,0.5);
 	border: 1px solid @border_box;
 	box-shadow: inset -1 -2px @border_box;
-
 	border-radius: 12px;
-
 }
+
 tooltip label{
 	font-family: Source Code Pro;
 	font-size: 14px;
 }
 
 
-/* Group Right 1 */
-#network {
-   	background-color: @background_box;
-   	
+#custom-ddcutil {
 	border: 1px solid @border_box;
-	box-shadow: inset -1 -2px @border_box;
-	
-    border-radius: 0px 6px 6px 0px;
-    border-left: 0px transparent;
-
-    margin-top: 6px;
-    margin-bottom: 6px;
-}
-#bluetooth {
    	background-color: @background_box;
-   	
-	border: 1px solid @border_box;
-	box-shadow: inset 0px -2px @border_box;
-	
-    border-radius: 6px 0px 0px 6px;
-
-    border-right: 0px transparent;
-
+	box-shadow: inset -2px 0px @border_box;
+    border-bottom: 0px;
+    border-radius: 6px 6px 0px 0px;
+    margin-left: 6px;
+    margin-right: 6px;
     margin-top: 6px;
-    margin-bottom: 6px;
-    margin-left: 20px;
-
+    margin-bottom: -1px;
 }
-
-
 #wireplumber {
 	border: 1px solid @border_box;
    	background-color: @background_box;
-	box-shadow: inset 0 -2px @border_box;
-
-    border-radius: 6px 6px 6px 6px;
-
-
-    margin-top: 6px;
-    margin-bottom: 6px;
-    
+	box-shadow: inset -2px -1px @border_box;
+    border-radius: 0px 0px 6px 6px;
+    border-top:0px;
+    margin-left: 6px;
     margin-right: 6px;
-    margin-left: 20px;
+    margin-bottom: 6px;
 } 
 
 
@@ -83,25 +59,24 @@ tooltip label{
 	border: none;
 	background: transparent;
 	
-    margin-top: 6px;
-    margin-bottom: 6px;
+    margin-left: 6px;
+    margin-right: 6px;
 }
 
 
 /* Group Left */
 #mpris {
 	border: 1px solid @border_box;
-	box-shadow: inset -1 -2px @border_box;
+	box-shadow: inset -1px -2px @border_box;
 
    	background-color: @background_box;
    	
     border-radius: 6px 6px 6px 6px;
 
 	font-size: 18px;
-
-   	margin-left: 6px;
-    margin-top: 6px;
-    margin-bottom: 6px;
+	margin-top: 6px;
+    margin-left: 6px;
+    margin-right: 6px;
 }
 #mpris.playing {
 	background-color: rgba(120, 120, 180, 0.5);
