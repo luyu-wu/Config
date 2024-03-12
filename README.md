@@ -30,8 +30,7 @@ Live config files from my system.
 https://github.com/luyu-wu/Config/assets/116970666/be134b9c-3be1-4819-a608-9a625e6e0e84
 
 ## Screenshots
-![image](https://github.com/luyu-wu/Config/assets/116970666/d6f0f849-df94-4bd8-8f35-c07e3d81da66)
-![2023-12-23-132749_hyprshot](https://github.com/luyu-wu/Config/assets/116970666/4a6c67d1-d88b-4a78-8ff7-740f403eb6d2)
+![image](https://github.com/luyu-wu/Config/assets/116970666/194e2538-22a4-4944-9a2e-0b7e8313c3fb)
 
 
 ## Features
