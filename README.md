@@ -1,33 +1,7 @@
 # Config Files
 
 ## About
-Live config files from my system.
-
-```
-                  -`                     ┌───────── Hardware Information ─────────┐
-                 .o+`                      󰍹  :: Laptop (AA)
-                `ooo/                        :: 11th Gen Intel(R) Core(TM) i5-1135G7 (8) @ 4.20 z
-               `+oooo:                       :: Intel Iris Xe Graphics
-              `+oooooo:                      :: 5.97 GiB / 31.14 GiB (19%)
-              -+oooooo+:                     :: 145.95 GiB / 456.89 GiB (32%) - ext4
-            `/:-:++oooo+:                  󰍹  :: 1920x1080 @ 60Hz
-           `/++++/+++++++:                 󰍹  :: 2256x1504 @ 60Hz [Built-in]
-          `/++++++++++++++:                  :: 99% [Discharging]
-         `/+++ooooooooooooo/`            ├───────── Software Information ─────────┤
-        ./ooosssso++osssssso+`               :: Arch Linux x86_64
-       .oossssso-````/ossssss+`              :: 6.7.4-arch1-1
-      -osssssso.      :ssssssso.             :: Hyprland (Wayland)
-     :osssssss/        osssso+++.          󰧨  :: login (Wayland)
-    /ossssssss/        +ssssooo/-            :: fish 3.7.0
-  `/ossssso+/:-        -:/+osssso+-          :: alacritty 0.13.1
- `+sso+:-`                 `.-/+oso:         :: Fira Code Nerd Font (13.0pt)
-`++:.                           `-/+/        :: 1621 (pacman), 65 (flatpak)
-.`                                 `/    └────────────────────────────────────────┘
-```
-
-## Video Showcase
-
-https://github.com/luyu-wu/Config/assets/116970666/be134b9c-3be1-4819-a608-9a625e6e0e84
+Live config files from my desktop system.
 
 ## Screenshots
 ![image](https://github.com/luyu-wu/Config/assets/116970666/194e2538-22a4-4944-9a2e-0b7e8313c3fb)
@@ -50,7 +24,6 @@ in the packages.txt or smth, flatpaks r in the flatpak one!
 
 ## Credits
 
-wavefox (which I worked upon)
 catppuccin discord + spotify themes
 tokyo-night starship theme
 
