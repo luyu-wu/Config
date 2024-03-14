@@ -8,14 +8,14 @@
 	"margin-left":0,
 	"modules-right": ["tray","custom/ddcutil","wireplumber"],
 	"wireplumber": {
-	    "format": "  {icon} {volume}%  ",
-	    "format-muted": "   MUTE ",
+	    "format-muted": "  MUTE ",
+	    "format": "  {icon} {volume}% ",
 	    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
 		"on-click-right": "pavucontrol",
 	    "max-volume": 100,
 	    "format-icons": ["","","", "", ""],
 	    "reverse-scrolling": true,
-	    "scroll-step": 0.4,
+	    "scroll-step": 1,
 	    "rotate":90
 	},
 	"custom/ddcutil": {
@@ -27,7 +27,6 @@
 	        "on-click": "ddcutil setvcp 10 100",
 	        "on-click-right": "ddcutil setvcp 10 0",
 	        "tooltip": false,
-	        "rotate":90
 	    },
 	"clock": {
         "format": "{:%H\n%M}",
@@ -39,7 +38,7 @@
 			"paused": " ⏸ ",
 			"playing": "  "
 		},
-		"max-length":70,
+		"max-length":30,
 		"tooltip-format": "Player: {player_icon}{player} Info: {dynamic}",
 		"rotate":90
 	},
