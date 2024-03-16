@@ -20,10 +20,7 @@
 	},
 	"custom/ddcutil": {
 	        "format": " 󰃝  ",
-	        //"exec": "~/.config/waybar/scripts/waybar-ddc-module.sh",
 	        "return-type": "json",
-	        //"on-scroll-up": "echo '+' > /tmp/waybar-ddc-module-rx",
-	        //"on-scroll-down": "echo '-' > /tmp/waybar-ddc-module-rx",
 	        "on-click": "ddcutil setvcp 10 100",
 	        "on-click-right": "ddcutil setvcp 10 0",
 	        "tooltip": false,
