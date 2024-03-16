@@ -21,7 +21,7 @@ window {
 	/*height:    96.5%;*/ 
 	
 	x-offset:   -10px;
-	height:    90%; 
+	height:    90.5%; 
 }
 
 mainbox {
@@ -38,7 +38,7 @@ element,element-text,element-icon, button {
 }
 
 inputbar {
-  margin: 0px 10px;
+  margin: 20px 10px;
   spacing: 0.4em;
   border-radius: 6px;
 
