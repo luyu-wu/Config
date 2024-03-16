@@ -80,7 +80,7 @@ hide_when_typing = false
 
 
 [scrolling]
-history = 600
+history = 2000
 multiplier = 5
 
 [selection]
@@ -93,7 +93,7 @@ program = "/usr/bin/fish"
 [window]
 decorations = "none"
 dynamic_padding = false
-opacity = 0.6
+opacity = 0.5
 startup_mode = "Windowed"
 
 [window.dimensions]

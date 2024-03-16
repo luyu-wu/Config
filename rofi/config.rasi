@@ -15,10 +15,10 @@ window {
 	border-color: #888888;
 	border-radius: 12px;
 	background-color: #ffffff80;
-	location:   east;
+	location:   west;
 	width:   25%;
 	
-	x-offset:   10px;
+	x-offset:   20px;
 	height:    90%; 
 }
 
