@@ -13,8 +13,8 @@
 
 window#waybar {
  	background: alpha(@theme_base_color,0.4);
-    border-left: 1px solid #909090;
-
+    border: 2px solid #606060;
+	border-radius: 8px;
 }
 
 tooltip {
