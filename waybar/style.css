@@ -12,7 +12,7 @@
 
 
 window#waybar {
- 	background: alpha(@theme_base_color,0.4);
+ 	background: alpha(@theme_base_color,0.7);
 	border-radius: 10px;
     border: 1px solid #909090;
 
