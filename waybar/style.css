@@ -8,7 +8,7 @@
 }
 
 @define-color background_box rgba(80,80,80,0.2);
-@define-color border_box #505050; /* border and shadow color */
+@define-color border_box #606060; /* border and shadow color */
 
 
 window#waybar {
@@ -19,8 +19,7 @@ window#waybar {
 
 tooltip {
 	background: alpha(@theme_base_color,0.5);
-	border: 1px solid @border_box;
-	box-shadow: inset -1 -2px @border_box;
+	border: 2px solid @border_box;
 	border-radius: 12px;
 }
 
@@ -31,9 +30,8 @@ tooltip label{
 
 
 #custom-ddcutil {
-	border: 1px solid @border_box;
+	border: 2px solid @border_box;
    	background-color: @background_box;
-	box-shadow: inset -1px 0px @border_box;
     border-bottom: 0px;
     border-radius: 6px 6px 0px 0px;
     margin-left: 6px;
@@ -42,9 +40,8 @@ tooltip label{
     margin-bottom: -1px;
 }
 #wireplumber {
-	border: 1px solid @border_box;
+	border: 2px solid @border_box;
    	background-color: @background_box;
-	box-shadow: inset -1px -2px @border_box;
     border-radius: 0px 0px 6px 6px;
     border-top:0px;
     margin-left: 6px;
@@ -66,8 +63,7 @@ tooltip label{
 
 /* Group Left */
 #mpris {
-	border: 1px solid @border_box;
-	box-shadow: inset -1px -2px @border_box;
+	border: 2px solid @border_box;
 
    	background-color: @background_box;
    	
