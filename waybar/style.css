@@ -4,17 +4,16 @@
 	font-size: 16px;
 	min-height: 34px;
 	min-width: 34px;
+	border-radius: 0px;
 	margin-bottom: 1px;
 }
 
 @define-color background_box rgba(80,80,80,0.2);
 @define-color border_box #606060; /* border and shadow color */
 
-
 window#waybar {
  	background: alpha(@theme_base_color,0.4);
     border: 2px solid #606060;
-	border-radius: 8px;
 }
 
 tooltip {
@@ -33,7 +32,7 @@ tooltip label{
 	border: 2px solid @border_box;
    	background-color: @background_box;
     border-bottom: 0px;
-    border-radius: 6px 6px 0px 0px;
+    /*border-radius: 6px 6px 0px 0px;*/
     margin-left: 6px;
     margin-right: 6px;
     margin-top: 6px;
@@ -42,13 +41,26 @@ tooltip label{
 #wireplumber {
 	border: 2px solid @border_box;
    	background-color: @background_box;
-    border-radius: 0px 0px 6px 6px;
+    /*border-radius: 0px 0px 6px 6px;*/
     border-top:0px;
     margin-left: 6px;
     margin-right: 6px;
     margin-bottom: 6px;
 } 
 
+#privacy {
+	border: 2px solid @border_box;
+   	background-color: @background_box;
+    /*border-radius: 0px 0px 6px 6px;*/
+    border-top:0px;
+    margin-left: 6px;
+    margin-right: 6px;
+    margin-bottom: 6px;
+}
+
+#tray {
+	margin-bottom: 8px;
+}
 
 /* Group Center */
 
@@ -67,8 +79,6 @@ tooltip label{
 
    	background-color: @background_box;
    	
-    border-radius: 6px 6px 6px 6px;
-
 	font-size: 18px;
 	margin-top: 6px;
     margin-left: 6px;

@@ -7,6 +7,7 @@
 	"margin-top":10,
 	"margin-left":5,
 	"modules-right": ["tray","custom/ddcutil","wireplumber"],
+	
 	"wireplumber": {
 	    "format-muted": "  MUTE ",
 	    "format": "  {icon} {volume}% ",
@@ -18,6 +19,7 @@
 	    "scroll-step": 1,
 	    "rotate":90
 	},
+
 	"custom/ddcutil": {
 	        "format": " 󰃝  ",
 	        "return-type": "json",
@@ -30,9 +32,9 @@
         "tooltip-format": "{:%A, %B %d, %Y (%R)}",
 	},
 	"mpris": {
-		"format": "    {title} - {artist} {status_icon} ",
+		"format": "  {title} - {artist} {status_icon} ",
 		"status-icons": {
-			"paused": " ⏸ ",
+			"paused": " 󰏤 ",
 			"playing": "  "
 		},
 		"max-length":30,
@@ -40,7 +42,7 @@
 		"rotate":90
 	},
 	"tray": {
-	    "icon-size": 15,
+	    "icon-size": 20,
 	    "spacing": 10
 	},
 }
