@@ -1,13 +1,14 @@
 * {
 	font-family: Fira Code Nerd Font;
-    color: @theme_text_color;;
 	/*font-family: Source Code Pro; */
 	font-size: 20px;
-	min-height: 36px;
+	min-width: 40px;
 	margin-bottom: 1px;
 }
 
-@define-color background_box rgba(80,80,80,0.2);
+@define-color background_box rgba(80,80,80,0.1);
+@define-color background_active_box rgba(120, 120, 180, 0.35);
+
 @define-color border_box #505050; /* border and shadow color */
 
 
@@ -38,40 +39,41 @@ tooltip label{
 	border: 2px solid @border_box;
 	
     border-radius: 0px 0px 0px 0px;
-    border-left: 0px transparent;
-
-    margin-top: 6px;
-    margin-bottom: 6px;
+    border-bottom: 0px transparent;
+	min-height: 50px;
+    margin-left: 6px;
+    margin-right: 6px;
+    margin-bottom: -10px;
 }
 #bluetooth {
    	background-color: @background_box;
    	
 	border: 2px solid @border_box;
-	
+	min-height: 50px;
     border-radius: 0px 0px 0px 0px;
 
-    border-right: 0px transparent;
+    border-top: 0px transparent;
 
-    margin-top: 6px;
-    margin-bottom: 6px;
-    margin-left: 20px;
+    margin-right: 6px;
+    margin-left: 6px;
+    margin-bottom: 4px;
 
 }
 
-/* Group Right 2 */
 #battery {
 	border: 2px solid @border_box;
    	background-color: @background_box;
 
-	border-left: 0px transparent;
+	border-top: 0px transparent;
 
 	border-radius: 0px 0px 0px 0px;
+	min-height: 80px;
 
 
-	margin-right: 6px;
+	margin-bottom: 4px;
 	
-    margin-top: 6px;
-    margin-bottom: 6px;
+    margin-left: 6px;
+    margin-right: 6px;
 }
 
 #wireplumber {
@@ -80,12 +82,12 @@ tooltip label{
 
     border-radius: 0px 0px 0px 0px;
 
-    border-right: 0px transparent;
-
-    margin-top: 6px;
-    margin-bottom: 6px;
-    
-    margin-left: 10px;
+    border-bottom: 0px transparent;
+	min-height: 80px;
+    margin-left: 6px;
+    margin-right: 6px;
+    margin-top: 0px;
+    margin-bottom: 0px;
 } 
 #backlight {
 	border: 2px solid @border_box;
@@ -93,30 +95,29 @@ tooltip label{
 
     border-radius: 0px 0px 0px 0px;
 
-    border-right: 0px transparent;
-    border-left: 0px transparent;
+    border-top: 0px transparent;
+    border-bottom: 0px transparent;
    
-    margin-top: 6px;
-    margin-bottom: 6px;
+    margin-left: 6px;
+    margin-right: 6px;
 }
 
 #battery.charging {
-	background-color: rgba(120, 120, 180, 0.5);
+	background-color: @background_active_box;
 }
 
 
-/* Group Center */
+/* Group Top */
 
 #clock {
 	border: none;
 	background: transparent;
-	
-    margin-top: 6px;
-    margin-bottom: 6px;
+	min-height: 80px;
+    margin-right: 6px;
+    margin-left: 6px;
+    font-weight: Bold;
 }
 
-
-/* Group Left */
 #mpris {
 	border: 2px solid @border_box;
 
@@ -124,11 +125,28 @@ tooltip label{
    	
     border-radius: 0px;
 	font-size: 18px;
-
-   	margin-left: 6px;
-    margin-top: 6px;
-    margin-bottom: 6px;
+	margin-top: -4px;
+    margin-left: 6px;
+    margin-right: 6px;
 }
 #mpris.playing {
-	background-color: rgba(120, 120, 180, 0.5);
+	background-color: @background_active_box;
+}
+
+
+#workspaces {
+	font-size: 18px;
+}
+#workspaces button {
+	margin-left: -10px;
+	margin-right: -6px;
+	margin-bottom: 2px;
+	color: @background_active_box;
+
+
+}
+
+#workspaces button.active {	
+	color: #000000;
+	/*background-color: @background_active_box;*/
 }
