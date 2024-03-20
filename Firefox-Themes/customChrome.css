@@ -5,26 +5,6 @@
   display:none !important;
 }
 
-/* Remove back and forwards button */
-#back-button,
-#forward-button {
-  display: none !important;
-}
-
-/* Remove browser close button*/ 
-.titlebar-buttonbox-container{ 
-	display:none !important
-} 
-
-/* Hide Tab Close buttons */
-.tabbrowser-tab .tab-close-button {
-  visibility: collapse !important;
-}
-
-/* Remove all tabs button */
-#alltabs-button {
-    display: none !important;
-}
 .titlebar-spacer[type="post-tabs"]{ display:none }
 
 .tab-label-container {

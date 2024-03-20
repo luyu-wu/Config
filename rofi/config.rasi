@@ -11,9 +11,9 @@ configuration {
 }
 window {
 	padding: 1em;
-	border:       1px;
-	border-color: #888888;
-	border-radius: 12px;
+	border:       2px;
+	border-color: #606060;
+	border-radius: 0px;
 	background-color: #ffffff80;
 	location:   west;
 	width:   25%;
@@ -38,7 +38,7 @@ element,element-text,element-icon, button {
 inputbar {
   margin: 0px 10px;
   spacing: 0.4em;
-  border-radius: 6px;
+  border-radius: 0px;
 
   border:        1px;
   background-color: #E0E0E0A0;
@@ -66,7 +66,7 @@ listview {
 
 element {
     border:  1px;
-    border-radius: 6px;
+    border-radius: 0px;
     padding: 5px;
     border-color: #00000050;
 }
