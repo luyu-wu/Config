@@ -6,10 +6,9 @@
     ### Geometry ###
 
     width = 400
-    height = 400
+    height = 100
     origin = bottom-right
-    offset = 20x20
-
+    offset = -8x20
     corner_radius = 12
 
     icon_corner_radius = 12
@@ -38,7 +37,7 @@
     format = "<b>%s</b>\n%b"
 	show_indicators = false
     alignment = left
-
+	word_wrap = false
     vertical_alignment = center
 
     ### Icons ###
@@ -75,16 +74,16 @@
 
 
 [urgency_low]
-    background = "#FFFFFF40"
+    background = "#FFFFFF80"
     foreground = "#000000"
-    timeout = 5
+    timeout = 2
 
 [urgency_normal]
-    background = "#FFFFFF40"
+    background = "#FFFFFF80"
     foreground = "#000000"
     timeout = 5
 
 [urgency_critical]
-    background = "#FFFFFF40"
+    background = "#FFFFFF80"
     foreground = "#ffffff"
     timeout = 0
