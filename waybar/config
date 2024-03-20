@@ -1,71 +1,65 @@
 {
 	"layer": "top",
-	"position":"bottom",
-	"modules-left": ["mpris"],
-	"modules-center": ["clock"],
-	"output": ["DP-4","HDMI-A-1","eDP-1"], 
+	"position":"left",
+	"modules-left": ["clock","mpris"],
+	"modules-center": ["hyprland/workspaces"], 
 	"margin-bottom": 10,
-	"margin-right":20,
-	"margin-left":20,
-	"modules-right": ["bluetooth", "network", "wireplumber","backlight", "battery"],
+	"margin-top":10,
+	"margin-left":5,
+	"modules-right": ["network","bluetooth","wireplumber","backlight","battery"],
 	"wireplumber": {
-	    "format": "  {icon} {volume}%  ",
-	    "format-muted": "   MUTE ",
+	    "format-muted": " MT",
+	    "format": "{icon} {volume}",
 	    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
 		"on-click-right": "pavucontrol",
 	    "max-volume": 100,
 	    "format-icons": ["","","", "", ""],
 	    "reverse-scrolling": true,
-	    "scroll-step": 0.4
+	    "scroll-step": 1,
+	    "rotate":90
 	},
-    "custom/updates": {
-        "format": "{} ",
-        "exec": "~/.config/waybar/scripts/update",
-        "on-click": "~/.config/waybar/scripts/update update",
-        "on-click-right": "~/.config/waybar/scripts/update",
-        "interval": 1800,
-    },
 	"backlight": {
 		"reverse-scrolling": false,
 		"scroll-step": 0.6,
 	    "device": "intel_backlight",
-	    "format": "   {percent}% ",
+	    "format": "  {percent}",
+	    "rotate":90
 	},
 	"clock": {
-        "format": "{:%H:%M}",
+        "format": "{:%H\n%M}",
         "tooltip-format": "{:%A, %B %d, %Y (%R)}",
 	},
 	"hyprland/workspaces": {
 		"format": "{icon}",
+		"show-special":true,
 		"format-icons": {
-			"active": "",
-			"default": ""
+			"default": "",
+			"special": "󰙯",
+
 		},
-		"sort-by-number": true,
+		"rotate":90,
 		"on-click": "activate",
 	},
 	"mpris": {
-		"format": "{status_icon} {title} - {artist}  ",
+		"format": " {status_icon} {title} - {artist} ",
 		"status-icons": {
-			"paused": " ⏸  ",
-			"playing": "  "
+			"paused": "⏸ ",
+			"playing": " "
 		},
-		"max-length":70,
-		"tooltip-format": "Player: {player_icon}{player} Info: {dynamic}"
-	},
-	"tray": {
-	    "icon-size": 15,
-	    "spacing": 20
+		"max-length":25,
+		"tooltip-format": "{status_icon} {title} - {artist}",
+		"rotate":90
 	},
 	"battery": {
-		"format": " {icon}   {capacity}%   ",
+		"format": "{icon}  {capacity}",
 		"format-icons": ["", "", "", "", ""],
-		"format-charging": "  󰢝 {capacity}%  ",
+		"format-charging": "󰢝 {capacity}",
 		"max-length": 16,
+		"rotate":90
 	},
 	"network": {
-		"format-wifi": "    ",
-		"format": "    ",
+		"format-wifi": " ",
+		"format": "",
 		"tooltip-format": "{signaldBm}dBm {essid} {frequency}GHz",
 		"on-click": "alacritty --class floatterm -e nmtui",
 
@@ -73,10 +67,8 @@
 
 	},
 	"bluetooth": {
-		"format": " ",
+		"format": "",
 		"on-click": "alacritty --class floatterm -e bluetuith",
-		"format-connected": "    {device_alias}",
-		"format-connected-battery": " {device_alias} {device_battery_percentage}%",
 		"tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
 		"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
 		"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
