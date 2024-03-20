@@ -2,8 +2,8 @@
 	font-family: Fira Code Nerd Font;
     color: @theme_text_color;;
 	/*font-family: Source Code Pro; */
-	font-size: 22px;
-	min-height: 40px;
+	font-size: 20px;
+	min-height: 36px;
 	margin-bottom: 1px;
 }
 
@@ -13,17 +13,16 @@
 
 window#waybar {
  	background: alpha(@theme_base_color,0.7);
-	border-radius: 10px;
-    border: 1px solid #909090;
-
+    border: 2px solid @border-box;
+	border-radius: 0px;
 }
 
 tooltip {
 	background: alpha(@theme_base_color,0.5);
-	border: 1px solid @border_box;
-	box-shadow: inset -1 -2px @border_box;
+	border: 2px solid @border_box;
+	/*box-shadow: inset -1 -2px @border_box;*/
 
-	border-radius: 12px;
+	border-radius: 0px;
 
 }
 tooltip label{
@@ -36,10 +35,9 @@ tooltip label{
 #network {
    	background-color: @background_box;
    	
-	border: 1px solid @border_box;
-	box-shadow: inset -1 -2px @border_box;
+	border: 2px solid @border_box;
 	
-    border-radius: 0px 6px 6px 0px;
+    border-radius: 0px 0px 0px 0px;
     border-left: 0px transparent;
 
     margin-top: 6px;
@@ -48,10 +46,9 @@ tooltip label{
 #bluetooth {
    	background-color: @background_box;
    	
-	border: 1px solid @border_box;
-	box-shadow: inset 0px -2px @border_box;
+	border: 2px solid @border_box;
 	
-    border-radius: 6px 0px 0px 6px;
+    border-radius: 0px 0px 0px 0px;
 
     border-right: 0px transparent;
 
@@ -63,13 +60,12 @@ tooltip label{
 
 /* Group Right 2 */
 #battery {
-	border: 1px solid @border_box;
+	border: 2px solid @border_box;
    	background-color: @background_box;
-	box-shadow: inset -1 -2px @border_box;
 
 	border-left: 0px transparent;
 
-	border-radius: 0px 6px 6px 0px;
+	border-radius: 0px 0px 0px 0px;
 
 
 	margin-right: 6px;
@@ -79,11 +75,10 @@ tooltip label{
 }
 
 #wireplumber {
-	border: 1px solid @border_box;
+	border: 2px solid @border_box;
    	background-color: @background_box;
-	box-shadow: inset 0 -2px @border_box;
 
-    border-radius: 6px 0px 0px 6px;
+    border-radius: 0px 0px 0px 0px;
 
     border-right: 0px transparent;
 
@@ -93,9 +88,8 @@ tooltip label{
     margin-left: 10px;
 } 
 #backlight {
-	border: 1px solid @border_box;
+	border: 2px solid @border_box;
    	background-color: @background_box;
-   	box-shadow: inset 0 -2px @border_box;
 
     border-radius: 0px 0px 0px 0px;
 
@@ -124,13 +118,11 @@ tooltip label{
 
 /* Group Left */
 #mpris {
-	border: 1px solid @border_box;
-	box-shadow: inset -1 -2px @border_box;
+	border: 2px solid @border_box;
 
    	background-color: @background_box;
    	
-    border-radius: 6px 6px 6px 6px;
-
+    border-radius: 0px;
 	font-size: 18px;
 
    	margin-left: 6px;

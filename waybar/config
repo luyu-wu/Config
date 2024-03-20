@@ -3,7 +3,7 @@
 	"position":"bottom",
 	"modules-left": ["mpris"],
 	"modules-center": ["clock"],
-	"output": ["HDMI-A-1","eDP-1"], 
+	"output": ["DP-4","HDMI-A-1","eDP-1"], 
 	"margin-bottom": 10,
 	"margin-right":20,
 	"margin-left":20,

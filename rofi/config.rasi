@@ -63,7 +63,7 @@ listview {
   spacing: 8px;
   padding: 0.5em;
   border-radius: 10px;
-  background-color: #00000020;
+  background-color: #00000010;
   border-color:     #ffffff20;
   scrollbar:    false;
 }
