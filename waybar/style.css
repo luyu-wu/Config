@@ -12,7 +12,7 @@
 @define-color border_box #606060; /* border and shadow color */
 
 window#waybar {
- 	background: alpha(@theme_base_color,0.4);
+ 	background: alpha(@theme_base_color,0.6);
     border: 2px solid #606060;
 }
 
