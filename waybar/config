@@ -34,7 +34,8 @@
 		"show-special":true,
 		"format-icons": {
 			"default": "",
-			"special": "󰙯",
+			"dispotify": "󰙯",
+			"windows": "",
 
 		},
 		"rotate":90,
@@ -43,10 +44,10 @@
 	"mpris": {
 		"format": " {status_icon} {title} - {artist} ",
 		"status-icons": {
-			"paused": "⏸ ",
-			"playing": " "
+			"paused": "⏸",
+			"playing": "󰎈"
 		},
-		"max-length":25,
+		"max-length":22,
 		"tooltip-format": "{status_icon} {title} - {artist}",
 		"rotate":90
 	},
