@@ -73,9 +73,10 @@ tooltip label{
 	min-height: 80px;
 
 
-	margin-bottom: 4px;
+	margin-bottom: 6px;
     margin-left: 6px;
     margin-right: 6px;
+    padding-bottom: 10px;
 }
 
 #wireplumber {
