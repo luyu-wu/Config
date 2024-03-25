@@ -6,6 +6,7 @@
 	min-width: 34px;
 	border-radius: 0px;
 	margin-bottom: 1px;
+	transition: 0.5s;
 }
 
 @define-color background_box rgba(80,80,80,0.2);
