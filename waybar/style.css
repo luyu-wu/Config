@@ -20,7 +20,7 @@ window#waybar {
 tooltip {
 	background: alpha(@theme_base_color,0.5);
 	border: 2px solid @border_box;
-	border-radius: 12px;
+	border-radius: 0px;
 }
 
 tooltip label{
