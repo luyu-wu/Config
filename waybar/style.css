@@ -11,12 +11,12 @@
 @define-color background_box rgba(80,80,80,0.1);
 @define-color background_active_box rgba(120, 120, 180, 0.35);
 
-@define-color border_box #505050; /* border and shadow color */
+@define-color border_box #808080; /* border and shadow color */
 
 
 window#waybar {
- 	background: alpha(@theme_base_color,0.7);
-    border: 2px solid @border-box;
+ 	background: alpha(@theme_base_color,0.6);
+    border: 3px solid #505050;
 	border-radius: 0px;
 }
 
@@ -151,6 +151,7 @@ tooltip label{
 	margin-left: -9px;
 	margin-right: -6px;
 	border-radius: 0px;
+
 
 	color: @background_active_box;
 
