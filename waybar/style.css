@@ -9,9 +9,9 @@
 	transition: 0.5s;
 }
 
-@define-color background_box rgba(80,80,80,0.2);
+@define-color background_box rgba(80,80,80,0.1);
 @define-color border_box #606060; /* border and shadow color */
-
+@define-color background_active_box rgb(180, 180, 240);
 window#waybar {
  	background: alpha(@theme_base_color,0.6);
     border: 2px solid #606060;
@@ -65,26 +65,61 @@ tooltip label{
 
 /* Group Center */
 
+
+
 #clock {
 	border: none;
 	background: transparent;
-	
+	min-height: 70px;
+    margin-right:6px;
     margin-left: 6px;
-    margin-right: 6px;
+    font-weight: Bold;
 }
 
-
-/* Group Left */
 #mpris {
 	border: 2px solid @border_box;
 
    	background-color: @background_box;
    	
+    border-radius: 0px;
 	font-size: 18px;
-	margin-top: 6px;
+	margin-top: -4px;
     margin-left: 6px;
     margin-right: 6px;
+
+    padding-top:8px;
+
+	transition-delay: 0s;
+	transition: 0.5s;
 }
+
 #mpris.playing {
-	background-color: rgba(120, 120, 180, 0.5);
+	background-color: @background_active_box;
+}
+
+#workspaces {
+	background-color: @background_box;
+	border: 2px solid @border_box;
+
+    margin-left: 6px;
+    margin-right: 6px;
+	font-size: 18px;
+}
+
+#workspaces button {
+	margin-left: -23px;
+	margin-right: -20px;
+	margin-top: -5px;
+	margin-bottom: -5px;
+	color: rgba(120, 120, 180, 0.35);
+
+	transition-delay: 0s;
+	transition: 0.2s;
+}
+
+#workspaces button.active {	
+	color: #000000;
+	margin-top:3px;
+	font-size:30px;
+	margin-bottom: 3px;
 }
