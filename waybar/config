@@ -1,8 +1,8 @@
 {
  	"layer": "top",
 	"position":"left",
-	"modules-left": ["mpris"],
-	"modules-center": ["clock"], 
+	"modules-left": ["clock","mpris"],
+	"modules-center": ["hyprland/workspaces"], 
 	"margin-bottom": 10,
 	"margin-top":10,
 	"margin-left":5,
@@ -19,7 +19,19 @@
 	    "scroll-step": 1,
 	    "rotate":90
 	},
+	"hyprland/workspaces": {
+		"format": "{icon}",
+		"show-special":true,
+		"format-icons": {
+			"default": "",
+			"discord": "󰙯",
+			"spotify": "",
+			"windows": "",
 
+		},
+		"rotate":90,
+		"on-click": "activate",
+	},
 	"custom/ddcutil": {
 	        "format": " 󰃝  ",
 	        "return-type": "json",
