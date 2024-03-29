@@ -1,19 +1,18 @@
 * {
 	font-family: Fira Code Nerd Font;
-    color: @theme_text_color;;
-	font-size: 16px;
 	min-height: 34px;
 	min-width: 34px;
 	border-radius: 0px;
 	margin-bottom: 1px;
-	transition: 0.5s;
+	transition-delay: 0s;
 }
 
 @define-color background_box rgba(80,80,80,0.1);
 @define-color border_box #606060; /* border and shadow color */
 @define-color background_active_box rgb(180, 180, 240);
+
 window#waybar {
- 	background: alpha(@theme_base_color,0.6);
+ 	background: alpha(@theme_base_color,1);
     border: 2px solid #606060;
 }
 
@@ -26,6 +25,7 @@ tooltip {
 tooltip label{
 	font-family: Source Code Pro;
 	font-size: 14px;
+	color: #000000;
 }
 
 
@@ -74,6 +74,7 @@ tooltip label{
     margin-right:6px;
     margin-left: 6px;
     font-weight: Bold;
+    font-size: 18px;
 }
 
 #mpris {
@@ -100,18 +101,20 @@ tooltip label{
 #workspaces {
 	background-color: @background_box;
 	border: 2px solid @border_box;
-
+	margin-top: 10px;
     margin-left: 6px;
     margin-right: 6px;
-	font-size: 18px;
+	font-size: 20px;
+	
 }
 
 #workspaces button {
-	margin-left: -23px;
+	margin-left: -24px;
 	margin-right: -20px;
-	margin-top: -5px;
-	margin-bottom: -5px;
-	color: rgba(120, 120, 180, 0.35);
+	margin-top: -3px;
+	margin-bottom: -3px;
+	
+	color: rgba(120, 120, 180, 0.5);
 
 	transition-delay: 0s;
 	transition: 0.2s;
@@ -120,6 +123,5 @@ tooltip label{
 #workspaces button.active {	
 	color: #000000;
 	margin-top:3px;
-	font-size:30px;
 	margin-bottom: 3px;
 }
