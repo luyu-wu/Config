@@ -27,9 +27,7 @@
 			"discord": "󰙯",
 			"spotify": "",
 			"windows": "",
-
 		},
-		"rotate":90,
 		"on-click": "activate",
 	},
 	"custom/ddcutil": {
@@ -49,8 +47,8 @@
 			"paused": " 󰏤 ",
 			"playing": "  "
 		},
-		"max-length":30,
-		"tooltip-format": "Player: {player_icon}{player} Info: {dynamic}",
+		"max-length":26,
+		"tooltip-format": "{status_icon} {title} - {artist}",
 		"rotate":90
 	},
 	"tray": {

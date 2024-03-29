@@ -93,7 +93,7 @@ program = "/usr/bin/fish"
 [window]
 decorations = "none"
 dynamic_padding = false
-opacity = 0.7
+opacity = 1
 startup_mode = "Windowed"
 
 [window.dimensions]
