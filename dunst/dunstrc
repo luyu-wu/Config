@@ -7,7 +7,7 @@
 
     width = 400
     height = 100
-    origin = top-right
+    origin = bottom-right
     offset = 20x20
     corner_radius = 0
 
@@ -17,7 +17,7 @@
     horizontal_padding = 8
     text_icon_padding = 0
 
-    frame_width = 2
+    frame_width = 3
     frame_color = "#505050"
 
     gap_size = 16

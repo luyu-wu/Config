@@ -91,8 +91,8 @@ semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 program = "/usr/bin/fish"
 
 [window]
-decorations = "none"
-dynamic_padding = false
+blur = true
+decorations = "full"
 opacity = 0.7
 startup_mode = "Windowed"
 
