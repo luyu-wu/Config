@@ -15,7 +15,7 @@
 
 
 window#waybar {
- 	background: alpha(@theme_base_color,0.6);
+ 	background: alpha(@theme_base_color,0.7);
     border: 3px solid #505050;
 	border-radius: 0px;
 }
@@ -113,9 +113,11 @@ tooltip label{
 /* Group Top */
 
 #clock {
-	border: none;
-	background: transparent;
-	min-height: 80px;
+	border: 2px solid @border_box;
+   	background-color: @background_box;
+	min-height: 60px;
+	margin-top: 8px;
+	margin-bottom: 6px;
     margin-right: 6px;
     margin-left: 6px;
     font-weight: Bold;
@@ -128,7 +130,6 @@ tooltip label{
    	
     border-radius: 0px;
 	font-size: 18px;
-	margin-top: -4px;
     margin-left: 6px;
     margin-right: 6px;
 
@@ -144,12 +145,21 @@ tooltip label{
 
 
 #workspaces {
+
+   	background-color: @background_box;
+	border: 2px solid @border_box;
+	margin-left: 6px;
+	margin-right:6px;
+	margin-top: 6px;
+	margin-bottom: 6px;
 	font-size: 18px;
+	padding-top: 6px;
+	padding-bottom: 6px;
 }
 
 #workspaces button {
-	margin-left: -9px;
-	margin-right: -6px;
+	margin-left: -35px;
+	margin-right: -30px;
 	border-radius: 0px;
 
 

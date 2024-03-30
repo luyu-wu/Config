@@ -34,8 +34,10 @@
 		"show-special":true,
 		"format-icons": {
 			"default": "",
-			"dispotify": "󰙯",
+			"discord": "󰙯",
+			"spotify": "",
 			"windows": "",
+			"code":"󰨞",
 
 		},
 		"rotate":90,
