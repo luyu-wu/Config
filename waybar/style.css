@@ -4,7 +4,6 @@
 	font-size: 20px;
 	min-width: 40px;
 
-	transition-property: all;
 
 }
 
@@ -15,10 +14,14 @@
 
 
 window#waybar {
+	border-radius: 0px;
+	border: 0px;
+	
  	background: alpha(@theme_base_color,0.7);
     border: 2px solid #FFFFFF;
-	border-radius: 0px;
+	margin: -4px -8px -8px -8px;
 }
+
 
 tooltip {
 	background: alpha(@theme_base_color,0.5);
@@ -134,6 +137,7 @@ tooltip label{
     margin-right: 6px;
 
     padding-top:8px;
+	transition-property: all;
 
 	transition-delay: 0s;
 	transition: 0.5s;

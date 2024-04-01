@@ -1,10 +1,10 @@
 format = """
 [ 󰣇 ](bg:#a3aed2 fg:#1c1c1c)\
 $directory\
-[ ](bg:#d3dee8)\
+[ ](bg:#d4d9f2)\
 $git_branch\
 $git_status\
-[ ](bg:#d3fef2)\
+[ ](bg:#d3effa)\
 \n$character"""
 
 [directory]
