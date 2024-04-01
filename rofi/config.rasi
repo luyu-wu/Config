@@ -12,9 +12,9 @@ configuration {
 window {
 	padding: 1em;
 	border:       2px;
-	border-color: #808080;
+	border-color: #FFFFFF;
 	border-radius: 0px;
-	background-color: #ffffff70;
+	background-color: #ffffff90;
 	location:   west;
 	width:   25%;
 	/*x-offset:   30px; */
@@ -63,7 +63,7 @@ listview {
   spacing: 8px;
   padding: 0.5em;
   border-radius: 0px;
-  background-color: #00000010;
+  background-color: transparent;
   border-color:     #ffffff20;
   scrollbar:    false;
 }

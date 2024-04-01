@@ -5,7 +5,7 @@
 	"modules-center": ["hyprland/workspaces"], 
 	"margin-bottom": 10,
 	"margin-top":10,
-	"margin-left":5,
+	"margin-left":8,
 	"modules-right": ["network","bluetooth","wireplumber","backlight","battery"],
 	"wireplumber": {
 	    "format-muted": " MT",
