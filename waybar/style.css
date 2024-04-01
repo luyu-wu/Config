@@ -16,7 +16,7 @@
 
 window#waybar {
  	background: alpha(@theme_base_color,0.7);
-    border: 3px solid #505050;
+    border: 2px solid #FFFFFF;
 	border-radius: 0px;
 }
 
