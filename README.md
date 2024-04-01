@@ -3,11 +3,6 @@
 ## About
 Live config files from my system. Running Hyprland on Arch, so don't have any Nix configuration. If you need any help hmu on discord :)
 
-## Video Showcase
-
-https://github.com/luyu-wu/Config/assets/116970666/be134b9c-3be1-4819-a608-9a625e6e0e84
-[Windows 11 Theming Release]
-
 ## Screenshots
 ![image](https://github.com/luyu-wu/Config/assets/116970666/974876cb-2018-4584-8663-e66a40dbdffa)
 [Ascension]
