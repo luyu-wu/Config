@@ -1,8 +1,8 @@
 # Config Files
 
 ## About
-Live config files from my system. Running Hyprland on Arch, so don't have any Nix configuration. If you need any help hmu on discord :)
-
+hyprland config files that value elegance and lightweightness over bulky and slow animations.
+workflow is build to be intuitive and easily customizeable :)
 ## Screenshots
 ![image](https://github.com/luyu-wu/Config/assets/116970666/974876cb-2018-4584-8663-e66a40dbdffa)
 [Ascension]
