@@ -137,7 +137,7 @@ tooltip label{
     margin-right: 6px;
 
     padding-top:8px;
-	transition-property: all;
+	/*transition-property: all;*/
 
 	transition-delay: 0s;
 	transition: 0.5s;
