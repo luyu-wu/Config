@@ -25,7 +25,7 @@ window#waybar {
 
 tooltip {
 	background: alpha(@theme_base_color,0.5);
-	border: 2px solid @border_box;
+	border: 2px solid #FFFFFF;
 	/*box-shadow: inset -1 -2px @border_box;*/
 	border-radius: 0px;
 
@@ -33,7 +33,6 @@ tooltip {
 tooltip label{
 	font-family: Source Code Pro;
 	font-size: 18px;
-	font-weight: 200;
 	color: #000000;
 }
 
@@ -123,7 +122,7 @@ tooltip label{
 	margin-bottom: 6px;
     margin-right: 6px;
     margin-left: 6px;
-    font-weight: Bold;
+    /*font-weight: Bold;*/
 }
 
 #mpris {
@@ -137,10 +136,6 @@ tooltip label{
     margin-right: 6px;
 
     padding-top:8px;
-	/*transition-property: all;*/
-
-	transition-delay: 0s;
-	transition: 0.5s;
 }
 
 #mpris.playing {
