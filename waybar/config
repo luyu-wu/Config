@@ -8,6 +8,7 @@
 	"margin-left":7,
 	"modules-right": ["network","bluetooth","wireplumber","backlight","battery"],
 	"wireplumber": {
+		"ignored-sinks": ["Easy Effects Sink"], 
 	    "format-muted": " MT",
 	    "format": "{icon} {volume}",
 	    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
