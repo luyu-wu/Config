@@ -1,10 +1,7 @@
 * {
 	font-family: Fira Code Nerd Font;
-	/*font-family: Source Code Pro; */
 	font-size: 20px;
 	min-width: 40px;
-
-
 }
 
 @define-color background_box rgba(80,80,80,0.1);
