@@ -35,7 +35,7 @@
 		"show-special":true,
 		"format-icons": {
 			"default": "󰝣",
-			"discord": "󰙯",
+			"discord": "",
 			"spotify": "",
 			"windows": "",
 			"code":"󰨞",
