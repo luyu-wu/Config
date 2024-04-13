@@ -21,11 +21,10 @@ window#waybar {
 
 
 tooltip {
-	background: alpha(@theme_base_color,0.5);
+	background: rgba(255,255,255,0.6);
 	border: 2px solid #FFFFFF;
 	/*box-shadow: inset -1 -2px @border_box;*/
 	border-radius: 0px;
-
 }
 tooltip label{
 	font-family: Source Code Pro;
@@ -88,8 +87,6 @@ tooltip label{
 	min-height: 80px;
     margin-left: 6px;
     margin-right: 6px;
-    margin-top: 0px;
-    margin-bottom: 0px;
 } 
 #backlight {
 	border: 2px solid @border_box;
@@ -99,13 +96,13 @@ tooltip label{
 
     border-top: 0px transparent;
     border-bottom: 0px transparent;
-   
+   	padding-bottom: 3px;
     margin-left: 6px;
     margin-right: 6px;
 }
 
 #battery.charging {
-	background-color: @background_active_box;
+	background: linear-gradient(180deg, @background_box 0%, @background_active_box 60%);
 }
 
 
@@ -141,7 +138,6 @@ tooltip label{
 
 
 #workspaces {
-
    	background-color: @background_box;
 	border: 2px solid @border_box;
 	margin-left: 6px;
@@ -162,20 +158,16 @@ tooltip label{
 	color: @background_active_box;
 
 	transition-delay: 0s;
-	transition: 0.2s;
+	transition: 0.4s;
 }
 
 #workspaces button:hover {
-    background: @background_active_box;
-
-
+	background: rgba(0,0,0,0);
 }
-
 
 #workspaces button.active {	
 	color: #000000;
-	/*background-color: @background_active_box;*/
-	margin-top:8px;
+	/*margin-top:8px;*/
 	font-size:30px;
-	margin-bottom: 8px;
+	/*margin-bottom: 8px;*/
 }
