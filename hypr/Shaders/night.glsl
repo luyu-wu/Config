@@ -10,10 +10,7 @@ const float temperatureStrength = 1.0;
 #define WithQuickAndDirtyLuminancePreservation
 const float LuminancePreservationFactor = 1.0;
 
-// function from https://www.shadertoy.com/view/4sc3D7
-// valid from 1000 to 40000 K (and additionally 0 for pure full white)
 vec3 colorTemperatureToRGB(const in float temperature){
-    // values from: http://blenderartists.org/forum/showthread.php?270332-OSL-Goodness&p=2268693&viewfull=1#post2268693
     mat3 m = (temperature <= 6500.0) ? mat3(vec3(0.0, -2902.1955373783176, -8257.7997278925690),
                                             vec3(0.0, 1669.5803561666639, 2575.2827530017594),
                                             vec3(1.0, 1.3302673723350029, 1.8993753891711275)) :
