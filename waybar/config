@@ -23,7 +23,7 @@
 		"format": "{icon}",
 		"show-special":true,
 		"format-icons": {
-			"default": "",
+			"default": "",
 			"discord": "󰙯",
 			"spotify": "",
 			"code": "󰨞",

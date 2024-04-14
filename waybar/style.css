@@ -12,7 +12,7 @@
 @define-color background_active_box rgb(180, 180, 240);
 
 window#waybar {
- 	background: alpha(@theme_base_color,1);
+ 	background: alpha(@theme_base_color,0.7);
     border: 2px solid #606060;
 }
 
@@ -109,19 +109,17 @@ tooltip label{
 }
 
 #workspaces button {
-	margin-left: -24px;
-	margin-right: -20px;
+	margin-left: -22px;
+	margin-right: -14px;
 	margin-top: -3px;
 	margin-bottom: -3px;
 	
 	color: rgba(120, 120, 180, 0.5);
 
 	transition-delay: 0s;
-	transition: 0.2s;
+	transition: 0.5s;
 }
 
 #workspaces button.active {	
 	color: #000000;
-	margin-top:3px;
-	margin-bottom: 3px;
 }
