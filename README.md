@@ -4,7 +4,7 @@
 Live config files from my desktop system.
 
 ## Screenshots
-![image](https://github.com/luyu-wu/Config/assets/116970666/194e2538-22a4-4944-9a2e-0b7e8313c3fb)
+![image](https://github.com/luyu-wu/Config/assets/116970666/fe4a6982-3318-4854-ab44-4dd8a9365362)
 
 
 ## Features
