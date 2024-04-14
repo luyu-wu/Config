@@ -17,8 +17,8 @@
     horizontal_padding = 8
     text_icon_padding = 0
 
-    frame_width = 3
-    frame_color = "#505050"
+    frame_width = 2
+    frame_color = "#FFFFFF"
 
     gap_size = 16
 
