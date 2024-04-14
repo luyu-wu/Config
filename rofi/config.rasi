@@ -13,7 +13,7 @@ window {
 	padding: 1em;
 	border:       2px;
 	border-color: #FFFFFF;
-	border-radius: 0px;
+	border-radius: 8px;
 	background-color: #ffffff90;
 	location:   west;
 	width:   25%;
@@ -40,7 +40,7 @@ element,element-text,element-icon, button {
 inputbar {
   margin: 20px 10px;
   spacing: 0.4em;
-  border-radius: 0px;
+  border-radius: 4px;
 
   border:        1px;
   background-color: #E0E0E0A0;
@@ -62,7 +62,7 @@ listview {
   border: 0px;
   spacing: 8px;
   padding: 0.5em;
-  border-radius: 0px;
+  border-radius: 4px;
   background-color: transparent;
   border-color:     #ffffff20;
   scrollbar:    false;
@@ -70,13 +70,14 @@ listview {
 
 element {
     border:  1px;
-    border-radius: 0px;
+    border-radius: 4px;
     padding: 5px;
     border-color: #00000050;
+    
+	transition: 0.4;
 }
 
 element-text {
-    background-color: transparent;
     text-color:       #000000;
     font: "Fira Code Nerd Font 13";
     padding: 5px;
