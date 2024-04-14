@@ -14,7 +14,7 @@ window#waybar {
 	border-radius: 0px;
 	border: 0px;
 	
- 	background: alpha(@theme_base_color,0.7);
+ 	background: rgba(255,255,255,0.7);
     border: 2px solid #FFFFFF;
 	margin: -4px -8px -8px -8px;
 }
@@ -22,7 +22,7 @@ window#waybar {
 
 tooltip {
 	background: rgba(255,255,255,0.6);
-	border: 2px solid #FFFFFF;
+	border: 1px solid #FFFFFF;
 	/*box-shadow: inset -1 -2px @border_box;*/
 	border-radius: 0px;
 }
@@ -37,7 +37,7 @@ tooltip label{
 #network {
    	background-color: @background_box;
    	
-	border: 2px solid @border_box;
+	border: 1px solid @border_box;
 	
     border-radius: 0px 0px 0px 0px;
     border-bottom: 0px transparent;
@@ -62,7 +62,7 @@ tooltip label{
 }
 
 #battery {
-	border: 2px solid @border_box;
+	border: 1px solid @border_box;
    	background-color: @background_box;
 
 	border-top: 0px transparent;
@@ -78,7 +78,7 @@ tooltip label{
 }
 
 #wireplumber {
-	border: 2px solid @border_box;
+	border: 1px solid @border_box;
    	background-color: @background_box;
 
     border-radius: 0px 0px 0px 0px;
@@ -89,7 +89,7 @@ tooltip label{
     margin-right: 6px;
 } 
 #backlight {
-	border: 2px solid @border_box;
+	border: 1px solid @border_box;
    	background-color: @background_box;
 
     border-radius: 0px 0px 0px 0px;
@@ -109,7 +109,7 @@ tooltip label{
 /* Group Top */
 
 #clock {
-	border: 2px solid @border_box;
+	border: 1px solid @border_box;
    	background-color: @background_box;
 	min-height: 60px;
 	margin-top: 8px;
@@ -120,7 +120,7 @@ tooltip label{
 }
 
 #mpris {
-	border: 2px solid @border_box;
+	border: 1px solid @border_box;
 
    	background-color: @background_box;
    	
@@ -139,7 +139,7 @@ tooltip label{
 
 #workspaces {
    	background-color: @background_box;
-	border: 2px solid @border_box;
+	border: 1px solid @border_box;
 	margin-left: 6px;
 	margin-right:6px;
 	margin-top: 6px;
