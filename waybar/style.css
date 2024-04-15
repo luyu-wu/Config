@@ -6,16 +6,16 @@
 
 
 
-@define-color background_box rgba(80,80,80,0.1);
+@define-color background_box rgba(80,80,80,0.15);
 @define-color background_active_box rgba(120, 120, 180, 0.35);
-@define-color border_box #808080;
+@define-color border_box rgba(80,80,80,0.2);
 
 
 window#waybar {
 	border-radius: 0px;
 		
  	background: rgba(255,255,255,0.7);
-    border: 2px solid #FFFFFF;
+    border-right: 2px solid @border_box;
 	margin: -4px -8px -8px -8px;
 }
 

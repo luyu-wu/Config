@@ -3,9 +3,9 @@
 	"position":"left",
 	"modules-left": ["clock","mpris"],
 	"modules-center": ["hyprland/workspaces"], 
-	"margin-bottom": 10,
-	"margin-top":10,
-	"margin-left":7,
+	"margin-bottom": 0,
+	"margin-top":0,
+	"margin-left":0,
 	"modules-right": ["network","bluetooth","wireplumber","backlight","battery"],
 	"wireplumber": {
 		"ignored-sinks": ["Easy Effects Sink"], 
@@ -32,14 +32,13 @@
 	},
 	"hyprland/workspaces": {
 		"format": "{icon}",
-		"show-special":true,
+		"show-special":false,
 		"format-icons": {
 			"default": "󱓼",
-			"discord": "󰍩",
-			"spotify": "",
-			"windows": "",
-			"code":"󰨞",
-
+			//"discord": "󰍩",
+			//"spotify": "",
+			//"windows": "",
+			//"code":"󰨞",
 		},
 		"rotate":90,
 		"on-click": "activate",
