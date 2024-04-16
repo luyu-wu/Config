@@ -24,7 +24,7 @@ tooltip {
 	background: rgba(255,255,255,0.6);
 	border: 1px solid #FFFFFF;
 	/*box-shadow: inset -1 -2px @border_box;*/
-	border-radius: 0px;
+	border-radius: 6px;
 }
 tooltip label{
 	font-family: Source Code Pro;
@@ -39,8 +39,7 @@ tooltip label{
    	
 	border: 1px solid @border_box;
 	
-    border-radius: 0px 0px 0px 0px;
-    border-bottom: 0px transparent;
+    border-radius: 6px 6px 0px 0px;
 	min-height: 50px;
     margin-left: 6px;
     margin-right: 6px;
@@ -51,7 +50,7 @@ tooltip label{
    	
 	border: 1px solid @border_box;
 	min-height: 50px;
-    border-radius: 0px 0px 0px 0px;
+    border-radius: 0px 0px 6px 6px;
 
     border-top: 0px transparent;
 
@@ -67,7 +66,7 @@ tooltip label{
 
 	border-top: 0px transparent;
 
-	border-radius: 0px 0px 0px 0px;
+	border-radius: 0px 0px 6px 6px;
 	min-height: 80px;
 
 
@@ -81,7 +80,7 @@ tooltip label{
 	border: 1px solid @border_box;
    	background-color: @background_box;
 
-    border-radius: 0px 0px 0px 0px;
+    border-radius: 6px 6px 0px 0px;
 
     border-bottom: 0px transparent;
 	min-height: 80px;
@@ -116,7 +115,7 @@ tooltip label{
 	margin-bottom: 6px;
     margin-right: 6px;
     margin-left: 6px;
-	border-radius: 0px;
+	border-radius: 6px;
     /*font-weight: Bold;*/
 }
 
@@ -125,7 +124,7 @@ tooltip label{
 
    	background-color: @background_box;
    	
-    border-radius: 0px;
+    border-radius: 6px;
 	font-size: 18px;
     margin-left: 6px;
     margin-right: 6px;
@@ -148,7 +147,7 @@ tooltip label{
 	font-size: 18px;
 	padding-top: 6px;
 	padding-bottom: 6px;
-	border-radius: 0px;
+	border-radius: 6px;
 }
 
 #workspaces button {
