@@ -15,7 +15,7 @@ window#waybar {
 	border-radius: 10px;
 		
  	background: rgba(255,255,255,0.7);
-    border-right: 2px solid @border_box;
+    border: 2px solid rgb(255,255,255);
 	margin: -4px -8px -8px -8px;
 }
 
