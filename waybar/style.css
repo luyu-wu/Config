@@ -12,7 +12,7 @@
 
 
 window#waybar {
-	border-radius: 10px;
+	border-radius: 6px;
 		
  	background: rgba(255,255,255,0.7);
     border: 2px solid rgb(255,255,255);
@@ -24,7 +24,7 @@ tooltip {
 	background: rgba(255,255,255,0.6);
 	border: 1px solid #FFFFFF;
 	/*box-shadow: inset -1 -2px @border_box;*/
-	border-radius: 6px;
+	border-radius: 4px;
 }
 tooltip label{
 	font-family: Source Code Pro;
@@ -39,7 +39,7 @@ tooltip label{
    	
 	border: 1px solid @border_box;
 	
-    border-radius: 6px 6px 0px 0px;
+    border-radius: 4px 4px 0px 0px;
 	min-height: 50px;
     margin-left: 6px;
     margin-right: 6px;
@@ -50,7 +50,7 @@ tooltip label{
    	
 	border: 1px solid @border_box;
 	min-height: 50px;
-    border-radius: 0px 0px 6px 6px;
+    border-radius: 0px 0px 4px 4px;
 
     border-top: 0px transparent;
 
@@ -66,7 +66,7 @@ tooltip label{
 
 	border-top: 0px transparent;
 
-	border-radius: 0px 0px 6px 6px;
+	border-radius: 0px 0px 4px 4px;
 	min-height: 80px;
 
 
@@ -80,7 +80,7 @@ tooltip label{
 	border: 1px solid @border_box;
    	background-color: @background_box;
 
-    border-radius: 6px 6px 0px 0px;
+    border-radius: 4px 4px 0px 0px;
 
     border-bottom: 0px transparent;
 	min-height: 80px;
@@ -115,7 +115,8 @@ tooltip label{
 	margin-bottom: 6px;
     margin-right: 6px;
     margin-left: 6px;
-	border-radius: 6px;
+	border-radius: 4px;
+	font-family: SF Pro Display
     /*font-weight: Bold;*/
 }
 
@@ -124,10 +125,13 @@ tooltip label{
 
    	background-color: @background_box;
    	
-    border-radius: 6px;
+    border-radius: 4px;
+    font-family: Noto Serif CJK SC;
+    /*font-weight: Bold;*/
 	font-size: 18px;
     margin-left: 6px;
     margin-right: 6px;
+	color: rgb(40,40,40);
 
     padding-top:8px;
 }
@@ -147,7 +151,7 @@ tooltip label{
 	font-size: 18px;
 	padding-top: 6px;
 	padding-bottom: 6px;
-	border-radius: 6px;
+	border-radius: 4px;
 }
 
 #workspaces button {
