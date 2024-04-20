@@ -32,13 +32,13 @@
 	},
 	"hyprland/workspaces": {
 		"format": "{icon}",
-		"show-special":false,
+		"show-special":true,
 		"format-icons": {
 			"default": "󱓼",
-			//"discord": "󰍩",
-			//"spotify": "",
-			//"windows": "",
-			//"code":"󰨞",
+			"discord": "󰍩",
+			"spotify": "",
+			"windows": "",
+			"code":"󰨞",
 		},
 		"rotate":90,
 		"on-click": "activate",
