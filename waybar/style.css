@@ -116,8 +116,8 @@ tooltip label{
     margin-right: 6px;
     margin-left: 6px;
 	border-radius: 4px;
-	font-family: SF Pro Display
-    /*font-weight: Bold;*/
+	/*font-family: SF Pro Display
+    font-weight: Bold;*/
 }
 
 #mpris {
@@ -126,12 +126,12 @@ tooltip label{
    	background-color: @background_box;
    	
     border-radius: 4px;
-    font-family: Noto Serif CJK SC;
-    /*font-weight: Bold;*/
+    /*font-family: Noto Serif CJK SC;
+    font-weight: Bold;
+    color: rgb(40,40,40);*/
 	font-size: 18px;
     margin-left: 6px;
     margin-right: 6px;
-	color: rgb(40,40,40);
 
     padding-top:8px;
 }
