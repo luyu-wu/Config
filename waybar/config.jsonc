@@ -36,6 +36,7 @@
 		"format-icons": {
 			"default": "󱓼",
 			"discord": "󰍩",
+			"kden": "󱛿",
 			"spotify": "",
 			"windows": "",
 			"code":"󰨞",
@@ -64,14 +65,14 @@
 		"format-wifi": " ",
 		"format": "",
 		"tooltip-format": "{signaldBm}dBm {essid} {frequency}GHz",
-		"on-click": "alacritty --class floatterm -e nmtui",
+		"on-click": "foot -a floatterm -e nmtui",
 
 		"on-click-right": "nm-connection-editor",
 
 	},
 	"bluetooth": {
 		"format": "",
-		"on-click": "alacritty --class floatterm -e bluetuith",
+		"on-click": "foot -a floatterm -e bluetuith",
 		"tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
 		"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
 		"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
