@@ -1,10 +1,11 @@
 @layer LowPriority, HighPriority; 
 
-@import "customChrome.css";
+@import "customChrome.css"
 @import "special/windows.css" layer(HighPriority) /* supports() */ (-moz-platform: windows);
 @import "special/linux.css"   layer(HighPriority) /* supports() */ (-moz-platform: linux);
 @import "special/mac.css"     layer(HighPriority) /* supports() */ (-moz-platform: macos);
-@import "third_party_custom_styles.css" (-moz-bool-pref: "userChrome.Style.ThirdParty.Enabled");
+@import "Lepton_Icons/icons/Lepton_Icons.css" /* layer() supports() */ (-moz-bool-pref: "userChrome.Menu.Icons.LeptonIcons.Enabled");
+@import "third_party_custom_styles.css"       /* layer() supports() */ (-moz-bool-pref: "userChrome.Style.ThirdParty.Enabled");
 
 @layer LowPriority
 {
@@ -1203,6 +1204,11 @@ spacer[part="overflow-end-indicator"]
         padding-block: 0px !important;
     }
 
+    #urlbar-container
+    {
+        --urlbar-container-height: var(--tab-min-height) !important;
+    }
+
     /* -------------------- Bookmarks Bar -------------------- */
 
     #PersonalToolbar
@@ -1256,6 +1262,11 @@ spacer[part="overflow-end-indicator"]
             {
                 --tab-min-height: 48px !important;
             }
+        }
+
+        #urlbar-container
+        {
+            --urlbar-container-height: calc(var(--tab-min-height) - var(--tab-block-margin) * 2) !important;
         }
     }
 }
