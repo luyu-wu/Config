@@ -12,9 +12,9 @@ configuration {
 window {
 	padding: 1em;
 	border:       2px;
-	border-color: #FFFFFF;
+	border-color: #B0B0B0;
 	border-radius: 6px;
-	background-color: #ffffff90;
+	background-color: #ffffff;
 	location:   west;
 	width:   25%;
 	/*x-offset:   30px; */

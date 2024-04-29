@@ -30,3 +30,7 @@
 .tab-label-container {
     mask-image: none !important;
 }
+.menupopup-arrowscrollbox {
+    box-shadow: none !important;
+ }
+
