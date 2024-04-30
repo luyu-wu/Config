@@ -17,8 +17,8 @@
     horizontal_padding = 8
     text_icon_padding = 0
 
-    frame_width = 2
-    frame_color = "#FFFFFF"
+    frame_width = 1
+    frame_color = "#404040"
 
     gap_size = 16
 
@@ -74,16 +74,16 @@
 
 
 [urgency_low]
-    background = "#FFFFFF80"
+    background = "#FFFFFF"
     foreground = "#000000"
     timeout = 1
 
 [urgency_normal]
-    background = "#FFFFFF80"
+    background = "#FFFFFF"
     foreground = "#000000"
     timeout = 1
 
 [urgency_critical]
-    background = "#FFFFFF80"
+    background = "#FFFFFF"
     foreground = "#ffffff"
     timeout = 0
