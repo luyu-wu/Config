@@ -2,8 +2,6 @@ format = """
 [ 󰣇 ](bg:#a3aed2 fg:#1c1c1c)\
 $directory\
 [ ](bg:#d4d9f2)\
-$git_branch\
-$git_status\
 [ ](bg:#d3effa)\
 \n$character"""
 
@@ -27,3 +25,5 @@ format = '[[ $symbol $branch ](fg:#707070 bg:#dce2eb)]($style)'
 [git_status]
 style = "bg:#a3aed2"
 format = '[[($all_status$ahead_behind )](fg:#202020 bg:#e4eaf4)]($style)'
+#$git_branch\
+#$git_status\

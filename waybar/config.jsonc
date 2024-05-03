@@ -6,7 +6,7 @@
 	"margin-bottom": 0,
 	"margin-top":0,
 	"margin-left":0,
-	"modules-right": ["network","bluetooth","wireplumber","backlight","battery"],
+	"modules-right": ["tray", "network","bluetooth","wireplumber","backlight","battery"],
 	"wireplumber": {
 		"ignored-sinks": ["Easy Effects Sink"], 
 	    "format-muted": " MT",
@@ -26,6 +26,9 @@
 	    "format": "  {percent}",
 	    "rotate":90
 	},
+	"tray": {
+		"spacing":10,
+	},
 	"clock": {
         "format": "{:%H\n%M}",
         "tooltip-format": "{:%A, %B %d, %Y (%R)}",
@@ -39,6 +42,7 @@
 			"kden": "󱛿",
 			"spotify": "",
 			"windows": "",
+			"game": "󰮂",
 			"code":"󰨞",
 		},
 		"rotate":90,

@@ -136,6 +136,9 @@ tooltip label{
     padding-top:8px;
 }
 
+#tray {
+	padding-bottom:20px;
+}
 #mpris.playing {
 	background-color: @background_active_box;
 }
