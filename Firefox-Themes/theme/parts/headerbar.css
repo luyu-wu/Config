@@ -1,0 +1,49 @@
+/* Header bar */
+@namespace xul "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
+
+/* Headerbar */
+#nav-bar {
+	background: var(--gnome-headerbar-background) !important;
+	padding: 6px 3px !important;
+}
+
+/* Add private window headerbar indicator */
+:root[privatebrowsingmode="temporary"] #nav-bar toolbarspring:first-of-type:before {
+	background: url("../icons/eye-not-looking-symbolic.svg") no-repeat;
+	background-size: 64px 64px;
+	content: "";
+	display: block;	
+	position: absolute;
+	width: 64px;
+	height: 46px;
+	top: 0;
+	transform: translate(15px, 0);
+	fill: var(--gnome-window-color) !important;
+	fill-opacity: 0.2 !important;
+	-moz-context-properties: fill, fill-opacity;
+  }
+
+/* Hide tabsbar default private browsing indicator */
+#private-browsing-indicator-with-label {
+	display: none !important;
+}
+
+/* Overlay headerbar on fullscreen */
+@media (-moz-bool-pref: "browser.fullscreen.autohide") {
+	#navigator-toolbox[inFullscreen] { 	
+		position: fixed !important;
+		transition: margin 300ms ease-in-out 0s !important;
+		line-height: 0;
+		z-index: 1;
+		width: 100vw;
+	}
+
+	#navigator-toolbox[inFullscreen]:hover,
+	#navigator-toolbox[inFullscreen]:focus-within {
+		margin-top: 0 !important;
+	}
+
+	#navigator-toolbox[inFullscreen] > * {
+		line-height: normal;
+	}
+}

@@ -1,0 +1,257 @@
+/* Buttons Issues/Glitches fixes */
+@namespace xul "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
+
+/* Menulist */
+link[href="chrome://global/skin/menulist.css"] ~ dropmarker {
+	align-items: center !important;
+	justify-content: center !important;
+}
+
+.button-menu-dropmarker {
+	appearance: none !important;
+	margin: 0 !important;
+	margin-inline-start: 6px !important;
+}
+
+/* Remove the header bar buttons' hover styles */
+#nav-bar {
+	--toolbarbutton-active-background: transparent !important;
+	--toolbarbutton-hover-background: transparent !important;
+}
+
+/* Fix notification dropmarker */
+.popup-notification-dropmarker dropmarker {
+	margin-inline-start: 0 !important;
+}
+.popup-notification-dropmarker > .button-box > hbox {
+	display: -moz-box !important;
+}
+
+/* Fix subviewbutton icon buttons alignment */
+.subviewbutton.subviewbutton-iconic:not(.subviewbutton-back, .unified-extensions-item-action-button) {
+	justify-content: center !important;
+}
+
+/* Fix hover background */
+#appMenu-fullscreen-button2 > .toolbarbutton-icon {
+	background: transparent !important;
+}
+
+/* Fix unified-extensions-item margin */
+toolbar .unified-extensions-item {
+  margin-inline: 0 3px !important;
+}
+
+/* menulist */
+#label-box:not([native]) {
+    font-weight: 400 !important;
+	padding: 0 8px;
+}
+dropmarker:not([native]) {
+	margin-right: 8px;
+}
+
+/* Bookmark buttons */
+#nav-bar toolbarbutton.bookmark-item {
+	width: auto !important;
+}
+#nav-bar toolbarbutton.bookmark-item .toolbarbutton-icon {
+	margin-left: 6px;
+}
+#nav-bar toolbarbutton.bookmark-item .toolbarbutton-text {
+	padding-right: 6px;
+}
+
+/* Fix library animation */
+#library-animatable-box  {
+	--library-button-height: 46px !important;
+	--library-icon-x: 1716px !important;
+	/*--library-icon-x: 1715.9833984375px !important;*/
+}
+#library-button[animate] > .toolbarbutton-icon {
+	fill: transparent !important;
+}
+
+/* Fix toolbars close icons */
+.close-icon:not(.tab-close-button) .toolbarbutton-icon {
+	height: 16px !important;
+	width: 16px !important;
+	margin: 6px !important;
+	padding: 0 !important;
+}
+button.close {
+	margin: 0 !important;
+}
+
+/* */
+#appMenu-popup .panel-banner-item[notificationid="update-restart"]::after {
+	display: none !important;
+}
+
+/* Identity site popover buttons */
+.identity-popup-preferences-button:not(#hack) {
+	list-style-image: url("chrome://browser/skin/settings.svg") !important;
+}
+#tracking-protection-preferences-button > .toolbarbutton-text {
+	padding-inline-end: 0 !important;
+}
+.protections-popup-footer-button-label {
+	margin-inline-start: 3px !important;
+}
+
+/* Fix findbar buttons issues */
+.findbar-container .findbar-find-previous image,
+.findbar-container .findbar-find-next image {
+	margin: 6px !important;
+	opacity: 1 !important;
+}
+.findbar-container toolbarbutton:focus {
+	outline: 0 !important;
+}
+
+/* Sidebar header button reset font size */
+#sidebar-header {
+	font-size: 1em !important;
+}
+/* Sidebar header button sizing */
+#sidebar-switcher-target {
+	flex: unset !important;
+}
+/* Sidebar header button arrow opacity */
+#sidebar-switcher-arrow {
+	opacity: 1 !important;
+}
+
+/* Sidebar history view */
+#viewButton {
+	margin: 0 !important;
+	margin-inline-start: 6px !important;
+}
+
+/* Menulist */
+#identity-popup-popup-menulist {
+	margin-right: 0 !important;
+}
+
+/* Auto complete popup button*/
+.autocomplete-richlistitem[type="loginsFooter"] {
+	margin: 4px 4px 0 4px !important;
+}
+
+/* Identity popup tracking protection button */
+.tracking-protection-button {
+	margin-inline-end: 0 !important;
+}
+
+/* Identity popup delete permission button */
+.identity-popup-permission-remove-button {
+	opacity: 1 !important;
+}
+
+/* Identity popup expander button */
+#identity-popup-security {
+	-moz-box-align: center;
+}
+#identity-popup-security-expander {
+	width: 34px !important;
+}
+#identity-popup-security-expander .button-icon {
+	margin: 0 !important;
+}
+
+/* Protections popup */
+#protections-popup-info-button {
+	margin: 0 !important;
+	margin-inline-end: 0 !important;
+}
+.protections-popup-footer-icon {
+	display: none !important;
+}
+.protections-popup-footer-button-label {
+    margin-inline-start: 0 !important;
+}
+#protections-popup-footer-protection-type-label {
+    margin-inline-end: 0 !important;
+	margin-block: 0 !important;
+}
+
+/* Close button */
+.close-icon:not(.tab-close-button) .toolbarbutton-icon {
+	outline:  0 !important;
+}
+
+/* Downloads button */
+#downloads-indicator-progress-inner {
+	background: conic-gradient(var(--gnome-toolbar-icon-fill) var(--download-progress-pcent), transparent var(--download-progress-pcent)) !important;
+	background-color: var(--gnome-button-active-background) !important;
+}
+#downloads-indicator-progress-outer,
+#downloads-indicator-start-image,
+#downloads-indicator-finish-image {
+	border: 0 !important;
+	padding: 0 !important;
+	border-radius: 100% !important;
+}
+#downloads-indicator-progress-outer,
+#downloads-indicator-start-image {
+	background: var(--gnome-toolbar-border-color) !important;
+}
+#downloads-indicator-finish-image {
+	background: var(--gnome-toolbar-icon-fill) !important;
+}
+
+#downloads-button[progress="true"] #downloads-indicator-progress-outer {
+  visibility: visible !important;
+}
+#downloads-button:not([progress="true"]) #downloads-indicator-icon {
+  visibility: visible !important;
+}
+
+/* Stop/Reload button */
+#stop-reload-button .toolbarbutton-icon {
+	margin-top: -2px !important;
+}
+
+/* Toolbar Animations */
+#downloads-button .toolbarbutton-animatable-box {
+	top: 8px !important;
+	left: 8px !important;
+}
+#downloads-button .toolbarbutton-animatable-box,
+#downloads-button .toolbarbutton-animatable-image,
+#downloads-indicator-progress-inner {
+	height: 16px !important;
+	width: 16px !important;
+}
+#downloads-button .toolbarbutton-animatable-image,
+#stop-reload-button  .toolbarbutton-animatable-image:not(#hack),
+#nav-bar-overflow-button  .toolbarbutton-animatable-image:not(#hack) {
+	--anim-steps: 1 !important;
+	transform: none !important;
+	list-style-image: none !important;
+	display: none !important;
+}
+
+/* Panel banner */
+#appMenu-popup .panel-banner-item {
+	margin: 0 0 6px !important;
+}
+#appMenu-popup .panel-banner-item > .toolbarbutton-text {
+	margin-inline: 0 !important;
+}
+
+/* User menu */
+#fxa-toolbar-menu-button .toolbarbutton-badge-stack {
+	padding: 0 !important;
+}
+#fxa-avatar-image {
+	min-height: 24px !important;
+	width: 24px !important;
+}
+
+/* OPTIONAL: Hide unified-extensions-button */
+@media (-moz-bool-pref: "gnomeTheme.hideUnifiedExtensions") {
+	#unified-extensions-button {
+		display: none;
+	}
+}
