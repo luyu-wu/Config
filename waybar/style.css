@@ -8,7 +8,7 @@
 
 @define-color background_box rgba(80,80,80,0.15);
 @define-color background_active_box rgba(120, 120, 180, 0.35);
-@define-color border_box #B0B0B0;
+@define-color border_box #909090;
 
 
 window#waybar {
