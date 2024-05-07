@@ -1,12 +1,13 @@
 {
 	"layer": "top",
-	"position":"left",
-	"modules-left": ["clock","mpris"],
-	"modules-center": ["hyprland/workspaces"], 
+	"position":"right",
+	"modules-left": ["hyprland/workspaces","mpris"],
+	"modules-center": ["clock"], 
 	"margin-bottom": 0,
 	"margin-top":0,
 	"margin-left":0,
 	"modules-right": ["network","bluetooth","wireplumber","backlight","battery"],
+	"on-click": "rofi",
 	"wireplumber": {
 		"ignored-sinks": ["Easy Effects Sink"], 
 	    "format-muted": " MT",
@@ -17,19 +18,21 @@
 	    "format-icons": ["","","", "", ""],
 	    "reverse-scrolling": true,
 	    "scroll-step": 1,
-	    "rotate":90
+	    "rotate":270
 	},
 	"backlight": {
 		"reverse-scrolling": false,
 		"scroll-step": 0.6,
 	    "device": "intel_backlight",
 	    "format": "  {percent}",
-	    "rotate":90
+	    "rotate":270
 	},
 	"tray": {
 		"spacing":20,
 	},
 	"clock": {
+		"on-click": "rofi -show drun",
+		"on-click-right": "gnome-clocks",
         "format": "{:%H\n%M}",
         "tooltip-format": "{:%A, %B %d, %Y (%R)}",
 	},
@@ -56,14 +59,14 @@
 		},
 		"max-length":22,
 		"tooltip-format": "{status_icon} {title} - {artist}",
-		"rotate":90
+		"rotate":270
 	},
 	"battery": {
 		"format": "{icon}  {capacity}",
 		"format-icons": ["", "", "", "", ""],
 		"format-charging": "󰢝 {capacity}",
 		"max-length": 16,
-		"rotate":90
+		"rotate":270
 	},
 	"network": {
 		"format-wifi": " ",
