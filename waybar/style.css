@@ -1,35 +1,36 @@
 * {
-	font-family: Fira Code Nerd Font;
+	font-family: SF Mono;
 	font-size: 20px;
 	min-width: 40px;
 }
 
 
 
-@define-color background_box rgba(80,80,80,0.15);
-@define-color background_active_box rgba(120, 120, 180, 0.35);
+@define-color background_box #EBEBEB;
+@define-color background_active_box #CCE0F8;
 @define-color border_box #909090;
+@define-color default_text #383838;
 
 
 window#waybar {
 	border-radius: 0px;
 		
- 	background: rgb(255,255,255);
-    border-right: 2px solid @border_box;
+ 	background: #FFFFFF;
+    border-left: 2px solid @border_box;
 	margin: -4px -8px -8px -8px;
 }
 
 
 tooltip {
 	background: rgb(255,255,255);
-	border: 1px solid #FFFFFF;
+	border: 2px solid @border_box;
 	/*box-shadow: inset -1 -2px @border_box;*/
 	border-radius: 4px;
 }
 tooltip label{
 	font-family: Source Code Pro;
 	font-size: 18px;
-	color: #000000;
+	color: @default_text;
 }
 
 
@@ -44,6 +45,7 @@ tooltip label{
     margin-left: 6px;
     margin-right: 6px;
     margin-bottom: -10px;
+    color: @default_text;
 }
 #bluetooth {
    	background-color: @background_box;
@@ -57,6 +59,7 @@ tooltip label{
     margin-right: 6px;
     margin-left: 6px;
     margin-bottom: 4px;
+	color: @default_text;
 
 }
 
@@ -74,6 +77,8 @@ tooltip label{
     margin-left: 6px;
     margin-right: 6px;
     padding-bottom: 10px;
+   	color: @default_text;
+
 }
 
 #wireplumber {
@@ -86,6 +91,8 @@ tooltip label{
 	min-height: 80px;
     margin-left: 6px;
     margin-right: 6px;
+   	color: @default_text;
+
 } 
 #backlight {
 	border: 1px solid @border_box;
@@ -98,6 +105,8 @@ tooltip label{
    	padding-bottom: 3px;
     margin-left: 6px;
     margin-right: 6px;
+   	color: @default_text;
+
 }
 
 #battery.charging {
@@ -116,8 +125,8 @@ tooltip label{
     margin-right: 6px;
     margin-left: 6px;
 	border-radius: 4px;
-	/*font-family: SF Pro Display
-    font-weight: Bold;*/
+   	color: @default_text;
+
 }
 
 #mpris {
@@ -126,14 +135,11 @@ tooltip label{
    	background-color: @background_box;
    	
     border-radius: 4px;
-    /*font-family: Noto Serif CJK SC;
-    font-weight: Bold;
-    color: rgb(40,40,40);*/
 	font-size: 18px;
     margin-left: 6px;
     margin-right: 6px;
+   	color: @default_text;
 
-    padding-top:8px;
 }
 
 #tray {
@@ -149,10 +155,11 @@ tooltip label{
 	border: 1px solid @border_box;
 	margin-left: 6px;
 	margin-right:6px;
+	padding-top:8px;
+
 	margin-top: 6px;
 	margin-bottom: 6px;
 	font-size: 18px;
-	padding-top: 6px;
 	padding-bottom: 6px;
 	border-radius: 4px;
 }
@@ -162,8 +169,7 @@ tooltip label{
 	margin-right: -30px;
 	border-radius: 0px;
 
-
-	color: @background_active_box;
+	color: alpha(@default_text,0.2);
 
 	transition-delay: 0s;
 	transition: 0.4s;
@@ -174,5 +180,5 @@ tooltip label{
 }
 
 #workspaces button.active {
-	color: rgb(0,0,0)
+	color: @default_text;
 }
