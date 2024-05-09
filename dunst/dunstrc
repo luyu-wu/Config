@@ -19,7 +19,7 @@
     text_icon_padding = 0
 
     frame_width = 2
-    frame_color = "#505050"
+    frame_color = "#606060"
 
     gap_size = 16
 
@@ -75,16 +75,16 @@
 
 
 [urgency_low]
-    background = "#FFFFFF40"
-    foreground = "#000000"
+    background = "#2A2A2A90"
+    foreground = "#FFFFFF"
     timeout = 1
 
 [urgency_normal]
-    background = "#FFFFFF40"
-    foreground = "#000000"
+    background = "#2A2A2A90"
+    foreground = "#FFFFFF"
     timeout = 1
 
 [urgency_critical]
-    background = "#FFFFFF40"
-    foreground = "#ffffff"
+    background = "#2A2A2A90"
+    foreground = "#FFFFFF"
     timeout = 0
