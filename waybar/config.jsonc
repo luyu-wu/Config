@@ -43,7 +43,7 @@
         "tooltip-format": "{:%A, %B %d, %Y (%R)}",
 	},
 	"mpris": {
-		"format": "  {title} - {artist} {status_icon} ",
+		"format": "{status_icon} {title} - {artist}",
 		"status-icons": {
 			"paused": " 󰏤 ",
 			"playing": "  "

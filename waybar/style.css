@@ -9,7 +9,7 @@
 
 @define-color background_box rgba(80,80,80,0.1);
 @define-color border_box #606060; /* border and shadow color */
-@define-color background_active_box rgb(180, 180, 240);
+@define-color background_active_box rgba(180, 180, 240,0.3);
 
 window#waybar {
  	background: alpha(@theme_base_color,0.7);
@@ -90,6 +90,8 @@ tooltip label{
 
     padding-top:8px;
 
+    padding-bottom: 0px;
+
 	transition-delay: 0s;
 	transition: 0.5s;
 }
@@ -114,12 +116,12 @@ tooltip label{
 	margin-top: -3px;
 	margin-bottom: -3px;
 	
-	color: rgba(120, 120, 180, 0.5);
+	color: rgba(255, 255, 255, 0.3);
 
 	transition-delay: 0s;
 	transition: 0.5s;
 }
 
 #workspaces button.active {	
-	color: #000000;
+	color: #FFFFFF;
 }

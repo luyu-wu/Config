@@ -5,46 +5,38 @@ duration = 0
 
 [colors]
 draw_bold_text_with_bright_colors = false
-transparent_background_colors = true
-# Default colors
-[colors.primary]
-background = '#ffffff'
-foreground = '#24292f'
 
-# Normal colors
-[colors.normal]
-black   = '#24292e'
-red     = '#d73a49'
-green   = '#28a745'
-yellow  = '#dbab09'
-blue    = '#0366d6'
-magenta = '#5a32a3'
-cyan    = '#0598bc'
-white   = '#6a737d'
-
-# Bright colors
 [colors.bright]
-black   = '#959da5'
-red     = '#cb2431'
-green   = '#22863a'
-yellow  = '#b08800'
-blue    = '#005cc5'
-magenta = '#5a32a3'
-cyan    = '#3192aa'
-white   = '#d1d5da'
-
+black = "0x969896"
+blue = "0xb4b7b4"
+cyan = "0xa3685a"
+green = "0x282a2e"
+magenta = "0xe0e0e0"
+red = "0xde935f"
+white = "0xffffff"
+yellow = "0x373b41"
 
 [colors.cursor]
-text = '#000000'
-cursor = '#000000' 
+cursor = "0xc5c8c6"
+text = "0x1d1f21"
 
-[colors.selection]
-text = '#4C4F69'
-background = '#C2DAF7'
+[colors.normal]
+black = "0x1d1f21"
+blue = "0x81a2be"
+cyan = "0x8abeb7"
+green = "0xb5bd68"
+magenta = "0xb294bb"
+red = "0xcc6666"
+white = "0xc5c8c6"
+yellow = "0xf0c674"
+
+[colors.primary]
+background = "0x2A2A2A"
+foreground = "0xc5c8c6"
+
 [cursor]
 style = "Beam"
 unfocused_hollow = false
-
 
 [debug]
 log_level = "OFF"
@@ -53,11 +45,11 @@ print_events = false
 render_timer = false
 
 [font]
-size = 11.0
+size = 12.0
 
 [font.bold]
 family = "Fira Code Nerd Font"
-style = "Normal"
+style = "Bold"
 
 [font.glyph_offset]
 x = 0
@@ -80,7 +72,7 @@ hide_when_typing = false
 
 
 [scrolling]
-history = 2000
+history = 600
 multiplier = 5
 
 [selection]
@@ -93,7 +85,7 @@ program = "/usr/bin/fish"
 [window]
 decorations = "none"
 dynamic_padding = false
-opacity = 0.65
+opacity = 0.7
 startup_mode = "Windowed"
 
 [window.dimensions]
