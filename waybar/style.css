@@ -16,7 +16,7 @@ window#waybar {
 	border-radius: 0px;
 		
  	background: #FFFFFF;
-    border-left: 2px solid @border_box;
+    border-right: 2px solid @border_box;
 	margin: -4px -8px -8px -8px;
 }
 
@@ -136,6 +136,9 @@ tooltip label{
    	
     border-radius: 4px;
 	font-size: 18px;
+	padding-top: 6px;
+
+	padding-bottom: 6px;
     margin-left: 6px;
     margin-right: 6px;
    	color: @default_text;

@@ -12,10 +12,10 @@ configuration {
 window {
 	padding: 1em;
 	border:       2px;
-	border-color: #B0B0B0;
+	border-color: #909090;
 	border-radius: 6px;
 	background-color: #ffffff;
-	location:   east;
+	location:   west;
 	width:   25%;
 	/*x-offset:   30px; */
 	/*height:    96.5%;*/ 
@@ -43,9 +43,9 @@ inputbar {
   border-radius: 4px;
 
   border:        1px;
-  background-color: #E0E0E0A0;
-  border-color: #00000050;
-  children: [entry,overlay,case-indicator];
+  background-color: #EBEBEB;
+  border-color: #909090;
+  children: [entry,overlay];
 }
 
 listview, message {
@@ -64,7 +64,6 @@ listview {
   padding: 0.5em;
   border-radius: 0px;
   background-color: transparent;
-  border-color:     #ffffff20;
   scrollbar:    false;
 }
 
@@ -72,34 +71,33 @@ element {
     border:  1px;
     border-radius: 4px;
     padding: 5px;
-    border-color: #00000050;
+    border-color: #909090;
     
 	transition: 0.4;
 }
 
 element-text {
-    text-color:       #000000;
+    text-color:       #383838;
     font: "Fira Code Nerd Font 13";
     padding: 5px;
 }
 
 element normal.normal {
-    background-color: #F2F2F2A0;
+    background-color: #FFFFFF;
 }
 element.alternate.normal {
-    background-color: #F2F2F2A0;
+    background-color: #FFFFFF;
 }
 
 element.selected.normal {
-    background-color: #B2B2B2A0;
+    background-color: #EBEBEB;
 }
-
 
 entry {
     placeholder: "在这里打字";
-    placeholder-color: #00000080;
+    placeholder-color: #909090;
     border-color: transparent;
     background-color: transparent;
     border:        10px;
-    text-color: #000000DD;
+    text-color: #383838;
 }
