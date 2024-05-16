@@ -1,0 +1,36 @@
+* {
+	background-image: none;
+}
+
+window {
+	background-color: rgba(12, 12, 12, 0.5);
+}
+
+button {
+    color: rgba(0,0,0,0);
+	background-color: #1E1E1E;
+	border-style: none;
+	border-radius: 12px;
+	border-width: 0px;
+	border: #FFFFFF;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+button:hover {
+	background-color: #4E4E4E;
+	border-style: solid;
+	border-width: 2px;
+}
+
+#logout {
+    background-image: image(url("/usr/share/wleave/icons/logout.svg"), url("/usr/local/share/wleave/icons/logout.svg"));
+}
+
+#shutdown {
+    background-image: image(url("/usr/share/wleave/icons/shutdown.svg"), url("/usr/local/share/wleave/icons/shutdown.svg"));
+}
+
+#reboot {
+    background-image: image(url("/usr/share/wleave/icons/reboot.svg"), url("/usr/local/share/wleave/icons/reboot.svg"));
+}
