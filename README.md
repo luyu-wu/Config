@@ -4,6 +4,8 @@
 Live config files from my desktop system.
 
 ## Screenshots
+![NewRice](https://github.com/luyu-wu/Config/assets/116970666/47021b39-d48d-436a-958c-a062906c63a8)
+
 ![image](https://github.com/luyu-wu/Config/assets/116970666/fe4a6982-3318-4854-ab44-4dd8a9365362)
 
 
