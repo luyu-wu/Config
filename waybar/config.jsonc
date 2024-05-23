@@ -15,7 +15,7 @@
 	    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
 		"on-click-right": "pavucontrol",
 	    "max-volume": 100,
-	    "format-icons": ["","","", "", ""],
+	    "format-icons": ["","","", "", " "],
 	    "reverse-scrolling": true,
 	    "scroll-step": 1,
 	    "rotate":90
@@ -24,7 +24,7 @@
 		"reverse-scrolling": false,
 		"scroll-step": 0.6,
 	    "device": "intel_backlight",
-	    "format": "  {percent}",
+	    "format": " {percent}",
 	    "rotate":90
 	},
 	"tray": {

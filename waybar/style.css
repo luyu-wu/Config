@@ -74,6 +74,7 @@ tooltip label{
 
 
 	margin-bottom: 6px;
+	padding-top: 6px;
     margin-left: 6px;
     margin-right: 6px;
     padding-bottom: 10px;
@@ -91,6 +92,7 @@ tooltip label{
 	min-height: 80px;
     margin-left: 6px;
     margin-right: 6px;
+	padding-top: 6px;
    	color: @default_text;
 
 } 
@@ -104,6 +106,7 @@ tooltip label{
     border-bottom: 0px transparent;
    	padding-bottom: 3px;
     margin-left: 6px;
+    padding-top: 3px;
     margin-right: 6px;
    	color: @default_text;
 
