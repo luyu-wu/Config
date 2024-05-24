@@ -11,7 +11,7 @@ configuration {
 }
 window {
 	padding: 1em;
-	border:       2px;
+	border:       1px;
 	border-color: #909090;
 	border-radius: 6px;
 	background-color: #ffffff;
@@ -21,7 +21,7 @@ window {
 	/*height:    96.5%;*/ 
 	
 	x-offset:   30px;
-	height:    91.8%; 
+	height:    1220px; 
 }
 
 mainbox {
