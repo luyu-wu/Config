@@ -16,7 +16,7 @@ window#waybar {
 	border-radius: 0px;
 		
  	background: #FFFFFF;
-    border-right: 2px solid @border_box;
+    border-right: 1px solid @border_box;
 	margin: -4px -8px -8px -8px;
 }
 
