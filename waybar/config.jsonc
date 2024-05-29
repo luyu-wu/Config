@@ -4,6 +4,7 @@
 	"modules-left": ["hyprland/workspaces","mpris"],
 	"modules-center": ["clock"], 
 	"margin-bottom": 0,
+	"output": "eDP-1",
 	"margin-top":0,
 	"margin-left":-2,
 	"modules-right": ["network","bluetooth","wireplumber","backlight","battery"],
@@ -79,7 +80,8 @@
 	},
 	"bluetooth": {
 		"format": "",
-		"on-click": "foot -a floatterm -e bluetuith",
+		"on-click": "overskride",
+		"on-click-right": "foot -a floatterm -e bluetuith",
 		"tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
 		"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
 		"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
