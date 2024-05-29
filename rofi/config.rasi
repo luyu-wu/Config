@@ -21,7 +21,8 @@ window {
 	/*height:    96.5%;*/ 
 	
 	x-offset:   30px;
-	height:    1220px; 
+	/*Rheight:    1220px; */
+	height: 95.3%;
 }
 
 mainbox {
