@@ -6,7 +6,7 @@
 
 
 
-@define-color background_box #EBEBEB;
+@define-color background_box #D2D2D2;
 @define-color background_active_box #CCE0F8;
 @define-color border_box #909090;
 @define-color default_text #383838;
@@ -15,7 +15,7 @@
 window#waybar {
 	border-radius: 0px;
 		
- 	background: #FFFFFF;
+ 	background: #EBEBEB;
     border-right: 1px solid @border_box;
 	margin: -4px -8px -8px -8px;
 }
