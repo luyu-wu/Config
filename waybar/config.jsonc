@@ -24,6 +24,7 @@
 		"show-special":true,
 		"format-icons": {
 			"default": "",
+			"game": "󰮂",
 			"discord": "󰙯",
 			"spotify": "",
 			"code": "󰨞",
