@@ -7,7 +7,7 @@
 	"output": "eDP-1",
 	"margin-top":0,
 	"margin-left":-2,
-	"modules-right": ["network","bluetooth","wireplumber","backlight","battery"],
+	"modules-right": ["network","wireplumber","backlight","battery"],
 	"on-click": "rofi",
 	"wireplumber": {
 		"ignored-sinks": ["Easy Effects Sink"], 
@@ -71,6 +71,7 @@
 	},
 	"network": {
 		"format-wifi": " ",
+		"format-ethernet": "󰈀",
 		"format": "",
 		"tooltip-format": "{signaldBm}dBm {essid} {frequency}GHz",
 		"on-click": "foot -a floatterm -e nmtui",
