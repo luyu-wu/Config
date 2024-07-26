@@ -9,7 +9,7 @@
     height = 100
     origin = top-right
     offset = 10x10
-    corner_radius = 8
+    corner_radius = 0
 
     icon_corner_radius = 6
 
@@ -30,7 +30,7 @@
 	
     ### Text ###
 
-    font = SF Pro Display 14
+    font = SF Pro Display 15
 
     line_height = 6
 
