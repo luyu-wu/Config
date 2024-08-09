@@ -13,7 +13,7 @@ window {
 	padding: 1em;
 	border:       1px;
 	border-color: #909090;
-	border-radius: 6px;
+	border-radius: 0px;
 	background-color: #ffffff;
 	location:   west;
 	width:   25%;
