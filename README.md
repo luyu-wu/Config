@@ -24,8 +24,8 @@ workflow is build to be intuitive and easily customizeable :)
 - Low resource utilization for low-battery utilization (no JS >:), 0% idle usage
 - Low memory usage (once again no JS)
 - Custom bezier curves for smooth animations
-- Consistent theming across all applications
-- Custom Firefox CSS
+- Consistent theming across dotfile
+- Tons of other stuff
 
 ## Packages
 in the packages.txt or smth, flatpaks r in the flatpak one!
