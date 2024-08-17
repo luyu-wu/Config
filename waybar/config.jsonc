@@ -4,7 +4,6 @@
 	"modules-left": ["hyprland/workspaces","mpris"],
 	"modules-center": ["clock"], 
 	"margin-bottom": 0,
-	"output": "eDP-1",
 	"margin-top":0,
 	"margin-left":-2,
 	"modules-right": ["network","wireplumber","backlight","battery"],
@@ -55,7 +54,7 @@
 	"mpris": {
 		"format": " {status_icon} {title} - {artist} ",
 		"status-icons": {
-			"paused": "⏸",
+			"paused": "󰏤",
 			"playing": "󰎈"
 		},
 		"max-length":22,
