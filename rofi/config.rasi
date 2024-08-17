@@ -16,11 +16,11 @@ window {
 	border-radius: 20px;
 	background-color: #EBEBEBE0;
 	location:   west;
-	width:   25%;
+	width:   500px;
 	/*x-offset:   30px; */
 	/*height: 95.3%;*/ 
 
-	x-offset:   -55px; 
+	x-offset:   -50px; 
 
 	height: 100%;
 }
