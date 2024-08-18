@@ -11,18 +11,19 @@ configuration {
 }
 window {
 	padding: 1em;
-	border:       0px;
-	border-color: #909090;
-	border-radius: 20px;
-	background-color: #EBEBEBE0;
+	border:       3px;
+	border-radius: 0px;
+	border-right: 2px;
+	border-color: #A0A0A0;
+	background-color: #EBEBEB;
 	location:   west;
 	width:   500px;
 	/*x-offset:   30px; */
 	/*height: 95.3%;*/ 
 
-	x-offset:   -50px; 
+	x-offset:   -60px; 
 
-	height: 100%;
+	height: 101%;
 }
 
 mainbox {
@@ -41,11 +42,11 @@ element,element-text,element-icon, button {
 inputbar {
   margin: 20px 10px;
   spacing: 0.4em;
-  border-radius: 8px;
+  border-radius: 0px;
 
-  border:        1px;
+  border:        2px;
   background-color: #EBEBEB;
-  border-color: #909090;
+  border-color: #A0A0A0;
   children: [entry,overlay];
 }
 
@@ -70,9 +71,9 @@ listview {
 
 element {
     border:  1px;
-    border-radius: 8px;
+    border-radius: 0px;
     padding: 6px;
-    border-color: #909090;
+    border-color: #A0A0A0;
 }
 
 element-text {
