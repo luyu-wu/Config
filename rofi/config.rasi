@@ -14,7 +14,7 @@ window {
 	border:       2px;
 	border-color: #606060;
 	border-radius: 0px;
-	background-color: #15151540;
+	background-color: #15151580;
 	location:   west;
 	width:   25%;
 	
