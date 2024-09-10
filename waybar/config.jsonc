@@ -40,7 +40,7 @@
 		"format": "{icon}",
 		"show-special":true,
 		"format-icons": {
-			"default": "󱓼",
+			"default": "󰝣",
 			"discord": "󰍩",
 			"kden": "󱛿",
 			"obs": "",
@@ -53,12 +53,12 @@
 		"on-click": "activate",
 	},
 	"mpris": {
-		"format": " {status_icon} {title} - {artist} ",
+		"format": "{status_icon} {title} - {artist}",
 		"status-icons": {
 			"paused": "󰏤",
 			"playing": "󰎈"
 		},
-		"max-length":22,
+		"max-length":30,
 		"tooltip-format": "{status_icon} {title} - {artist}",
 		"rotate":90
 	},
