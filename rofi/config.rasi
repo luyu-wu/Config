@@ -2,7 +2,9 @@
 * {
   background-color: transparent;
 
-  font: "SF Pro Display 14";
+  /*font: "SF Pro Display Light 12";*/
+  font: "SF Pro Rounded Light 14";
+
 }
 
 
@@ -18,9 +20,6 @@ window {
 	background-color: #EBEBEB;
 	location:   west;
 	width:   500px;
-	/*x-offset:   30px; */
-	/*height: 95.3%;*/ 
-
 	x-offset:   -60px; 
 
 	height: 101%;
@@ -35,38 +34,37 @@ element {
   background: transparent;
   children: [ element-icon, element-text ];
 }
-element,element-text,element-icon, button {
-    cursor: pointer;
-}
 
 inputbar {
-  margin: 20px 10px;
-  spacing: 0.4em;
+  margin: 20px 00px;
   border-radius: 0px;
 
-  border:        2px;
+  border:        1px;
   background-color: #EBEBEB;
   border-color: #A0A0A0;
   children: [entry,overlay];
 }
 
+
+listview {
+  border: 0px;
+  spacing: 4px;
+  border-radius: 0px;
+  background-color: transparent;
+  scrollbar:    true;
+}
+
+listview, scrollbar {
+  handle-color:	#A0A0A0;
+  handle-width: 2px;
+}
 listview, message {
-  padding: 0px;
   border:  0px;
   border-radius: 0px;
   background-color: transparent;
 
   columns: 1;
   lines:   7;
-}
-
-listview {
-  border: 0px;
-  spacing: 8px;
-  padding: 0.5em;
-  border-radius: 0px;
-  background-color: transparent;
-  scrollbar:    false;
 }
 
 element {
@@ -78,7 +76,6 @@ element {
 
 element-text {
     text-color:       #383838;
-    font: "SF Pro Display 14";
     padding: 10px;
 }
 
@@ -92,14 +89,14 @@ element.alternate.normal {
 
 }
 element.selected.normal {
-    background-color: #EBEBEB;
+    background-color: #DBDBDB;
 }
 
 entry {
     placeholder: "";
-    placeholder-color: #909090;
     border-color: transparent;
     background-color: transparent;
     border:        10px;
     text-color: #383838;
+    cursor-width: 0px;
 }
