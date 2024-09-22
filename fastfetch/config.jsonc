@@ -32,10 +32,6 @@
       "key": "   "
     },
     {
-    	"type": "custom",
-    	"format": "    :: Framework 13 11th Generation"
-    },
-    {
       "type": "custom",
       "format": "├───────── \u001B[1mSoftware Information\u001B[0m ─────────┤"
     },

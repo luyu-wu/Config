@@ -19,7 +19,7 @@ window {
 	width:   25%;
 	
 	x-offset:   20px;
-	height:    86%; 
+	height:    91%; 
 }
 
 mainbox {
