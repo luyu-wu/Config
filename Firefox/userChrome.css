@@ -1,0 +1,34 @@
+:root {
+  --tab-block-margin: 3px !important;
+  --toolbarbutton-border-radius: 0 !important;
+  --tab-border-radius: 0 !important;
+}
+
+menupopup {
+  --panel-background: #dad7d0 !important;
+  --panel-padding: 2px 0 !important;
+}
+menupopup > menuitem,
+menupopup > menu {
+  padding-block: 3px !important;
+}
+#context-navigation:not([hidden]) {
+  padding: 0 0 2px !important;
+}
+.tabbrowser-tab .tab-close-button {
+  visibility: collapse !important;
+}
+#context-navigation,
+#context-sep-navigation {
+  display:none !important;
+}
+
+#back-button,
+#forward-button {
+  display: none !important;
+}
+
+.tab-background[selected] {
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
