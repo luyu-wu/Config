@@ -13,14 +13,15 @@ configuration {
 }
 window {
 	padding: 1em;
-	border:       3px;
 	border-radius: 0px;
+	border-left: 0px;
+
 	border-right: 2px;
 	border-color: #A0A0A0;
 	background-color: #EBEBEB;
 	location:   west;
 	width:   500px;
-	x-offset:   -60px; 
+	x-offset:   -3px; 
 
 	height: 101%;
 }
@@ -40,7 +41,7 @@ inputbar {
   border-radius: 0px;
 
   border:        1px;
-  background-color: #EBEBEB;
+  background-color: #D2D2D2;
   border-color: #A0A0A0;
   children: [entry,overlay];
 }
@@ -89,7 +90,7 @@ element.alternate.normal {
 
 }
 element.selected.normal {
-    background-color: #DBDBDB;
+    background-color: #D2D2D2;
 }
 
 entry {
