@@ -14,9 +14,9 @@ configuration {
 window {
 	padding: 1em;
 	border-radius: 0px;
-	border-left: 0px;
+	border: 0px;
 
-	border-right: 2px;
+	border-right: 0px;
 	border-color: #A0A0A0;
 	background-color: #EBEBEB;
 	location:   west;
@@ -38,10 +38,10 @@ element {
 
 inputbar {
   margin: 20px 00px;
-  border-radius: 0px;
+  border-radius: 12px;
 
   border:        1px;
-  background-color: #D2D2D2;
+  background-color: #DEDEDE;
   border-color: #A0A0A0;
   children: [entry,overlay];
 }
@@ -52,13 +52,14 @@ listview {
   spacing: 4px;
   border-radius: 0px;
   background-color: transparent;
-  scrollbar:    true;
+  scrollbar:    false;
 }
 
 listview, scrollbar {
   handle-color:	#A0A0A0;
-  handle-width: 2px;
+  handle-width: 4px;
 }
+
 listview, message {
   border:  0px;
   border-radius: 0px;
@@ -70,13 +71,13 @@ listview, message {
 
 element {
     border:  1px;
-    border-radius: 0px;
+    border-radius: 6px;
     padding: 6px;
     border-color: #A0A0A0;
 }
 
 element-text {
-    text-color:       #383838;
+    text-color: #383838;
     padding: 10px;
 }
 
