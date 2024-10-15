@@ -7,7 +7,8 @@
 
 
 @define-color background_box #D2D2D2;
-@define-color background_active_box #CCE0F8;
+@define-color background_active_box #F4EDD7;
+@define-color border_active_box #D2BE80;
 @define-color border_box #A0A0A0;
 @define-color default_text #383838;
 
@@ -25,7 +26,7 @@ tooltip {
 	background: rgb(255,255,255);
 	border: 2px solid @border_box;
 	/*box-shadow: inset -1 -2px @border_box;*/
-	border-radius: 0px;
+	border-radius: 4px;
 }
 tooltip label{
 	font-family: Source Code Pro;
@@ -40,29 +41,15 @@ tooltip label{
    	
 	border: 1px solid @border_box;
 	
-    border-radius: 0px;
-	min-height: 50px;
+    border-radius: 6px;
+	min-height: 40px;
     margin-left: 6px;
     margin-right: 6px;
     margin-bottom: 4px;
 
-    /*margin-bottom: -10px;*/ 
+    padding-right: 4px;
+
     color: @default_text;
-}
-#bluetooth {
-   	background-color: @background_box;
-   	
-	border: 1px solid @border_box;
-	min-height: 50px;
-    border-radius: 0px 0px 0px 0px;
-
-    border-top: 0px transparent;
-
-    margin-right: 6px;
-    margin-left: 6px;
-    margin-bottom: 4px;
-	color: @default_text;
-
 }
 
 #battery {
@@ -71,7 +58,7 @@ tooltip label{
 
 	border-top: 0px transparent;
 
-	border-radius: 0px 0px 0px 0px;
+	border-radius: 0px 0px 6px 6px;
 	min-height: 80px;
 
 
@@ -88,7 +75,7 @@ tooltip label{
 	border: 1px solid @border_box;
    	background-color: @background_box;
 
-    border-radius: 0px 0px 0px 0px;
+    border-radius: 6px 6px 0px 0px;
 
     border-bottom: 0px transparent;
 	min-height: 80px;
@@ -129,7 +116,7 @@ tooltip label{
 	margin-bottom: 6px;
     margin-right: 6px;
     margin-left: 6px;
-	border-radius: 0px;
+	border-radius: 6px;
    	color: @default_text;
 
 }
@@ -139,7 +126,7 @@ tooltip label{
 
    	background-color: @background_box;
    	
-    border-radius: 0px;
+    border-radius: 6px;
 	font-size: 18px;
 	padding-top: 16px;
 
@@ -155,6 +142,7 @@ tooltip label{
 }
 #mpris.playing {
 	background-color: @background_active_box;
+	border: 2px solid @border_active_box;
 }
 
 
@@ -169,7 +157,7 @@ tooltip label{
 	margin-bottom: 6px;
 	font-size: 18px;
 	padding-bottom: 6px;
-	border-radius: 0px;
+	border-radius: 6px;
 }
 
 #workspaces button {

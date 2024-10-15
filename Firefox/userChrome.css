@@ -1,12 +1,12 @@
 :root {
-  --tab-block-margin: 3px !important;
-  --toolbarbutton-border-radius: 0 !important;
-  --tab-border-radius: 0 !important;
+  --tab-block-margin: 2px !important;
+  --toolbarbutton-border-radius: 16px !important;
+  --tab-border-radius: 8px !important;
 }
 
 menupopup {
   --panel-background: #dad7d0 !important;
-  --panel-padding: 2px 0 !important;
+  --panel-padding: 10px 0 !important;
 }
 menupopup > menuitem,
 menupopup > menu {
@@ -30,12 +30,14 @@ menupopup > menu {
 
 .tab-background[selected] {
   box-shadow: none !important;
-  border-radius: 0 !important;
+  border-radius: 8px !important;
 }
 
-
+#alltabs-button {
+	display: none !important;
+}
 
 #unified-extensions-button, #unified-extensions-button > .toolbarbutton-icon{
-width: 0px !important;
-padding: 0px !important;
+	width: 0px !important;
+	padding: 0px !important;
 }

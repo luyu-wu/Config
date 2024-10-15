@@ -1,12 +1,14 @@
 format = """
-[ 󰣇 ](bg:#a3aed2 fg:#1c1c1c)\
 $directory\
-[ ](bg:#d4d9f2)\
-[ ](bg:#d3effa)\
+[ ](bg:#F4EDD7)\
+[ ](bg:#F4EDD7)\
+[ ](bg:#F9F1E7)\
+[ ](bg:#F9F1E7)\
+
 \n$character"""
 
 [directory]
-style = "fg:#505050 bg:#bcc3ea"
+style = "fg:#505050 bg:#E2DE90"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
@@ -16,12 +18,4 @@ truncation_symbol = "…/"
 "Downloads" = " "
 "Music" = " "
 "Pictures" = " "
-
-[git_branch]
-symbol = ""
-style = "bg:#a3aed2"
-format = '[[ $symbol $branch ](fg:#707070 bg:#dce2eb)]($style)'
-
-[git_status]
-style = "bg:#a3aed2"
-format = '[[($all_status$ahead_behind )](fg:#202020 bg:#e4eaf4)]($style)'
+"Code" = "󰨞 "
