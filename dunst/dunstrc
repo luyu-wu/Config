@@ -9,7 +9,7 @@
     height = 100
     origin = top-right
     offset = 10x10
-    corner_radius = 0
+    corner_radius = 6
 
     icon_corner_radius = 6
 
