@@ -79,7 +79,7 @@ multiplier = 5
 save_to_clipboard = false
 semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
-[shell]
+[terminal.shell]
 program = "/usr/bin/fish"
 
 [window]
@@ -374,3 +374,5 @@ mods = "Command"
 chars = "\u0002/"
 key = "F"
 mods = "Command"
+
+[terminal]
