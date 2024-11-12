@@ -209,3 +209,35 @@ user_pref("browser.bookmarks.openInTabClosesMenu", false);
 user_pref("browser.menu.showViewImageInfo", true);
 user_pref("findbar.highlightAll", true);
 user_pref("layout.word_select.eat_space_to_next_word", false);
+/* user.js
+ * https://github.com/rafaelmardojai/firefox-gnome-theme/
+ */
+
+// Enable customChrome.css
+user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
+
+// Set UI density to normal
+user_pref("browser.uidensity", 0);
+
+// Enable SVG context-propertes
+user_pref("svg.context-properties.content.enabled", true);
+
+// Disable private window dark theme
+user_pref("browser.theme.dark-private-windows", false);
+
+// Enable rounded bottom window corners
+user_pref("widget.gtk.rounded-bottom-corners.enabled", true);
+
+user_pref("gnomeTheme.hideSingleTab", false);
+user_pref("gnomeTheme.normalWidthTabs", false);
+user_pref("gnomeTheme.swapTabClose", false);
+user_pref("gnomeTheme.bookmarksToolbarUnderTabs", false);
+user_pref("gnomeTheme.tabsAsHeaderbar", false);
+user_pref("gnomeTheme.tabAlignLeft", false);
+user_pref("gnomeTheme.activeTabContrast", false);
+user_pref("gnomeTheme.closeOnlySelectedTabs", false);
+user_pref("gnomeTheme.symbolicTabIcons", false);
+user_pref("gnomeTheme.allTabsButton", false);
+user_pref("gnomeTheme.hideWebrtcIndicator", false);
+user_pref("gnomeTheme.oledBlack", false);
+user_pref("gnomeTheme.noThemedIcons", false);
