@@ -4,7 +4,7 @@ precision highp float;
 varying highp vec2 v_texcoord;
 uniform highp sampler2D tex;
 
-#define STRENGTH 0.0027
+#define STRENGTH 0.0127
 
 void main() {
     vec2 center = vec2(0.5, 0.5);

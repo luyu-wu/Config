@@ -13,17 +13,16 @@ configuration {
 }
 window {
 	padding: 1em;
-	border-radius: 0px;
-	border: 0px;
+	border-radius: 8px;
+	border: 2px;
 
-	border-right: 0px;
 	border-color: #A0A0A0;
 	background-color: #EBEBEB;
 	location:   west;
 	width:   500px;
-	x-offset:   -3px; 
+	x-offset:   16px; 
 
-	height: 101%;
+	height: 97.5%;
 }
 
 mainbox {
@@ -38,7 +37,7 @@ element {
 
 inputbar {
   margin: 20px 00px;
-  border-radius: 12px;
+  border-radius: 8px;
 
   border:        1px;
   background-color: #DEDEDE;
