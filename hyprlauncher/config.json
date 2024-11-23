@@ -1,0 +1,65 @@
+{
+  "debug": {
+    "disable_auto_focus": false,
+    "enable_logging": false
+  },
+  "theme": {
+    "colors": {
+      "border": "#606060",
+      "item_bg": "#0f0f0f00",
+      "item_bg_hover": "#18181880",
+      "item_bg_selected": "#1f1f1f80",
+      "item_description": "#a0a0a0",
+      "item_description_selected": "#a0a0a0",
+      "item_name": "#ffffff",
+      "item_name_selected": "#ffffff",
+      "item_path": "#808080",
+      "item_path_selected": "#808080",
+      "search_bg": "#0f0f0f30",
+      "search_bg_focused": "#282828",
+      "search_caret": "#808080",
+      "search_text": "#e0e0e0",
+      "window_bg": "#0f0f0f30"
+    },
+    "corners": {
+      "list_item": 0,
+      "search": 0,
+      "window": 0
+    },
+    "spacing": {
+      "item_margin": 6,
+      "item_padding": 4,
+      "search_margin": 0,
+      "search_padding": 12
+    },
+    "typography": {
+      "item_description_size": 12,
+      "item_name_size": 14,
+      "item_path_font_family": "monospace",
+      "item_path_size": 12,
+      "search_font_size": 16
+    }
+  },
+  "window": {
+    "anchor": "left",
+    "border_width": 2,
+    "custom_navigate_keys": {
+      "delete_word": "h",
+      "down": "j",
+      "up": "k"
+    },
+    "height": 1040,
+    "margin_bottom": 0,
+    "margin_left": 24,
+    "margin_right": 0,
+    "margin_top": 0,
+    "max_entries": 50,
+    "show_border": true,
+    "show_descriptions": false,
+    "show_icons": true,
+    "show_paths": false,
+    "show_search": true,
+    "use_gtk_colors": false,
+    "width": 400
+  }
+}
