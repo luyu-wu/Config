@@ -25,17 +25,14 @@ workflow is build to be intuitive and easily customizeable :)
 - Low memory usage (once again no JS)
 - Custom bezier curves for smooth animations
 - Consistent theming across dotfile
-- Tons of other stuff
+- Custom binaries for manipulating hyprland (CTM <3)
+- Tons of other stuff!!
 
 ## Packages
-in the packages.txt or smth, flatpaks r in the flatpak one!
+in the packages.txt or smth, flatpaks r in the flatpak one! (this hasn't been updated in years, best bet is just finding what you need the hard way)
 
 (non-exhaustive list, i just forget the rest of the important dependencies, u prob need nerd-fonts or smth)
 
 ## Credits
-
-wavefox (which I worked upon)
-catppuccin discord + spotify themes
-tokyo-night starship theme
 
 all the great tools that made this possible at all :D

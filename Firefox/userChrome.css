@@ -1,7 +1,7 @@
 :root {
   --tab-block-margin: 2px !important;
-  --toolbarbutton-border-radius: 16px !important;
-  --tab-border-radius: 8px !important;
+  --toolbarbutton-border-radius: 4px !important;
+  --tab-border-radius: 4px !important;
 }
 
 menupopup {
@@ -30,7 +30,7 @@ menupopup > menu {
 
 .tab-background[selected] {
   box-shadow: none !important;
-  border-radius: 8px !important;
+  border-radius: 4px !important;
 }
 
 #alltabs-button {
