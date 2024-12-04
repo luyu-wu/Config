@@ -1,0 +1,76 @@
+{
+  "debug": {
+    "disable_auto_focus": false,
+    "enable_logging": false
+  },
+  "dmenu": {
+    "allow_invalid": false,
+    "case_sensitive": false
+  },
+  "theme": {
+    "colors": {
+      "border": "#A0A0A0",
+      "item_bg": "#EBEBEB",
+      "item_bg_hover": "#D2D2D2",
+      "item_bg_selected": "#D2D2D2",
+      "item_description": "#a0a0a0",
+      "item_description_selected": "#a0a0a0",
+      "item_name": "#383838",
+      "item_name_selected": "#383838",
+      "item_path": "#808080",
+      "item_path_selected": "#808080",
+      "search_bg": "#D2D2D2",
+      "search_bg_focused": "#282828",
+      "search_caret": "#808080",
+      "search_text": "#383838",
+      "window_bg": "#EBEBEB"
+    },
+    "corners": {
+      "list_item": 8,
+      "search": 8,
+      "window": 12
+    },
+    "spacing": {
+      "item_margin": 6,
+      "item_padding": 4,
+      "search_margin": 12,
+      "search_padding": 12
+    },
+    "typography": {
+      "item_description_size": 12,
+      "item_name_size": 14,
+      "item_path_font_family": "monospace",
+      "item_path_size": 12,
+      "search_font_size": 16
+    }
+  },
+  "web_search": {
+    "enabled": false,
+    "engine": "duckduckgo",
+    "prefixes": []
+  },
+  "window": {
+    "anchor": "left",
+    "border_width": 2,
+    "custom_navigate_keys": {
+      "delete_word": "h",
+      "down": "j",
+      "up": "k"
+    },
+    "height": 1000,
+    "margin_bottom": 0,
+    "margin_left": 30,
+    "margin_right": 0,
+    "margin_top": 0,
+    "max_entries": 50,
+    "show_actions": false,
+    "show_border": true,
+    "show_descriptions": true,
+    "show_icons": true,
+    "show_paths": false,
+    "show_search": true,
+    "use_custom_css": false,
+    "use_gtk_colors": false,
+    "width": 500
+  }
+}

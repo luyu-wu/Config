@@ -1,7 +1,9 @@
+@import url("/home/chrysanthemum/Code/Config/Firefox/hide_tabs_scroll.css");
+@import url("/home/chrysanthemum/Code/Config/Firefox/close.css");
+
+
 :root {
   --tab-block-margin: 2px !important;
-  --toolbarbutton-border-radius: 4px !important;
-  --tab-border-radius: 4px !important;
 }
 
 menupopup {
@@ -30,7 +32,6 @@ menupopup > menu {
 
 .tab-background[selected] {
   box-shadow: none !important;
-  border-radius: 4px !important;
 }
 
 #alltabs-button {
