@@ -3,24 +3,30 @@
 }
 
 window {
-	background-color: rgba(12, 12, 12, 0.5);
+	background-color: rgba(12, 12, 12, 0.4);
 }
 
 button {
     color: rgba(0,0,0,0);
 	background-color: #1E1E1E;
-	border-style: none;
 	border-radius: 12px;
-	border-width: 0px;
-	border: #FFFFFF;
+	border-style: solid;
+	border-width: 2px;
+	background-size: 40%;
+	border-color: #1E1E1E;
 	background-repeat: no-repeat;
 	background-position: center;
+	margin: 20px;
+	padding: 80px;
+	box-shadow: 0px 0px 5px 0px alpha(#000,0.5);
 }
 
 button:hover {
 	background-color: #4E4E4E;
-	border-style: solid;
+	border-color: #FFFFFF;
 	border-width: 2px;
+	box-shadow: 0px 0px 5px 0px alpha(#FFF,0.5);
+
 }
 
 #logout {

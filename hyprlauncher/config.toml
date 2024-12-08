@@ -1,12 +1,12 @@
 [window]
 width = 500
-height = 1000
+height = 900
 anchor = "left"
 margin_top = 0
 margin_bottom = 0
 margin_left = 30
 margin_right = 0
-show_descriptions = false
+show_descriptions = true
 show_paths = false
 show_icons = true
 show_search = true
@@ -66,6 +66,21 @@ allow_invalid = false
 case_sensitive = false
 
 [web_search]
-enabled = false
-engine = "duckduckgo"
-prefixes = []
+enabled = true
+engine = "google"
+
+[[web_search.prefixes]]
+prefix = "ai"
+url = "https://claude.ai/new?q="
+
+
+[[web_search.prefixes]]
+prefix = "yt"
+url = "https://www.youtube.com/results?search_query="
+
+[[web_search.prefixes]]
+prefix = "gh"
+url = "https://github.com/search?q="
+
+[calculator]
+enabled = true
