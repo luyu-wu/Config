@@ -6,7 +6,7 @@
 	"margin-bottom": 0,
 	"margin-top":0,
 	"margin-left":-2,
-	"modules-right": ["network","wireplumber","backlight","battery"],
+	"modules-right": ["tray", "network","wireplumber","backlight","battery"],
 	"wireplumber": {
 		"ignored-sinks": ["Easy Effects Sink"], 
 	    "format-muted": " MT",

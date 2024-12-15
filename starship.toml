@@ -1,16 +1,16 @@
 format = """
 ╭\
-[─](bg:#F2F0CD)\
-[─](bg:#EDEAB8)\
-[─](bg:#E7E4A4)\
+[─](bg:#E9F5E5)\
+[─](bg:#D1EAC7)\
+[─](bg:#B3DCA1)\
 $directory\
-[ ](bg:#E7E4A4)\
-[ ](bg:#EDEAB8)\
-[ ](bg:#F2F0CD)\
+[ ](bg:#B3DCA1)\
+[ ](bg:#D1EAC7)\
+[ ](bg:#E9F5E5)\
 \n╰─$character """
 
 [directory]
-style = "fg:#505050 bg:#E2DE90"
+style = "fg:#505050 bg:#A4D58F"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"

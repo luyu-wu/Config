@@ -35,6 +35,9 @@ tooltip label{
 	color: @default_text;
 }
 
+#tray {
+	padding-bottom: 16px;
+}
 
 /* Group Right 1 */
 #network {
@@ -187,7 +190,7 @@ tooltip label{
 }
 
 #workspaces button.active {
-	color: @default_text;
+	color: alpha(@default_text,0.7);
 	text-shadow: 3px 3px @border_active_box;
-	/*background: radial-gradient(circle at center, @background_active_box 0, alpha(@background_active_box,0) 35%);*/
+	/*background: radial-gradient(circle at center, @background_active_box 0, alpha(@background_active_box,0) 35%); */
 }
