@@ -2,17 +2,19 @@
     "label" : "logout",
     "action" : "hyprctl dispatch exit",
     "text" : "Logout",
-    "keybind" : "e"
+    "keybind": "l"
+
 }
 {
     "label" : "shutdown",
     "action" : "systemctl poweroff",
     "text" : "Shutdown",
-    "keybind" : "s"
+    "keybind": "s"
+
 }
 {
     "label" : "reboot",
     "action" : "systemctl reboot",
     "text" : "Reboot",
-    "keybind" : "r"
+    "keybind": "r"
 }

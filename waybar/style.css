@@ -8,8 +8,8 @@
 
 
 @define-color background_box #D2D2D2;
-@define-color background_active_box #FBF1C7;
-@define-color border_active_box #D2BE80;
+@define-color background_active_box alpha(#9AD182,0.5);
+@define-color border_active_box #5AB44F;
 @define-color border_box #A0A0A0;
 @define-color default_text #383838;
 
@@ -20,14 +20,14 @@ window#waybar {
  	background: #EBEBEB;
     border-right: 3px solid @border_box;
 	margin: -4px -8px -8px -8px;
+	box-shadow: 0px 0px 4px black;
 }
 
 
 tooltip {
-	background: rgb(255,255,255);
+	background: #EBEBEB;
 	border: 2px solid @border_box;
-	/*box-shadow: inset -1 -2px @border_box;*/
-	border-radius: 4px;
+	border-radius: 6px;
 }
 tooltip label{
 	font-family: Source Code Pro;
@@ -38,10 +38,11 @@ tooltip label{
 
 /* Group Right 1 */
 #network {
+
    	background-color: @background_box;
    	
 	border: 1px solid @border_box;
-	
+
     border-radius: 6px;
 	min-height: 40px;
     margin-left: 6px;
@@ -69,7 +70,10 @@ tooltip label{
     margin-right: 6px;
     padding-bottom: 6px;
    	color: @default_text;
+}
 
+#battery.charging {
+	background: linear-gradient(180deg, @background_box 0%, @background_active_box 60%);
 }
 
 #wireplumber {
@@ -102,15 +106,12 @@ tooltip label{
 
 }
 
-#battery.charging {
-	background: linear-gradient(180deg, @background_box 0%, @background_active_box 60%);
-}
 
 
 /* Group Top */
 
 #clock {
-	border: 1px solid @border_box;
+	border: 0.1rem solid @border_box;
    	background-color: @background_box;
 	min-height: 60px;
 	margin-top: 6px;
@@ -119,7 +120,12 @@ tooltip label{
     margin-left: 6px;
 	border-radius: 6px;
    	color: @default_text;
+   	transition: 0.4s;
+}
 
+#clock:hover{
+	background-color: @background_active_box;
+	border: 0.2rem solid @border_active_box
 }
 
 #mpris {
@@ -134,16 +140,17 @@ tooltip label{
 	padding-bottom: 10px;
     margin-left: 6px;
     margin-right: 6px;
-   	color: @default_text;
-
+   	color: alpha(@default_text,0.6);
+	transition: 0.4s;
 }
 
-#tray {
-	padding-bottom:20px;
-}
 #mpris.playing {
 	background-color: @background_active_box;
 	border: 2px solid @border_active_box;
+	color: @default_text;
+	/*box-shadow: 0px 0px 3px @border_active_box inset; */
+	/*text-shadow: 1px 1px @border_active_box; */
+
 }
 
 
@@ -162,7 +169,7 @@ tooltip label{
 }
 
 #workspaces button {
-	margin-left: -32px;
+	margin-left: -33px;
 	margin-right: -30px;
 	border-radius: 0px;
 
@@ -173,9 +180,14 @@ tooltip label{
 }
 
 #workspaces button:hover {
-	background: rgba(0,0,0,0);
+	color: rgba(0,0,0,0.5);
+	background: alpha(@background_box,0);
+	text-shadow: 2px 2px @border_active_box;
+
 }
 
 #workspaces button.active {
 	color: @default_text;
+	text-shadow: 3px 3px @border_active_box;
+	/*background: radial-gradient(circle at center, @background_active_box 0, alpha(@background_active_box,0) 35%);*/
 }

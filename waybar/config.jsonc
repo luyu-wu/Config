@@ -7,7 +7,6 @@
 	"margin-top":0,
 	"margin-left":-2,
 	"modules-right": ["network","wireplumber","backlight","battery"],
-	"on-click": "rofi",
 	"wireplumber": {
 		"ignored-sinks": ["Easy Effects Sink"], 
 	    "format-muted": " MT",
@@ -31,8 +30,7 @@
 		"spacing":20,
 	},
 	"clock": {
-		"on-click": "rofi -show drun",
-		"on-click-right": "gnome-clocks",
+		"on-click": "hyprlauncher",
         "format": "{:%H\n%M}",
         "tooltip-format": "{:%A, %B %d, %Y (%R)}",
 	},
@@ -53,13 +51,20 @@
 		"on-click": "activate",
 	},
 	"mpris": {
-		"format": "{status_icon} {title} - {artist}",
+		"format": "{player_icon} {title} - {artist}",
+		"format-paused": "{status_icon} {title} - {artist}",
 		"status-icons": {
 			"paused": "󰏤",
 			"playing": "󰎈"
 		},
+		"player-icons": {
+			"default": "󰎈",
+			"spotify": "󰓇",
+			"io": "󰫔",
+			"firefox": "",
+		},
 		"max-length":30,
-		"tooltip-format": "{status_icon} {title} - {artist}",
+		"tooltip-format": "{status_icon} {title} - {artist} - {player}",
 		"rotate":90
 	},
 	"battery": {
