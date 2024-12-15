@@ -4,6 +4,9 @@
 hyprland config files that value elegance and lightweightness over bulky and slow animations.
 workflow is build to be intuitive and easily customizeable :)
 ## Screenshots
+![update](https://github.com/user-attachments/assets/394c139d-99ee-4355-adc6-e5a116f68ec2)
+[Nature]
+
 ![image](https://github.com/luyu-wu/Config/assets/116970666/32474c1b-b00f-4191-9662-a6b0b7f282b5)
 [Adwaita]
 
