@@ -46,6 +46,7 @@
 			"windows": "",
 			"game": "󰮂",
 			"code":"󰨞",
+			"note":"",
 		},
 		"rotate":90,
 		"on-click": "activate",
