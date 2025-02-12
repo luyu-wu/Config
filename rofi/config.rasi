@@ -22,7 +22,7 @@ window {
 	width:   500px;
 	x-offset:   16px; 
 
-	height: 97.5%;
+	height: 80%;
 }
 
 mainbox {
