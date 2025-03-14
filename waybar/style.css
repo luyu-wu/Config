@@ -15,12 +15,11 @@
 
 
 window#waybar {
-	border-radius: 0px;
+	border-radius: 8px;
 		
- 	background: #EBEBEB;
-    border-right: 3px solid @border_box;
+ 	background-color: #EBEBEB;
+    border: 2px solid @border_box;
 	margin: -4px -8px -8px -8px;
-	box-shadow: 0px 0px 4px black;
 }
 
 
@@ -67,7 +66,7 @@ tooltip label{
 	min-height: 80px;
 
 
-	margin-bottom: 3px;
+	margin-bottom: 6px;
 	padding-top: 6px;
     margin-left: 6px;
     margin-right: 6px;
@@ -162,9 +161,9 @@ tooltip label{
 	border: 1px solid @border_box;
 	margin-left: 6px;
 	margin-right:6px;
+	margin-top: 6px;
 	padding-top:8px;
 
-	margin-top: 3px;
 	margin-bottom: 6px;
 	font-size: 18px;
 	padding-bottom: 6px;

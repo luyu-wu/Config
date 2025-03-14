@@ -3,9 +3,9 @@
 	"position":"left",
 	"modules-left": ["hyprland/workspaces","mpris"],
 	"modules-center": ["clock"], 
-	"margin-bottom": 0,
-	"margin-top":0,
-	"margin-left":-2,
+	"margin-bottom": 16,
+	"margin-top":16,
+	"margin-left":6,
 	"modules-right": ["tray", "network","wireplumber","backlight","battery"],
 	"wireplumber": {
 		"ignored-sinks": ["Easy Effects Sink"], 
