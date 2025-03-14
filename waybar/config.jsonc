@@ -1,62 +1,90 @@
 {
- 	"layer": "top",
+	"layer": "top",
 	"position":"left",
-	"modules-left": ["clock","mpris"],
-	"modules-center": ["hyprland/workspaces"], 
-	"margin-bottom": 10,
-	"margin-top":10,
-	"margin-left":5,
+	"modules-left": ["hyprland/workspaces","mpris"],
+	"modules-center": ["clock"], 
+	"margin-bottom": 12,
+	"margin-top":12,
+	"margin-left":6,
 	"modules-right": ["tray","custom/ddcutil","wireplumber"],
-	
 	"wireplumber": {
-	    "format-muted": "  MUTE ",
-	    "format": "  {icon} {volume}% ",
+		"ignored-sinks": ["Easy Effects Sink"], 
+	    "format-muted": " MT",
+	    "format": "{icon} {volume}",
 	    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-		"on-click-right": "pavucontrol",
+		"on-click-right": "pavucontrol-qt",
 	    "max-volume": 100,
-	    "format-icons": ["","","", "", ""],
+	    "format-icons": ["","","", "", " "],
 	    "reverse-scrolling": true,
 	    "scroll-step": 1,
 	    "rotate":90
+	},
+	"custom/ddcutil": {
+		        "format": " 󰃝  ",
+		        "return-type": "json",
+		        "on-click": "ddcutil setvcp 10 100",
+		        "on-click-right": "ddcutil setvcp 10 0",
+		        "tooltip": false,
+    },
+	"tray": {
+		"spacing":20,
+	},
+	"clock": {
+		"on-click": "hyprlauncher",
+        "format": "{:%H\n%M}",
+        "tooltip-format": "{:%A, %B %d, %Y (%R)}",
 	},
 	"hyprland/workspaces": {
 		"format": "{icon}",
 		"show-special":true,
 		"format-icons": {
-			"default": "󰝣",
+			"default": "󱓼",
 			"discord": "󰍩",
 			"kden": "󱛿",
 			"obs": "",
-			"spotify": "",
+			"spotify": "󰝚",
+			"windows": "",
 			"game": "󰮂",
 			"code":"󰨞",
-			"windows": "",
+			"note":"",
 		},
+		"rotate":90,
 		"on-click": "activate",
 	},
-	"custom/ddcutil": {
-	        "format": " 󰃝  ",
-	        "return-type": "json",
-	        "on-click": "ddcutil setvcp 10 100",
-	        "on-click-right": "ddcutil setvcp 10 0",
-	        "tooltip": false,
-	    },
-	"clock": {
-        "format": "{:%H\n%M}",
-        "tooltip-format": "{:%A, %B %d, %Y (%R)}",
-	},
 	"mpris": {
-		"format": "{status_icon} {title} - {artist}",
+		"format": "{player_icon} {title} - {artist}",
+		"format-paused": "{status_icon} {title} - {artist}",
 		"status-icons": {
-			"paused": " 󰏤 ",
-			"playing": "  "
+			"paused": "󰏤",
+			"playing": "󰎈"
 		},
-		"max-length":26,
-		"tooltip-format": "{status_icon} {title} - {artist}",
+		"player-icons": {
+			"default": "󰎈",
+			"spotify": "󰓇",
+			"io": "󰫔",
+			"firefox": "",
+		},
+		"max-length":30,
+		"tooltip-format": "{status_icon} {title} - {artist} - {player}",
 		"rotate":90
 	},
-	"tray": {
-	    "icon-size": 20,
-	    "spacing": 10
+	"battery": {
+		"format": "{icon}  {capacity}",
+		"format-icons": ["", "", "", "", ""],
+		"format-charging": "󰢝 {capacity}",
+		"max-length": 16,
+		"rotate":90,
+		"on-click": "foot -a floatterm -e battop",
+
+	},
+	"network": {
+		"format-wifi": "󱄙",
+		"format-ethernet": "󰈀",
+		"format": "",
+		"tooltip-format": "{signaldBm}dBm {essid} {frequency}GHz",
+		"on-click": "foot -a floatterm -e nmtui",
+
+		"on-click-right": "nm-connection-editor",
+
 	},
 }
