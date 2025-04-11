@@ -7,7 +7,7 @@
 
 
 
-@define-color background_box alpha(#101010,0.5);
+@define-color background_box alpha(#101010,0.3);
 @define-color background_active_box alpha(#5A72A1,0.3);
 @define-color border_active_box #3A3F64;
 @define-color border_box #505050;
@@ -90,6 +90,7 @@ tooltip label{
     margin-bottom: 6px;
     margin-right: 6px;
 	padding-top: 6px;
+	padding-bottom: 10px;
    	color: @default_text;
 } 
 #custom-ddcutil {
