@@ -82,7 +82,7 @@
 		"format-ethernet": "󰈀",
 		"format": "",
 		"tooltip-format": "{signaldBm}dBm {essid} {frequency}GHz",
-		"on-click": "foot -a floatterm -e nmtui",
+		"on-click": "foot -a floatterm -e nmtui connect",
 
 		"on-click-right": "nm-connection-editor",
 
