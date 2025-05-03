@@ -1,37 +1,47 @@
+@define-color background_box #D2D2D2;
+@define-color background_active_box alpha(#9AD182,0.5);
+@define-color border_active_box #5AB44F;
+@define-color border_box #A0A0A0;
+@define-color default_text #111;
 
 * {
 	font-family: Fira Code Nerd Font;
 	font-size: 20px;
 	min-width: 40px;
+	color: @default_text;
 }
 
-
-
-@define-color background_box #D2D2D2;
-@define-color background_active_box alpha(#9AD182,0.5);
-@define-color border_active_box #5AB44F;
-@define-color border_box #A0A0A0;
-@define-color default_text #383838;
-
-
 window#waybar {
-	border-radius: 8px;
+	border-radius: 6px;
 	
  	background-color: alpha(#EBEBEB,0.9);
     border: 2px solid @border_box;
 	margin: -4px -8px -8px -8px;
 }
 
+#network, #mpris, #bluetooth, #wireplumber, #battery, #clock, #cpu, #memory, #tray, #backlight, #custom-launcher, #custom-power, #custom-wallpaper, #custom-spotify, #custom-clipboard {
+    background: linear-gradient(to right, #ffffff, #e6e6e6);
+    border: 1px solid #aaaaaa;
+    box-shadow: 0px 0px 3px rgba(0,0,0,0.15);
+	border-radius: 6px;
+    margin-left: 6px;
+    margin-right: 6px;
+
+}
+#battery.charging, #clock:hover, #network:hover, #wireplumber:hover, #battery:hover, #backlight:hover, #mpris.playing, #workspaces button.active{
+    background: linear-gradient(to right, #ffffff, #c0d9f2);
+	border: 1px solid #66aaff;
+}
 
 tooltip {
-	background: #EBEBEB;
-	border: 2px solid @border_box;
+	background: linear-gradient(to bottom, #ffffff, #e6e6e6);
+	border: 1px solid #aaaaaa;
 	border-radius: 6px;
 }
+
 tooltip label{
-	font-family: Source Code Pro;
+	font-family: Adwaita;
 	font-size: 18px;
-	color: @default_text;
 }
 
 #tray {
@@ -40,72 +50,14 @@ tooltip label{
 
 /* Group Right 1 */
 #network {
-
-   	background-color: @background_box;
-   	
-	border: 1px solid @border_box;
-
-    border-radius: 6px;
 	min-height: 40px;
-    margin-left: 6px;
-    margin-right: 6px;
-    margin-bottom: 4px;
-
-    padding-right: 4px;
-
-    color: @default_text;
+    margin-bottom: 6px;
+    padding-right: 6px;
 }
 
-#battery {
-	border: 1px solid @border_box;
-   	background-color: @background_box;
-
-	border-top: 0px transparent;
-
-	border-radius: 0px 0px 6px 6px;
-	min-height: 80px;
-
-
+#battery, #wireplumber, #backlight {
+	min-height: 60px;
 	margin-bottom: 6px;
-	padding-top: 6px;
-    margin-left: 6px;
-    margin-right: 6px;
-    padding-bottom: 6px;
-   	color: @default_text;
-}
-
-#battery.charging {
-	background: linear-gradient(180deg, @background_box 0%, @background_active_box 60%);
-}
-
-#wireplumber {
-	border: 1px solid @border_box;
-   	background-color: @background_box;
-
-    border-radius: 6px 6px 0px 0px;
-
-    border-bottom: 0px transparent;
-	min-height: 80px;
-    margin-left: 6px;
-    margin-right: 6px;
-	padding-top: 6px;
-   	color: @default_text;
-
-} 
-#backlight {
-	border: 1px solid @border_box;
-   	background-color: @background_box;
-
-    border-radius: 0px 0px 0px 0px;
-
-    border-top: 0px transparent;
-    border-bottom: 0px transparent;
-   	padding-bottom: 3px;
-    margin-left: 6px;
-    padding-top: 3px;
-    margin-right: 6px;
-   	color: @default_text;
-
 }
 
 
@@ -116,49 +68,23 @@ tooltip label{
 	border: 0.1rem solid @border_box;
    	background-color: @background_box;
 	min-height: 60px;
-	margin-top: 6px;
-	margin-bottom: 6px;
-    margin-right: 6px;
-    margin-left: 6px;
-	border-radius: 6px;
-   	color: @default_text;
-   	transition: 0.4s;
 }
 
-#clock:hover{
-	background-color: @background_active_box;
-	border: 0.2rem solid @border_active_box
-}
 
-#mpris {
-	border: 1px solid @border_box;
-
-   	background-color: @background_box;
-   	
-    border-radius: 6px;
+#mpris {   	
 	font-size: 18px;
 	padding-top: 16px;
 
 	padding-bottom: 10px;
     margin-left: 6px;
     margin-right: 6px;
-   	color: alpha(@default_text,0.6);
-	transition: 0.4s;
 }
 
-#mpris.playing {
-	background-color: @background_active_box;
-	border: 2px solid @border_active_box;
-	color: @default_text;
-	/*box-shadow: 0px 0px 3px @border_active_box inset; */
-	/*text-shadow: 1px 1px @border_active_box; */
-
-}
 
 
 #workspaces {
-   	background-color: @background_box;
-	border: 1px solid @border_box;
+    background: linear-gradient(to right, #ffffff, #d9d9d9);
+    border: 1px solid @border_box;
 	margin-left: 6px;
 	margin-right:6px;
 	margin-top: 6px;
@@ -168,28 +94,21 @@ tooltip label{
 	font-size: 18px;
 	padding-bottom: 6px;
 	border-radius: 6px;
+	box-shadow: 0px 0px 4px rgba(0,0,0,0.2);
 }
 
 #workspaces button {
-	margin-left: -33px;
-	margin-right: -30px;
-	border-radius: 0px;
+	padding-left: 0px;
+	padding-right: 2px;
+	margin-left: 2px;
+	margin-right: 2px;
+	margin-bottom: 2px;
+	
 
-	color: alpha(@default_text,0.2);
 
-	transition-delay: 0s;
-	transition: 0.4s;
 }
-
 #workspaces button:hover {
-	color: rgba(0,0,0,0.5);
-	background: alpha(@background_box,0);
-	text-shadow: 2px 2px @border_active_box;
-
+    background: linear-gradient(to right, #d9ecff, #a9cfff);
 }
 
-#workspaces button.active {
-	color: alpha(@default_text,0.7);
-	text-shadow: 3px 3px @border_active_box;
-	/*background: radial-gradient(circle at center, @background_active_box 0, alpha(@background_active_box,0) 35%); */
-}
+

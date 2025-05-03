@@ -9,28 +9,26 @@
 	"modules-right": ["tray", "network","wireplumber","backlight","battery"],
 	"wireplumber": {
 		"ignored-sinks": ["Easy Effects Sink"], 
-	    "format-muted": " MT",
-	    "format": "{icon} {volume}",
+	    "format-muted": "VOL\nMUT",
+	    "format": "VOL\n{volume}",
 	    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
 		"on-click-right": "pavucontrol-qt",
 	    "max-volume": 100,
-	    "format-icons": ["","","", "", " "],
+	    "format-icons": ["","", ""],
 	    "reverse-scrolling": true,
 	    "scroll-step": 1,
-	    "rotate":90
 	},
 	"backlight": {
 		"reverse-scrolling": false,
 		"scroll-step": 0.6,
 	    "device": "intel_backlight",
-	    "format": " {percent}",
-	    "rotate":90
+	    "format": "BRI\n{percent}"
 	},
 	"tray": {
 		"spacing":20,
 	},
 	"clock": {
-		"on-click": "hyprlauncher",
+		"on-click": "wofi --style ~/.config/wofi/style/style.css --show drun",
         "format": "{:%H\n%M}",
         "tooltip-format": "{:%A, %B %d, %Y (%R)}",
 	},
@@ -69,11 +67,9 @@
 		"rotate":90
 	},
 	"battery": {
-		"format": "{icon}  {capacity}",
+		"format": "BAT\n{capacity}",
 		"format-icons": ["", "", "", "", ""],
-		"format-charging": "󰢝 {capacity}",
-		"max-length": 16,
-		"rotate":90,
+		"format-charging": "󰢝\n{capacity}",
 		"on-click": "foot -a floatterm -e battop",
 
 	},

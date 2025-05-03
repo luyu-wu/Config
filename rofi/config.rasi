@@ -1,10 +1,7 @@
 
 * {
   background-color: transparent;
-
-  /*font: "SF Pro Display Light 12";*/
   font: "SF Pro Rounded Light 14";
-
 }
 
 
