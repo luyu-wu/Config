@@ -6,7 +6,7 @@
 	"margin-bottom": 16,
 	"margin-top":16,
 	"margin-left":6,
-	"modules-right": ["tray", "network","wireplumber","backlight","battery"],
+	"modules-right": ["tray", "power-profiles-daemon","network","wireplumber","backlight","battery"],
 	"wireplumber": {
 		"ignored-sinks": ["Easy Effects Sink"], 
 	    "format-muted": "VOL\nMUT",
@@ -31,6 +31,16 @@
 		"on-click": "wofi --style ~/.config/wofi/style/style.css --show drun",
         "format": "{:%H\n%M}",
         "tooltip-format": "{:%A, %B %d, %Y (%R)}",
+	},
+	"power-profiles-daemon": {
+	  "format": "{icon}",
+	  "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+	  "tooltip": true,
+	  "format-icons": {
+	    "performance": "",
+	    "balanced": "",
+	    "power-saver": ""
+	  }
 	},
 	"hyprland/workspaces": {
 		"format": "{icon}",

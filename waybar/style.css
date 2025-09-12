@@ -19,7 +19,7 @@ window#waybar {
 	margin: -4px -8px -8px -8px;
 }
 
-#network, #mpris, #bluetooth, #wireplumber, #battery, #clock, #cpu, #memory, #tray, #backlight, #custom-launcher, #custom-power, #custom-wallpaper, #custom-spotify, #custom-clipboard {
+#network, #mpris, #bluetooth, #wireplumber, #battery, #clock, #power-profiles-daemon, #cpu, #memory, #tray, #backlight, #custom-launcher, #custom-power, #custom-wallpaper, #custom-spotify, #custom-clipboard {
     background: linear-gradient(to right, #ffffff, #e6e6e6);
     border: 1px solid #aaaaaa;
     box-shadow: 0px 0px 3px rgba(0,0,0,0.15);
@@ -28,7 +28,7 @@ window#waybar {
     margin-right: 6px;
 
 }
-#battery.charging, #clock:hover, #network:hover, #wireplumber:hover, #battery:hover, #backlight:hover, #mpris.playing, #workspaces button.active{
+#battery.charging, #clock:hover, #network:hover, #wireplumber:hover, #power-profiles-daemon:hover, #battery:hover, #backlight:hover, #mpris.playing, #workspaces button.active{
     background: linear-gradient(to right, #ffffff, #c0d9f2);
 	border: 1px solid #66aaff;
 }
@@ -46,10 +46,12 @@ tooltip label{
 
 #tray {
 	padding-bottom: 16px;
+	padding-top: 16px;
+	margin-bottom: 6px;
 }
 
 /* Group Right 1 */
-#network {
+#network, #power-profiles-daemon {
 	min-height: 40px;
     margin-bottom: 6px;
     padding-right: 6px;
@@ -79,7 +81,6 @@ tooltip label{
     margin-left: 6px;
     margin-right: 6px;
 }
-
 
 
 #workspaces {
