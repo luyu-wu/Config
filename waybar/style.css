@@ -1,42 +1,43 @@
-@define-color background_box #D2D2D2;
-@define-color background_active_box alpha(#9AD182,0.5);
-@define-color border_active_box #5AB44F;
-@define-color border_box #A0A0A0;
-@define-color default_text #111;
+@define-color background_box alpha(#101010,0.3);
+@define-color background_active_box alpha(#5A72A1,0.3);
+@define-color border_active_box #3A3F64;
+@define-color border_box #505050;
+@define-color default_text #DDDDDD;
 
 * {
 	font-family: Fira Code Nerd Font;
 	font-size: 20px;
 	min-width: 40px;
 	color: @default_text;
+	border-radius: 0px;
+
 }
 
 window#waybar {
-	border-radius: 6px;
-	
- 	background-color: alpha(#EBEBEB,0.9);
-    border: 2px solid @border_box;
+	border-radius: 0px;
+ 	background-color: alpha(#1e1e2e,0.8);
+ 	border: 2px solid @border_box;
 	margin: -4px -8px -8px -8px;
 }
 
 #network, #mpris, #bluetooth, #wireplumber, #battery, #clock, #power-profiles-daemon, #cpu, #memory, #tray, #backlight, #custom-launcher, #custom-power, #custom-wallpaper, #custom-spotify, #custom-clipboard {
-    background: linear-gradient(to right, #ffffff, #e6e6e6);
-    border: 1px solid #aaaaaa;
+   	background-color: @background_box;
+   	border: 1px solid #aaaaaa;
     box-shadow: 0px 0px 3px rgba(0,0,0,0.15);
-	border-radius: 6px;
+	border-radius: 0px;
     margin-left: 6px;
     margin-right: 6px;
 
 }
 #battery.charging, #clock:hover, #network:hover, #wireplumber:hover, #power-profiles-daemon:hover, #battery:hover, #backlight:hover, #mpris.playing, #workspaces button.active{
-    background: linear-gradient(to right, #ffffff, #c0d9f2);
+   	background-color: @background_active_box;
 	border: 1px solid #66aaff;
 }
 
 tooltip {
-	background: linear-gradient(to bottom, #ffffff, #e6e6e6);
+   	background-color: @background_box;
 	border: 1px solid #aaaaaa;
-	border-radius: 6px;
+	border-radius: 0px;
 }
 
 tooltip label{
@@ -84,7 +85,7 @@ tooltip label{
 
 
 #workspaces {
-    background: linear-gradient(to right, #ffffff, #d9d9d9);
+   	background-color: @background_box;
     border: 1px solid @border_box;
 	margin-left: 6px;
 	margin-right:6px;
@@ -94,7 +95,7 @@ tooltip label{
 	margin-bottom: 6px;
 	font-size: 18px;
 	padding-bottom: 6px;
-	border-radius: 6px;
+	border-radius: 0px;
 	box-shadow: 0px 0px 4px rgba(0,0,0,0.2);
 }
 
@@ -104,12 +105,9 @@ tooltip label{
 	margin-left: 2px;
 	margin-right: 2px;
 	margin-bottom: 2px;
-	
-
-
 }
 #workspaces button:hover {
-    background: linear-gradient(to right, #d9ecff, #a9cfff);
+   	background-color: @background_active_box;
 }
 
 
