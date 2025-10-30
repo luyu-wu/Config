@@ -1,0 +1,152 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "centered_layout": {},
+  "terminal": {
+    "button": false
+  },
+  "middle_click_paste": true,
+  "zoomed_padding": true,
+  "bottom_dock_layout": "contained",
+  "outline_panel": {
+    "button": false
+  },
+  "toolbar": {
+    "quick_actions": false,
+    "breadcrumbs": false
+  },
+  "gutter": {
+    "line_numbers": true,
+    "runnables": false,
+    "breakpoints": false,
+    "folds": false
+  },
+  "inline_code_actions": false,
+  "scrollbar": {
+    "diagnostics": "all",
+    "axes": {
+      "horizontal": false,
+      "vertical": true
+    }
+  },
+  "minimap": {
+    "thumb": "always"
+  },
+  "git": {
+    "branch_picker": {
+      "show_author_name": false
+    },
+    "blame": {
+      "show_avatar": false
+    },
+    "inline_blame": {
+      "enabled": false
+    },
+    "git_gutter": "hide"
+  },
+  "prettier": {
+    "allowed": false
+  },
+  "disable_ai": true,
+  "agent": {
+    "button": false,
+    "model_parameters": []
+  },
+  "collaboration_panel": {
+    "button": false
+  },
+  "notification_panel": {
+    "button": false
+  },
+  "git_panel": {
+    "status_style": "icon",
+    "button": false
+  },
+  "preview_tabs": {
+    "enabled": false
+  },
+  "status_bar": {
+    "active_language_button": false,
+    "cursor_position_button": false,
+    "experimental.show": false
+  },
+  "debugger": {
+    "save_breakpoints": false,
+    "button": false
+  },
+  "search": {
+    "button": false
+  },
+  "diagnostics": {
+    "button": false
+  },
+  "project_panel": {
+    "folder_icons": false,
+    "git_status": true,
+    "hide_gitignore": false,
+    "dock": "left",
+    "button": false
+  },
+  "active_pane_modifiers": {
+    "inactive_opacity": 1.0
+  },
+  "use_system_window_tabs": false,
+  "tabs": {
+    "show_close_button": "hover",
+    "git_status": false,
+    "file_icons": true,
+    "close_position": "right"
+  },
+  "tab_bar": {
+    "show_nav_history_buttons": false,
+    "show": true
+  },
+  "title_bar": {
+    "show_project_items": true,
+    "show_branch_name": false,
+    "show_branch_icon": false,
+    "show_onboarding_banner": false,
+    "show_user_picture": false,
+    "show_sign_in": false,
+    "show_menus": false
+  },
+  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "auto_update": false,
+  "features": {
+    "edit_prediction_provider": "none"
+  },
+  "ui_font_size": 16,
+  "buffer_font_size": 15,
+  "theme": {
+    "mode": "system",
+    "light": "One Dark",
+    "dark": "Ayu Dark"
+  },
+  "languages": {
+    "LaTeX": {
+      "soft_wrap": "editor_width"
+    },
+    "Python": {
+      "hard_tabs": true,
+      "inlay_hints": {
+        "enabled": true
+      },
+      "language_servers": [
+        // Disable basedpyright and enable Ty, and otherwise
+        // use the default configuration.
+        "ruff",
+        "!basedpyright"
+      ]
+    }
+  }
+}

@@ -1,0 +1,110 @@
+{
+    "Name": "Fooyin",
+    "Version": 1,
+    "Widgets": [
+        {
+            "SplitterVertical": {
+                "State": "AAAA/wAAAAEAAAACAAADoQAAABwA/////wEAAAACAA==",
+                "Widgets": [
+                    {
+                        "PlaylistTabs": {
+                            "Widgets": [
+                                {
+                                    "SplitterHorizontal": {
+                                        "State": "AAAA/wAAAAEAAAACAAAAywAAAJwA/////wEAAAABAA==",
+                                        "Widgets": [
+                                            {
+                                                "SplitterVertical": {
+                                                    "State": "AAAA/wAAAAEAAAACAAAAIAAAAmEA/////wEAAAACAA==",
+                                                    "Widgets": [
+                                                        {
+                                                            "SearchBar": {
+                                                                "AutoSearch": true,
+                                                                "SearchMode": 3
+                                                            }
+                                                        },
+                                                        {
+                                                            "Playlist": {
+                                                                "Columns": "8:132|3|0:2|1|7:2",
+                                                                "HeaderState": "AAAAZXjaY2BgYGVgYFAE4mtArAulLRgg4iDACMRMQMwMxCwgcft1OwJft8rtsL8BpoLst1Q9dF8nUg3n75wJArNAGhn+AwEAKM8a5g==",
+                                                                "ID": "271fe61bc6954c9c92a65ed28de7cda9",
+                                                                "Preset": 0,
+                                                                "SingleMode": false
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "SplitterVertical": {
+                                                    "State": "AAAA/wAAAAEAAAACAAABagAAARcA/////wEAAAACAA==",
+                                                    "Widgets": [
+                                                        {
+                                                            "ArtworkPanel": {
+                                                                "CoverAlignment": 132,
+                                                                "CoverType": 0,
+                                                                "KeepAspectRatio": true
+                                                            }
+                                                        },
+                                                        {
+                                                            "TabStack": {
+                                                                "Position": "North",
+                                                                "State": "Lyrics\u001fSelection Info",
+                                                                "Widgets": [
+                                                                    {
+                                                                        "Lyrics": {
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "SelectionInfo": {
+                                                                            "AlternatingRows": true,
+                                                                            "Options": 23,
+                                                                            "ShowHeader": true,
+                                                                            "ShowHorizontalScrollbar": false,
+                                                                            "ShowVerticalScrollbar": true,
+                                                                            "State": "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAacAAAACAAAAAQAAAAABAAAAAAAAAGT/////AAAAhAAAAAAAAAACAAAAZAAAAAEAAAAAAAABQwAAAAEAAAABAAAD6AAAAABkAAAAAAAAAAAAAAAAAAAAAQ=="
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "SplitterHorizontal": {
+                            "State": "AAAA/wAAAAEAAAAEAAAAiQAABk8AAABHAAAAZwD/////AQAAAAEA",
+                            "Widgets": [
+                                {
+                                    "PlayerControls": {
+                                    }
+                                },
+                                {
+                                    "SeekBar": {
+                                        "ElapsedTotal": false,
+                                        "ShowLabels": true
+                                    }
+                                },
+                                {
+                                    "PlaylistControls": {
+                                    }
+                                },
+                                {
+                                    "VolumeControls": {
+                                        "Mode": 3
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}
