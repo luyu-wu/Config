@@ -127,19 +127,20 @@
   },
   "ui_font_size": 16,
   "buffer_font_size": 15,
-  "theme": {
-    "mode": "system",
-    "light": "One Dark",
-    "dark": "Ayu Dark"
-  },
+  "theme": "macOS Classic Dark",
   "languages": {
     "LaTeX": {
       "soft_wrap": "editor_width"
     },
     "Python": {
+      "show_completion_documentation": true,
       "hard_tabs": true,
       "inlay_hints": {
-        "enabled": true
+        "show_other_hints": false,
+        "show_parameter_hints": false,
+        "show_type_hints": false,
+        "show_value_hints": false,
+        "enabled": false
       },
       "language_servers": [
         // Disable basedpyright and enable Ty, and otherwise

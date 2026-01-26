@@ -1,13 +1,8 @@
 format = """
-╭\
-[─](bg:#E9F5E5)\
-[─](bg:#D1EAC7)\
-[─](bg:#B3DCA1)\
+[](fg:#A4D58F)\
 $directory\
-[ ](bg:#B3DCA1)\
-[ ](bg:#D1EAC7)\
-[ ](bg:#E9F5E5)\
-\n╰─$character """
+[](fg:#A4D58F)\
+\n $character"""
 
 [directory]
 style = "fg:#505050 bg:#A4D58F"
