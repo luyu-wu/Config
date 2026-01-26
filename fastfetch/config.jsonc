@@ -4,7 +4,7 @@
   	"type": "raw",
     "source": "~/Code/Config/fastfetch/framework.sixel",
     "padding": {
-        "right": 32
+        "right": 42
     }
 
 
@@ -16,6 +16,10 @@
     {
       "type": "custom",
       "format": "┌─────────── \u001B[1m    硬件信息    \u001B[0m ───────────┐"
+    },
+    {
+          "type": "custom",
+          "format": ""
     },
     {
         	"type": "custom",
@@ -43,11 +47,11 @@
     },
     {
 	   	"type": "bios",
-	   	"key": "   "
+	   	"key": "   "
     },
     {
        	"type": "monitor",
-       	"key": "   ",
+       	"key": "  󰍹 ",
        	"format": "{name} ({width}x{height})",
     },
     {
@@ -68,19 +72,15 @@
     },
     {
       "type": "kernel",
-      "key": "   "
+      "key": "  󰌽 "
     },
     {
-          "type": "de",
-          "key": "   "
-    },
-    {
-          "type": "initsystem",
-          "key": "   "
+      "type": "de",
+      "key": "   "
     },
 	{
 		"type": "datetime",
-		"key": "   "
+		"key": "  󰃰 "
 	},
     {
       "type": "shell",
@@ -89,6 +89,10 @@
     {
       "type": "packages",
       "key": "   "
+    },
+    {
+          "type": "custom",
+          "format": ""
     },
     {
       "type": "custom",
