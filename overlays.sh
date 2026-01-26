@@ -1,1 +1,0 @@
-export KWIN_USE_OVERLAYS=1
