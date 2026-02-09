@@ -7,9 +7,15 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "edit_predictions": {
+    "ollama": {
+      "model": "gemma3:270m"
+    },
+    "provider": "zed"
+  },
   "centered_layout": {},
   "terminal": {
-    "button": false
+    
   },
   "middle_click_paste": true,
   "zoomed_padding": true,
@@ -53,8 +59,12 @@
   "prettier": {
     "allowed": false
   },
-  "disable_ai": true,
+  "disable_ai": false,
   "agent": {
+    "default_model": {
+      "provider": "ollama",
+      "model": "gemma3:270m"
+    },
     "button": false,
     "model_parameters": []
   },
@@ -72,26 +82,22 @@
     "enabled": false
   },
   "status_bar": {
-    "active_language_button": false,
-    "cursor_position_button": false,
     "experimental.show": false
   },
   "debugger": {
-    "save_breakpoints": false,
-    "button": false
+    "save_breakpoints": false
   },
   "search": {
-    "button": false
+    
   },
   "diagnostics": {
-    "button": false
+    
   },
   "project_panel": {
     "folder_icons": false,
     "git_status": true,
     "hide_gitignore": false,
-    "dock": "left",
-    "button": false
+    "dock": "left"
   },
   "active_pane_modifiers": {
     "inactive_opacity": 1.0
@@ -100,7 +106,7 @@
   "tabs": {
     "show_close_button": "hover",
     "git_status": false,
-    "file_icons": true,
+    "file_icons": false,
     "close_position": "right"
   },
   "tab_bar": {
@@ -108,8 +114,9 @@
     "show": true
   },
   "title_bar": {
-    "show_project_items": true,
+    "show_user_menu": false,
     "show_branch_name": false,
+    "show_project_items": true,
     "show_branch_icon": false,
     "show_onboarding_banner": false,
     "show_user_picture": false,
@@ -122,9 +129,6 @@
     "metrics": false
   },
   "auto_update": false,
-  "features": {
-    "edit_prediction_provider": "none"
-  },
   "ui_font_size": 16,
   "buffer_font_size": 15,
   "theme": "macOS Classic Dark",

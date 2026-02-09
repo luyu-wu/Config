@@ -4,7 +4,8 @@
   	"type": "raw",
     "source": "~/Code/Config/fastfetch/framework.sixel",
     "padding": {
-        "right": 42
+        "right": 40,
+        "left": 6
     }
 
 
@@ -13,6 +14,10 @@
     "separator": " :: "
   },
   "modules": [
+  	{
+      "type": "custom",
+      "format": ""
+    },
     {
       "type": "custom",
       "format": "┌─────────── \u001B[1m    硬件信息    \u001B[0m ───────────┐"
@@ -44,10 +49,6 @@
       "type": "disk",
       "key": "   ",
       "format": "{size-used} / {size-total} ({size-percentage})"
-    },
-    {
-	   	"type": "bios",
-	   	"key": "   "
     },
     {
        	"type": "monitor",
