@@ -1,0 +1,58 @@
+clear_on_pause = true
+interval = 2000
+allowed_players = ["fooyin"]
+
+[template]
+detail = "{{{title}}}"
+state = "{{{artist_display}}}"
+large_text = ""
+small_text = "{{#if player}}Playing on {{{player}}}{{else}}MPRIS{{/if}}"
+
+[time]
+show = true
+as_elapsed = false
+
+[activity_type]
+use_content_type = true
+default = "listening"
+
+[cover]
+file_names = []
+local_search_depth = 0
+
+[cover.provider]
+provider = []
+
+[player]
+# Priority: user entries override bundled ones. Fields left unset in a higher-priority entry fall back to lower matches, then [player.default], then built-in defaults.
+default = { ignore = false, app_id = "1121632048155742288", icon = "https://raw.githubusercontent.com/lazykern/mprisence/main/assets/icon.png", show_icon = false, allow_streaming = false }
+
+
+[player.vlc_media_player]
+app_id = "1124968989538402334"
+icon = "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/VLC_Icon.svg/1200px-VLC_Icon.svg.png"
+allow_streaming = true
+
+[player.mpv]
+app_id = "1125075797942734928"
+icon = "https://upload.wikimedia.org/wikipedia/commons/7/73/Mpv_logo_%28official%29.png"
+allow_streaming = true
+ignore = true
+
+[player.fooyin]
+app_id = "1396689706246209606"
+icon = "https://upload.wikimedia.org/wikipedia/commons/7/73/Mpv_logo_%28official%29.png"
+
+[player.spotify]
+ignore = true
+
+[player.chromium]
+ignore = true
+allow_streaming = true
+
+[player.mozilla_firefox]
+ignore = true
+allow_streaming = true
+
+[player.firefox]
+ignore = true

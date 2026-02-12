@@ -59,7 +59,7 @@
   "prettier": {
     "allowed": false
   },
-  "disable_ai": false,
+  "disable_ai": true,
   "agent": {
     "default_model": {
       "provider": "ollama",
