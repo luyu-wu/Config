@@ -1,11 +1,12 @@
 * {
-    font-family: "JetBrainsMono Nerd Font", monospace;
-    line-height: 1.5;  /* More space between lines */
+    font-family: "Adwaita Sans", monospace;
+    font-size: 14px;
+    line-height: 1;  /* More space between lines */
     padding: 3px;
 }
 
 wofi {
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 item {
@@ -16,7 +17,7 @@ item {
 
 item.selected {
     background-color: #BB86FC;  /* Highlighted item */
-    color: #000;
+    color: #FFFFFF;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Text shadow on selected item */
 }
 
@@ -28,25 +29,25 @@ item:hover {
 
 window {
     margin: 40px;
-    background-color: rgba(240, 240, 240, 0.9);
-    border: 1px solid #aaaaaa;
-    border-radius: 4px;
+    background-color: alpha(#1e1e2e, 0.9);
+    border: 2px solid #505050;
+    border-radius: 6px;
 }
 
 #input {
     margin: 5px;
     padding: 5px;
-    background-color: #ffffff;
-    color: #000000;
+    background-color: alpha(#101010,0.3);
+    color: #CCC;
     border-radius: 4px;
-    border: 1px solid #cccccc;
+    border: 1px solid #505050;
     font-family: "JetBrainsMono Nerd Font";
     font-size: 14px;
 }
 
 #inner-box {
     margin: 5px;
-    background-color: rgba(255, 255, 255, 0.7);
+    /*background-color: rgba(255, 255, 255, 0);*/
     border-radius: 4px;
 }
 
@@ -57,8 +58,8 @@ window {
 
 #entry {
     padding: 5px;
-    border-radius: 4px;
-    color: #111111;
+    border-radius: 8px;
+    color: #CCC;
 }
 
 #entry:selected {

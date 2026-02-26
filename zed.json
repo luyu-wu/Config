@@ -7,6 +7,7 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "hard_tabs": true,
   "edit_predictions": {
     "ollama": {
       "model": "gemma3:270m"
@@ -131,7 +132,7 @@
   "auto_update": false,
   "ui_font_size": 16,
   "buffer_font_size": 15,
-  "theme": "macOS Classic Dark",
+  "theme": "Gruvbox Dark Hard",
   "languages": {
     "LaTeX": {
       "soft_wrap": "editor_width"

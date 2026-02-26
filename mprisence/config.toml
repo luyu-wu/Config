@@ -13,7 +13,7 @@ show = true
 as_elapsed = false
 
 [activity_type]
-use_content_type = true
+use_content_type = false
 default = "listening"
 
 [cover]
@@ -25,7 +25,7 @@ provider = []
 
 [player]
 # Priority: user entries override bundled ones. Fields left unset in a higher-priority entry fall back to lower matches, then [player.default], then built-in defaults.
-default = { ignore = false, app_id = "1121632048155742288", icon = "https://raw.githubusercontent.com/lazykern/mprisence/main/assets/icon.png", show_icon = false, allow_streaming = false }
+default = { ignore = false, app_id = "1121632048155742288", icon = "https://raw.githubusercontent.com/lazykern/mprisence/main/assets/icon.png", show_icon = false, allow_streaming = false, status_display_type = "state" }
 
 
 [player.vlc_media_player]

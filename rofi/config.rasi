@@ -1,7 +1,7 @@
 
 * {
   background-color: transparent;
-  font: "SF Pro Rounded Light 14";
+  font: "Source Sans 3";
 }
 
 
@@ -13,8 +13,8 @@ window {
 	border-radius: 8px;
 	border: 2px;
 
-	border-color: #A0A0A0;
-	background-color: #EBEBEB;
+	border-color: #505050;
+	background-color: #202020 ;
 	location:   west;
 	width:   500px;
 	x-offset:   16px; 
