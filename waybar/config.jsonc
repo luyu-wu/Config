@@ -9,20 +9,22 @@
 	"modules-right": ["tray", "power-profiles-daemon","network","wireplumber","backlight","battery"],
 	"wireplumber": {
 		"ignored-sinks": ["Easy Effects Sink"], 
-	    "format-muted": "VOL\nMUT",
-	    "format": "VOL\n{volume}",
+	    "format-muted": "\nMUT",
+	    "format": "{icon}\n{volume}%",
 	    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
 		"on-click-right": "pavucontrol-qt",
 	    "max-volume": 100,
-	    "format-icons": ["","", ""],
+	    "format-icons": ["","","","","","","", ""],
 	    "reverse-scrolling": true,
+	    "justify": "center",
 	    "scroll-step": 1,
 	},
 	"backlight": {
 		"reverse-scrolling": false,
 		"scroll-step": 0.6,
 	    "device": "intel_backlight",
-	    "format": "BRI\n{percent}"
+	   	"justify": "center",
+	    "format": "󰃟 \n{percent}%"
 	},
 	"tray": {
 		"spacing":20,
@@ -77,11 +79,11 @@
 		"rotate":90
 	},
 	"battery": {
-		"format": "BAT\n{capacity}",
-		"format-icons": ["", "", "", "", ""],
+		"format": "{icon}\n{capacity}%",
+		"format-icons": [" ", " ", " ", " ", " "],
 		"format-charging": "󰢝\n{capacity}",
 		"on-click": "foot -a floatterm -e battop",
-
+		"justify": "center",
 	},
 	"network": {
 		"format-wifi": "󱄙",
