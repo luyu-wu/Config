@@ -1,0 +1,21 @@
+{
+    "KPackageStructure": "Plasma/Applet",
+    "KPlugin": {
+		"Authors": [
+	        {
+	            "Email": "luyuwuvk@gmail.com",
+	            "Name": "Luyu Wu"
+	        }
+        ],
+        "Category": "Windows and Tasks",
+        "Description": "Shows the application title and icon of the active window",
+        "Icon": "preferences-desktop",
+        "Id": "com.luyuwu.windowtitle",
+        "License": "GPLv2",
+        "Name": "Title Applet",
+        "Version": "0.9.0",
+        "Website": "https://github.com/dhruv8sh/plasma6-window-title-applet"
+    },
+    "Keyword": "window title icon",
+    "X-Plasma-API-Minimum-Version": "6.0"
+}

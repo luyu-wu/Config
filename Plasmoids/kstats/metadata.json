@@ -1,0 +1,20 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "luyuwuvk@gmail.com",
+                "Name": "Luyu Wu"
+            }
+        ],
+        "Category": "System Information",
+        "Description": "monitor system info.",
+        "Icon": "hwinfo",
+        "Id": "com.luyuwu.kstats",
+        "License": "GPL-3.0",
+        "Name": "kStats",
+        "Version": "1.0.0",
+        "Website": "https://github.com/corecoding/Vitals"
+    },
+    "X-Plasma-API-Minimum-Version": "6.0",
+    "X-Plasma-Provides": ["org.kde.plasma.systemtray.component"]
+}

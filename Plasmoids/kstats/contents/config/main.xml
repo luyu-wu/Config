@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+      http://www.kde.org/standards/kcfg/1.0/kcfg.xsd">
+    <kcfgfile name=""/>
+    <group name="General">
+        <entry name="updateInterval" type="Int">
+            <default>3</default>
+        </entry>
+        <entry name="showProcessor" type="Bool">
+            <default>true</default>
+        </entry>
+        <entry name="showMemory" type="Bool">
+            <default>true</default>
+        </entry>
+        <entry name="showNetwork" type="Bool">
+            <default>true</default>
+        </entry>
+        <entry name="showBattery" type="Bool">
+            <default>true</default>
+        </entry>
+        <entry name="showFan" type="Bool">
+            <default>true</default>
+        </entry>
+        <entry name="showGpu" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="temperatureUnit" type="String">
+            <default>C</default>
+        </entry>
+        <entry name="compactView" type="Bool">
+            <default>false</default>
+        </entry>
+    </group>
+</kcfg>
