@@ -1,13 +1,13 @@
-@define-color background_box alpha(#101010,0.3);
-@define-color background_active_box alpha(#5A72A1,0.3);
-@define-color border_active_box #3A3F64;
-@define-color border_box #505050;
-@define-color default_text #DDDDDD;
+@define-color background_box #F0F0F0;
+@define-color background_active_box alpha(#8a97ee,0.3);
+@define-color border_active_box #8a97ee;
+@define-color border_box #A0A0A0;
+@define-color default_text #202020;
 
 * {
-	font-family: Fira Code Nerd Font;
-	font-size: 20px;
-	min-width: 40px;
+	font-family: Noto Sans;
+	font-size: 16px;
+	min-width: 24px;
 	color: @default_text;
 	border-radius: 0px;
 
@@ -15,96 +15,86 @@
 
 window#waybar {
 	border-radius: 0px;
- 	background-color: alpha(#1e1e2e,0.3);
- 	border: 2px solid @border_box;
+ 	background: linear-gradient(to bottom, #F0F0F0, #D8D8D8);
+ 	border-bottom: 1px solid @border_box;
 	margin: -4px -8px -8px -8px;
 }
 
 #network, #mpris, #bluetooth, #wireplumber, #battery, #clock, #power-profiles-daemon, #cpu, #memory, #tray, #backlight, #custom-launcher, #custom-power, #custom-wallpaper, #custom-spotify, #custom-clipboard {
    	background-color: @background_box;
-   	border: 1px solid #aaaaaa;
-    box-shadow: 0px 0px 3px rgba(0,0,0,0.15);
-	border-radius: 0px;
-    margin-left: 6px;
-    margin-right: 6px;
+   	border: 0.1rem solid @border_box;
+    box-shadow: 0px 0px 3px rgba(0,0,0,0.05);
+	border-radius: 4px;
+    margin: 3px;
+    padding-left: 6px;
+    padding-right: 6px;
 
 }
-#battery.charging, #clock:hover, #network:hover, #wireplumber:hover, #power-profiles-daemon:hover, #battery:hover, #backlight:hover, #mpris.playing, #workspaces button.active{
+#battery.charging, #network:hover, #wireplumber:hover, #power-profiles-daemon:hover, #battery:hover, #backlight:hover, #mpris.playing, #workspaces button.active{
    	background-color: @background_active_box;
 	border: 1px solid #66aaff;
+	box-shadow: 0px 0px 4px #66aaff;
+
 }
 
 tooltip {
    	background-color: @background_box;
 	border: 1px solid #aaaaaa;
-	border-radius: 0px;
+	border-radius: 4px;
 }
 
 tooltip label{
-	font-family: Adwaita;
-	font-size: 18px;
+	font-size: 14px;
 }
 
 #tray {
-	padding-bottom: 16px;
-	padding-top: 16px;
-	margin-bottom: 6px;
 }
 
 /* Group Right 1 */
 #network, #power-profiles-daemon {
-	min-height: 40px;
-    margin-bottom: 6px;
-    padding-right: 6px;
+	padding-left: 6px;
+	padding-right: 12px;
+
 }
 
-#battery, #wireplumber, #backlight {
-	min-height: 60px;
-	margin-bottom: 6px;
+#battery, #wireplumber, #backlight  {
+	min-width: 60px;
 }
 
 
 
 /* Group Top */
 
-#clock {
-	border: 0.1rem solid @border_box;
-   	background-color: @background_box;
-	min-height: 60px;
-}
-
 
 #mpris {   	
-	font-size: 18px;
-	padding-top: 16px;
-
-	padding-bottom: 10px;
-    margin-left: 6px;
-    margin-right: 6px;
+	font-size: 14px;
+    margin: 6px;
 }
 
 
+#window {
+	margin-left: 12px;
+	margin-right: 12px;
+	font-family: Noto Sans;
+}
 #workspaces {
    	background-color: @background_box;
     border: 1px solid @border_box;
 	margin-left: 6px;
 	margin-right:6px;
 	margin-top: 6px;
-	padding-top:8px;
-
 	margin-bottom: 6px;
 	font-size: 18px;
-	padding-bottom: 6px;
-	border-radius: 0px;
-	box-shadow: 0px 0px 4px rgba(0,0,0,0.2);
+	border-radius: 4px;
+	box-shadow: 0px 0px 3px rgba(0,0,0,0.05);
 }
 
 #workspaces button {
-	padding-left: 0px;
+	padding: 0px;
 	padding-right: 2px;
-	margin-left: 2px;
-	margin-right: 2px;
-	margin-bottom: 2px;
+	margin-left: 4px;
+	margin-right: 4px;
+	border-radius:3px;
 }
 #workspaces button:hover {
    	background-color: @background_active_box;

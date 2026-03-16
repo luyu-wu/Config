@@ -7,17 +7,8 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "hard_tabs": true,
-  "edit_predictions": {
-    "ollama": {
-      "model": "gemma3:270m"
-    },
-    "provider": "zed"
-  },
   "centered_layout": {},
-  "terminal": {
-    
-  },
+  "terminal": {},
   "middle_click_paste": true,
   "zoomed_padding": true,
   "bottom_dock_layout": "contained",
@@ -85,15 +76,8 @@
   "status_bar": {
     "experimental.show": false
   },
-  "debugger": {
-    "save_breakpoints": false
-  },
-  "search": {
-    
-  },
-  "diagnostics": {
-    
-  },
+  "search": {},
+  "diagnostics": {},
   "project_panel": {
     "folder_icons": false,
     "git_status": true,
@@ -124,7 +108,7 @@
     "show_sign_in": false,
     "show_menus": false
   },
-  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "buffer_font_family": "FiraCode Nerd Font",
   "telemetry": {
     "diagnostics": false,
     "metrics": false
@@ -139,7 +123,7 @@
     },
     "Python": {
       "show_completion_documentation": true,
-      "hard_tabs": true,
+      "format_on_save": "on",
       "inlay_hints": {
         "show_other_hints": false,
         "show_parameter_hints": false,
@@ -148,12 +132,15 @@
         "enabled": false
       },
       "language_servers": [
-        // Disable basedpyright and enable Ty, and otherwise
-        // use the default configuration.
-        "ruff",
         "ty",
+        //"ruff",
         "!basedpyright"
-      ]
+      ],
+      "formatter": {
+        "language_server": {
+          "name": "ruff"
+        }
+      }
     }
   }
 }

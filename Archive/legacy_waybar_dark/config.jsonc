@@ -1,73 +1,48 @@
 {
 	"layer": "top",
-	"position":"top",
-	"modules-left": ["hyprland/window","mpris"],
-	"modules-center": ["hyprland/workspaces"], 
-	"margin-bottom":0,
-	"margin-top":0,
-	"margin-left":0,
-	"modules-right": ["tray", "power-profiles-daemon","network","wireplumber","backlight","battery","clock"],
+	"position":"left",
+	"modules-left": ["hyprland/workspaces","mpris"],
+	"modules-center": ["clock"], 
+	"margin-bottom": 16,
+	"margin-top":16,
+	"margin-left":6,
+	"modules-right": ["tray", "power-profiles-daemon","network","wireplumber","backlight","battery"],
 	"wireplumber": {
 		"ignored-sinks": ["Easy Effects Sink"], 
-	    "format-muted": "  MUT",
-	    "format": "{icon}  {volume}%",
+	    "format-muted": "\nMUT",
+	    "format": "{icon}\n{volume}%",
 	    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
 		"on-click-right": "pavucontrol-qt",
 	    "max-volume": 100,
-	    "format-icons": {
-	    	"headphone":"",
-	    	"headset": "",
-	    	"phone": "",
-	    	"phone-muted": "",
-	    	"portable": "",
-	    	"car": "",
-	    	"default":["","","",""],
-	    },
+	    "format-icons": ["","","","","","","", ""],
 	    "reverse-scrolling": true,
 	    "justify": "center",
 	    "scroll-step": 1,
-	    "smooth-scrolling-threshold": 1
 	},
 	"backlight": {
-		"reverse-scrolling": true,
-		"scroll-step": 1,
-		"smooth-scrolling-threshold": 0.5,
+		"reverse-scrolling": false,
+		"scroll-step": 0.6,
 	    "device": "intel_backlight",
 	   	"justify": "center",
-	    "format": "󰃟  {percent}%"
+	    "format": "󰃟 \n{percent}%"
 	},
 	"tray": {
 		"spacing":20,
 	},
 	"clock": {
-        "format": "{:%a %b %d  %I:%M %p}",
-        "tooltip":false,
+		"on-click": "wofi --style ~/.config/wofi/style/style.css --show drun",
+        "format": "{:%H\n%M}",
+        "tooltip-format": "{:%A, %B %d, %Y (%R)}",
 	},
 	"power-profiles-daemon": {
 	  "format": "{icon}",
-	  "tooltip-format": "Power profile: {profile}",
+	  "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
 	  "tooltip": true,
 	  "format-icons": {
 	    "performance": "",
 	    "balanced": "",
 	    "power-saver": ""
 	  }
-	},
-	"hyprland/window": {
-	    "format": "{class}",
-	    "rewrite": {
-	        "foot": "Terminal",
-	        "floatterm": "Terminal",
-	       	"firefox": "Firefox",
-	       	"org.kde.dolphin": "Finder",
-	       	"org.fooyin.fooyin": "Fooyin",
-	       	"org.kde.knights":"Knights",
-	       	"":"Finder",
-
-
-	        "(.*) - fish": "> [$1]"
-	    },
-	    "separate-outputs": false,
 	},
 	"hyprland/workspaces": {
 		"format": "{icon}",
@@ -83,6 +58,7 @@
 			"code":"󰨞",
 			"note":"",
 		},
+		"rotate":90,
 		"on-click": "activate",
 	},
 	"mpris": {
@@ -100,11 +76,12 @@
 		},
 		"max-length":30,
 		"tooltip-format": "{status_icon} {title} - {artist} - {player}",
+		"rotate":90
 	},
 	"battery": {
-		"format": "{icon} {capacity}%",
+		"format": "{icon}\n{capacity}%",
 		"format-icons": [" ", " ", " ", " ", " "],
-		"format-charging": "󰢝 {capacity}",
+		"format-charging": "󰢝\n{capacity}",
 		"on-click": "foot -a floatterm -e battop",
 		"justify": "center",
 	},
