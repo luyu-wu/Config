@@ -1,0 +1,75 @@
+[Application settings for dev.zed.Zed]
+Description=Application settings for dev.zed.Zed
+decocolor=BreezeDarkLowContrast
+decocolorrule=2
+wmclass=zed-editor dev.zed.Zed
+wmclasscomplete=true
+wmclassmatch=1
+
+[Application settings for foot]
+Description=Application settings for foot
+decocolor=MacTahoeDark
+decocolorrule=2
+wmclass=foot
+wmclassmatch=1
+
+[Application settings for scrcpy]
+Description=Application settings for scrcpy
+noborderrule=2
+position=1047,172
+positionrule=3
+size=528,1251
+sizerule=3
+wmclass=scrcpy
+wmclassmatch=1
+
+[Application settings for spotify]
+Description=Application settings for spotify
+decocolor=BreezeDarkLowContrast
+decocolorrule=2
+wmclass=spotify
+wmclassmatch=1
+
+[Arduino IDE Dark]
+Description=Arduino IDE Dark
+clientmachine=localhost
+decocolor=BreezeDarkLowContrast
+decocolorrule=2
+wmclass=arduino ide Arduino IDE
+wmclasscomplete=true
+wmclassmatch=1
+
+[Blender Dark]
+Description=Blender Dark
+decocolor=BreezeDarkLowContrast
+decocolorrule=2
+wmclass=blender
+wmclassmatch=1
+
+[Window settings for org.fooyin.fooyin]
+Description=Window settings for org.fooyin.fooyin
+size=740,666
+sizerule=3
+title=Eric Nam - What If
+types=1
+wmclass=fooyin org.fooyin.fooyin
+wmclasscomplete=true
+wmclassmatch=1
+
+[gimp Dark]
+Description=gimp Dark
+decocolor=BreezeDarkLowContrast
+decocolorrule=2
+title=GNU 图像处理程序
+types=1
+wmclass=gimp-3.0 gimp
+wmclasscomplete=true
+wmclassmatch=1
+
+[vesktop Dark]
+Description=vesktop Dark
+decocolor=BreezeDarkLowContrast
+decocolorrule=2
+wmclass=electron vesktop
+wmclasscomplete=true
+wmclassmatch=1

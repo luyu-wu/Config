@@ -1,0 +1,101 @@
+{
+    "Name": "Fooyin-Dropdown",
+    "Version": 1,
+    "Widgets": [
+        {
+            "SplitterVertical": {
+                "State": "AAAA/wAAAAEAAAACAAAAHAAAA6EA/////wEAAAACAA==",
+                "Widgets": [
+                    {
+                        "SplitterHorizontal": {
+                            "State": "AAAA/wAAAAEAAAAEAAAAcAAAAcYAAAA4AAAAZwD/////AQAAAAEA",
+                            "Widgets": [
+                                {
+                                    "PlayerControls": {
+                                    }
+                                },
+                                {
+                                    "SeekBar": {
+                                        "ElapsedTotal": false,
+                                        "ShowLabels": true
+                                    }
+                                },
+                                {
+                                    "PlaylistControls": {
+                                    }
+                                },
+                                {
+                                    "VolumeControls": {
+                                        "Mode": 3
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "SplitterHorizontal": {
+                            "State": "AAAA/wAAAAEAAAACAAABsAAAAUoA/////wEAAAABAA==",
+                            "Widgets": [
+                                {
+                                    "PlaylistTabs": {
+                                        "Widgets": [
+                                            {
+                                                "Playlist": {
+                                                    "Columns": "1|2",
+                                                    "HeaderState": "AAAANXjaY2BgYGJgYBRiYGDoZACzwYARxLZ/GgoG9lchNEiQ4f////8Bk/cK1Q==",
+                                                    "ID": "063921dac8874d7b92d8a3b8287a2e4e",
+                                                    "Preset": 0,
+                                                    "SingleMode": false
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "SplitterVertical": {
+                                        "State": "AAAA/wAAAAEAAAACAAABLAAAATcA/////wEAAAACAA==",
+                                        "Widgets": [
+                                            {
+                                                "ArtworkPanel": {
+                                                    "CoverAlignment": 132,
+                                                    "CoverType": 0,
+                                                    "KeepAspectRatio": false
+                                                }
+                                            },
+                                            {
+                                                "TabStack": {
+                                                    "Position": "East",
+                                                    "State": "信息\u001f歌詞\u001f文件",
+                                                    "Widgets": [
+                                                        {
+                                                            "SelectionInfo": {
+                                                                "AlternatingRows": true,
+                                                                "Options": 23,
+                                                                "ShowHeader": true,
+                                                                "ShowHorizontalScrollbar": false,
+                                                                "ShowVerticalScrollbar": true,
+                                                                "State": "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQMAAAACAAAAAQAAAAABAAAAAAAAAGT/////AAAAhAAAAAAAAAACAAAAZAAAAAEAAAAAAAAAnwAAAAEAAAABAAAD6AAAAABkAAAAAAAAAAAAAAAAAAAAAQ=="
+                                                            }
+                                                        },
+                                                        {
+                                                            "Lyrics": {
+                                                            }
+                                                        },
+                                                        {
+                                                            "DirectoryBrowser": {
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}
