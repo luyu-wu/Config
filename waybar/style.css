@@ -15,9 +15,15 @@
 
 window#waybar {
 	border-radius: 0px;
+ 	background: transparent;
+}
+window#waybar > box {
+    border-radius: 0px;
  	background: linear-gradient(to bottom, #F0F0F0, #D8D8D8);
  	border-bottom: 1px solid @border_box;
-	margin: -4px -8px -8px -8px;
+
+    box-shadow: 0px 0px 4px 4px alpha(#000000,0.3);
+    margin-bottom: 1rem;
 }
 
 #network, #mpris, #bluetooth, #wireplumber, #battery, #clock, #power-profiles-daemon, #cpu, #memory, #tray, #backlight, #custom-launcher, #custom-power, #custom-wallpaper, #custom-spotify, #custom-clipboard {
