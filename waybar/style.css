@@ -5,42 +5,23 @@
 @define-color default_text #202020;
 
 * {
-	font-family: Noto Sans;
-	font-size: 16px;
+	font-family: SF Pro;
+	font-size: 20px;
 	min-width: 24px;
 	color: @default_text;
 	border-radius: 0px;
-
 }
 
 window#waybar {
-	border-radius: 0px;
  	background: transparent;
 }
 window#waybar > box {
     border-radius: 0px;
- 	background: linear-gradient(to bottom, #F0F0F0, #D8D8D8);
+ 	background: #e4e7ef;
  	border-bottom: 1px solid @border_box;
 
-    box-shadow: 0px 0px 4px 4px alpha(#000000,0.3);
+    box-shadow: 0px 0px 4px 4px alpha(#000000,0.2);
     margin-bottom: 1rem;
-}
-
-#network, #mpris, #bluetooth, #wireplumber, #battery, #clock, #power-profiles-daemon, #cpu, #memory, #tray, #backlight, #custom-launcher, #custom-power, #custom-wallpaper, #custom-spotify, #custom-clipboard {
-   	background-color: @background_box;
-   	border: 0.1rem solid @border_box;
-    box-shadow: 0px 0px 3px rgba(0,0,0,0.05);
-	border-radius: 4px;
-    margin: 3px;
-    padding-left: 6px;
-    padding-right: 6px;
-
-}
-#battery.charging, #network:hover, #wireplumber:hover, #power-profiles-daemon:hover, #battery:hover, #backlight:hover, #mpris.playing, #workspaces button.active{
-   	background-color: @background_active_box;
-	border: 1px solid #66aaff;
-	box-shadow: 0px 0px 4px #66aaff;
-
 }
 
 tooltip {
@@ -50,38 +31,55 @@ tooltip {
 }
 
 tooltip label{
-	font-size: 14px;
+	font-family: Noto Sans;
+	font-size: 18px;
 }
 
-#tray {
-}
+/* Panel Stuff */ 
 
-/* Group Right 1 */
-#network, #power-profiles-daemon {
-	padding-left: 6px;
+#network, #bluetooth, #wireplumber, #battery, #clock, #power-profiles-daemon, #cpu, #memory, #backlight, #custom-launcher {
+   	/*background-color: @background_box;
+   	border: 0.1rem solid @border_box;
+    box-shadow: 0px 0px 2px rgba(0,0,0,0.05);
+	border-radius: 4px; */
+	font-family: FiraCode Nerd Font;
+    margin: 3px;
+	padding-left: 4px;
 	padding-right: 12px;
 
 }
+/*
+#battery.charging, #network:hover, #wireplumber:hover, #power-profiles-daemon:hover, #battery:hover, #backlight:hover, #mpris.playing, #workspaces button.active{
+   	background-color: @background_active_box;
+	border: 1px solid #66aaff;
+	box-shadow: 0px 0px 4px #66aaff;*/
+/*} */
 
-#battery, #wireplumber, #backlight  {
-	min-width: 60px;
+#tray {
+    margin: 3px;
+    padding-left: 6px;
+    padding-right: 6px;
 }
-
-
-
-/* Group Top */
-
 
 #mpris {   	
-	font-size: 14px;
-    margin: 6px;
+	font-size: 18px;
+    margin: 5px;
+    border-radius: 4px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
+#clock {
+	font-family: Noto Sans;
+	padding-left: 6px;
+	padding-right: 18px;
+}
 
+/* Left Side */ 
 #window {
 	margin-left: 12px;
-	margin-right: 12px;
-	font-family: Noto Sans;
+	margin-right: 16px;
+	font-weight: bold;
 }
 #workspaces {
    	background-color: @background_box;
@@ -95,6 +93,16 @@ tooltip label{
 	box-shadow: 0px 0px 3px rgba(0,0,0,0.05);
 }
 
+
+#custom-logo {
+	margin-left: 24px;
+	margin-right: 16px;
+	font-size: 30px;
+}
+#custom-appmenu {
+	padding-left: 12px;
+	font-size: 18px;
+}
 #workspaces button {
 	padding: 0px;
 	padding-right: 2px;
@@ -106,4 +114,21 @@ tooltip label{
    	background-color: @background_active_box;
 }
 
-
+menu {
+    border-radius: 6px;
+    padding: 0px;
+    border: 0px;
+    font-size:16px;
+    background: #f5f6fb;
+}
+menuitem {
+    /*margin-left: -40px;
+    padding-left: 20px; */
+}
+menuitem:hover {
+	color: #FFF;
+	font-family: SF Pro;
+	border-radius: 6px;
+	font-size:16px;
+	background: #629cff;
+}

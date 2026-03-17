@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+    <object class="GtkMenu" id="menu">
+    
+        <child>
+            <object class="GtkMenuItem" id="about">
+                <property name="label">About This Mac</property>
+            </object>
+        </child>
+
+        
+        <child>
+            <object class="GtkSeparatorMenuItem" id="delimiter1" />
+        </child>
+
+        
+        <child>
+            <object class="GtkMenuItem" id="settings">
+                <property name="label">System Preferences...</property>
+            </object>
+        </child>
+        <child>
+            <object class="GtkMenuItem" id="apps">
+                <property name="label">App Store...</property>
+            </object>
+        </child>
+
+
+        <child>
+            <object class="GtkSeparatorMenuItem" id="delimiter2" />
+        </child>
+
+
+        <child>
+            <object class="GtkMenuItem" id="sleep">
+                <property name="label">Sleep...</property>
+            </object>
+        </child>
+        <child>
+            <object class="GtkMenuItem" id="reboot">
+                <property name="label">Restart...</property>
+            </object>
+        </child>
+        <child>
+            <object class="GtkMenuItem" id="shutdown">
+                <property name="label">Shut Down...</property>
+            </object>
+        </child>
+
+
+		<child>
+            <object class="GtkSeparatorMenuItem" id="delimiter3" />
+        </child>
+
+		<child>
+            <object class="GtkMenuItem" id="logout">
+                <property name="label">Log Out Chrysanthemum...</property>
+            </object>
+        </child>
+        
+    </object>
+</interface>

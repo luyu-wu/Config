@@ -1,16 +1,19 @@
 {
 	"layer": "top",
 	"position":"top",
-	"modules-left": ["hyprland/window","mpris"],
-	"modules-center": ["hyprland/workspaces"], 
+	"modules-left": ["custom/logo","hyprland/window","custom/appmenu"],
+	/*"modules-center": ["hyprland/workspaces"], */
+	/*"modules-right": ["tray","mpris","power-profiles-daemon","network","wireplumber","backlight","battery","clock"],*/
+	"modules-right": ["tray","mpris","network","wireplumber","backlight","clock"],
+
 	"margin-bottom":0,
 	"margin-top":0,
 	"margin-left":0,
-	"modules-right": ["tray", "power-profiles-daemon","network","wireplumber","backlight","battery","clock"],
 	"wireplumber": {
 		"ignored-sinks": ["Easy Effects Sink"], 
-	    "format-muted": "  MUT",
-	    "format": "{icon}  {volume}%",
+	    "format-muted": "",
+	    "format": "{icon}",
+	    "tooltip-format": "{volume}%",
 	    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
 		"on-click-right": "pavucontrol-qt",
 	    "max-volume": 100,
@@ -21,7 +24,7 @@
 	    	"phone-muted": "",
 	    	"portable": "",
 	    	"car": "",
-	    	"default":["","","",""],
+	    	"default":["","","","","","","","",""],
 	    },
 	    "reverse-scrolling": true,
 	    "justify": "center",
@@ -34,7 +37,8 @@
 		"smooth-scrolling-threshold": 0.5,
 	    "device": "intel_backlight",
 	   	"justify": "center",
-	    "format": "󰃟  {percent}%"
+	    "format": "󰍹",
+	    "tooltip":false,
 	},
 	"tray": {
 		"spacing":20,
@@ -58,13 +62,14 @@
 	    "rewrite": {
 	        "foot": "Terminal",
 	        "floatterm": "Terminal",
-	       	"firefox": "Firefox",
+	       	"firefox": "Safari",
+	       	"fusion360.exe":"Fusion",
+	       	"kdesystemsettings": "Preferences",
 	       	"org.kde.dolphin": "Finder",
 	       	"org.fooyin.fooyin": "Fooyin",
 	       	"org.kde.knights":"Knights",
+	       	"org.kde.iconexplorer":"Icons",
 	       	"":"Finder",
-
-
 	        "(.*) - fish": "> [$1]"
 	    },
 	    "separate-outputs": false,
@@ -86,8 +91,9 @@
 		"on-click": "activate",
 	},
 	"mpris": {
-		"format": "{player_icon} {title} - {artist}",
-		"format-paused": "{status_icon} {title} - {artist}",
+		"format": "{player_icon} {title}",
+		"format-paused": "{status_icon} {title}",
+		"tooltip":false,
 		"status-icons": {
 			"paused": "󰏤",
 			"playing": "󰎈"
@@ -98,24 +104,43 @@
 			"io": "󰫔",
 			"firefox": "",
 		},
-		"max-length":30,
+		"max-length":16,
 		"tooltip-format": "{status_icon} {title} - {artist} - {player}",
 	},
 	"battery": {
-		"format": "{icon} {capacity}%",
-		"format-icons": [" ", " ", " ", " ", " "],
-		"format-charging": "󰢝 {capacity}",
+		"format": "{icon}",
+		"format-icons": ["", "", "", "", ""],
+		"format-charging": "󰢝",
 		"on-click": "foot -a floatterm -e battop",
 		"justify": "center",
 	},
 	"network": {
-		"format-wifi": "󱄙",
+		"format-wifi": "",
 		"format-ethernet": "󰈀",
 		"format": "",
+		"tooltip":false,
 		"tooltip-format": "{signaldBm}dBm {essid} {frequency}GHz",
 		"on-click": "foot -a floatterm -e nmtui connect",
 
 		"on-click-right": "nm-connection-editor",
 
+	},
+	"custom/logo": {
+	    "format" : "",
+        "tooltip": false,
+        "menu": "on-click",
+        "menu-file": "~/.config/waybar/menus/logo_menu.xml",
+        "menu-actions": {
+            "about": "~/.config/waybar/scripts/about_mac",
+            "settings":"systemsettings",
+            "apps":"plasma-discover",
+            "reboot": "reboot",
+            "sleep": "systemctl suspend",
+           	"reboot": "systemctl reboot now",
+            "shutdown": "systemctl shutdown now",
+        },
+	},
+	"custom/appmenu": {
+		"format" :"File    Edit    View    Go    Window    Help"
 	},
 }
