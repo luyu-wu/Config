@@ -46,6 +46,7 @@
 	"clock": {
         "format": "{:%a %b %d  %I:%M %p}",
         "tooltip":false,
+        "on-click":"swaync-client -t"
 	},
 	"power-profiles-daemon": {
 	  "format": "{icon}",
@@ -63,6 +64,7 @@
 	        "foot": "Terminal",
 	        "floatterm": "Terminal",
 	       	"firefox": "Safari",
+	       	"pavucontrol-qt":"Audio Panel",
 	       	"fusion360.exe":"Fusion",
 	       	"kdesystemsettings": "Preferences",
 	       	"org.kde.dolphin": "Finder",

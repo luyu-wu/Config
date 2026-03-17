@@ -1,0 +1,289 @@
+:root {
+  --cc-bg: #78787880;
+  --noti-bg: #6e6e6e;
+  --noti-bg-alpha: 0.3;
+  --noti-bg-focus: #8282824D;
+  --noti-close-bg: #4e4e4e;
+  --noti-close-bg-hover: #5e5e5e;
+  --text-color: #ffffff;
+  --text-color-disabled: #464646;
+  --notification-icon-size: 64px;
+  --notification-app-icon-size: calc(var(--notification-icon-size) / 3);
+  --notification-group-icon-size: 32px;
+  --border-radius: 12px;
+  --notification-shadow:
+    0 0 0 1px #0000004D,
+    0 1px 3px 1px #000000B3,
+    0 2px 6px 2px #0000004D;
+  --font-size-body: 15px;
+  --font-size-summary: 16px;
+  --font-size-time: 14px;
+  --font-size-icon: 1.6rem;
+}
+
+@define-color text #fff;
+@define-color selected #1071db;
+@define-color hover alpha(@selected,.4);
+@define-color background-sec #e4e7ef;
+@define-color background-alt #A0A0A0;
+@define-color urgent #f63c3a;
+@define-color background #e4e7ef;
+@define-color foreground #202020;
+
+* {
+  color: @text;
+  all: unset;
+  font-size: 20px;
+  font-family: SF Pro;
+  transition: 200ms;
+
+}
+
+/* Avoid 'annoying' backgroud */
+.blank-window {  
+  background: transparent;  
+}
+  
+/* CONTROL CENTER ------------------------------------------------------------------------ */
+
+.control-center {
+  background: alpha(@background, .70);
+  border-radius: 24px;
+  border: 1px solid #ffffff;
+  box-shadow: 0 0 10px 0 rgba(0,0,0,.6);
+  margin: 18px;
+  padding: 12px;
+}
+
+/* Notifications  */
+
+.control-center .control-center-list {
+  background: transparent;
+}
+
+.control-center .control-center-list .notification {
+  box-shadow: 0px 0px 4px alpha(#000, 0.3);
+}
+.control-center .control-center-list .notification-group,
+.control-center .control-center-list .notification-group .notification-row,
+.control-center .control-center-list .notification-group .notification-background {
+  box-shadow: none;
+  border: none;
+}
+
+.control-center .notification-row .notification-background,
+.control-center .notification-row .notification-background .notification.critical {
+  background-color: #f0f0f0;
+  border-radius: 16px;
+  margin: 4px 0px;
+  padding: 4px;
+}
+
+.control-center .control-center-list .notification .notification-default-action:hover,
+.control-center .control-center-list .notification .notification-action:hover {
+  background-color: alpha(@hover,0.2);
+}
+
+.control-center .notification-row .notification-background .notification.critical {
+  color: @urgent;
+}
+
+.control-center .notification-row .notification-background .notification .notification-content {
+  margin: 6px;
+  padding: 8px 6px 2px 2px;
+}
+
+.control-center .notification-row .notification-background .notification > *:last-child > * {
+  min-height: 3.4em;
+}
+
+.control-center .notification-row .notification-background .notification > *:last-child > * .notification-action {
+  background: alpha(@selected, .6);
+  color: @text;
+  border-radius: 12px;
+  margin: 6px;
+}
+
+.control-center .notification-row .notification-background .notification > *:last-child > * .notification-action:hover {
+  background: @selected;
+}
+
+.control-center .notification-row .notification-background .notification > *:last-child > * .notification-action:active {
+  background-color: @selected;
+}
+
+/* Buttons */
+
+.control-center .notification-row .notification-background .close-button {
+  background: transparent;
+  border-radius: 16px;
+  color: @text;
+  margin: 0px;
+  padding: 4px;
+}
+
+
+/* Notifications expanded-group */
+
+.notification-group {
+  margin: 2px 8px 2px 8px;
+
+}
+.notification-group-headers {
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: @text;
+  letter-spacing: 2px;
+}
+
+.notification-group-icon {
+  color: @text;
+}
+
+.notification-group-collapse-button,
+.notification-group-close-all-button {
+  background: transparent;
+  color: @text;
+  margin: 4px; 
+  border-radius: 6px;
+  padding: 4px;
+}
+
+.notification-group-collapse-button:hover {
+	background: @selected;
+	color: @background;
+	
+}
+.notification-group-close-all-button:hover {
+  background: @urgent;
+  color: @background;
+}  
+
+  /* Notification clear button */
+.widget-title {
+  font-size: 1.2em;
+  margin: 6px;
+}
+
+.widget-title button {
+  background: alpha(@background-alt,0.3);
+  border-radius: 6px;
+  padding: 2px 4px;
+}
+
+.widget-title button:hover {
+  background-color: alpha(@urgent,.5);
+}
+
+.widget-title button:active {
+  background-color: @urgent;
+}
+
+  /* Do not disturb */
+.widget-dnd {
+  margin: 6px;
+  font-size: 1.2rem;
+}
+
+.widget-dnd > switch {
+  background: alpha(@background-alt,0.5);
+  font-size: initial;
+  border-radius: 8px;
+  box-shadow: none;
+  padding: 2px;
+}
+
+.widget-dnd > switch:hover {
+  background: @hover;
+}
+
+.widget-dnd > switch:checked {
+  background: @selected;
+}
+
+.widget-dnd > switch:checked:hover {
+  background: @hover;
+}
+
+.widget-dnd > switch slider {
+  background: #fff;
+  border-radius: 6px;
+}
+
+
+  /* Music player */
+.widget-mpris {
+    background: transparent;
+    border-radius: 16px;
+    color: @text;
+    margin:  20px 6px;
+}
+
+  /* NOTE: Background need *opacity 1* otherwise will turn into the album art blurred  */
+.widget-mpris-player {
+    border-radius: 22px;
+    padding: 6px 14px;
+    margin: 6px;
+}
+
+.widget-mpris > box > button {
+  color: @text;
+  border-radius: 20px;
+}
+ 
+.widget-mpris button {
+  color: alpha(@text, .6);
+}
+
+.widget-mpris button:hover {
+  color: @text;
+}
+
+.widget-mpris-album-art {
+  border-radius: 8px;
+  box-shadow: 0px 0px 8px alpha(#000, 0.4);
+}
+ 
+.widget-mpris-title {
+    font-weight: 700;
+    font-size: 1rem;
+}
+ 
+.widget-mpris-subtitle {
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+
+picture.mpris-background {
+  opacity: 0;
+}
+
+/* Volume */
+.widget-volume,.widget-backlight {
+  color: @text;
+  padding-left: 12px;
+  margin: 6px;
+  border-radius: 12px;
+}
+.widget-volume highlight,
+.widget-backlight highlight {
+  margin: 0;
+  box-shadow: 0px 0px 6px alpha(#000,0.3);
+  background-color: white;
+  border-radius: 12px;
+}
+
+.widget-volume trough,
+.widget-backlight trough {
+  border-radius: 12px;
+  min-height: 12px;
+  background: alpha(@background-alt,0.5);
+  box-shadow: 0px 0px 3px alpha(#000, 0.2);
+  margin-right: 12px;
+  margin-left: 6px;
+}
+
+
+.widget-label text{
+	font-size: 32px;
+}
