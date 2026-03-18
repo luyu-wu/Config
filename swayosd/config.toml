@@ -1,0 +1,15 @@
+[server]
+top_margin = 0.09
+
+## The maximum volume that can be reached in %
+max_volume = 100
+
+## show percentage on the right of the OSD
+show_percentage = false
+
+## set format for the media player OSD
+playerctl_format = "{artist} - {title}"
+## Available values:
+## artist, albumArtist, title, album, trackNumber, discNumber, autoRating
+
+[client]
