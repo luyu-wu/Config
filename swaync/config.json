@@ -2,7 +2,7 @@
   "$schema": "/etc/xdg/swaync/configSchema.json",
   "positionX": "right",
   "positionY": "top",
-	"cssPriority": "user",
+  "cssPriority": "user",
 
   "control-center-width": 380,
   "control-center-height": 800, 
@@ -33,13 +33,6 @@
       "urgency": "Normal"
     }
   },
-  "notification-visibility": {
-    "example-name": {
-      "state": "muted",
-      "urgency": "Low",
-      "app-name": "Spotify"
-    }
-  },
   "widgets": [
     "label",
     "mpris",
@@ -60,7 +53,7 @@
     },
     "label": {
       "max-lines": 1,
-      "text": "  Control Center"
+      "text": "Control Center"
     },
     "mpris": {
       "image-size": 96,

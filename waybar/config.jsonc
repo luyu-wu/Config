@@ -66,6 +66,7 @@
 	       	"firefox": "Firefox",
 	       	"org.kde.okular": "Okular",
 	       	"org.kde.gwenview": "Photos",
+	       	"spotify":"Spotify",
 	       	"pavucontrol-qt":"Audio Panel",
 	       	"fusion360.exe":"Fusion 360",
 	       	"kdesystemsettings": "Preferences",
@@ -105,7 +106,7 @@
 		},
 		"player-icons": {
 			"default": "󰎈",
-			"spotify": "󰓇",
+			"spotify": "󰓇  ",
 			"io": "󰫔",
 			"firefox": "",
 		},

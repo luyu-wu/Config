@@ -25,7 +25,7 @@ window {
     background: alpha(@background-alt,0.5);
     color: #222;
     border-radius: 12px;
-    border: 2px solid @background-alt;
+    border: 1px solid @background-alt;
     box-shadow: 0px 0px 3px alpha(#000,0.15);
     font-family: "JetBrainsMono Nerd Font";
     font-size: 16px;
