@@ -26,14 +26,50 @@
         </child>
 
 
-        <child>
+        
+		<child>
             <object class="GtkSeparatorMenuItem" id="delimiter2" />
         </child>
 
 
+
+		<child>
+			<object class="GtkMenuItem" id="recent">
+                  <property name="label">Recents</property>
+                  <child type="submenu">
+                      <object class="GtkMenu">
+                          <child>
+                              <object class="GtkMenuItem" id="f2">
+                                  <property name="label">New</property>
+                              </object>
+                          </child>
+                      </object>
+                  </child>
+              </object>            
+        </child>
+
+
+		
+        <child>
+            <object class="GtkSeparatorMenuItem" id="delimiter3" />
+        </child>
+
+
+
+        <child>
+            <object class="GtkMenuItem" id="force">
+                <property name="label">Force Quit...</property>
+                <accelerator key="q" signal="activate" modifiers="GDK_CONTROL_MASK"/>
+            </object>
+        </child>
+
+        <child>
+            <object class="GtkSeparatorMenuItem" id="delimiter4" />
+        </child>
+
         <child>
             <object class="GtkMenuItem" id="sleep">
-                <property name="label">Sleep...</property>
+                <property name="label">Sleep</property>
             </object>
         </child>
         <child>
@@ -49,12 +85,23 @@
 
 
 		<child>
-            <object class="GtkSeparatorMenuItem" id="delimiter3" />
+            <object class="GtkSeparatorMenuItem" id="delimiter5" />
+        </child>
+
+
+		<child>
+            <object class="GtkMenuItem" id="lock">
+                <property name="label">Lock Screen</property>
+                <accelerator key="k" signal="activate" modifiers="GDK_CONTROL_MASK"/>
+
+            </object>
         </child>
 
 		<child>
             <object class="GtkMenuItem" id="logout">
                 <property name="label">Log Out Chrysanthemum...</property>
+                <accelerator key="l" signal="activate" modifiers="GDK_CONTROL_MASK"/>
+
             </object>
         </child>
         

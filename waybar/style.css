@@ -1,25 +1,24 @@
 @define-color background_box #F0F0F0;
 @define-color background_active_box alpha(#8a97ee,0.3);
 @define-color border_active_box #8a97ee;
+@define-color selected #1071db;
 @define-color border_box #A0A0A0;
 @define-color default_text #202020;
 
 * {
 	font-family: SF Pro;
-	font-size: 20px;
-	min-width: 24px;
-	color: @default_text;
 	border-radius: 0px;
 }
 
 window#waybar {
+	color: @default_text;
+
  	background: transparent;
 }
 window#waybar > box {
     border-radius: 0px;
  	background: #e4e7ef;
  	border-bottom: 1px solid @border_box;
-
     box-shadow: 0px 0px 4px 4px alpha(#000000,0.2);
     margin-bottom: 1rem;
 }
@@ -37,15 +36,16 @@ tooltip label{
 
 /* Panel Stuff */ 
 
-#network, #bluetooth, #wireplumber, #battery, #clock, #power-profiles-daemon, #cpu, #memory, #backlight, #custom-launcher {
+#network, #bluetooth, #wireplumber, #battery, #power-profiles-daemon, #cpu, #memory, #backlight {
    	/*background-color: @background_box;
    	border: 0.1rem solid @border_box;
     box-shadow: 0px 0px 2px rgba(0,0,0,0.05);
 	border-radius: 4px; */
 	font-family: FiraCode Nerd Font;
+	font-size: 20px;
     margin: 3px;
-	padding-left: 4px;
-	padding-right: 12px;
+	padding-left: 12px;
+	padding-right: 20px;
 
 }
 /*
@@ -70,17 +70,13 @@ tooltip label{
 }
 
 #clock {
-	font-family: Noto Sans;
 	padding-left: 6px;
 	padding-right: 18px;
+	margin: 3px;
+	font-size: 20px;
 }
 
 /* Left Side */ 
-#window {
-	margin-left: 12px;
-	margin-right: 16px;
-	font-weight: bold;
-}
 #workspaces {
    	background-color: @background_box;
     border: 1px solid @border_box;
@@ -95,13 +91,31 @@ tooltip label{
 
 
 #custom-logo {
-	margin-left: 24px;
-	margin-right: 16px;
+	padding-left: 12px;
+	padding-right: 14px;
+	margin-left: 12px;
+	margin-right: 2px;
 	font-size: 30px;
 }
+#custom-logo:hover{
+	background: @selected;
+	color: #fff;
+}
+#custom-logo:active{
+	background: @selected;
+	color: #fff;
+}
+#window {
+	margin-left: 12px;
+	margin-right: 16px;
+	font-weight: bold;
+	font-size: 20px;
+}
+
 #custom-appmenu {
 	padding-left: 12px;
-	font-size: 18px;
+	font-size: 20px;
+	
 }
 #workspaces button {
 	padding: 0px;
@@ -118,17 +132,21 @@ menu {
     border-radius: 6px;
     padding: 0px;
     border: 0px;
-    font-size:16px;
-    background: #f5f6fb;
+    font-size:12px;
+	box-shadow: 0px 0px 4px alpha(#000000,0.2);
+    background: #e4e7ef;
 }
 menuitem {
-    /*margin-left: -40px;
-    padding-left: 20px; */
+	font-size:20px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	margin-top: 3px;
+	margin-bottom: 3px;
 }
 menuitem:hover {
 	color: #FFF;
 	font-family: SF Pro;
-	border-radius: 6px;
-	font-size:16px;
-	background: #629cff;
+
+	border-radius: 0px;
+	background: @selected;
 }

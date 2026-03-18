@@ -53,7 +53,7 @@
     "title": {
       "text": "Notifications",
       "clear-all-button": true,
-      "button-text": " 󰎟 "
+      "button-text": "󰎟"
     },
     "dnd": {
       "text": "  Do Not Disturb"
@@ -64,14 +64,15 @@
     },
     "mpris": {
       "image-size": 96,
-      "image-radius": 4
+      "image-radius": 4,
+      "loop-carousel": true
     },
     "volume": {
-      "label": "󰕾 ",
+      "label": "󰕾",
         "show-per-app": false
     },
     "backlight": {
-      "label": " ",
+      "label": "",
       "subsystem": "backlight",
       "device": "amdgpu_bl1"
     }

@@ -1,6 +1,6 @@
-@define-color text #202020;
+@define-color text #303030;
 @define-color selected #1071db;
-@define-color hover alpha(@selected,.4);
+@define-color hover alpha(@selected,.6);
 @define-color background-sec #e4e7ef;
 @define-color background-alt #A0A0A0;
 @define-color urgent #f63c3a;
@@ -9,8 +9,6 @@
 
 * {
   color: @text;
-
-  all: unset;
   font-size: 18px;
   font-family: SF Pro;
   transition: 200ms;
@@ -35,6 +33,7 @@
 .floating-notifications.background .notification-row .notification-background .notification {
   padding: 6px;
   border-radius: 12px;
+  color: @text;
 }
 
 .floating-notifications.background .notification-row .notification-background .notification.critical {

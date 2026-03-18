@@ -63,9 +63,11 @@
 	    "rewrite": {
 	        "foot": "Terminal",
 	        "floatterm": "Terminal",
-	       	"firefox": "Safari",
+	       	"firefox": "Firefox",
+	       	"org.kde.okular": "Okular",
+	       	"org.kde.gwenview": "Photos",
 	       	"pavucontrol-qt":"Audio Panel",
-	       	"fusion360.exe":"Fusion",
+	       	"fusion360.exe":"Fusion 360",
 	       	"kdesystemsettings": "Preferences",
 	       	"org.kde.dolphin": "Finder",
 	       	"org.fooyin.fooyin": "Fooyin",
@@ -75,6 +77,7 @@
 	        "(.*) - fish": "> [$1]"
 	    },
 	    "separate-outputs": false,
+	    "tooltip": false,
 	},
 	"hyprland/workspaces": {
 		"format": "{icon}",
@@ -136,13 +139,15 @@
             "about": "~/.config/waybar/scripts/about_mac",
             "settings":"systemsettings",
             "apps":"plasma-discover",
-            "reboot": "reboot",
             "sleep": "systemctl suspend",
-           	"reboot": "systemctl reboot now",
-            "shutdown": "systemctl shutdown now",
+           	"reboot": "systemctl reboot",
+            "shutdown": "systemctl shutdown",
+            "force": "hyprctl dispatch killactive",
+            "lock": "hyprlock"
         },
 	},
 	"custom/appmenu": {
-		"format" :"File    Edit    View    Go    Window    Help"
+		"format" :"File    Edit    View    Go    Window    Help",
+        "tooltip": false,
 	},
 }
