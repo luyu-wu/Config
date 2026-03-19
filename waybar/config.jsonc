@@ -5,7 +5,7 @@
 	/*"modules-center": ["hyprland/workspaces"], */
 	/*"modules-right": ["tray","mpris","power-profiles-daemon","network","wireplumber","backlight","battery","clock"],*/
 	"modules-right": ["tray","mpris","network","wireplumber","backlight","clock"],
-
+	"reload_style_on_change":true,
 	"margin-bottom":0,
 	"margin-top":0,
 	"margin-left":0,
@@ -64,6 +64,7 @@
 	        "foot": "Terminal",
 	        "floatterm": "Terminal",
 	       	"firefox": "Firefox",
+	       	"teams-for-linux":"Microsoft Teams",
 	       	"org.kde.okular": "Okular",
 	       	"org.kde.gwenview": "Photos",
 	       	"spotify":"Spotify",
@@ -73,6 +74,8 @@
 	       	"org.kde.dolphin": "Finder",
 	       	"org.fooyin.fooyin": "Fooyin",
 	       	"org.kde.knights":"Knights",
+	       	"com.github.flxzt.rnote":"RNote",
+	       	"com.missioncenter.MissionCenter":"Task Manager",
 	       	"org.kde.iconexplorer":"Icons",
 	       	"":"Finder",
 	        "(.*) - fish": "> [$1]"

@@ -76,18 +76,6 @@ tooltip label{
 	font-size: 20px;
 }
 
-/* Left Side */ 
-#workspaces {
-   	background-color: @background_box;
-    border: 1px solid @border_box;
-	margin-left: 6px;
-	margin-right:6px;
-	margin-top: 6px;
-	margin-bottom: 6px;
-	font-size: 18px;
-	border-radius: 4px;
-	box-shadow: 0px 0px 3px rgba(0,0,0,0.05);
-}
 
 
 #custom-logo {
@@ -97,17 +85,18 @@ tooltip label{
 	margin-right: 2px;
 	font-size: 30px;
 }
-#custom-logo:hover{
-	background: @selected;
-	color: #fff;
-}
-#custom-logo:active{
+
+#custom-logo:hover,#window:hover{
 	background: @selected;
 	color: #fff;
 }
 #window {
-	margin-left: 12px;
-	margin-right: 16px;
+	padding-left: 12px;
+	padding-right: 12px;
+	margin-left: 0px;
+	margin-right: 4px;
+	margin-top: 0px;
+	margin-bottom: 0px;
 	font-weight: bold;
 	font-size: 20px;
 }
@@ -115,17 +104,6 @@ tooltip label{
 #custom-appmenu {
 	padding-left: 12px;
 	font-size: 20px;
-	
-}
-#workspaces button {
-	padding: 0px;
-	padding-right: 2px;
-	margin-left: 4px;
-	margin-right: 4px;
-	border-radius:3px;
-}
-#workspaces button:hover {
-   	background-color: @background_active_box;
 }
 
 menu {
@@ -149,4 +127,26 @@ menuitem:hover {
 
 	border-radius: 0px;
 	background: @selected;
+}
+
+#workspaces {
+   	background-color: @background_box;
+    border: 1px solid @border_box;
+	margin-left: 6px;
+	margin-right:6px;
+	margin-top: 6px;
+	margin-bottom: 6px;
+	font-size: 18px;
+	border-radius: 4px;
+	box-shadow: 0px 0px 3px rgba(0,0,0,0.05);
+}
+#workspaces button {
+	padding: 0px;
+	padding-right: 2px;
+	margin-left: 4px;
+	margin-right: 4px;
+	border-radius:3px;
+}
+#workspaces button:hover {
+   	background-color: @background_active_box;
 }
