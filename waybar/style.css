@@ -26,12 +26,14 @@ window#waybar > box {
 tooltip {
    	background-color: @background_box;
 	border: 1px solid #aaaaaa;
-	border-radius: 4px;
+	border-radius: 8px;
 }
 
 tooltip label{
-	font-family: Noto Sans;
+	font-family: SF Pro;
+   	color: #202020;
 	font-size: 18px;
+	font-weight: 300;
 }
 
 /* Panel Stuff */ 
@@ -110,12 +112,10 @@ menu {
     border-radius: 6px;
     padding: 0px;
     border: 0px;
-    font-size:12px;
-	box-shadow: 0px 0px 4px alpha(#000000,0.2);
     background: #e4e7ef;
 }
 menuitem {
-	font-size:20px;
+	font-size:18px;
 	padding-top: 3px;
 	padding-bottom: 3px;
 	margin-top: 3px;

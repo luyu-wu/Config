@@ -14,7 +14,7 @@
 	    "format-muted": "",
 	    "format": "{icon}",
 	    "tooltip-format": "{volume}%",
-	    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+	    "on-click": "swayosd-client --output-volume mute-toggle",
 		"on-click-right": "pavucontrol-qt",
 	    "max-volume": 100,
 	    "format-icons": {
@@ -35,7 +35,6 @@
 		"reverse-scrolling": true,
 		"scroll-step": 1,
 		"smooth-scrolling-threshold": 0.5,
-	    "device": "intel_backlight",
 	   	"justify": "center",
 	    "format": "󰍹",
 	    "tooltip":false,

@@ -3,6 +3,7 @@ top_margin = 0.09
 
 ## The maximum volume that can be reached in %
 max_volume = 100
+min_brightness = 0
 
 ## show percentage on the right of the OSD
 show_percentage = false
