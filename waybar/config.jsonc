@@ -73,8 +73,9 @@
 	       	"org.kde.dolphin": "Finder",
 	       	"org.fooyin.fooyin": "Fooyin",
 	       	"org.kde.knights":"Knights",
-	       	"com.github.flxzt.rnote":"RNote",
-	       	"com.missioncenter.MissionCenter":"Task Manager",
+	       	"com.github.flxzt.rnote":"Rnote",
+	       	"io.missioncenter.MissionCenter":"Task Manager",
+	       	"org.prismlauncher.PrismLauncher":"Prism",
 	       	"org.kde.iconexplorer":"Icons",
 	       	"":"Finder",
 	        "(.*) - fish": "> [$1]"
@@ -119,7 +120,7 @@
 		"format": "{icon}",
 		"format-icons": ["", "", "", "", ""],
 		"format-charging": "󰢝",
-		"on-click": "foot -a floatterm -e battop",
+		"on-click": "foot -e battop",
 		"justify": "center",
 	},
 	"network": {
@@ -128,7 +129,7 @@
 		"format": "",
 		"tooltip":false,
 		"tooltip-format": "{signaldBm}dBm {essid} {frequency}GHz",
-		"on-click": "foot -a floatterm -e nmtui connect",
+		"on-click": "foot -e nmtui connect",
 
 		"on-click-right": "nm-connection-editor",
 

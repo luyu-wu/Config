@@ -3,9 +3,9 @@ accent = "#1071db"
 # Text color on the active tab (should contrast with accent)
 accentText = "#fff"
 # Dim overlay opacity when selecting (0.0 - 1.0)
-dimOpacity = 0.6
+dimOpacity = 0.3
 # Corner radius on selection outline
-borderRadius = 0
+borderRadius = 4
 # Selection outline thickness
 outlineThickness = 2
 # Distance from bottom edge to the bar

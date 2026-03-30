@@ -21,7 +21,10 @@ file_names = []
 local_search_depth = 0
 
 [cover.provider]
-provider = []
+provider = ["musicbrainz", "catbox"]
+
+[cover.provider.musicbrainz]
+min_score = 95
 
 [player]
 # Priority: user entries override bundled ones. Fields left unset in a higher-priority entry fall back to lower matches, then [player.default], then built-in defaults.
