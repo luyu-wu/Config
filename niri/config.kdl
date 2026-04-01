@@ -1,0 +1,154 @@
+environment {
+    QT_QPA_PLATFORM          "wayland;xcb"
+    QT_QPA_PLATFORMTHEME     "kde"
+    GDK_BACKEND              "wayland,x11,*"
+    XDG_CURRENT_DESKTOP      "niri"
+    XDG_SESSION_TYPE         "wayland"
+    XDG_SESSION_DESKTOP      "niri"
+    SDL_VIDEODRIVER          "wayland"
+    CLUTTER_BACKEND          "wayland"
+    QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+    ELECTRON_OZONE_PLATFORM_HINT "wayland"
+    TERMINAL                 "foot"
+    XDG_MENU_PREFIX          "plasma-"
+    // Cursor — niri uses seat/xcursor; set theme via XCURSOR_THEME/XCURSOR_SIZE
+    XCURSOR_THEME            "macOS"
+    XCURSOR_SIZE             "32"
+    // Input method
+    GTK_IM_MODULE            "fcitx"
+    QT_IM_MODULE             "fcitx"
+    XMODIFIERS               "@im=fcitx"
+    QT_LOGGING_RULES         "*.debug=false"
+}
+
+
+spawn-at-startup "dbus-update-activation-environment" "--systemd" "DISPLAY" "WAYLAND_DISPLAY" "NIRI_SOCKET" "XDG_CURRENT_DESKTOP"
+spawn-at-startup "systemctl" "--user" "start" "plasma-polkit-agent"
+spawn-at-startup "fcitx5"
+spawn-at-startup "swaync"
+spawn-at-startup "hypridle"
+spawn-at-startup "hyprpaper"
+spawn-at-startup "cairo-dock"
+spawn-at-startup "waybar"
+spawn-at-startup "swayosd-server"
+spawn-at-startup "play" "/home/chrysanthemum/.config/hypr/Assets/startup.mp3"
+
+output "eDP-1" {
+    mode "2256x1504"
+    scale 1.0
+}
+
+
+output "Dell Inc. DELL U2711 D971T23614WL" {
+    mode "2560x1440"
+    position x=-2560 y=0
+    scale 1.0
+}
+
+overview {
+	backdrop-color "#B0B0B0"    
+	zoom 0.5
+}
+
+input {
+    keyboard {
+        repeat-delay  200
+        repeat-rate   50
+    }
+
+    touchpad {
+        natural-scroll
+        click-method "clickfinger"
+        // scroll-factor: Niri uses scroll-factor for touchpad
+        scroll-factor 0.2
+    }
+
+    mouse {
+        accel-profile "flat"
+        accel-speed   0.4
+    }
+
+    focus-follows-mouse max-scroll-amount="0%"
+}
+
+layout {
+    gaps 12   // gaps_in = 12 (niri uses a single gaps value)
+
+    struts {
+        left   4
+        right  4
+        top    4
+        bottom 4
+    }
+
+    focus-ring {
+        width 1
+        active-color   "#505050"
+        inactive-color "#444444"
+    }
+
+    default-column-width { proportion 0.4; }
+}
+
+window-rule {
+    geometry-corner-radius 8
+    clip-to-geometry true
+}
+
+binds {
+    // ── Function / Media keys ───────────────────────────────
+
+    XF86MonBrightnessUp   { spawn "swayosd-client" "--brightness" "raise"; }
+    XF86MonBrightnessDown { spawn "swayosd-client" "--brightness" "lower"; }
+    Shift+XF86MonBrightnessUp   { spawn "swayosd-client" "--brightness" "+1"; }
+    Shift+XF86MonBrightnessDown { spawn "swayosd-client" "--brightness" "-1"; }
+
+    XF86AudioRaiseVolume  { spawn "swayosd-client" "--output-volume" "raise" "--max-volume" "100"; }
+    XF86AudioLowerVolume  { spawn "swayosd-client" "--output-volume" "lower"; }
+    Shift+XF86AudioRaiseVolume { spawn "swayosd-client" "--output-volume" "+1" "--max-volume" "100"; }
+    Shift+XF86AudioLowerVolume { spawn "swayosd-client" "--output-volume" "-1"; }
+    XF86AudioMute         { spawn "swayosd-client" "--output-volume" "mute-toggle"; }
+
+    XF86PowerOff          { spawn "sh" "-c" "pkill wleave || wleave -m 500 -c 50 -f"; }
+    Shift+XF86PowerOff    { spawn "systemctl" "suspend"; }
+
+    XF86AudioPlay         { spawn "swayosd-client" "--playerctl" "play-pause"; }
+    XF86AudioPrev         { spawn "swayosd-client" "--playerctl" "previous"; }
+    XF86AudioNext         { spawn "swayosd-client" "--playerctl" "next"; }
+
+    // ── Launchers ───────────────────────────────────────────
+
+    Super+Space { spawn "sh" "-c" "pkill wofi || wofi --style ~/.config/wofi/style/style.css --show drun"; }
+    Super+M     { spawn "sh" "-c" "pkill hyprsunset || hyprsunset -t 4000"; }
+    Super+Shift+M { spawn "sh" "-c" "pkill hyprsunset || hyprsunset -t 2000"; }
+
+    Super+W { spawn "firefox"; }
+    Super+O { spawn "osu-lazer"; }
+    Super+I { spawn "systemsettings"; }
+    Super+P { spawn "foot" "-D" "~/Code/Config/hypr" "-e" "micro" "monitors.conf"; }
+    Super+E { spawn "dolphin"; }
+    Super+T { spawn "foot"; }
+    Super+Shift+T { spawn "foot"; }   // float handled by window-rule if title matches
+    Super+Shift+L { spawn "hyprlock"; }
+    Super+S { spawn "fooyin"; }
+    Super+Shift+S { screenshot; }
+
+    Ctrl+Shift+Escape { spawn "foot" "-e" "btop"; }
+
+    // ── Window management ───────────────────────────────────
+
+    Super+Q { close-window; }
+
+    Super+V { toggle-window-floating; }
+
+    Super+F { fullscreen-window; }
+
+
+    Super+1  { focus-column-left; }
+    Super+2 { focus-column-right; }
+
+    Super+Shift+1  { move-column-left; }
+    Super+Shift+2 { move-column-right; }
+
+    Super+A { spawn "scrcpy" "-S" "-K"; }
+}

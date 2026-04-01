@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=KonqPopupMenu/Plugin
+MimeType=image/jpeg;image/png;image/webp;image/gif;image/bmp;image/tiff;image/avif;
+Actions=SetHyprpaperWallpaper;
+X-KDE-StartupNotify=false
+
+[Desktop Action SetHyprpaperWallpaper]
+Name=Set Hyprpaper
+Icon=preferences-desktop-wallpaper
+Exec=sh -c 'hyprctl hyprpaper wallpaper ",%f"'

@@ -248,6 +248,13 @@ PanelWindow {
                 spacing: 20
 
                 // thumbs area
+				SearchBox {
+                    id: searchBox
+                    onTextChanged: function(text) {
+                        root.animateWindows = false
+                        exposeArea.searchText = text
+                    }
+                }
                 Item {
                     id: exposeArea
                     width: layoutRoot.width
@@ -353,13 +360,7 @@ PanelWindow {
                     }
                 }
 
-                SearchBox {
-                    id: searchBox
-                    onTextChanged: function(text) {
-                        root.animateWindows = false
-                        exposeArea.searchText = text
-                    }
-                }
+                
             }
         }
     }

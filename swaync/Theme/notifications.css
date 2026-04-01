@@ -41,7 +41,7 @@
 }
 
 .floating-notifications.background .notification-row .notification-background .notification .notification-content {
-  margin: 14px;
+  margin: 8px;
 }
 
 .floating-notifications.background .notification-row .notification-background .notification > *:last-child > * {
@@ -66,16 +66,18 @@
 }
 
 .image {
-  margin: 10px 20px 10px 0px;
+  margin: 4px 12px 4px 0px;
+  border-radius: 16px;
+  border: 1px solid #fff;
 }
 
 .summary {
   font-weight: 800;
-  font-size: 1rem;
+  font-size: 16px;
 }
 
 .body {
-  font-size: 0.8rem;
+  font-size: 14px
 }
 
 .floating-notifications.background .notification-row .notification-background .close-button {

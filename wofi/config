@@ -13,6 +13,7 @@ content_halign=fill
 insensitive=true
 allow_images=true
 image_size=40
+close_on_focus_loss=true
 dynamic_lines=true
 hide_scroll=true
 hide_search=false

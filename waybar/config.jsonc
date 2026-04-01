@@ -4,7 +4,7 @@
 	"modules-left": ["custom/logo","hyprland/window","custom/appmenu"],
 	/*"modules-center": ["hyprland/workspaces"], */
 	/*"modules-right": ["tray","mpris","power-profiles-daemon","network","wireplumber","backlight","battery","clock"],*/
-	"modules-right": ["tray","mpris","network","wireplumber","backlight","clock"],
+	"modules-right": ["tray","mpris","bluetooth","network","wireplumber","backlight","clock"],
 	"reload_style_on_change":true,
 	"margin-bottom":0,
 	"margin-top":0,
@@ -15,7 +15,9 @@
 	    "format": "{icon}",
 	    "tooltip-format": "{volume}%",
 	    "on-click": "swayosd-client --output-volume mute-toggle",
-		"on-click-right": "pavucontrol-qt",
+		"on-click-right": "kcmshell6 kcm_pulseaudio",
+		"on-scroll-up": "swayosd-client --output-volume raise --max-volume 100",
+		"on-scroll-down": "swayosd-client --output-volume lower",
 	    "max-volume": 100,
 	    "format-icons": {
 	    	"headphone":"",
@@ -127,12 +129,18 @@
 		"format-wifi": "",
 		"format-ethernet": "󰈀",
 		"format": "",
-		"tooltip":false,
 		"tooltip-format": "{signaldBm}dBm {essid} {frequency}GHz",
-		"on-click": "foot -e nmtui connect",
+		"on-click": "kcmshell6 kcm_mobile_wifi",
 
 		"on-click-right": "nm-connection-editor",
-
+	},
+	"bluetooth": {
+		"format": "",
+		"format-disabled": "󰂲", 
+		"tooltip-format": "{controller_alias}\t{controller_address}",
+		"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+		"on-click": "kcmshell6 kcm_bluetooth",
+		"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
 	},
 	"custom/logo": {
 	    "format" : "",
@@ -145,6 +153,7 @@
             "apps":"plasma-discover",
             "sleep": "systemctl suspend",
            	"reboot": "systemctl reboot",
+           	"logout": "hyprctl dispatch exit",
             "shutdown": "systemctl shutdown",
             "force": "hyprctl dispatch killactive",
             "lock": "hyprlock"

@@ -6,9 +6,9 @@ Rectangle {
     width: Math.min(parent.width * 0.6, 480)
     height: 40
     radius: 20
-    color: "#66000000"
+    color: "#60ffffff"
     border.width: 1
-    border.color: "#33ffffff"
+    border.color: "#fff"
     anchors.horizontalCenter: parent.horizontalCenter
 
     property var onTextChanged: null
@@ -23,7 +23,7 @@ Rectangle {
         anchors.leftMargin: 16
         anchors.rightMargin: 16
         verticalAlignment: TextInput.AlignVCenter
-        color: "white"
+        color: "#fff"
         font.pixelSize: 16
         activeFocusOnTab: false
         selectByMouse: true
