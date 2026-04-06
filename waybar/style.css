@@ -19,6 +19,7 @@ window#waybar > box {
     border-radius: 0px;
  	background: #e4e7ef;
  	border-bottom: 1px solid @border_box;
+ 	min-height: 36px;
     box-shadow: 0px 0px 4px 4px alpha(#000000,0.2);
     margin-bottom: 1rem;
 }

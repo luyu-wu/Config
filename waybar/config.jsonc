@@ -2,8 +2,6 @@
 	"layer": "top",
 	"position":"top",
 	"modules-left": ["custom/logo","hyprland/window","custom/appmenu"],
-	/*"modules-center": ["hyprland/workspaces"], */
-	/*"modules-right": ["tray","mpris","power-profiles-daemon","network","wireplumber","backlight","battery","clock"],*/
 	"modules-right": ["tray","mpris","bluetooth","network","wireplumber","backlight","clock"],
 	"reload_style_on_change":true,
 	"margin-bottom":0,
@@ -79,6 +77,8 @@
 	       	"io.missioncenter.MissionCenter":"Task Manager",
 	       	"org.prismlauncher.PrismLauncher":"Prism",
 	       	"org.kde.iconexplorer":"Icons",
+	       	"com.github.wwmm.easyeffects":"EasyEffects",
+	       	"mpv":"MPV",
 	       	"":"Finder",
 	        "(.*) - fish": "> [$1]"
 	    },

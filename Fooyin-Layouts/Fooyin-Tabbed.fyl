@@ -1,5 +1,5 @@
 {
-    "Name": "Fooyin",
+    "Name": "Fooyin-Tabbed",
     "Version": 1,
     "Widgets": [
         {
@@ -11,15 +11,28 @@
                             "Widgets": [
                                 {
                                     "SplitterHorizontal": {
-                                        "State": "AAAA/wAAAAEAAAACAAAAywAAAJwA/////wEAAAABAA==",
+                                        "State": "AAAA/wAAAAEAAAACAAABlwAAAUAA/////wEAAAABAA==",
                                         "Widgets": [
                                             {
-                                                "Playlist": {
-                                                    "Columns": "8:132|3|0:2|1|7:2",
-                                                    "HeaderState": "AAAAZXjaY2BgYGWAgIdoNEycGYgZgZgJiFlA4vbrdgS+bpXbYf8AosB+68kO7ckC4XD+3iPlgnfcC0GaGP7///8fAEwcE5k=",
-                                                    "ID": "492f72b2035848a29c21e8116a8d3836",
-                                                    "Preset": 0,
-                                                    "SingleMode": false
+                                                "SplitterVertical": {
+                                                    "State": "AAAA/wAAAAEAAAACAAAAIQAAAmEA/////wEAAAACAA==",
+                                                    "Widgets": [
+                                                        {
+                                                            "SearchBar": {
+                                                                "AutoSearch": true,
+                                                                "SearchMode": 3
+                                                            }
+                                                        },
+                                                        {
+                                                            "Playlist": {
+                                                                "Columns": "2|1|5",
+                                                                "HeaderState": "AAAARXjaY2BgYGZgYNgBxDFQDOIzMkAAE4hv/wDCsb+ASoMV/f///z8AsEUItw==",
+                                                                "ID": "271fe61bc6954c9c92a65ed28de7cda9",
+                                                                "Preset": 0,
+                                                                "SingleMode": false
+                                                            }
+                                                        }
+                                                    ]
                                                 }
                                             },
                                             {
@@ -30,26 +43,63 @@
                                                             "ArtworkPanel": {
                                                                 "CoverAlignment": 132,
                                                                 "CoverType": 0,
+                                                                "FadeCoverChanges": true,
+                                                                "FadeDurationMs": 250,
                                                                 "KeepAspectRatio": true
                                                             }
                                                         },
                                                         {
                                                             "TabStack": {
-                                                                "Position": "North",
-                                                                "State": "Lyrics\u001fSelection Info",
+                                                                "Position": "East",
+                                                                "RememberLastTab": false,
+                                                                "State": "信息\u001f歌词\u001f文件",
                                                                 "Widgets": [
                                                                     {
-                                                                        "Lyrics": {
+                                                                        "SelectionInfo": {
+                                                                            "AlternatingRows": false,
+                                                                            "Options": 21,
+                                                                            "ShowHeader": false,
+                                                                            "ShowHorizontalScrollbar": false,
+                                                                            "ShowVerticalScrollbar": false,
+                                                                            "State": "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXQAAAACAAAAAQAAAAAAAAAAAAAAAGT/////AAAAhAAAAAAAAAACAAAAZAAAAAEAAAAAAAABEAAAAAEAAAACAAAD6AAAAAEQAAAAAAAAAAAAAAAAAAAAAQ=="
                                                                         }
                                                                     },
                                                                     {
-                                                                        "SelectionInfo": {
-                                                                            "AlternatingRows": true,
-                                                                            "Options": 23,
-                                                                            "ShowHeader": true,
-                                                                            "ShowHorizontalScrollbar": false,
-                                                                            "ShowVerticalScrollbar": true,
-                                                                            "State": "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAU8AAAACAAAAAQAAAAABAAAAAAAAAGT/////AAAAhAAAAAAAAAACAAAAZAAAAAEAAAAAAAAA6wAAAAEAAAABAAAD6AAAAABkAAAAAAAAAAAAAAAAAAAAAQ=="
+                                                                        "Lyrics": {
+                                                                            "Alignment": 132,
+                                                                            "BaseFont": "",
+                                                                            "BottomMargin": 20,
+                                                                            "EdgeFadeMode": 1,
+                                                                            "EdgeFadeSize": 10,
+                                                                            "LeftMargin": 20,
+                                                                            "LineFont": "",
+                                                                            "LineSpacing": 5,
+                                                                            "NoLyricsScript": "[Artist: %artist%$crlf(2)][Album: %album%$crlf(2)]Title: %title%",
+                                                                            "RightMargin": 20,
+                                                                            "ScrollDuration": 500,
+                                                                            "ScrollMode": 1,
+                                                                            "SeekOnClick": true,
+                                                                            "ShowScrollbar": false,
+                                                                            "TopMargin": 20,
+                                                                            "UseCustomColours": false,
+                                                                            "WordFont": "",
+                                                                            "WordLineFont": ""
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "DirectoryBrowser": {
+                                                                            "DoubleClickAction": 5,
+                                                                            "IndentList": true,
+                                                                            "MiddleClickAction": 0,
+                                                                            "Mode": 1,
+                                                                            "RootPath": "/home/chrysanthemum/Assets/Music/MP3/Playlists",
+                                                                            "SendPlayback": true,
+                                                                            "ShowControls": true,
+                                                                            "ShowHidden": false,
+                                                                            "ShowHorizontalScrollbar": true,
+                                                                            "ShowIcons": true,
+                                                                            "ShowLocation": true,
+                                                                            "ShowSymLinks": false
                                                                         }
                                                                     }
                                                                 ]
@@ -93,5 +143,9 @@
                 ]
             }
         }
-    ]
+    ],
+    "WindowSize": {
+        "Height": 645,
+        "Width": 708
+    }
 }
