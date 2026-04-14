@@ -63,6 +63,7 @@
 	        "foot": "Terminal",
 	        "floatterm": "Terminal",
 	       	"firefox": "Firefox",
+			"thorium-browser": "Thorium",
 	       	"teams-for-linux":"Microsoft Teams",
 	       	"org.kde.okular": "Okular",
 	       	"org.kde.gwenview": "Photos",

@@ -1,20 +1,30 @@
-// Zed settings
-//
-// For information on how to configure Zed, see the Zed
-// documentation: https://zed.dev/docs/configuring-zed
-//
-// To see all of Zed's default settings without changing your
-// custom settings, run `zed: open default settings` from the
-// command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "agent": {
+    "default_profile": "write",
+    "default_model": {
+      "effort": "medium",
+      "provider": "zed.dev",
+      "model": "claude-sonnet-4-6",
+      "enable_thinking": true
+    },
+    "favorite_models": [
+      {
+        "provider": "zed.dev",
+        "model": "gemini-3.1-pro-preview",
+        "enable_thinking": false
+      },
+      {
+        "provider": "zed.dev",
+        "model": "claude-sonnet-4-6",
+        "enable_thinking": false
+      }
+    ],
+    "model_parameters": []
+  },
   "centered_layout": {},
   "terminal": {},
-  "middle_click_paste": true,
+  "middle_click_paste": false,
   "zoomed_padding": true,
-  "bottom_dock_layout": "contained",
-  "outline_panel": {
-    "button": false
-  },
   "toolbar": {
     "quick_actions": false,
     "breadcrumbs": false
@@ -51,35 +61,13 @@
   "prettier": {
     "allowed": false
   },
-  "disable_ai": true,
-  "agent": {
-    "default_model": {
-      "provider": "ollama",
-      "model": "gemma3:270m"
-    },
-    "button": false,
-    "model_parameters": []
-  },
   "collaboration_panel": {
     "button": false
-  },
-  "notification_panel": {
-    "button": false
-  },
-  "git_panel": {
-    "status_style": "icon",
-    "button": false
-  },
-  "preview_tabs": {
-    "enabled": false
-  },
-  "status_bar": {
-    "experimental.show": false
   },
   "search": {},
   "diagnostics": {},
   "project_panel": {
-    "folder_icons": false,
+    "folder_icons": true,
     "git_status": true,
     "hide_gitignore": false,
     "dock": "left"
@@ -91,7 +79,7 @@
   "tabs": {
     "show_close_button": "hover",
     "git_status": false,
-    "file_icons": false,
+    "file_icons": true,
     "close_position": "right"
   },
   "tab_bar": {
@@ -99,13 +87,13 @@
     "show": true
   },
   "title_bar": {
-    "show_user_menu": false,
+    "show_user_menu": true,
     "show_branch_name": false,
     "show_project_items": true,
     "show_branch_icon": false,
     "show_onboarding_banner": false,
-    "show_user_picture": false,
-    "show_sign_in": false,
+    "show_user_picture": true,
+    "show_sign_in": true,
     "show_menus": false
   },
   "buffer_font_family": "FiraCode Nerd Font",
@@ -133,7 +121,6 @@
       },
       "language_servers": [
         "ty",
-        //"ruff",
         "!basedpyright"
       ],
       "formatter": {
