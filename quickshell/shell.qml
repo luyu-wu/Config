@@ -4,5 +4,7 @@
 import Quickshell
 
 ShellRoot {
+    Corners {}
+
     Bar {}
 }

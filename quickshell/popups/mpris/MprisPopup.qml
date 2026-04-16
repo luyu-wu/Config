@@ -205,26 +205,25 @@ PanelWindow {
                         x: seekSlider.leftPadding
                         y: seekSlider.topPadding + seekSlider.availableHeight / 2 - height / 2
                         width: seekSlider.availableWidth
-                        height: 8
-                        radius: 4
+                        height: 6
+                        radius: 3
                         color: "#60ffffff"
                         ClippingRectangle {
                             anchors.fill: parent
-                            radius: 4
+                            radius: 3
                             color: "transparent"
 
                             Rectangle {
                                 width: seekSlider.visualPosition * parent.width
                                 height: parent.height
-                                radius: 4
-                                color: "#1071db"
+                                color: "#097aff"
                             }
                         }
                     }
                 }
                 RowLayout {
                     Layout.fillWidth: true
-                    Layout.topMargin: 12
+                    Layout.topMargin: 10
 
                     Text {
                         text: formatMs(root.position)
@@ -255,7 +254,6 @@ PanelWindow {
                     // Previous
                     ControlButton {
                         icon: "⏮"
-                        enabled: root.canPrev
                         size: 64
                         onActivated: root.player?.previous()
                     }
@@ -264,14 +262,12 @@ PanelWindow {
                     ControlButton {
                         icon: root.playing ? "⏸" : "▶"
                         size: 64
-                        enabled: root.canControl
                         onActivated: root.playing ? root.player?.pause() : root.player?.play()
                     }
 
                     // Next
                     ControlButton {
                         icon: "⏭"
-                        enabled: root.canNext
                         size: 64
                         onActivated: root.player?.next()
                     }

@@ -80,7 +80,11 @@ PopupWindow {
             rightMargin: 0
         }
         spacing: 0
-
+        Rectangle {
+            Layout.fillWidth: true
+            height: 10
+            color: "transparent"
+        }
         MenuLabel {
             label: "Battery"
             secondary: String(Math.round(battery.percentage * 100)) + "%"
@@ -88,44 +92,42 @@ PopupWindow {
             labelElement.font.weight: 600
         }
         MenuLabel {
-            label: "Power Source:  " + (battery.changeRate > -2 ? "Power Adapter" : "Battery")
+            label: "Power Source:  " + (battery.state != 2 ? "Power Adapter" : "Battery")
             labelElement.color: "#666"
         }
         MenuLabel {
-            label: battery.timeToEmpty > 24 * 60 * 60 ? (battery.changeRate > 2 ? "Charging" : "Fully Charged") : String(Math.round(battery.timeToEmpty / 60)) + " Minutes Remaining"
-            labelElement.color: "#666"
-        }
-        MenuLabel {
-            label: "Charge Rate: " + String(Math.round(battery.changeRate * 10) / 10) + " W"
+            label: battery.state != 2 ? (battery.changeRate > 2 ? "Charging (" + Math.floor(battery.changeRate * 10) / 10 + " W)" : "Fully Charged") : String(Math.round(battery.timeToEmpty / 60)) + " min Remaining (" + String(Math.round(battery.changeRate * 10) / 10) + " W)"
             labelElement.color: "#666"
         }
 
-        MenuSep {}
+        MenuDiv {}
 
-        // ── Force Quit ───────────────────────────────────────────────────────
         MenuLabel {
             label: "Energy Mode"
             labelElement.font.weight: 600
-            labelElement.color: "#444"
+            labelElement.color: "#90000000"
         }
 
-        MenuItem {
-            label: "   High Power"
-            shortcut: (PowerProfiles.profile == 2 ? "X" : "")
+        IconItem {
+            label: "High Power"
+            selected: (PowerProfiles.profile == 2)
             onTriggered: PowerProfiles.profile = 2
+            iconName: "battery-profile-performance"
         }
-        MenuItem {
-            label: "    Balanced"
-            shortcut: (PowerProfiles.profile == 1 ? "X" : "")
+        IconItem {
+            label: "Balanced"
+            selected: (PowerProfiles.profile == 1)
             onTriggered: PowerProfiles.profile = 1
+            iconName: "battery-040"
         }
-        MenuItem {
-            label: "    Low Power"
-            shortcut: (PowerProfiles.profile == 0 ? "X" : "")
+        IconItem {
+            label: "Low Power"
+            selected: (PowerProfiles.profile == 0)
             onTriggered: PowerProfiles.profile = 0
+            iconName: "battery-profile-powersave"
         }
 
-        MenuSep {}
+        MenuDiv {}
 
         MenuItem {
             label: "Battery Preferences..."

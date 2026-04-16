@@ -45,7 +45,8 @@ Item {
     }
     Rectangle {
         anchors.fill: parent
-        color: mprisPopup.visible ? "#1071db" : "transparent"
+        radius: 6
+        color: mprisPopup.visible ? "#20000000" : "transparent"
     }
 
     Text {
@@ -54,7 +55,7 @@ Item {
         text: root.player ? root.playerIcon + "    " + root.trackTitle : ""
         font.family: "SF Pro"
         font.pixelSize: 19
-        color: mprisPopup.visible ? "#fff" : ((root.player?.playbackState === MprisPlaybackState.Playing) ? "#222" : "#555")
+        color: root.player?.playbackState === MprisPlaybackState.Playing ? "#222" : "#555"
         font.weight: 400
         elide: Text.ElideRight
         renderType: Text.NativeRendering

@@ -22,7 +22,8 @@ Item {
         anchors.leftMargin: 0
         anchors.rightMargin: 3
 
-        color: batteryPopup.visible ? "#1071db" : "transparent"
+        radius: 6
+        color: batteryPopup.visible ? "#20000000" : "transparent"
     }
 
     readonly property string iconName: {
