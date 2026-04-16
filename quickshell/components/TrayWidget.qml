@@ -21,12 +21,17 @@ Item {
             delegate: Item {
                 id: root
                 required property var modelData
-                property bool opened: false
                 width: 32
                 height: 40
+                TrayPopup {
+                    id: trayPopup
+                    anchorPoint: trayIconItem
+                    menuHandle: modelData.menu
+                }
+
                 Rectangle {
                     anchors.fill: parent
-                    color: root.opened ? "#20000000" : "transparent"
+                    color: trayPopup.visible ? "#20000000" : "transparent"
                     radius: 6
 
                     Image {
@@ -53,26 +58,11 @@ Item {
                             if (mouse.button == Qt.RightButton) { // Run default
                                 modelData.activate();
                             } else if (mouse.button == Qt.LeftButton) { // Open context menu
-                                menu.open();
-                                root.opened = !root.opened;
-                            }
-                        }
-                        QsMenuOpener {
-                            menu: modelData.menu
-                        }
-                        QsMenuAnchor {
-                            id: menu
-                            menu: modelData.menu
-                            anchor {
-                                item: trayIconItem
-                                edges: Edges.Bottom
+                                //menu.open();
+                                trayPopup.visible = !trayPopup.visible;
                             }
                         }
                     }
-                }
-                trayPopup {
-                    id: trayPopup
-                    anchorPoint: trayIconItem
                 }
             }
         }

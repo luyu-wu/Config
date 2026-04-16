@@ -6,23 +6,24 @@ import Quickshell
 import Quickshell.Wayland
 import Quickshell.Io
 
-import qs.share.menu
-
 PopupWindow {
     id: root
 
-    property QsMenuHandle menuItem
+    property QsMenuHandle menuHandle
     property MouseArea anchorPoint
 
+    QsMenuOpener {
+        id: opener
+        menu: menuHandle
+    }
     width: 240
-    height: menuColumn.implicitHeight + 8
+    height: menuColumn.implicitHeight + 16
     grabFocus: true
 
     anchor {
         item: anchorPoint
-        edges: Edges.Bottom
         rect.y: 38
-        rect.x: 0
+        rect.x: -12
     }
     color: "transparent"
 
@@ -81,17 +82,13 @@ PopupWindow {
             rightMargin: 0
         }
         spacing: 0
+        Repeater {
+            model: opener.children
 
-        MenuSep {}
-
-        MenuItem {
-            label: "Lock Screen"
-        }
-        MenuItem {
-            label: "Log Out Chrysanthemum..."
-        }
-        Item {
-            Layout.preferredHeight: 8
+            delegate: TrayMenuItem {
+                required property QsMenuHandle modelData
+                menuHandle: modelData
+            }
         }
     }
 }

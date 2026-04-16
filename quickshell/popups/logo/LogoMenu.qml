@@ -90,7 +90,7 @@ PopupWindow {
         spacing: 0
 
         MenuItem {
-            label: "About This Mac"
+            label: "About This Framework"
             onTriggered: root.exec("~/.config/waybar/scripts/about_mac")
         }
 

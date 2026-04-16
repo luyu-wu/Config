@@ -135,7 +135,7 @@ PopupWindow {
                 implicitWidth: 28
                 implicitHeight: 28
                 radius: 14
-                color: seekSlider.pressed ? "#f0f0f0" : "#f1f1f1"
+                color: "#f0f0f0"
                 border.color: "#30606060"
             }
             onMoved: {

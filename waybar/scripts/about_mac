@@ -82,7 +82,7 @@ class InfoRow(QWidget):
 class AboutThisMac(QWidget):
     def __init__(self):
         super().__init__()
-        
+
         self.setWindowTitle("About This Mac")
         self.setFixedSize(510, 310)
 
@@ -213,7 +213,7 @@ class AboutThisMac(QWidget):
 
         # Copyright
         copyright_lbl = QLabel(
-            "™ and © 1983–2017 Apple Inc. All Rights Reserved.  License and Warranty"
+            "© 2007-2026 Framework Inc. All Rights Reserved.  License and Warranty"
         )
         copyright_lbl.setAlignment(Qt.AlignmentFlag.AlignCenter)
         copyright_lbl.setStyleSheet("font-size: 10px; color: #888888;")
