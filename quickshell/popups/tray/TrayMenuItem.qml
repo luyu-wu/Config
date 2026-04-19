@@ -6,6 +6,7 @@ import qs.share.menu
 Rectangle {
     id: root
     property QsMenuHandle menuHandle
+    property PopupWindow dropdown
 
     Layout.fillWidth: true
     Layout.leftMargin: 4
@@ -71,7 +72,34 @@ Rectangle {
                     visible: menuHandle.checkState != 0
                 }
             }
+            Text {
+                text: ""
+                color: item.hovered ? "#ffffff" : "#444"
+                visible: menuHandle.hasChildren
+            }
         }
+        // Loader {
+        //     id: childMenuLoader
+        //     active: false
+        // }
+        // QsMenuOpener {
+        //     id: menuOpener
+        //     menu: menuHandle
+        // }
+        //TrayPopup {
+        //id: childMenu
+        //anchorPoint: mouseArea
+        //}
+        //childMenu.menuHandle: menuHandle
+        //QsMenuOpener {
+        //    id: childOpener
+        //    menu: menuHandle
+        //}
+        //TrayPopup {
+        //    id: child
+        //    anchorPoint: item
+        //    menuHandle: childOpener.chilren
+        // }
 
         MouseArea {
             id: mouseArea
@@ -79,7 +107,11 @@ Rectangle {
             hoverEnabled: true
             onEntered: item.hovered = true
             onExited: item.hovered = false
-            onClicked: menuHandle.triggered()
+            onClicked: {
+                menuHandle.triggered();
+                dropdown.visible = menuHandle.hasChildren || (menuHandle.buttonType !== 0);
+                //childMenu.visible = menuHandle.hasChildren;
+            }
             cursorShape: Qt.PointingHandCursor
         }
     }

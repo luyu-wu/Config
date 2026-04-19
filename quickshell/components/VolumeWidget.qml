@@ -39,10 +39,7 @@ Item {
     }
     MouseArea {
         anchors.fill: parent
-        hoverEnabled: true
         cursorShape: Qt.PointingHandCursor
-        onEntered: root.hovered = true
-        onExited: root.hovered = false
         onClicked: {
             volumePopup.visible = !volumePopup.visible;
         }

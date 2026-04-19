@@ -131,6 +131,15 @@ PopupWindow {
 
         MenuItem {
             label: "Battery Preferences..."
+            onTriggered: {
+                preferences.running = true;
+                root.visible = false;
+            }
+        }
+        Process {
+            id: preferences
+            command: ["bash", "-c", "kcmshell6 kcm_mobile_power"]
+            running: false
         }
 
         // bottom padding

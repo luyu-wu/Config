@@ -42,7 +42,7 @@ Variants {
             anchors.left: parent.left
             anchors.right: parent.right
             height: 40
-            color: "#b1e4e7ef"
+            color: "#d1e4e7ef"
 
             RowLayout {
                 anchors {

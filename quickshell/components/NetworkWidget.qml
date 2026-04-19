@@ -2,14 +2,22 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell.Networking
 import Quickshell.Widgets
+import qs.popups.network
 
 Item {
     id: root
 
     Layout.fillHeight: true
     implicitWidth: 44
+    Rectangle {
+        id: networkWidget
+        anchors.fill: parent
+        anchors.leftMargin: 0
+        anchors.rightMargin: 3
+        radius: 6
+        color: networkPopup.visible ? "#20000000" : "transparent"
+    }
 
-    // Find the first connected wifi device and its active network
     readonly property var wifiDevice: {
         let devs = Networking.devices.values;
         for (let i = 0; i < devs.length; i++) {
@@ -54,10 +62,21 @@ Item {
             return "network-wired";
         return "network-offline";
     }
+    MouseArea {
+        anchors.fill: parent
+        cursorShape: Qt.PointingHandCursor
+        onClicked: {
+            networkPopup.visible = !networkPopup.visible;
+        }
+    }
 
     IconImage {
         anchors.centerIn: parent
         implicitSize: 26
         source: "image://icon/" + root.iconName
+    }
+    NetworkPopup {
+        id: networkPopup
+        visible: false
     }
 }

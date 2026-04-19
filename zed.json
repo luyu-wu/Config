@@ -31,7 +31,7 @@
   },
   "gutter": {
     "line_numbers": true,
-    "runnables": false,
+    "runnables": true,
     "breakpoints": false,
     "folds": false
   },

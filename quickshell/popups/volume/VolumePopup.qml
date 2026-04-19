@@ -7,7 +7,6 @@ import Quickshell.Wayland
 import Quickshell.Io
 import Quickshell.Widgets
 import Quickshell.Services.Pipewire
-import qs.popups.volume
 
 import qs.share.menu
 
@@ -158,6 +157,15 @@ PopupWindow {
         MenuDiv {}
         MenuItem {
             label: "Sound Settings..."
+            onTriggered: {
+                preferences.running = true;
+                root.visible = false;
+            }
+        }
+        Process {
+            id: preferences
+            command: ["bash", "-c", "kcmshell6 kcm_pulseaudio"]
+            running: false
         }
 
         // bottom padding

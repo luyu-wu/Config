@@ -5,25 +5,23 @@ import QtQuick.Effects
 import Quickshell
 import Quickshell.Wayland
 import Quickshell.Io
+import Quickshell.Widgets
+import Quickshell.Services.Pipewire
+
+import qs.share.menu
 
 PopupWindow {
     id: root
 
-    property QsMenuHandle menuHandle
-    property MouseArea anchorPoint
-
-    QsMenuOpener {
-        id: opener
-        menu: menuHandle
-    }
-    width: 240
-    height: menuColumn.implicitHeight + 16
+    width: 340
+    height: menuColumn.implicitHeight + 8
     grabFocus: true
 
     anchor {
-        item: anchorPoint
+        item: bluetoothWidget
+        edges: Edges.Bottom
         rect.y: 38
-        rect.x: -12
+        rect.x: 16 - bluetoothWidget.width / 2
     }
     color: "transparent"
 
@@ -82,14 +80,48 @@ PopupWindow {
             rightMargin: 0
         }
         spacing: 0
-        Repeater {
-            model: opener.children
+        Rectangle {
+            Layout.fillWidth: true
+            height: 10
+            color: "transparent"
+        }
+        MenuLabel {
+            label: "Bluetooth"
+            labelElement.font.weight: 600
+        }
+        Rectangle {
+            Layout.fillWidth: true
+            height: 6
+            color: "transparent"
+        }
+        MenuDiv {}
+        MenuLabel {
+            label: "Devices"
+            labelElement.font.weight: 600
+            labelElement.color: "#90000000"
+        }
+        IconItem {
+            label: "AirPods Pro"
+            iconName: "folder-wifi"
+            selected: true
+        }
 
-            delegate: TrayMenuItem {
-                required property QsMenuHandle modelData
-                dropdown: root
-                menuHandle: modelData
+        MenuDiv {}
+        MenuItem {
+            label: "Bluetooth Settings..."
+            onTriggered: {
+                preferences.running = true;
+                root.visible = false;
             }
+        }
+        Process {
+            id: preferences
+            command: ["bash", "-c", "kcmshell6 kcm_bluetooth"]
+            running: false
+        }
+
+        Item {
+            Layout.preferredHeight: 8
         }
     }
 }

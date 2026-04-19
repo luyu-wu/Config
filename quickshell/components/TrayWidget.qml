@@ -8,7 +8,7 @@ Item {
     id: rootWidget
 
     Layout.fillHeight: true
-    implicitWidth: trayRow.implicitWidth + 12  // 6px left + 6px right pad
+    implicitWidth: trayRow.implicitWidth + 12
 
     Row {
         id: trayRow
@@ -50,15 +50,14 @@ Item {
                     MouseArea {
                         id: trayIconItem
                         anchors.fill: parent
-                        acceptedButtons: Qt.LeftButton | Qt.RightButton // Set valid interactions
+                        acceptedButtons: Qt.LeftButton | Qt.RightButton
                         hoverEnabled: true
                         cursorShape: Qt.PointingHandCursor
 
                         onPressed: mouse => {
-                            if (mouse.button == Qt.RightButton) { // Run default
+                            if (mouse.button == Qt.RightButton) {
                                 modelData.activate();
-                            } else if (mouse.button == Qt.LeftButton) { // Open context menu
-                                //menu.open();
+                            } else if (mouse.button == Qt.LeftButton) {
                                 trayPopup.visible = !trayPopup.visible;
                             }
                         }
