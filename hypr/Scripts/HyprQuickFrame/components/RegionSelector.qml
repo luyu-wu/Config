@@ -1,31 +1,3 @@
-/*
- * This file contains code based on "HyprQuickshot"
- * Original Author: JamDon2 (Copyright 2025)
- * Licensed under the MIT License.
- *
- * Modifications and other code: Copyright (c) 2026 Ronin-CK
- *
- * Copyright (c) 2025 JamDon2
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
-
 import QtQuick
 
 Item {
@@ -127,12 +99,12 @@ Item {
         hoverEnabled: true
         acceptedButtons: Qt.LeftButton | Qt.RightButton
         cursorShape: Qt.CrossCursor
-        onPressed: (mouse) => {
+        onPressed: mouse => {
             // Right-click to cancel selection
             if (mouse.button === Qt.RightButton) {
                 root.canceled = true;
                 root.clearSelection();
-                return ;
+                return;
             }
             root.canceled = false;
             root.selecting = true;
@@ -143,7 +115,7 @@ Item {
             root.targetHeight = 0;
             guides.requestPaint();
         }
-        onPositionChanged: (mouse) => {
+        onPositionChanged: mouse => {
             root.mouseX = mouse.x;
             root.mouseY = mouse.y;
             if (root.selecting && !root.canceled && (mouse.buttons & Qt.LeftButton)) {
@@ -153,14 +125,14 @@ Item {
                 root.targetHeight = Math.abs(mouse.y - root.startPos.y);
             }
         }
-        onReleased: (mouse) => {
+        onReleased: mouse => {
             // Default to full-screen selection on zero-size input
             if (mouse.button === Qt.RightButton || root.canceled) {
                 if (mouse.buttons === 0)
                     root.canceled = false;
 
                 root.clearSelection();
-                return ;
+                return;
             }
             if (root.targetWidth < 5 && root.targetHeight < 5)
                 root.regionSelected(0, 0, root.width, root.height);
@@ -182,7 +154,6 @@ Item {
                 root.selectionHeight = root.targetHeight;
             }
         }
-
     }
 
     Rectangle {
@@ -204,50 +175,7 @@ Item {
             text: `${Math.round(root.selectionWidth)} × ${Math.round(root.selectionHeight)}`
             color: "white"
             font.pixelSize: 12
-            font.family: "monospace"
+            font.family: "SF Pro"
         }
-
     }
-
-    Behavior on selectionX {
-        enabled: root.animateSelection && root.globalAnimations
-
-        // Selection animations using spring dynamics
-        SpringAnimation {
-            spring: 4
-            damping: 0.4
-        }
-
-    }
-
-    Behavior on selectionY {
-        enabled: root.animateSelection && root.globalAnimations
-
-        SpringAnimation {
-            spring: 4
-            damping: 0.4
-        }
-
-    }
-
-    Behavior on selectionWidth {
-        enabled: root.animateSelection && root.globalAnimations
-
-        SpringAnimation {
-            spring: 4
-            damping: 0.4
-        }
-
-    }
-
-    Behavior on selectionHeight {
-        enabled: root.animateSelection && root.globalAnimations
-
-        SpringAnimation {
-            spring: 4
-            damping: 0.4
-        }
-
-    }
-
 }
