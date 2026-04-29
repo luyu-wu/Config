@@ -7,7 +7,7 @@ import Quickshell.Wayland
 import Quickshell.Io
 import Quickshell.Widgets
 import Quickshell.Services.Pipewire
-
+import Quickshell.Bluetooth
 import qs.share.menu
 
 PopupWindow {
@@ -25,6 +25,7 @@ PopupWindow {
     }
     color: "transparent"
 
+    property BluetoothAdapter defaultAdapter: Bluetooth.defaultAdapter
     Item {
         id: mask
         anchors.fill: parent
@@ -85,9 +86,48 @@ PopupWindow {
             height: 10
             color: "transparent"
         }
-        MenuLabel {
-            label: "Bluetooth"
-            labelElement.font.weight: 600
+        RowLayout {
+
+            Layout.fillWidth: true
+            Layout.leftMargin: 0
+            Layout.rightMargin: 14
+
+            MenuLabel {
+                label: "Bluetooth"
+                labelElement.font.weight: 600
+                Layout.fillWidth: true
+            }
+            Rectangle {
+
+                width: 48
+                height: 28
+                color: defaultAdapter.enabled ? "#1687ff" : "#afb0b5"
+                radius: 16
+                Rectangle {
+                    anchors.verticalCenter: parent.verticalCenter
+                    x: defaultAdapter.enabled ? 22 : 2
+                    width: 24
+                    height: 24
+                    color: "#fff"
+                    radius: 12
+                    Behavior on x {
+                        NumberAnimation {
+                            duration: 160
+                            easing.type: Easing.InOutQuad
+                        }
+                    }
+                }
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: defaultAdapter.enabled = !defaultAdapter.enabled
+                }
+                Behavior on color {
+                    ColorAnimation {
+                        duration: 160
+                        easing.type: Easing.InOutQuad
+                    }
+                }
+            }
         }
         Rectangle {
             Layout.fillWidth: true

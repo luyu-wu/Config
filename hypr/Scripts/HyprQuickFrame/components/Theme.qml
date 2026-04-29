@@ -12,7 +12,7 @@ QtObject {
     readonly property real bottomMargin: 60
     readonly property bool animations: false
     readonly property string annotationTool: "satty"
-    readonly property color barBackground: "#b1e4e7ef"
+    readonly property color barBackground: "#e4e7ef"
     readonly property color barBorder: "#fff"
     readonly property color barText: "#444"
     readonly property color barShadow: "#80000000"

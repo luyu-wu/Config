@@ -38,17 +38,6 @@ PopupWindow {
             wifiDev.scannerEnabled = visible;
     }
 
-    // Signal strength (0.0–1.0) → icon name helper
-    function strengthIcon(strength) {
-        if (strength >= 0.75)
-            return "network-wireless-signal-excellent-symbolic";
-        if (strength >= 0.50)
-            return "network-wireless-signal-good-symbolic";
-        if (strength >= 0.25)
-            return "network-wireless-signal-ok-symbolic";
-        return "network-wireless-signal-weak-symbolic";
-    }
-
     // ── visual chrome (unchanged) ────────────────────────────────────────────
     Item {
         id: mask
@@ -173,7 +162,7 @@ PopupWindow {
         // ── no adapter / scanning placeholder ────────────────────────────────
         Loader {
             Layout.fillWidth: true
-            active: !wifiDev || (wifiDev.networks.count === 0)
+            visible: !wifiDev || (wifiDev.networks.count === 0)
             sourceComponent: Item {
                 height: 36
                 Text {
@@ -187,8 +176,6 @@ PopupWindow {
 
         // ── network list ─────────────────────────────────────────────────────
         // WifiDevice.networks is an ObjectModel; each item is a
-        // WifiNetwork with: name, connected, state, stateChanging,
-        // signalStrength (0.0–1.0), security (WifiSecurityType), known,
         // connect(), disconnect(), forget()
         Repeater {
             model: wifiDev ? wifiDev.networks : null
@@ -201,6 +188,8 @@ PopupWindow {
                 iconName: {
                     const secured = modelData.security !== WifiSecurityType.None;
                     const s = modelData.signalStrength;
+                    if (modelData.connected)
+                        return "folder-wifi";
                     if (s > 0.75)
                         return "network-wireless-signal-excellent-symbolic";
                     if (s > 0.50)
@@ -244,7 +233,7 @@ PopupWindow {
     // ── processes ────────────────────────────────────────────────────────────
     Process {
         id: preferences
-        command: ["bash", "-c", "kcmshell6 kcm_mobile_wifi"]
+        command: ["bash", "-c", "kcmshell6 kcm_networkmanagement"]
         running: false
     }
 }

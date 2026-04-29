@@ -1,5 +1,12 @@
 {
+  "outline_panel": {
+    "dock": "left"
+  },
+  "git_panel": {
+    "dock": "left"
+  },
   "agent": {
+    "dock": "right",
     "default_profile": "write",
     "default_model": {
       "effort": "medium",
@@ -62,6 +69,7 @@
     "allowed": false
   },
   "collaboration_panel": {
+    "dock": "left",
     "button": false
   },
   "search": {},
