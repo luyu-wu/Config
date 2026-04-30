@@ -60,15 +60,15 @@ Rectangle {
                 width: 16
                 height: 16
                 radius: 8
-                color: "#20000000"
+                color: "#10000000"
                 border.width: 1
                 border.color: "#77a0a2"
 
                 Rectangle {
                     anchors.fill: parent
-                    anchors.margins: 2
+                    anchors.margins: 3
                     radius: 8
-                    color: "#097aff"
+                    color: "#198aff"
                     visible: menuHandle.checkState != 0
                 }
             }

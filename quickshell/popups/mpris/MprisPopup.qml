@@ -52,7 +52,6 @@ PanelWindow {
     Timer {
         id: repositionTimer
         interval: 1
-        // has to be delayed for the width to be updated...
         repeat: false
         onTriggered: {
             root.popupX = mprisLabel.mapToItem(null, 0, 0).x + mprisLabel.width / 2 - root.width / 2;
@@ -117,7 +116,7 @@ PanelWindow {
                 visible: true
                 Layout.fillWidth: true
                 Layout.preferredHeight: width    // square; image adapts
-                Layout.topMargin: 6
+                Layout.topMargin: 4
                 Layout.leftMargin: 4
                 Layout.rightMargin: 4
                 color: "transparent"
@@ -182,62 +181,78 @@ PanelWindow {
                 }
             }
             Timer {
-                running: playing && root.visible
+                running: playing && root.visible && !seekSlider.pressed
                 interval: 1000
                 repeat: true
                 onTriggered: player.positionChanged()
             }
-            ColumnLayout {
+            Slider {
+                id: seekSlider
                 Layout.fillWidth: true
-                Layout.topMargin: 24
-                Layout.bottomMargin: 6
-                spacing: 2
-                Layout.leftMargin: 4
-                Layout.rightMargin: 4
+                Layout.topMargin: 12
 
-                Slider {
-                    id: seekSlider
-                    Layout.fillWidth: true
-                    from: 0
-                    to: root.length > 0 ? root.length : 1
-                    value: root.position
-                    background: Rectangle {
-                        x: seekSlider.leftPadding
-                        y: seekSlider.topPadding + seekSlider.availableHeight / 2 - height / 2
-                        width: seekSlider.availableWidth
-                        height: 6
-                        radius: 3
-                        color: "#60ffffff"
-                        ClippingRectangle {
-                            anchors.fill: parent
-                            radius: 3
-                            color: "transparent"
+                Layout.leftMargin: 0
+                Layout.rightMargin: 0
+                from: 0
+                to: player.length
+                value: player.position
+                height: 20
+                background: Rectangle {
+                    x: seekSlider.leftPadding
+                    y: seekSlider.topPadding + seekSlider.availableHeight / 2 - height / 2
+                    width: seekSlider.availableWidth
+                    height: 14
+                    radius: 7
+                    color: "#30303030"
+                    border.width: 1
+                    border.color: "#77a0a2"
+                    ClippingRectangle {
+                        anchors.fill: parent
+                        anchors.margins: 1
+                        radius: 7
+                        color: "transparent"
 
-                            Rectangle {
-                                width: seekSlider.visualPosition * parent.width
-                                height: parent.height
-                                color: "#097aff"
-                            }
+                        Rectangle {
+                            width: seekSlider.visualPosition * (parent.width - 12) + 6
+                            height: parent.height
+                            color: "#ffffff"
                         }
                     }
                 }
-                RowLayout {
-                    Layout.fillWidth: true
-                    Layout.topMargin: 10
+                handle: Rectangle {
+                    x: seekSlider.leftPadding + (seekSlider.availableWidth - 14) * seekSlider.visualPosition
+                    y: seekSlider.topPadding + seekSlider.availableHeight / 2 - height / 2
+                    implicitWidth: 14
+                    implicitHeight: 14
+                    radius: 7
+                    color: "#f0f0f0"
+                    border.color: "#30606060"
+                }
+                onMoved: {
+                    player.position = player.length * seekSlider.visualPosition;
+                }
+            }
 
-                    Text {
-                        text: formatMs(root.position)
-                        color: "#444"
-                        font.pixelSize: 10
-                    }
-                    Item {
-                        Layout.fillWidth: true
-                    }
-                    Text {
-                        text: root.length > 0 ? formatMs(root.length) : "-:--"
-                        color: "#444"
-                        font.pixelSize: 10
-                    }
+            RowLayout {
+                Layout.fillWidth: true
+                Layout.topMargin: 6
+                Layout.bottomMargin: 6
+
+                Layout.leftMargin: 4
+                Layout.rightMargin: 4
+
+                Text {
+                    text: formatMs(root.position)
+                    color: "#444"
+                    font.pixelSize: 10
+                }
+                Item {
+                    Layout.fillWidth: true
+                }
+                Text {
+                    text: root.length > 0 ? formatMs(root.length) : "-:--"
+                    color: "#444"
+                    font.pixelSize: 10
                 }
             }
 

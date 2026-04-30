@@ -1,4 +1,9 @@
 {
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)"
+  },
   "outline_panel": {
     "dock": "left"
   },
@@ -33,7 +38,7 @@
   "middle_click_paste": false,
   "zoomed_padding": true,
   "toolbar": {
-    "quick_actions": false,
+    "quick_actions": true,
     "breadcrumbs": false
   },
   "gutter": {
@@ -83,7 +88,6 @@
   "active_pane_modifiers": {
     "inactive_opacity": 1.0
   },
-  "use_system_window_tabs": false,
   "tabs": {
     "show_close_button": "hover",
     "git_status": false,
@@ -98,9 +102,8 @@
     "show_user_menu": true,
     "show_branch_name": false,
     "show_project_items": true,
-    "show_branch_icon": false,
     "show_onboarding_banner": false,
-    "show_user_picture": true,
+    "show_user_picture": false,
     "show_sign_in": true,
     "show_menus": false
   },
@@ -112,7 +115,11 @@
   "auto_update": false,
   "ui_font_size": 16,
   "buffer_font_size": 15,
-  "theme": "Gruvbox Dark Hard",
+  "theme": {
+    "mode": "dark",
+    "light": "One Light",
+    "dark": "Gruvbox Dark Hard"
+  },
   "languages": {
     "LaTeX": {
       "soft_wrap": "editor_width"

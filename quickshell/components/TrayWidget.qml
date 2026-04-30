@@ -13,7 +13,7 @@ Item {
     Row {
         id: trayRow
         anchors.centerIn: parent
-        spacing: 5
+        spacing: 8
 
         Repeater {
             model: SystemTray.items
