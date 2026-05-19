@@ -152,7 +152,10 @@ PanelWindow {
                     anchors.fill: parent
                     hoverEnabled: true
                     cursorShape: enabled ? Qt.PointingHandCursor : Qt.ArrowCursor
-                    onClicked: root.player?.raise()
+                    onClicked: {
+                        root.player?.raise();
+                        root.visible = false;
+                    }
                 }
             }
             ColumnLayout {
@@ -213,20 +216,11 @@ PanelWindow {
                         color: "transparent"
 
                         Rectangle {
-                            width: seekSlider.visualPosition * (parent.width - 12) + 6
+                            width: seekSlider.visualPosition * (parent.width)
                             height: parent.height
                             color: "#ffffff"
                         }
                     }
-                }
-                handle: Rectangle {
-                    x: seekSlider.leftPadding + (seekSlider.availableWidth - 14) * seekSlider.visualPosition
-                    y: seekSlider.topPadding + seekSlider.availableHeight / 2 - height / 2
-                    implicitWidth: 14
-                    implicitHeight: 14
-                    radius: 7
-                    color: "#f0f0f0"
-                    border.color: "#30606060"
                 }
                 onMoved: {
                     player.position = player.length * seekSlider.visualPosition;
@@ -235,7 +229,7 @@ PanelWindow {
 
             RowLayout {
                 Layout.fillWidth: true
-                Layout.topMargin: 6
+                Layout.topMargin: 2
                 Layout.bottomMargin: 6
 
                 Layout.leftMargin: 4

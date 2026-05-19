@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import Quickshell
+import qs.popups.clock
 
 Item {
     id: root
@@ -13,6 +14,11 @@ Item {
     SystemClock {
         id: sysClock
         precision: SystemClock.Minutes
+    }
+    Rectangle {
+        anchors.fill: parent
+        radius: 6
+        color: clockPopup.visible ? "#20000000" : "transparent"
     }
 
     Text {
@@ -27,5 +33,21 @@ Item {
         font.pixelSize: 20
         color: "#202020"
         renderType: Text.NativeRendering
+    }
+
+    MouseArea {
+        anchors.fill: parent
+        hoverEnabled: true
+        cursorShape: Qt.PointingHandCursor
+        onEntered: root.hovered = true
+        onExited: root.hovered = false
+        onClicked: {
+            clockPopup.visible = !clockPopup.visible;
+            clockPopup.updatesEnabled = clockPopup.visible;
+        }
+    }
+    ClockPopup {
+        id: clockPopup
+        visible: false
     }
 }
