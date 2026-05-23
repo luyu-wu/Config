@@ -12,12 +12,19 @@
     "dock": "left"
   },
   "agent": {
+    "tool_permissions": {
+      "tools": {
+        "fetch": {
+          "default": "allow"
+        }
+      }
+    },
     "dock": "right",
     "default_profile": "write",
     "default_model": {
-      "effort": "low",
-      "provider": "zed.dev",
-      "model": "claude-sonnet-4-6",
+      "effort": "high",
+      "provider": "deepseek",
+      "model": "deepseek-v4-pro",
       "enable_thinking": true
     },
     "favorite_models": [

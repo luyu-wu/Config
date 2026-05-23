@@ -41,7 +41,7 @@ hl.bind("XF86AudioMedia", hl.dsp.exec_cmd("~/.config/hypr/Scripts/powermode.sh")
 -----------------------------
 
 hl.gesture({ fingers = 3, direction = "horizontal", action = "workspace" })
-hl.gesture({ fingers = 3, direction = "pinchin", action = "cursorZoom", zoom_level = 1, mode = "live" })
+hl.gesture({ fingers = 3, direction = "pinchin", action = "cursorZoom", zoom_level = 1, scale=1, mode = "live" })
 hl.gesture({ fingers = 3, direction = "pinchout", action = "cursorZoom" })
 
 -----------------------------
@@ -120,8 +120,8 @@ end)
 
 hl.bind(SUPER .. " + Q", hl.dsp.window.close())
 hl.bind(SUPER .. " + V", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(SUPER .. " + F", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle"  }))
-hl.bind(SUPER_SHIFT .. " + F", hl.dsp.window.fullscreen_state({ internal = 0, client = 3 }))
+hl.bind(SUPER .. " + F", hl.dsp.window.fullscreen({ mode = "fullscreen"}))
+hl.bind(SUPER_SHIFT .. " + F", hl.dsp.window.fullscreen_state({ internal = 0, client = 3 , action = "toggle"}))
 hl.bind(SUPER .. " + J", hl.dsp.layout("togglesplit"))
 hl.bind(SUPER_SHIFT .. " + P", hl.dsp.window.pin())
 
@@ -143,12 +143,11 @@ hl.bind(SUPER .. " + left", function()
     hl.dispatch(hl.dsp.window.bring_to_top())
 end)
 
--- Workspace navigation via hyprnome
---hl.bind(SUPER .. " + 1", hl.dsp.exec_cmd("hyprnome --previous"))
---hl.bind(SUPER .. " + 2", hl.dsp.exec_cmd("hyprnome"))
-
+-- Workspace navigation
 hl.bind(SUPER .. " + 1", hl.dsp.focus({ workspace = "-1" }))
 hl.bind(SUPER .. " + 2", hl.dsp.focus({ workspace = "+1" }))
+hl.bind(SUPER_SHIFT .. " + 1", hl.dsp.window.move({ workspace = "-1" }))
+hl.bind(SUPER_SHIFT .. " + 2", hl.dsp.window.move({ workspace = "+1" }))
 
 -- Move window to empty workspace with SUPER+SHIFT+RMB
 hl.bind(SUPER_SHIFT .. " + mouse:273", hl.dsp.window.move({ workspace = "empty" }))

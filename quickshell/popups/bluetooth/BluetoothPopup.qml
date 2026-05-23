@@ -135,15 +135,87 @@ PopupWindow {
             color: "transparent"
         }
         MenuDiv {}
+        // ── no adapter placeholder ────────────────────────────────────
+        Loader {
+            Layout.fillWidth: true
+            visible: !defaultAdapter
+            sourceComponent: Item {
+                height: 36
+                Text {
+                    anchors.centerIn: parent
+                    text: "No Bluetooth adapter found"
+                    color: "#70000000"
+                    font.pixelSize: 13
+                }
+            }
+        }
+
+        // ── paired devices ─────────────────────────────────────────────
         MenuLabel {
-            label: "Devices"
+            label: "Paired"
             labelElement.font.weight: 600
             labelElement.color: "#90000000"
+            visible: defaultAdapter && defaultAdapter.enabled
         }
-        IconItem {
-            label: "AirPods Pro"
-            iconName: "folder-wifi"
-            selected: true
+
+        Repeater {
+            model: defaultAdapter ? defaultAdapter.devices : null
+
+            delegate: IconItem {
+                required property var modelData
+                readonly property BluetoothDevice device: modelData
+
+                visible: device.paired
+
+                label: device.name || device.deviceName || device.address
+                iconName: device.icon || (device.connected ? "network-bluetooth-symbolic" : "bluetooth-symbolic")
+                selected: device.connected
+
+                onTriggered: {
+                    if (device.connected) {
+                        device.disconnect();
+                    } else {
+                        device.connect();
+                    }
+                }
+            }
+        }
+
+        // ── available devices (unpaired, with a real name) ─────────────
+        MenuLabel {
+            label: "Available"
+            labelElement.font.weight: 600
+            labelElement.color: "#90000000"
+            visible: {
+                if (!defaultAdapter || !defaultAdapter.enabled)
+                    return false;
+                for (let i = 0; i < defaultAdapter.devices.count; i++) {
+                    let d = defaultAdapter.devices.get(i);
+                    if (!d.paired && d.deviceName && d.deviceName.length > 0)
+                        return true;
+                }
+                return false;
+            }
+        }
+
+        Repeater {
+            model: defaultAdapter ? defaultAdapter.devices : null
+
+            delegate: IconItem {
+                required property var modelData
+                readonly property BluetoothDevice device: modelData
+
+                // Only show unpaired devices that report a proper name
+                visible: !device.paired && (device.deviceName && device.deviceName.length > 0)
+
+                label: device.name || device.deviceName
+                iconName: device.icon || "bluetooth-symbolic"
+                selected: false
+
+                onTriggered: {
+                    device.connect();
+                }
+            }
         }
 
         MenuDiv {}

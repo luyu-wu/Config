@@ -125,76 +125,79 @@ hl.window_rule({
 })
 
 hl.window_rule({
-    name            = "Foot Terminal",
-    match           = { class = "foot" },
-    scroll_touchpad = 0.5,
-    --hyprbars        = {
-    --    no_bar      = false,
-    --    bar_color   = "rgb(333333)",
-    --    title_color = "rgb(E0E0E0)",
-    --},
-    border_color    = { colors = { "rgb(505050)", "rgb(454545)" } },
-    move            = "(cursor_x-window_w*0.5) (cursor_y-window_h*0.2)",
+    name                     = "Foot Terminal",
+    match                    = { class = "foot" },
+    scroll_touchpad          = 0.5,
+    ["hyprbars:bar_color"]   = "rgb(333333)",
+    ["hyprbars:title_color"] = "rgb(E0E0E0)",
+    border_color             = { colors = { "rgb(505050)", "rgb(454545)" } },
+    move                     = "(cursor_x-window_w*0.5) (cursor_y-window_h*0.2)",
 })
 
 hl.window_rule({
-    name  = "Fusion",
-    match = { class = "fusion360.exe" },
-    --hyprbars = { bar_color = "rgb(d9d9d9)" },
+    name                   = "Fusion",
+    match                  = { class = "fusion360.exe" },
+    ["hyprbars:bar_color"] = "rgb(d9d9d9)",
 })
 
 hl.window_rule({
-    name  = "Thorium",
-    match = { class = "thorium-browser", focus = true },
-    --hyprbars = { bar_color = "rgb(d3e3fd)" },
+    name                   = "Thorium",
+    match                  = { class = "thorium-browser", focus = true },
+    ["hyprbars:bar_color"] = "rgb(d3e3fd)",
 })
 
 hl.window_rule({
-    name  = "Thorium Unfocused",
-    match = { class = "thorium-browser", focus = false },
-    --hyprbars = { bar_color = "rgb(dde3e9)" },
+    name                   = "Thorium Unfocused",
+    match                  = { class = "thorium-browser", focus = false },
+    ["hyprbars:bar_color"] = "rgb(dde3e9)",
 })
 
 hl.window_rule({
-    name  = "Libadwaita",
-    match = { class = "com.github.flxzt.rnote|io.github.vani_tty1.memerist", focus = true },
-    --hyprbars = { bar_color = "rgb(ffffff)", title_color = "rgb(ffffff)" },
+    name                     = "Libadwaita",
+    match                    = { class = "com.github.flxzt.rnote|io.github.vani_tty1.memerist", focus = true },
+    ["hyprbars:bar_color"]   = "rgb(ffffff)",
+    ["hyprbars:title_color"] = "rgb(ffffff)",
 })
 
 hl.window_rule({
-    name  = "Libadwaita-Unfocus",
-    match = { class = "com.github.flxzt.rnote|io.github.vani_tty1.memerist", focus = false },
-    --hyprbars = { bar_color = "rgb(fafafb)", title_color = "rgb(fafafa)" },
+    name                     = "Libadwaita-Unfocus",
+    match                    = { class = "com.github.flxzt.rnote|io.github.vani_tty1.memerist", focus = false },
+    ["hyprbars:bar_color"]   = "rgb(fafafb)",
+    ["hyprbars:title_color"] = "rgb(fafafa)",
 })
 
 hl.window_rule({
-    name  = "Breeze Dark",
-    match = { class = "org.kde.kdenlive|org.kde.krita", focus = true },
-    --hyprbars = { bar_color = "rgb(292d31)", title_color = "rgb(E0E0E0)" },
+    name                     = "Breeze Dark",
+    match                    = { class = "org.kde.kdenlive|org.kde.krita", focus = true },
+    ["hyprbars:bar_color"]   = "rgb(292d31)",
+    ["hyprbars:title_color"] = "rgb(E0E0E0)",
 })
 
 hl.window_rule({
-    name  = "Breeze Dark-Unfocus",
-    match = { class = "org.kde.kdenlive|org.kde.krita", focus = false },
-    --hyprbars = { bar_color = "rgb(212429)", title_color = "rgb(A0A0A0)" },
+    name                     = "Breeze Dark-Unfocus",
+    match                    = { class = "org.kde.kdenlive|org.kde.krita", focus = false },
+    ["hyprbars:bar_color"]   = "rgb(212429)",
+    ["hyprbars:title_color"] = "rgb(A0A0A0)",
 })
 
 hl.window_rule({
-    name  = "Teams",
-    match = { class = "teams-for-linux" },
-    --hyprbars = { bar_color = "rgb(eaeaea)" },
+    name                   = "Teams",
+    match                  = { class = "teams-for-linux" },
+    ["hyprbars:bar_color"] = "rgb(eaeaea)",
 })
 
 hl.window_rule({
-    name  = "OBS",
-    match = { class = "com.obsproject.Studio" },
-    --hyprbars = { bar_color = "rgb(212121)", title_color = "rgb(E0E0E0)" },
+    name                     = "OBS",
+    match                    = { class = "com.obsproject.Studio" },
+    ["hyprbars:bar_color"]   = "rgb(212121)",
+    ["hyprbars:title_color"] = "rgb(E0E0E0)",
 })
 
 hl.window_rule({
-    name  = "GIMP",
-    match = { class = "gimp" },
-    --hyprbars = { bar_color = "rgb(3c3c3c)", title_color = "rgb(E0E0E0)" },
+    name                     = "GIMP",
+    match                    = { class = "gimp" },
+    ["hyprbars:bar_color"]   = "rgb(3c3c3c)",
+    ["hyprbars:title_color"] = "rgb(E0E0E0)",
 })
 
 hl.window_rule({
@@ -214,7 +217,7 @@ hl.window_rule({
 hl.window_rule({
     name              = "scrcpy",
     match             = { class = "scrcpy" },
-    size              = "509 1181",
+    --size              = "509 1181",
     keep_aspect_ratio = true,
     float             = true,
     --hyprbars          = { no_bar = true },
@@ -279,17 +282,19 @@ hl.window_rule({
 -----------------------------
 
 hl.window_rule({
-    name      = "Zed",
-    match     = { class = "dev.zed.Zed" },
-    workspace = "special:code",
-    --hyprbars  = { bar_color = "rgb(4d4844)", title_color = "rgb(F0F0F0)" },
+    name                     = "Zed",
+    match                    = { class = "dev.zed.Zed" },
+    workspace                = "special:code",
+    ["hyprbars:bar_color"]   = "rgb(4d4844)",
+    ["hyprbars:title_color"] = "rgb(F0F0F0)",
 })
 
 hl.window_rule({
-    name      = "Discord",
-    match     = { class = "vesktop" },
-    workspace = "special:discord",
-    --hyprbars  = { bar_color = "rgb(19191b)", title_color = "rgb(E0E0E0)" },
+    name                     = "Discord",
+    match                    = { class = "vesktop" },
+    workspace                = "special:discord",
+    ["hyprbars:bar_color"]   = "rgb(121214)",
+    ["hyprbars:title_color"] = "rgb(E0E0E0)",
 })
 
 hl.window_rule({

@@ -106,7 +106,7 @@ hl.config({
             special        = false,
             popups         = false,
             input_methods  = false,
-            xray           = false,
+            xray           = true,
             ignore_opacity = false,
             size           = 6,
             passes         = 3,
@@ -123,5 +123,7 @@ hl.config({
 
     debug = {
         error_position = 1,
+        overlay = false,
+        damage_blink=false
     }
 })
