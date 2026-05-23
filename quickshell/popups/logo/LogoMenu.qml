@@ -91,7 +91,10 @@ PopupWindow {
 
         MenuItem {
             label: "About This Framework"
-            onTriggered: root.exec("~/.config/waybar/scripts/about_mac")
+            onTriggered: {
+                root.visible = false;
+                aboutMac.show();
+            }
         }
 
         MenuSep {}
@@ -154,5 +157,9 @@ PopupWindow {
         Item {
             Layout.preferredHeight: 8
         }
+    }
+
+    AboutMac {
+        id: aboutMac
     }
 }

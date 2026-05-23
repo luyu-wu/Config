@@ -14,6 +14,20 @@
   "agent": {
     "tool_permissions": {
       "tools": {
+        "terminal": {
+          "default": "allow",
+          "always_allow": [
+            {
+              "pattern": "^find\\s+/usr/lib(\\s|$)"
+            },
+            {
+              "pattern": "^head\\b"
+            },
+            {
+              "pattern": "^find\\s+/usr(\\s|$)"
+            }
+          ]
+        },
         "fetch": {
           "default": "allow"
         }
