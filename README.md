@@ -4,8 +4,12 @@
 hyprland config files that value elegance and lightweightness over bulky and slow animations.
 workflow is build to be intuitive and easily customizeable :)
 ## Screenshots
+
+<img width="2256" height="1504" alt="image" src="https://github.com/user-attachments/assets/2911acee-477e-4233-9eb1-b7ba6c1e696f" />
+[High Sierra - Quickshell]
+
 <img width="2256" height="1504" alt="screenshot-2026-03-17_01-07-55" src="https://github.com/user-attachments/assets/586e838d-ded8-4fbc-a626-3df5cd698c4a" />
-[High Sierra]
+[High Sierra - Waybar]
 
 ![update](https://github.com/user-attachments/assets/394c139d-99ee-4355-adc6-e5a116f68ec2)
 [Nature]
