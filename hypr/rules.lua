@@ -246,9 +246,10 @@ hl.window_rule({
 
 hl.window_rule({
     -- Default --hyprbars style for unfocused windows not covered by a more specific rule
-    name  = "Unfocused Bar Color",
-    match = { class = "negative:vesktop|foot|floatterm|fusion360.exe|thorium-browser|dev.zed.Zed|spotify|com.github.flxzt.rnote|teams-for-linux|com.obsproject.Studio|org.kde.kdenlive|gimp|io.github.vani_tty1.memerist|zoom|Spotify|org.kde.krita", focus = false },
-    --hyprbars = { bar_color = "rgb(eff0f1)", title_color = "rgb(808080)" },
+    name                     = "Unfocused Bar Color",
+    match                    = { class = "negative:vesktop|foot|floatterm|fusion360.exe|thorium-browser|dev.zed.Zed|spotify|com.github.flxzt.rnote|teams-for-linux|com.obsproject.Studio|org.kde.kdenlive|gimp|io.github.vani_tty1.memerist|zoom|Spotify|org.kde.krita", focus = false },
+    ["hyprbars:bar_color"]   = "rgb(eff0f1)",
+    ["hyprbars:title_color"] = "rgb(808080)",
 })
 
 hl.window_rule({
