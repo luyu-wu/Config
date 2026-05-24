@@ -5,7 +5,7 @@ hyprland config files that value elegance and lightweightness over bulky and slo
 workflow is build to be intuitive and easily customizeable :)
 ## Screenshots
 
-<img width="2256" height="1504" alt="image" src="https://github.com/user-attachments/assets/2911acee-477e-4233-9eb1-b7ba6c1e696f" />
+<img width="2256" height="1504" alt="image" src="https://github.com/user-attachments/assets/d9c46940-f813-4aeb-a741-8ab021fa59b0" />
 [High Sierra - Quickshell]
 
 <img width="2256" height="1504" alt="screenshot-2026-03-17_01-07-55" src="https://github.com/user-attachments/assets/586e838d-ded8-4fbc-a626-3df5cd698c4a" />
