@@ -122,7 +122,7 @@ PopupWindow {
         MenuItem {
             label: "Force Quit…"
             shortcut: "⌃Q"
-            onTriggered: root.exec("hyprctl dispatch killactive")
+            onTriggered: root.exec("hyprctl dispatch 'hl.dsp.window.close()'")
         }
 
         MenuSep {}
