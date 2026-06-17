@@ -1,4 +1,14 @@
 {
+  "context_servers": {
+    "mcp-server-context7": {
+      "enabled": true,
+      "remote": false,
+      "settings": {
+        "context7_api_key": "ctx7sk-76c2b259-b174-49c7-a021-8d71912b1142"
+      }
+    }
+  },
+  "hard_tabs": true,
   "cli_default_open_behavior": "existing_window",
   "icon_theme": {
     "mode": "dark",
@@ -14,6 +24,12 @@
   "agent": {
     "tool_permissions": {
       "tools": {
+        "mcp:mcp-server-context7:query-docs": {
+          "default": "allow"
+        },
+        "mcp:mcp-server-context7:resolve-library-id": {
+          "default": "allow"
+        },
         "terminal": {
           "default": "allow",
           "always_allow": [
@@ -141,7 +157,7 @@
   "theme": {
     "mode": "dark",
     "light": "One Light",
-    "dark": "Gruvbox Dark Hard"
+    "dark": "macOS Classic Dark"
   },
   "languages": {
     "LaTeX": {

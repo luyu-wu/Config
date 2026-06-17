@@ -11,7 +11,7 @@ Rectangle {
     Layout.fillWidth: true
     Layout.leftMargin: 4
     Layout.rightMargin: 4
-    height: menuHandle.isSeparator ? 1 : 32
+    implicitHeight: menuHandle.isSeparator ? 1 : 32
     Layout.topMargin: menuHandle.isSeparator ? 4 : 0
     Layout.bottomMargin: menuHandle.isSeparator ? 4 : 0
 
@@ -57,8 +57,8 @@ Rectangle {
             }
             Rectangle {
                 visible: menuHandle.buttonType !== 0
-                width: 16
-                height: 16
+                implicitWidth: 16
+                implicitHeight: 16
                 radius: 8
                 color: "#10000000"
                 border.width: 1

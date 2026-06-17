@@ -4,14 +4,16 @@ hl.config({
             bar_height                 = 32,
             bar_part_of_window         = true,
             bar_buttons_alignment      = "left",
-            bar_button_padding         = 8,
+            bar_button_padding         = 10,
             bar_blur                   = false,
-            bar_padding                = 10,
-            bar_text_font              = "SF Pro Regular",
+            bar_padding                = 12	,
+            bar_text_font              = "SF Pro",
+            --bar_text_weight			   = 800,
+            bar_text_size			   = 14,
             bar_precedence_over_border = true,
             bar_color                  = "rgb(dee0e2)",
             col                        = {
-                text = "rgb(222222)",
+                text = "rgb(606060)",
             },
             icon_on_hover              = true,
             inactive_button_color      = "rgb(c5c5c5)",
@@ -40,3 +42,23 @@ hl.plugin.hyprbars.add_button({
     icon = "󰘖",
     action = "hyprctl dispatch 'hl.dsp.window.fullscreen_state({internal = 1, client = 0})'"
 })
+
+if hl.plugin.hyprglass then
+    local hg = hl.plugin.hyprglass
+
+    hg.config({
+    	enabled = true,
+        default_theme = "dark",
+        tint_color = 0x00000000,
+		blur_strength = 2,
+		blur_iterations = 0,
+		chromatic_aberration = 0,
+		fresnel_strength = 0,
+		lens_distortion = 0,
+		refraction_strength = 1,
+		edge_thickness = 0.1,
+        brightness = 1,
+        layers = { enabled = 1 },
+    	hg.layer("qs:popup", {mask_threshold = 0.35 })
+    })
+end

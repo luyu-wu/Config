@@ -13,7 +13,7 @@ Rectangle {
     Layout.fillWidth: true
     Layout.leftMargin: 4
     Layout.rightMargin: 4
-    height: 32
+    implicitHeight: 32
     color: "transparent"
 
     property bool hovered: false

@@ -15,7 +15,7 @@ Rectangle {
     Layout.fillWidth: true
     Layout.leftMargin: 4
     Layout.rightMargin: 4
-    height: 40
+    implicitHeight: 40
     radius: 4
     color: hovered ? "#20000000" : "transparent"
 
@@ -29,8 +29,8 @@ Rectangle {
         }
         spacing: 10
         Rectangle {
-            width: 32
-            height: 32
+            implicitWidth: 32
+            implicitHeight: 32
             color: selected ? "#097aff" : "#15000000"
 
             radius: 16

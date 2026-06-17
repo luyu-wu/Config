@@ -21,8 +21,8 @@ Item {
             delegate: Item {
                 id: root
                 required property var modelData
-                width: 32
-                height: 40
+                implicitWidth: 32
+                implicitHeight: 40
                 TrayPopup {
                     id: trayPopup
                     anchorPoint: trayIconItem

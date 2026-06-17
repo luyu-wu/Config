@@ -5,5 +5,6 @@ hl.monitor({
     output   = "eDP-1",
     mode     = "2256x1504@60",
     position = "0x0",
+    --bitdepth = 8,
     scale    = 1,
 })

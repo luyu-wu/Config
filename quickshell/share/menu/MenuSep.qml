@@ -6,6 +6,6 @@ Rectangle {
     Layout.fillWidth: true
     Layout.topMargin: 4
     Layout.bottomMargin: 4
-    height: 1
+    implicitHeight: 1
     color: "#33000000"
 }

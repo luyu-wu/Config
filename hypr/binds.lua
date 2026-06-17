@@ -41,6 +41,14 @@ hl.bind("XF86AudioMedia", hl.dsp.exec_cmd("~/.config/hypr/Scripts/powermode.sh")
 -----------------------------
 
 hl.gesture({ fingers = 3, direction = "horizontal", action = "workspace" })
+hl.gesture({ 
+	fingers = 3, 
+	direction = "vertical", 
+	action = function()
+		hl.exec_cmd("quickshell ipc -p ~/.config/hypr/Scripts/qs-hyprview/ call expose toggle")
+	end
+ })
+
 hl.gesture({ fingers = 3, direction = "pinchin", action = "cursorZoom", zoom_level = 1, scale=1, mode = "live" })
 hl.gesture({ fingers = 3, direction = "pinchout", action = "cursorZoom" })
 
@@ -50,7 +58,7 @@ hl.gesture({ fingers = 3, direction = "pinchout", action = "cursorZoom" })
 
 hl.bind(SUPER_SHIFT .. " + C", hl.dsp.exec_cmd("hyprpicker -a"))
 hl.bind(SUPER .. " + A", hl.dsp.exec_cmd("scrcpy -S -K"))
-hl.bind(SUPER_SHIFT .. " + S", hl.dsp.exec_cmd("qs -p .config/hypr/Scripts/HyprQuickFrame/ -n"))
+hl.bind(SUPER_SHIFT .. " + S", hl.dsp.exec_cmd("qs -p ~/.config/hypr/Scripts/HyprQuickFrame/ -n"))
 hl.bind("Print", hl.dsp.exec_cmd("hyprquickframe"), { locked = true })
 
 -----------------------------
@@ -66,7 +74,10 @@ hl.bind("SHIFT + F2", hl.dsp.pass({ window = "class:^(com\\.obsproject\\.Studio)
 
 -- Expose / overview
 hl.bind(SUPER .. " + Tab",
-    hl.dsp.exec_cmd("quickshell ipc -p ~/.config/hypr/Scripts/qs-hyprview/ call expose toggle smartgrid"))
+    hl.dsp.exec_cmd("quickshell ipc -p ~/.config/hypr/Scripts/qs-hyprview/ call expose toggle"))
+    
+hl.bind("ALT + Tab",hl.dsp.exec_cmd("snappy-switcher next --mod alt"),{bypass=true,repeating=true})
+hl.bind("ALT + SHIFT + Tab",hl.dsp.exec_cmd("snappy-switcher prev --mod alt"),{bypass=true,repeating=true})
 
 -- App launcher
 hl.bind(SUPER .. " + SUPER_L", hl.dsp.exec_cmd("pkill wofi || wofi --style ~/.config/wofi/style/style.css --show drun"),
@@ -83,7 +94,7 @@ hl.bind(SUPER_SHIFT .. " + W", hl.dsp.exec_cmd("firefox", { float = true }))
 hl.bind(SUPER .. " + O", hl.dsp.exec_cmd("osu-lazer"))
 hl.bind(SUPER .. " + I", hl.dsp.exec_cmd("systemsettings"))
 -- hl.bind(SUPER_SHIFT .. " + I", hl.dsp.exec_cmd("invertactivewindow"))
-hl.bind(SUPER .. " + P", hl.dsp.exec_cmd("foot -e micro ~/Code/Config/hypr/monitors.conf", { float = true }))
+hl.bind(SUPER .. " + P", hl.dsp.exec_cmd("foot -e micro ~/Code/Config/hypr/monitors.lua", { float = true }))
 hl.bind(SUPER .. " + E", hl.dsp.exec_cmd("dolphin"))
 hl.bind(SUPER .. " + T", hl.dsp.exec_cmd("foot"))
 hl.bind("CTRL + SHIFT + escape", hl.dsp.exec_cmd("foot -e btop", { float = true }))
@@ -103,7 +114,8 @@ hl.bind(SUPER .. " + X", hl.dsp.workspace.toggle_special("obs"))
 hl.bind(SUPER .. " + N", hl.dsp.workspace.toggle_special("note"))
 hl.bind(SUPER .. " + G", hl.dsp.workspace.toggle_special("game"))
 hl.bind(SUPER_SHIFT .. " + G", hl.dsp.window.move({ workspace = "special:game" }))
-hl.bind(SUPER_SHIFT .. " + X", hl.dsp.workspace.toggle_special("windows"))
+hl.bind(SUPER_SHIFT .. " + X", hl.dsp.workspace.toggle_special("windows"),{bypass=true,submap_universal=true})
+hl.gesture({ fingers = 4, direction = "down", mods = "SUPER", action = "special", workspace_name = "windows", disable_inhibit = true })
 
 -----------------------------
 --------  RELOAD  -----------
@@ -111,7 +123,7 @@ hl.bind(SUPER_SHIFT .. " + X", hl.dsp.workspace.toggle_special("windows"))
 
 hl.bind("CTRL + SHIFT + delete", function()
     hl.dispatch(hl.dsp.exec_cmd("hyprctl reload"))
-    hl.dispatch(hl.dsp.exec_cmd("pkill rofi"))
+    hl.dispatch(hl.dsp.exec_cmd("pkill wofi"))
 end)
 
 -----------------------------

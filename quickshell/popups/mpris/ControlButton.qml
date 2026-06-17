@@ -19,8 +19,8 @@ Item {
     // Hover / press highlight
     Rectangle {
         anchors.centerIn: parent
-        width: root.size * 0.9
-        height: root.size * 0.9
+        implicitWidth: root.size * 0.9
+        implicitHeight: root.size * 0.9
         radius: width / 2
         color: "transparent"
     }
@@ -40,5 +40,4 @@ Item {
         onClicked: if (root.enabled)
             root.activated()
     }
-
 }

@@ -13,8 +13,8 @@ import qs.share.menu
 PopupWindow {
     id: root
 
-    width: 360
-    height: menuColumn.implicitHeight + 8
+    implicitWidth: 360
+    implicitHeight: menuColumn.implicitHeight + 8
     grabFocus: true
 
     anchor {
@@ -82,7 +82,7 @@ PopupWindow {
         spacing: 0
         Rectangle {
             Layout.fillWidth: true
-            height: 10
+            implicitHeight: 10
             color: "transparent"
         }
         MenuLabel {
@@ -97,12 +97,12 @@ PopupWindow {
             from: 0
             to: 1
             value: Pipewire.defaultAudioSink.audio.volume
-            height: 40
+            implicitHeight: 40
             background: Rectangle {
                 x: seekSlider.leftPadding
                 y: seekSlider.topPadding + seekSlider.availableHeight / 2 - height / 2
-                width: seekSlider.availableWidth
-                height: 28
+                implicitWidth: seekSlider.availableWidth
+                implicitHeight: 28
                 radius: 14
                 color: "#30303030"
                 border.width: 1
@@ -114,8 +114,8 @@ PopupWindow {
                     color: "transparent"
 
                     Rectangle {
-                        width: seekSlider.visualPosition * (parent.width - 24) + 12
-                        height: parent.height
+                        implicitWidth: seekSlider.visualPosition * (parent.width - 24) + 12
+                        implicitHeight: parent.height
                         color: "#ffffff"
                     }
                     IconImage {

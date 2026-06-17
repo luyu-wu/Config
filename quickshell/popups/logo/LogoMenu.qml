@@ -11,8 +11,8 @@ import qs.share.menu
 PopupWindow {
     id: root
 
-    width: 280
-    height: menuColumn.implicitHeight + 8
+    implicitWidth: 280
+    implicitHeight: menuColumn.implicitHeight + 8
     grabFocus: true
 
     anchor {
@@ -150,7 +150,7 @@ PopupWindow {
         MenuItem {
             label: "Log Out Chrysanthemum..."
             shortcut: "⌃L"
-            onTriggered: root.exec("hyprctl dispatch exit")
+            onTriggered: root.exec("hyprctl dispatch 'hl.dsp.exit()'")
         }
 
         // bottom padding

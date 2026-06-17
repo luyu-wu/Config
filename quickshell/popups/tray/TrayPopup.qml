@@ -16,8 +16,8 @@ PopupWindow {
         id: opener
         menu: menuHandle
     }
-    width: 240
-    height: menuColumn.implicitHeight + 16
+    implicitWidth: 240
+    implicitHeight: menuColumn.implicitHeight + 16
     grabFocus: true
 
     anchor {

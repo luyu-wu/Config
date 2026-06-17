@@ -39,8 +39,6 @@ Item {
         anchors.fill: parent
         hoverEnabled: true
         cursorShape: Qt.PointingHandCursor
-        onEntered: root.hovered = true
-        onExited: root.hovered = false
         onClicked: {
             clockPopup.visible = !clockPopup.visible;
             clockPopup.updatesEnabled = clockPopup.visible;

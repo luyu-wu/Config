@@ -22,7 +22,7 @@ Variants {
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.bottom: parent.bottom
-            height: 16
+            implicitHeight: 16
             gradient: Gradient {
                 GradientStop {
                     position: 0.0
@@ -41,7 +41,7 @@ Variants {
             anchors.top: parent.top
             anchors.left: parent.left
             anchors.right: parent.right
-            height: 40
+            implicitHeight: 40
             color: "#d1e4e7ef"
 
             RowLayout {
@@ -77,7 +77,7 @@ Variants {
                 anchors.bottom: parent.bottom
                 anchors.left: parent.left
                 anchors.right: parent.right
-                height: 1
+                implicitHeight: 1
                 color: "#a0a0a0"
             }
         }

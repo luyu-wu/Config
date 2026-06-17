@@ -1,13 +1,10 @@
--- Window Rules, Layer Rules & Workspace Rules
--- https://wiki.hypr.land/Configuring/Basics/Window-Rules/
-
 -----------------------------
 ------  LAYER RULES  --------
 -----------------------------
 
 hl.layer_rule({
     name    = "No Anims",
-    match   = { namespace = "hyprpicker|selection|hyprpaper|qs:screencorners|qs:screenshot" },
+    match   = { namespace = "hyprpicker|selection|hyprpaper|qs:screencorners|qs:screenshot| " },
     no_anim = true,
     blur    = false,
 })
@@ -20,14 +17,14 @@ hl.layer_rule({
 
 hl.layer_rule({
     name         = "Enable Blur",
-    match        = { namespace = "wofi|krunner|notifications$" },
+    match        = { namespace = "wofi|krunner|notifications" },
     blur         = true,
     ignore_alpha = 0.5,
 })
 
 hl.layer_rule({
     name         = "Blur QS-SwayNC",
-    match        = { namespace = "swaync-notification-window" },
+    match        = { namespace = "swaync-notification-window|snappy-switcher" },
     blur         = true,
     ignore_alpha = 0.5,
     no_anim      = true,
@@ -51,10 +48,9 @@ hl.layer_rule({
 hl.layer_rule({
     name       = "QS-Expose",
     match      = { namespace = "quickshell:expose" },
-    -- blur    = true,
-    -- no_anim = true,
-    animation  = "popin",
-    dim_around = true,
+    blur    = false,
+    --xray = true,
+    no_anim = true,
 })
 
 hl.layer_rule({
@@ -74,7 +70,7 @@ hl.layer_rule({
 
 hl.window_rule({
     name           = "All Windows",
-    match          = { class = ".*$" },
+    match          = { class = "negative:"},
     suppress_event = "maximize",
     no_blur        = true,
 })
@@ -120,7 +116,7 @@ hl.window_rule({
 
 hl.window_rule({
     name            = "Slower Touchpad",
-    match           = { class = "thorium-browser|vesktop|spotify" },
+    match           = { class = "thorium-browser|chromium|google-chrome|vesktop|spotify" },
     scroll_touchpad = 0.06,
 })
 
@@ -130,7 +126,7 @@ hl.window_rule({
     scroll_touchpad          = 0.5,
     ["hyprbars:bar_color"]   = "rgb(333333)",
     ["hyprbars:title_color"] = "rgb(E0E0E0)",
-    border_color             = { colors = { "rgb(505050)", "rgb(454545)" } },
+    border_color             = "rgb(707070) rgb(505050)",
     move                     = "(cursor_x-window_w*0.5) (cursor_y-window_h*0.2)",
 })
 
@@ -141,15 +137,15 @@ hl.window_rule({
 })
 
 hl.window_rule({
-    name                   = "Thorium",
-    match                  = { class = "thorium-browser", focus = true },
-    ["hyprbars:bar_color"] = "rgb(d3e3fd)",
+    name                   = "Thorium Unfocused",
+    match                  = { class = "thorium-browser|chromium|google-chrome", focus = false },
+    ["hyprbars:bar_color"] = "rgb(dde3e9)",
 })
 
 hl.window_rule({
-    name                   = "Thorium Unfocused",
-    match                  = { class = "thorium-browser", focus = false },
-    ["hyprbars:bar_color"] = "rgb(dde3e9)",
+    name                   = "Thorium",
+    match                  = { class = "thorium-browser|chromium|google-chrome", focus = true },
+    ["hyprbars:bar_color"] = "rgb(d3e3fd)",
 })
 
 hl.window_rule({
@@ -203,15 +199,24 @@ hl.window_rule({
 hl.window_rule({
     name  = "Spotify",
     match = { class = "Spotify|spotify" },
-    --hyprbars = { bar_color = "rgb(000000)", title_color = "rgb(E0E0E0)" },
+    ["hyprbars:bar_color"]   = "rgb(000000)",
+    ["hyprbars:title_color"] = "rgb(E0E0E0)",
+
 })
 
 hl.window_rule({
     name     = "WeChat",
     match    = { class = "wechat" },
-    --hyprbars = { no_bar = true },
-    no_anim  = true,
     decorate = true,
+})
+hl.window_rule({
+	name="WeChat Popups",
+	match={title="wechat"},
+	no_anim  = true,
+	decorate = false,
+	["hyprbars:no_bar"] = true
+
+
 })
 
 hl.window_rule({
@@ -247,21 +252,27 @@ hl.window_rule({
 hl.window_rule({
     -- Default --hyprbars style for unfocused windows not covered by a more specific rule
     name                     = "Unfocused Bar Color",
-    match                    = { class = "negative:vesktop|foot|floatterm|fusion360.exe|thorium-browser|dev.zed.Zed|spotify|com.github.flxzt.rnote|teams-for-linux|com.obsproject.Studio|org.kde.kdenlive|gimp|io.github.vani_tty1.memerist|zoom|Spotify|org.kde.krita", focus = false },
+    match                    = { class = "negative:vesktop|foot|floatterm|fusion360.exe|thorium-browser|dev.zed.Zed|spotify||teams-for-linux|com.obsproject.Studio|org.kde.kdenlive|gimp|google-chrome|chromium|zoom|Spotify|org.kde.krita", focus = false },
     ["hyprbars:bar_color"]   = "rgb(eff0f1)",
     ["hyprbars:title_color"] = "rgb(808080)",
 })
 
 hl.window_rule({
-    name  = "Pinned",
-    match = { pin = true },
-    --hyprbars = { no_bar = true },
+	name = "CSD Windows",
+	match = {class="com.github.flxzt.rnote|io.github.vani_tty1.memerist|firefox|org.gnome.World.PikaBackup|org.pipewire.Helvum|io.missioncenter.MissionCenter|dev.deedles.Trayscale|org.gnome.gitg"},
+	["hyprbars:no_bar"] = true
 })
 
 hl.window_rule({
-    name  = "Fake Fullscreen",
-    match = { fullscreen_state_client = 3 },
-    --hyprbars = { no_bar = true },
+    name  = "Pinned",
+    match = { pin = true },
+    ["hyprbars:no_bar"] = true
+})
+
+hl.window_rule({
+    name                = "Fake Fullscreen",
+    match               = { fullscreen_state_client = 3 },
+    ["hyprbars:no_bar"] = true
 })
 
 hl.window_rule({
@@ -284,11 +295,19 @@ hl.window_rule({
 
 hl.window_rule({
     name                     = "Zed",
-    match                    = { class = "dev.zed.Zed" },
+    match                    = { class = "dev.zed.Zed",focus=true},
     workspace                = "special:code",
-    ["hyprbars:bar_color"]   = "rgb(4d4844)",
+    ["hyprbars:bar_color"]   = "rgb(323232)",
     ["hyprbars:title_color"] = "rgb(F0F0F0)",
 })
+hl.window_rule({
+    name                     = "Zed Unfocused",
+    match                    = { class = "dev.zed.Zed" ,focus=false},
+    workspace                = "special:code",
+    ["hyprbars:bar_color"]   = "rgb(222221)",
+    ["hyprbars:title_color"] = "rgb(F0F0F0)",
+})
+
 
 hl.window_rule({
     name                     = "Discord",

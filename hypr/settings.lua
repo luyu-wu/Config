@@ -5,8 +5,8 @@ hl.config({
         gaps_workspaces  = 0,
         border_size      = 1,
         col              = {
-            active_border   = "rgb(90a0b0)",
-            inactive_border = "rgb(a0b0c0)",
+            active_border   = "rgb(7080a0)",
+            inactive_border = "rgb(90a0a0)",
         },
         resize_on_border = true,
     },
@@ -43,9 +43,8 @@ hl.config({
     cursor = {
         enable_hyprcursor = true,
         inactive_timeout  = 0,
-        zoom_factor       = 1,
         use_cpu_buffer    = false,
-        no_warps          = true,
+        no_warps          = false,
     },
 
     gestures = {
@@ -85,7 +84,7 @@ hl.config({
     },
 
     decoration = {
-        rounding     = 8,
+        rounding     = 12,
 
         shadow       = {
             enabled        = true,
@@ -94,7 +93,6 @@ hl.config({
             color          = "rgba(00000040)",
             color_inactive = "rgba(00000025)",
         },
-
         dim_inactive = false,
         dim_strength = 0,
         dim_special  = 0.3,
@@ -124,6 +122,7 @@ hl.config({
     debug = {
         error_position = 1,
         overlay = false,
+        suppress_errors = false,
         damage_blink=false
     }
 })

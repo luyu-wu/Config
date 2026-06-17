@@ -11,8 +11,8 @@ import qs.share.menu
 
 PopupWindow {
     id: root
-    width: 340
-    height: menuColumn.implicitHeight + 8
+    implicitWidth: 340
+    implicitHeight: menuColumn.implicitHeight + 8
     grabFocus: true
     anchor {
         item: networkWidget
@@ -98,7 +98,7 @@ PopupWindow {
 
         Rectangle {
             Layout.fillWidth: true
-            height: 10
+            implicitHeight: 10
             color: "transparent"
         }
 
@@ -114,15 +114,15 @@ PopupWindow {
             }
             Rectangle {
 
-                width: 48
-                height: 28
+                implicitWidth: 48
+                implicitHeight: 28
                 color: Networking.wifiEnabled ? "#1687ff" : "#afb0b5"
                 radius: 16
                 Rectangle {
                     anchors.verticalCenter: parent.verticalCenter
                     x: Networking.wifiEnabled ? 22 : 2
-                    width: 24
-                    height: 24
+                    implicitWidth: 24
+                    implicitHeight: 24
                     color: "#fff"
                     radius: 12
                     Behavior on x {
@@ -147,7 +147,7 @@ PopupWindow {
 
         Rectangle {
             Layout.fillWidth: true
-            height: 3
+            implicitHeight: 3
             color: "transparent"
         }
 
@@ -164,7 +164,7 @@ PopupWindow {
             Layout.fillWidth: true
             visible: !wifiDev || (wifiDev.networks.count === 0)
             sourceComponent: Item {
-                height: 36
+                implicitHeight: 36
                 Text {
                     anchors.centerIn: parent
                     text: !wifiDev ? "No Wi-Fi adapter found" : wifiDev.scannerEnabled ? "Scanning…" : "No networks"

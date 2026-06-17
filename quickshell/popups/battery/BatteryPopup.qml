@@ -12,8 +12,8 @@ import qs.share.menu
 PopupWindow {
     id: root
 
-    width: 280
-    height: menuColumn.implicitHeight + 8
+    implicitWidth: 280
+    implicitHeight: menuColumn.implicitHeight + 8
     grabFocus: true
     readonly property var battery: UPower.displayDevice
 
@@ -82,7 +82,7 @@ PopupWindow {
         spacing: 0
         Rectangle {
             Layout.fillWidth: true
-            height: 10
+            implicitHeight: 10
             color: "transparent"
         }
         MenuLabel {

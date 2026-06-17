@@ -21,6 +21,7 @@ Item {
         id: logoLabel
         anchors.centerIn: parent
         text: ""
+        font.family: "FiraCode Nerd Font"
         font.pixelSize: 30
         color: logoMenu.visible ? "#fff" : "#202020"
     }

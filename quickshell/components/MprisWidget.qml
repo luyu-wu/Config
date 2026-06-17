@@ -64,8 +64,6 @@ Item {
         anchors.fill: parent
         hoverEnabled: true
         cursorShape: Qt.PointingHandCursor
-        onEntered: root.hovered = true
-        onExited: root.hovered = false
         onClicked: {
             mprisPopup.visible = !mprisPopup.visible;
             mprisPopup.updatesEnabled = mprisPopup.visible;

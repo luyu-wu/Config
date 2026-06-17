@@ -1,3 +1,5 @@
+
+
 -----------------------------
 ---- ENVIRONMENT VARIABLES --
 -----------------------------
@@ -35,7 +37,7 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("systemctl --user start plasma-polkit-agent")
 
     hl.exec_cmd("fcitx5")
-    hl.exec_cmd("swaync")
+    -- hl.exec_cmd("swaync")
     -- hl.exec_cmd("hypridle")
     hl.exec_cmd("hyprpaper")
     hl.exec_cmd("cairo-dock")
@@ -45,6 +47,9 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("quickshell -p ~/.config/hypr/Scripts/qs-hyprview/")
     hl.exec_cmd("quickshell -p ~/.config/hypr/Scripts/qs-round/")
     hl.exec_cmd("play /home/chrysanthemum/.config/hypr/Assets/startup.mp3")
+    hl.exec_cmd("snappy-switcher --daemon")
+    hl.exec_cmd("gsettings set org.gnome.desktop.wm.preferences button-layout 'close,minimize,maximize:'")
     -- hl.exec_cmd("hyprctl plugin load /home/chrysanthemum/Code/Config/hypr/Shaders/hyprselect.so")
     hl.exec_cmd("swayosd-server")
+    hl.exec_cmd("wl-clip-persist --clipboard regular")
 end)

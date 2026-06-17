@@ -10,8 +10,8 @@ import Quickshell.Widgets
 PanelWindow {
     id: root
 
-    width: 340
-    height: contentColumn.implicitHeight + 64
+    implicitWidth: 340
+    implicitHeight: contentColumn.implicitHeight + 64
     exclusionMode: "Ignore"
     WlrLayershell.namespace: "qs:popup"
     //grabFocus: true
@@ -199,12 +199,12 @@ PanelWindow {
                 from: 0
                 to: player.length
                 value: player.position
-                height: 20
+                implicitHeight: 20
                 background: Rectangle {
                     x: seekSlider.leftPadding
                     y: seekSlider.topPadding + seekSlider.availableHeight / 2 - height / 2
-                    width: seekSlider.availableWidth
-                    height: 14
+                    implicitWidth: seekSlider.availableWidth
+                    implicitHeight: 14
                     radius: 7
                     color: "#30303030"
                     border.width: 1
@@ -217,7 +217,7 @@ PanelWindow {
 
                         Rectangle {
                             width: seekSlider.visualPosition * (parent.width)
-                            height: parent.height
+                            implicitHeight: parent.height
                             color: "#ffffff"
                         }
                     }
