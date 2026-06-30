@@ -199,12 +199,12 @@ PanelWindow {
                 from: 0
                 to: player.length
                 value: player.position
-                implicitHeight: 20
+                height: 20
                 background: Rectangle {
                     x: seekSlider.leftPadding
                     y: seekSlider.topPadding + seekSlider.availableHeight / 2 - height / 2
-                    implicitWidth: seekSlider.availableWidth
-                    implicitHeight: 14
+                    width: seekSlider.availableWidth
+                    height: 14
                     radius: 7
                     color: "#30303030"
                     border.width: 1
@@ -217,11 +217,15 @@ PanelWindow {
 
                         Rectangle {
                             width: seekSlider.visualPosition * (parent.width)
-                            implicitHeight: parent.height
+                            height: parent.height
                             color: "#ffffff"
                         }
                     }
                 }
+                handle: Rectangle {
+                    color: "transparent"
+                }
+
                 onMoved: {
                     player.position = player.length * seekSlider.visualPosition;
                 }

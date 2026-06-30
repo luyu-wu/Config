@@ -97,12 +97,12 @@ PopupWindow {
             from: 0
             to: 1
             value: Pipewire.defaultAudioSink.audio.volume
-            implicitHeight: 40
+            height: 40
             background: Rectangle {
                 x: seekSlider.leftPadding
                 y: seekSlider.topPadding + seekSlider.availableHeight / 2 - height / 2
-                implicitWidth: seekSlider.availableWidth
-                implicitHeight: 28
+                width: seekSlider.availableWidth
+                height: 28
                 radius: 14
                 color: "#30303030"
                 border.width: 1
@@ -114,8 +114,8 @@ PopupWindow {
                     color: "transparent"
 
                     Rectangle {
-                        implicitWidth: seekSlider.visualPosition * (parent.width - 24) + 12
-                        implicitHeight: parent.height
+                        width: seekSlider.visualPosition * (parent.width - 24) + 12
+                        height: parent.height
                         color: "#ffffff"
                     }
                     IconImage {

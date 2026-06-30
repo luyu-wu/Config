@@ -42,23 +42,3 @@ hl.plugin.hyprbars.add_button({
     icon = "󰘖",
     action = "hyprctl dispatch 'hl.dsp.window.fullscreen_state({internal = 1, client = 0})'"
 })
-
-if hl.plugin.hyprglass then
-    local hg = hl.plugin.hyprglass
-
-    hg.config({
-    	enabled = true,
-        default_theme = "dark",
-        tint_color = 0x00000000,
-		blur_strength = 2,
-		blur_iterations = 0,
-		chromatic_aberration = 0,
-		fresnel_strength = 0,
-		lens_distortion = 0,
-		refraction_strength = 1,
-		edge_thickness = 0.1,
-        brightness = 1,
-        layers = { enabled = 1 },
-    	hg.layer("qs:popup", {mask_threshold = 0.35 })
-    })
-end

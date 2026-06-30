@@ -75,7 +75,8 @@ hl.bind("SHIFT + F2", hl.dsp.pass({ window = "class:^(com\\.obsproject\\.Studio)
 -- Expose / overview
 hl.bind(SUPER .. " + Tab",
     hl.dsp.exec_cmd("quickshell ipc -p ~/.config/hypr/Scripts/qs-hyprview/ call expose toggle"))
-    
+
+
 hl.bind("ALT + Tab",hl.dsp.exec_cmd("snappy-switcher next --mod alt"),{bypass=true,repeating=true})
 hl.bind("ALT + SHIFT + Tab",hl.dsp.exec_cmd("snappy-switcher prev --mod alt"),{bypass=true,repeating=true})
 

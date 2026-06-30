@@ -1,0 +1,185 @@
+/*(((((((((( Custom theme GTK4 ))))))))))*/
+
+/*(((((((((( headerbar and titlebar ))))))))))*/
+
+/*
+headerbar
+{ 
+                  padding: 18px;
+              padding-top: 4px;
+           padding-bottom: 4px;
+   border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+window.titlebar
+{
+                 padding: 16px;
+             padding-top: 4px;
+          padding-bottom: 4px;
+              min-height: 18px;
+  border-top-left-radius: 6px;
+ border-top-right-radius: 6px;
+}
+*/
+
+/*(((((((((( Titlebuttons ))))))))))*/
+
+/*
+.normal-icons {
+  -gtk-icon-size: 16px;
+}
+
+.large-icons {
+  -gtk-icon-size: 32px;
+}
+
+window button.titlebutton
+{
+  padding-left: 0px;
+}
+button.titlebutton
+{
+  padding: 0px;
+  min-width: 0px;
+}
+
+headerbar windowcontrols {
+  border-spacing: 2px;
+}
+*/
+
+.titlebutton {
+	margin: 0px;
+}
+
+headerbar windowcontrols button:not(.suggested-action):not(.destructive-action) {
+	min-height: 16px;
+	min-width: 16px;
+	padding: 0px;
+}
+
+headerbar windowcontrols {
+  border-spacing: 8px;
+  padding: 0px 6px 0px 9px;
+}
+
+headerbar windowcontrols button:not(.suggested-action):not(.destructive-action) > image {
+  border-radius: 100%;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  background-size: 17px;
+}
+
+/*
+headerbar windowcontrols button.close, headerbar windowcontrols button.maximize, headerbar windowcontrols button.minimize {
+  min-width: 16px;
+  min-height: 16px;
+  margin: 0px;
+  padding: 2px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 16px 16px;
+}
+
+headerbar windowcontrols button.close:backdrop, headerbar windowcontrols button.maximize:backdrop, headerbar windowcontrols button.minimize:backdrop {
+  opacity: 0.75;
+}
+*/
+
+headerbar windowcontrols button.close, headerbar windowcontrols button.close:hover, headerbar windowcontrols button.close:focus, headerbar windowcontrols button.close:active, headerbar windowcontrols button.close:backdrop, 
+headerbar windowcontrols button.maximize, headerbar windowcontrols button.maximize:hover, headerbar windowcontrols button.maximize:focus, headerbar windowcontrols button.maximize:active, headerbar windowcontrols button.maximize:backdrop, 
+headerbar windowcontrols button.minimize, headerbar windowcontrols button.minimize:hover, headerbar windowcontrols button.minimize:focus, headerbar windowcontrols button.minimize:active, headerbar windowcontrols button.minimize:backdrop 
+{
+  border-color: transparent;
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+  color: transparent;
+}
+
+headerbar windowcontrols button.close:not(.suggested-action):not(.destructive-action) > image  {
+  background-image: -gtk-scaled(url("titlebuttons/titlebutton-close.svg"), url("titlebuttons/titlebutton-close@2.svg"));
+}
+
+headerbar windowcontrols button.close:backdrop:not(.suggested-action):not(.destructive-action) > image  {
+  background-image: -gtk-scaled(url("titlebuttons/titlebutton-close-backdrop.svg"), url("titlebuttons/titlebutton-close-backdrop@2.svg"));
+}
+
+headerbar windowcontrols button.close:backdrop:hover:not(.suggested-action):not(.destructive-action) > image  {
+  background-image: -gtk-scaled(url("titlebuttons/titlebutton-close-backdrop-hover.svg"), url("titlebuttons/titlebutton-close-backdrop-hover@2.svg"));
+}
+
+headerbar windowcontrols button.close:hover:not(.suggested-action):not(.destructive-action) > image  {
+  background-image: -gtk-scaled(url("titlebuttons/titlebutton-close-hover.svg"), url("titlebuttons/titlebutton-close-hover@2.svg"));
+}
+
+headerbar windowcontrols button.close:active:not(.suggested-action):not(.destructive-action) > image  {
+  background-image: -gtk-scaled(url("titlebuttons/titlebutton-close-active.svg"), url("titlebuttons/titlebutton-close-active@2.svg"));
+}
+
+headerbar windowcontrols button.maximize:not(.suggested-action):not(.destructive-action) > image  {
+  background-image: -gtk-scaled(url("titlebuttons/titlebutton-maximize.svg"), url("titlebuttons/titlebutton-maximize@2.svg"));
+}
+
+headerbar windowcontrols button.maximize:backdrop:not(.suggested-action):not(.destructive-action) > image  {
+  background-image: -gtk-scaled(url("titlebuttons/titlebutton-maximize-backdrop.svg"), url("titlebuttons/titlebutton-maximize-backdrop@2.svg"));
+}
+
+headerbar windowcontrols button.maximize:backdrop:hover:not(.suggested-action):not(.destructive-action) > image {
+  background-image: -gtk-scaled(url("titlebuttons/titlebutton-maximize-backdrop-hover.svg"), url("titlebuttons/titlebutton-maximize-backdrop-hover@2.svg"));
+}
+
+headerbar windowcontrols button.maximize:hover:not(.suggested-action):not(.destructive-action) > image  {
+  background-image: -gtk-scaled(url("titlebuttons/titlebutton-maximize-hover.svg"), url("titlebuttons/titlebutton-maximize-hover@2.svg"));
+}
+
+headerbar windowcontrols button.maximize:active:not(.suggested-action):not(.destructive-action) > image  {
+  background-image: -gtk-scaled(url("titlebuttons/titlebutton-maximize-active.svg"), url("titlebuttons/titlebutton-maximize-active@2.svg"));
+}
+
+headerbar windowcontrols button.minimize:not(.suggested-action):not(.destructive-action) > image {
+  background-image: -gtk-scaled(url("titlebuttons/titlebutton-minimize.svg"), url("titlebuttons/titlebutton-minimize@2.svg"));
+}
+
+headerbar windowcontrols button.minimize:backdrop:not(.suggested-action):not(.destructive-action) > image  {
+  background-image: -gtk-scaled(url("titlebuttons/titlebutton-minimize-backdrop.svg"), url("titlebuttons/titlebutton-minimize-backdrop@2.svg"));
+}
+
+headerbar windowcontrols button.minimize:backdrop:hover:not(.suggested-action):not(.destructive-action) > image  {
+  background-image: -gtk-scaled(url("titlebuttons/titlebutton-minimize-backdrop-hover.svg"), url("titlebuttons/titlebutton-minimize-backdrop-hover@2.svg"));
+}
+
+headerbar windowcontrols button.minimize:hover:not(.suggested-action):not(.destructive-action) > image  {
+  background-image: -gtk-scaled(url("titlebuttons/titlebutton-minimize-hover.svg"), url("titlebuttons/titlebutton-minimize-hover@2.svg"));
+}
+
+headerbar windowcontrols button.minimize:active:not(.suggested-action):not(.destructive-action) > image  {
+  background-image: -gtk-scaled(url("titlebuttons/titlebutton-minimize-active.svg"), url("titlebuttons/titlebutton-minimize-active@2.svg"));
+}
+
+.fullscreen headerbar windowcontrols button.maximize:not(.suggested-action):not(.destructive-action) > image, 
+.maximized headerbar windowcontrols button.maximize:not(.suggested-action):not(.destructive-action) > image {
+  background-image: -gtk-scaled(url("titlebuttons/titlebutton-restore.svg"), url("titlebuttons/titlebutton-restore@2.svg"));
+}
+
+.fullscreen headerbar windowcontrols button.maximize:backdrop:not(.suggested-action):not(.destructive-action) > image, 
+.maximized headerbar windowcontrols button.maximize:backdrop:not(.suggested-action):not(.destructive-action) > image {
+  background-image: -gtk-scaled(url("titlebuttons/titlebutton-restore-backdrop.svg"), url("titlebuttons/titlebutton-restore-backdrop@2.svg"));
+}
+
+.fullscreen headerbar windowcontrols button.maximize:backdrop:hover:not(.suggested-action):not(.destructive-action) > image, 
+.maximized headerbar windowcontrols button.maximize:backdrop:hover:not(.suggested-action):not(.destructive-action) > image {
+  background-image: -gtk-scaled(url("titlebuttons/titlebutton-restore-backdrop-hover.svg"), url("titlebuttons/titlebutton-restore-backdrop-hover@2.svg"));
+}
+
+.fullscreen headerbar windowcontrols button.maximize:hover:not(.suggested-action):not(.destructive-action) > image, 
+.maximized headerbar windowcontrols button.maximize:hover:not(.suggested-action):not(.destructive-action) > image {
+  background-image: -gtk-scaled(url("titlebuttons/titlebutton-restore-hover.svg"), url("titlebuttons/titlebutton-restore-hover@2.svg"));
+}
+
+.fullscreen headerbar windowcontrols button.maximize:active:not(.suggested-action):not(.destructive-action) > image, 
+.maximized headerbar windowcontrols button.maximize:active:not(.suggested-action):not(.destructive-action) > image {
+  background-image: -gtk-scaled(url("titlebuttons/titlebutton-restore-active.svg"), url("titlebuttons/titlebutton-restore-active@2.svg"));
+}

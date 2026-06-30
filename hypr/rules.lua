@@ -1,3 +1,4 @@
+
 -----------------------------
 ------  LAYER RULES  --------
 -----------------------------
@@ -259,7 +260,7 @@ hl.window_rule({
 
 hl.window_rule({
 	name = "CSD Windows",
-	match = {class="com.github.flxzt.rnote|io.github.vani_tty1.memerist|firefox|org.gnome.World.PikaBackup|org.pipewire.Helvum|io.missioncenter.MissionCenter|dev.deedles.Trayscale|org.gnome.gitg"},
+	match = {class="com.github.flxzt.rnote|io.github.vani_tty1.memerist|firefox|org.gnome.World.PikaBackup|org.pipewire.Helvum|io.missioncenter.MissionCenter|dev.deedles.Trayscale|org.gnome.gitg|xyz.tytanium.DoorKnocker|localsend"},
 	["hyprbars:no_bar"] = true
 })
 

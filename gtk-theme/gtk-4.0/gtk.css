@@ -1,0 +1,12 @@
+/* Uncomment the desired button style and comment out the others */
+
+/* Default macOS style */
+@import 'titlebuttons.css';/**/
+
+/* Alternative macOS style */
+/*@import 'titlebuttons-alt.css';/**/
+
+/* PNG-based button style */
+/*@import 'titlebuttons-png.css';/**/
+
+@import 'fixes.css';/**/

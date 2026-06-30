@@ -36,6 +36,15 @@ Item {
     z: targetZ
     rotation: 0
 
+    RectangularShadow {
+        anchors.fill: card
+        radius: 4
+        color: Qt.rgba(0, 0, 0, 0.35)
+        blur: 16
+        spread: 0
+        visible: true
+    }
+
     visible: !!wHandle
 
     // If true, the thumbnail will animate from workspace position to layout position

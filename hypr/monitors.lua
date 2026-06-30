@@ -1,4 +1,4 @@
-hl.monitor({ output = "", mode = "preferred", position = "auto", scale = 1 })
+hl.monitor({ output = "", mode = "1920x1080", position = "auto", scale = 1 })
 
 -- eDP-1 (laptop screen)
 hl.monitor({

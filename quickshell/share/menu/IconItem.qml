@@ -36,6 +36,9 @@ Rectangle {
             radius: 16
             Button {
                 id: iconButton
+                implicitWidth: 32
+                implicitHeight: 32
+
                 icon.name: "headphone"
                 icon.color: selected ? "#fff" : "#222"
                 flat: true
