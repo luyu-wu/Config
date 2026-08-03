@@ -1,4 +1,7 @@
 {
+  "edit_predictions": {
+    "allow_data_collection": "no"
+  },
   "context_servers": {
     "mcp-server-context7": {
       "enabled": true,
@@ -22,8 +25,24 @@
     "dock": "left"
   },
   "agent": {
+    "show_turn_stats": true,
+    "enable_feedback": false,
+    "play_sound_when_agent_done": "never",
+    "sandbox_permissions": {
+      "network_hosts": [
+        "github.com",
+        "raw.githubusercontent.com",
+        "www.google.com",
+        "www.st.com",
+        "stackoverflow.com",
+        "community.st.com"
+      ]
+    },
     "tool_permissions": {
       "tools": {
+        "copy_path": {
+          "default": "allow"
+        },
         "mcp:mcp-server-context7:query-docs": {
           "default": "allow"
         },
@@ -54,7 +73,7 @@
     "default_model": {
       "effort": "high",
       "provider": "deepseek",
-      "model": "deepseek-v4-pro",
+      "model": "deepseek-v4-flash",
       "enable_thinking": true
     },
     "favorite_models": [

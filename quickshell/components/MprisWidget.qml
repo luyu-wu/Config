@@ -2,8 +2,10 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell.Services.Mpris
 import qs.popups.mpris
+import ".."
 
 Item {
+    Variables { id: v }
     id: root
 
     Layout.leftMargin: 10
@@ -46,7 +48,7 @@ Item {
     Rectangle {
         anchors.fill: parent
         radius: 6
-        color: mprisPopup.visible ? "#20000000" : "transparent"
+        color: mprisPopup.visible ? v.widgetHighlight : "transparent"
     }
 
     Text {
@@ -55,7 +57,7 @@ Item {
         text: root.player ? root.playerIcon + "    " + root.trackTitle : ""
         font.family: "SF Pro"
         font.pixelSize: 19
-        color: root.player?.playbackState === MprisPlaybackState.Playing ? "#222" : "#555"
+        color: root.player?.playbackState === MprisPlaybackState.Playing ? v.textColor : v.textSecondary
         font.weight: 400
         elide: Text.ElideRight
         renderType: Text.NativeRendering

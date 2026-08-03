@@ -5,8 +5,14 @@ hl.config({
         gaps_workspaces  = 0,
         border_size      = 1,
         col              = {
-            active_border   = "rgb(7080a0)",
-            inactive_border = "rgb(90a0a0)",
+        	-- Light
+            --active_border   = "rgb(708080)",
+            --inactive_border = "rgb(90a0a0)",
+
+			-- Dark
+            active_border   = "rgb(606060)",
+            inactive_border = "rgb(303030)",
+
         },
         resize_on_border = true,
     },
@@ -45,6 +51,7 @@ hl.config({
         inactive_timeout  = 0,
         use_cpu_buffer    = false,
         no_warps          = false,
+        zoom_disable_aa	  = true
     },
 
     gestures = {
@@ -68,8 +75,10 @@ hl.config({
         middle_click_paste         = false,
         font_family                = "SF Pro",
         disable_hyprland_logo      = true,
+        key_press_enables_dpms 	   = true,
         disable_splash_rendering   = true,
         force_default_wallpaper    = 0,
+        --float_force_onscreen = 1
     },
 
     ecosystem = {
@@ -113,6 +122,10 @@ hl.config({
             vibrancy       = 0,
             noise          = 0.02,
         },
+        motion_blur = {
+        	enabled = false,
+        	samples = 20,
+        }
     },
 
     render = {
@@ -122,7 +135,6 @@ hl.config({
     debug = {
         error_position = 1,
         overlay = false,
-        suppress_errors = false,
-        damage_blink=false
+        suppress_errors = true,
     }
 })

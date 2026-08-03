@@ -5,8 +5,10 @@ import QtQuick.Effects
 import Quickshell
 import Quickshell.Wayland
 import Quickshell.Widgets
+import "../.."
 
 PanelWindow {
+    Variables { id: v }
     id: root
 
     implicitWidth: 340
@@ -70,7 +72,7 @@ PanelWindow {
                 anchors.fill: card
                 radius: card.radius
                 blur: 16
-                color: Qt.rgba(0, 0, 0, 0.35)
+                color: v.shadowColor
                 spread: -16
                 visible: false
             }
@@ -87,8 +89,17 @@ PanelWindow {
                 anchors.fill: parent
                 anchors.margins: 16
                 radius: parent.radius
-                color: "#a2e4e7ef"
-                border.color: "#a0a0a0"
+                color: v.popupBackground
+                border.color: v.popupBorder
+                border.width: 1
+            }
+
+            Rectangle {
+                anchors.fill: parent
+                anchors.margins: 15
+                radius: parent.radius
+                color: "transparent"
+                border.color: v.outerBorderColor
                 border.width: 1
             }
 
@@ -341,7 +352,7 @@ PanelWindow {
                 anchors.fill: card2
                 radius: card2.radius
                 blur: 16
-                color: Qt.rgba(0, 0, 0, 0.35)
+                color: v.shadowColor
                 spread: -16
                 visible: false
             }
@@ -358,8 +369,17 @@ PanelWindow {
                 anchors.fill: card2
                 anchors.margins: 16
                 radius: card2.radius
-                color: "#a2e4e7ef"
-                border.color: "#a0a0a0"
+                color: v.popupBackground
+                border.color: v.popupBorder
+                border.width: 1
+            }
+
+            Rectangle {
+                anchors.fill: card2
+                anchors.margins: 15
+                radius: card2.radius
+                color: "transparent"
+                border.color: v.outerBorderColor
                 border.width: 1
             }
 

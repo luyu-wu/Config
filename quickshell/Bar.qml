@@ -7,6 +7,7 @@ Variants {
     model: Quickshell.screens
 
     PanelWindow {
+        Variables { id: v }
         required property var modelData
 
         screen: modelData
@@ -42,7 +43,8 @@ Variants {
             anchors.left: parent.left
             anchors.right: parent.right
             implicitHeight: 40
-            color: "#d1e4e7ef"
+            //color: "#d1e4e7ef"
+            color: v.barBackground
 
             RowLayout {
                 anchors {
@@ -63,6 +65,7 @@ Variants {
 
                 // ── Right ─────────────────────────────
                 TrayWidget {}
+                StocksWidget {}
                 MprisWidget {}
                 VolumeWidget {}
                 BluetoothWidget {}
@@ -78,7 +81,7 @@ Variants {
                 anchors.left: parent.left
                 anchors.right: parent.right
                 implicitHeight: 1
-                color: "#a0a0a0"
+                color: v.barBorder
             }
         }
     }

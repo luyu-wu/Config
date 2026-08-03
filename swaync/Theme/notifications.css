@@ -1,11 +1,11 @@
-@define-color text #303030;
+@define-color text #E0E0E0;
 @define-color selected #1071db;
 @define-color hover alpha(@selected,.6);
 @define-color background-sec #e4e7ef;
 @define-color background-alt #A0A0A0;
 @define-color urgent #f63c3a;
-@define-color background #e4e7ef;
-@define-color foreground #202020;
+@define-color background #303030;
+@define-color foreground #E0E0E0;
 
 * {
   color: @text;
@@ -24,7 +24,7 @@
 .floating-notifications.background .notification-row .notification-background {
   background: alpha(@background, .7);
   box-shadow: 0 0 8px 0 rgba(0,0,0,.6);
-  border: 0px solid #ffffff;
+  border: 1px solid alpha(#909090,.6);
   border-radius: 12px;
   margin: 16px;
   padding: 0;

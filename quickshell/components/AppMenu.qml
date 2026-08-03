@@ -1,7 +1,9 @@
 import QtQuick
 import QtQuick.Layouts
+import ".."
 
 Item {
+    Variables { id: v }
     id: root
 
     Layout.fillHeight: true
@@ -17,7 +19,7 @@ Item {
         text: "File     Edit     View     Go     Window     Help"
         font.family: "SF Pro"
         font.pixelSize: 21
-        color: "#202020"
+        color: v.textColor
         renderType: Text.NativeRendering
     }
 }

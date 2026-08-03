@@ -9,8 +9,10 @@ import Quickshell.Widgets
 import Quickshell.Services.Pipewire
 import Quickshell.Bluetooth
 import qs.share.menu
+import "../.."
 
 PopupWindow {
+    Variables { id: v }
     id: root
 
     implicitWidth: 340
@@ -44,7 +46,7 @@ PopupWindow {
         anchors.fill: parent
         radius: dropdown.radius
         blur: 10
-        color: Qt.rgba(0, 0, 0, 0.35)
+        color: v.shadowColor
         spread: -8
         visible: false
     }
@@ -63,8 +65,18 @@ PopupWindow {
         anchors.topMargin: 0
 
         radius: 8
-        color: "#b1e4e7ef"
-        border.color: "#A0A0A0"
+        color: v.popupBackground
+        border.color: v.popupBorder
+        border.width: 1
+    }
+
+    Rectangle {
+        anchors.fill: parent
+        anchors.margins: 7
+        anchors.topMargin: -1
+        radius: dropdown.radius
+        color: "transparent"
+        border.color: v.outerBorderColor
         border.width: 1
     }
 

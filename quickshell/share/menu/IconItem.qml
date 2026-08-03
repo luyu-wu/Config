@@ -2,8 +2,10 @@
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
+import "../.."
 
 Rectangle {
+    Variables { id: v }
     id: item
     property alias labelElement: labelText
     property alias mouseArea: mouseArea
@@ -17,7 +19,7 @@ Rectangle {
     Layout.rightMargin: 4
     implicitHeight: 40
     radius: 4
-    color: hovered ? "#20000000" : "transparent"
+    color: hovered ? v.widgetHighlight : "transparent"
 
     property bool hovered: false
 
@@ -31,7 +33,7 @@ Rectangle {
         Rectangle {
             implicitWidth: 32
             implicitHeight: 32
-            color: selected ? "#097aff" : "#15000000"
+            color: selected ? "#097aff" : "#30303030"
 
             radius: 16
             Button {
@@ -40,14 +42,14 @@ Rectangle {
                 implicitHeight: 32
 
                 icon.name: "headphone"
-                icon.color: selected ? "#fff" : "#222"
+                icon.color: selected ? "#fff" : "#888"
                 flat: true
             }
         }
         Text {
             id: labelText
             text: item.label
-            color: "#202020"
+            color: v.textColor
             font.family: "SF Pro"
             font.pixelSize: 18
             Layout.fillWidth: true

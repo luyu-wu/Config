@@ -2,9 +2,11 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell.Services.UPower
 import Quickshell.Widgets
+import ".."
 import qs.popups.battery
 
 Item {
+    Variables { id: v }
     id: root
 
     Layout.fillHeight: true
@@ -23,7 +25,7 @@ Item {
         anchors.rightMargin: 3
 
         radius: 6
-        color: batteryPopup.visible ? "#20000000" : "transparent"
+        color: batteryPopup.visible ? v.widgetHighlight : "transparent"
     }
 
     readonly property string iconName: {

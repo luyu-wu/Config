@@ -2,9 +2,11 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell.Services.SystemTray
 import Quickshell
+import ".."
 import qs.popups.tray
 
 Item {
+    Variables { id: v }
     id: rootWidget
 
     Layout.fillHeight: true
@@ -31,7 +33,7 @@ Item {
 
                 Rectangle {
                     anchors.fill: parent
-                    color: trayPopup.visible ? "#20000000" : "transparent"
+                    color: trayPopup.visible ? v.widgetHighlight : "transparent"
                     radius: 6
 
                     Image {

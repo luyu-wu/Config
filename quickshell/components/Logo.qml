@@ -2,8 +2,10 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import qs.popups.logo
+import ".."
 
 Item {
+    Variables { id: v }
     id: root
 
     Layout.leftMargin: 12
@@ -23,7 +25,7 @@ Item {
         text: ""
         font.family: "FiraCode Nerd Font"
         font.pixelSize: 30
-        color: logoMenu.visible ? "#fff" : "#202020"
+        color: logoMenu.visible ? "#fff" : v.textColor
     }
 
     MouseArea {

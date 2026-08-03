@@ -2,8 +2,10 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell.Hyprland
 import qs.share.app
+import ".."
 
 Item {
+    Variables { id: v }
     id: root
 
     Layout.leftMargin: 0
@@ -27,6 +29,7 @@ Item {
         font.capitalization: Font.Capitalize
         font.weight: 600
         renderType: Text.NativeRendering
+        color: v.textColor
     }
 
     MouseArea {

@@ -2,9 +2,11 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell.Bluetooth
 import Quickshell.Widgets
+import ".."
 import qs.popups.bluetooth
 
 Item {
+    Variables { id: v }
     id: root
 
     Layout.fillHeight: true
@@ -15,7 +17,7 @@ Item {
         anchors.leftMargin: 0
         anchors.rightMargin: 3
         radius: 6
-        color: bluetoothPopup.visible ? "#20000000" : "transparent"
+        color: bluetoothPopup.visible ? v.widgetHighlight : "transparent"
     }
 
     readonly property string iconName: {

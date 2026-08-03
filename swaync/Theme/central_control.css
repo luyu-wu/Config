@@ -1,11 +1,11 @@
-@define-color text #303030;
+@define-color text #E0E0E0;
 @define-color selected #1071db;
 @define-color hover alpha(@selected,.6);
 @define-color background-sec #e4e7ef;
 @define-color background-alt #A0A0A0;
 @define-color urgent #f63c3a;
-@define-color background #e4e7ef;
-@define-color foreground #202020;
+@define-color background #303030;
+@define-color foreground #E0E0E0;
 
 * {
   all: unset;
@@ -15,10 +15,10 @@
 }
 
 /* Avoid 'annoying' backgroud */
-.blank-window {  
-  background: transparent;  
+.blank-window {
+  background: transparent;
 }
-  
+
 /* CONTROL CENTER ------------------------------------------------------------------------ */
 
 .control-center {
@@ -110,7 +110,7 @@
 .notification-group-close-all-button {
   background: transparent;
   color: @text;
-  margin: 4px; 
+  margin: 4px;
   border-radius: 6px;
   padding: 4px;
 }
@@ -118,12 +118,12 @@
 .notification-group-collapse-button:hover {
 	background: @selected;
 	color: @background;
-	
+
 }
 .notification-group-close-all-button:hover {
   background: @urgent;
   color: @background;
-}  
+}
 
   /* Notification clear button */
 .widget-title {
@@ -202,7 +202,7 @@
   color: @text;
   border-radius: 20px;
 }
- 
+
 .widget-mpris button {
   margin: 4px;
   color: transparent;
@@ -214,12 +214,12 @@
   margin-right: 12px;
   box-shadow: 0px 0px 8px alpha(#000, 0.2);
 }
- 
+
 .widget-mpris-title {
     font-size: 1.3rem;
     font-weight: bold;
 }
- 
+
 .widget-mpris-subtitle {
     font-size: 1rem;
 }

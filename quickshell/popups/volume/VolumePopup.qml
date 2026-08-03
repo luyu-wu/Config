@@ -9,8 +9,10 @@ import Quickshell.Widgets
 import Quickshell.Services.Pipewire
 
 import qs.share.menu
+import "../.."
 
 PopupWindow {
+    Variables { id: v }
     id: root
 
     implicitWidth: 360
@@ -43,7 +45,7 @@ PopupWindow {
         anchors.fill: parent
         radius: dropdown.radius
         blur: 10
-        color: Qt.rgba(0, 0, 0, 0.35)
+        color: v.shadowColor
         spread: -8
         visible: false
     }
@@ -62,10 +64,20 @@ PopupWindow {
         anchors.topMargin: 0
 
         radius: 8
-        color: "#b1e4e7ef"
-        border.color: "#A0A0A0"
+        color: v.popupBackground
+        border.color: v.popupBorder
         border.width: 1
     }
+
+        Rectangle {
+            anchors.fill: parent
+            anchors.margins: 7
+            anchors.topMargin: -1
+            radius: dropdown.radius
+            color: "transparent"
+            border.color: v.outerBorderColor
+            border.width: 1
+        }
 
     // ── menu contents ────────────────────────────────────────────────────────
     ColumnLayout {
@@ -106,7 +118,7 @@ PopupWindow {
                 radius: 14
                 color: "#30303030"
                 border.width: 1
-                border.color: "#77a0a2"
+                border.color: v.widgetHighlight
                 ClippingRectangle {
                     anchors.fill: parent
                     anchors.margins: 1
@@ -124,6 +136,7 @@ PopupWindow {
                         implicitSize: 20
                         source: "image://icon/multimedia-volume-control-symbolic"
                         opacity: 0.3
+
                         visible: true
                     }
                 }
@@ -146,7 +159,7 @@ PopupWindow {
         MenuLabel {
             label: "Output"
             labelElement.font.weight: 600
-            labelElement.color: "#90000000"
+            labelElement.color: v.textPlaceholder
         }
         IconItem {
             label: Pipewire.defaultAudioSink.description

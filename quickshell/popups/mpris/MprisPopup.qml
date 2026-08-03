@@ -6,8 +6,10 @@ import Quickshell
 import Quickshell.Wayland
 import Quickshell.Services.Mpris
 import Quickshell.Widgets
+import "../.."
 
 PanelWindow {
+    Variables { id: v }
     id: root
 
     implicitWidth: 340
@@ -80,7 +82,7 @@ PanelWindow {
             anchors.fill: card
             radius: card.radius
             blur: 16
-            color: Qt.rgba(0, 0, 0, 0.35)
+            color: v.shadowColor
             spread: -16
             visible: false
         }
@@ -97,10 +99,20 @@ PanelWindow {
             anchors.fill: parent
             anchors.margins: 16
             radius: parent.radius
-            color: "#a2e4e7ef"
-            border.color: "#a0a0a0"
+            color: v.popupBackground
+            border.color: v.popupBorder
             border.width: 1
         }
+        Rectangle {
+            id: cardOuterBorder
+            anchors.fill: parent
+            anchors.margins: 15
+            radius: card.radius
+            color: 'transparent'
+            border.color: v.outerBorderColor
+            border.width: 1
+        }
+
 
         ColumnLayout {
             id: contentColumn
@@ -208,7 +220,7 @@ PanelWindow {
                     radius: 7
                     color: "#30303030"
                     border.width: 1
-                    border.color: "#77a0a2"
+                    border.color: v.widgetHighlight
                     ClippingRectangle {
                         anchors.fill: parent
                         anchors.margins: 1
@@ -241,7 +253,7 @@ PanelWindow {
 
                 Text {
                     text: formatMs(root.position)
-                    color: "#444"
+                    color: v.textSecondary
                     font.pixelSize: 10
                 }
                 Item {
@@ -249,7 +261,7 @@ PanelWindow {
                 }
                 Text {
                     text: root.length > 0 ? formatMs(root.length) : "-:--"
-                    color: "#444"
+                    color: v.textSecondary
                     font.pixelSize: 10
                 }
             }

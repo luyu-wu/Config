@@ -8,8 +8,10 @@ import Quickshell.Io
 import Quickshell.Services.UPower
 
 import qs.share.menu
+import "../.."
 
 PopupWindow {
+    Variables { id: v }
     id: root
 
     implicitWidth: 280
@@ -43,7 +45,7 @@ PopupWindow {
         anchors.fill: parent
         radius: dropdown.radius
         blur: 10
-        color: Qt.rgba(0, 0, 0, 0.35)
+        color: v.shadowColor
         spread: -8
         visible: false
     }
@@ -62,10 +64,20 @@ PopupWindow {
         anchors.topMargin: 0
 
         radius: 8
-        color: "#b1e4e7ef"
-        border.color: "#A0A0A0"
+        color: v.popupBackground
+        border.color: v.popupBorder
         border.width: 1
     }
+
+        Rectangle {
+            anchors.fill: parent
+            anchors.margins: 7
+            anchors.topMargin: -1
+            radius: dropdown.radius
+            color: "transparent"
+            border.color: v.outerBorderColor
+            border.width: 1
+        }
 
     // ── menu contents ────────────────────────────────────────────────────────
     ColumnLayout {
@@ -105,7 +117,7 @@ PopupWindow {
         MenuLabel {
             label: "Energy Mode"
             labelElement.font.weight: 600
-            labelElement.color: "#90000000"
+            labelElement.color: v.textPlaceholder
         }
 
         IconItem {

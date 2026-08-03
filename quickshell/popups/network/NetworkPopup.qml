@@ -8,8 +8,10 @@ import Quickshell.Io
 import Quickshell.Widgets
 import Quickshell.Networking
 import qs.share.menu
+import "../.."
 
 PopupWindow {
+    Variables { id: v }
     id: root
     implicitWidth: 340
     implicitHeight: menuColumn.implicitHeight + 8
@@ -58,7 +60,7 @@ PopupWindow {
         anchors.fill: parent
         radius: dropdown.radius
         blur: 10
-        color: Qt.rgba(0, 0, 0, 0.35)
+        color: v.shadowColor
         spread: -8
         visible: false
     }
@@ -77,10 +79,20 @@ PopupWindow {
         anchors.margins: 8
         anchors.topMargin: 0
         radius: 8
-        color: "#b1e4e7ef"
-        border.color: "#A0A0A0"
+        color: v.popupBackground
+        border.color: v.popupBorder
         border.width: 1
     }
+
+        Rectangle {
+            anchors.fill: parent
+            anchors.margins: 7
+            anchors.topMargin: -1
+            radius: dropdown.radius
+            color: "transparent"
+            border.color: v.outerBorderColor
+            border.width: 1
+        }
 
     // ── menu contents ────────────────────────────────────────────────────────
     ColumnLayout {
@@ -156,7 +168,7 @@ PopupWindow {
         MenuLabel {
             label: "Networks"
             labelElement.font.weight: 600
-            labelElement.color: "#90000000"
+            labelElement.color: v.textPlaceholder
         }
 
         // ── no adapter / scanning placeholder ────────────────────────────────
@@ -168,7 +180,7 @@ PopupWindow {
                 Text {
                     anchors.centerIn: parent
                     text: !wifiDev ? "No Wi-Fi adapter found" : wifiDev.scannerEnabled ? "Scanning…" : "No networks"
-                    color: "#70000000"
+                    color: v.textPlaceholder
                     font.pixelSize: 13
                 }
             }

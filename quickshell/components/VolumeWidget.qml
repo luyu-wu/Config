@@ -3,9 +3,11 @@ import QtQuick.Layouts
 import QtQuick.Effects
 import Quickshell.Services.Pipewire
 import Quickshell.Widgets
+import ".."
 import qs.popups.volume
 
 Item {
+    Variables { id: v }
     id: root
 
     Layout.fillHeight: true
@@ -25,7 +27,7 @@ Item {
         anchors.leftMargin: 0
         anchors.rightMargin: 3
         radius: 6
-        color: volumePopup.visible ? "#20000000" : "transparent"
+        color: volumePopup.visible ? v.widgetHighlight : "transparent"
     }
 
     readonly property string iconName: {

@@ -2,9 +2,11 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell.Networking
 import Quickshell.Widgets
+import ".."
 import qs.popups.network
 
 Item {
+    Variables { id: v }
     id: root
 
     Layout.fillHeight: true
@@ -15,7 +17,7 @@ Item {
         anchors.leftMargin: 0
         anchors.rightMargin: 3
         radius: 6
-        color: networkPopup.visible ? "#20000000" : "transparent"
+        color: networkPopup.visible ? v.widgetHighlight : "transparent"
     }
 
     readonly property var wifiDevice: {

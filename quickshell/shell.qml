@@ -8,4 +8,7 @@ ShellRoot {
 
     Bar {}
 
+    Spotlight {}
+
+    Hyprview {}
 }

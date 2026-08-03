@@ -36,6 +36,31 @@ hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("swayosd-client --playerctl previous"))
 hl.bind("XF86AudioNext", hl.dsp.exec_cmd("swayosd-client --playerctl next"))
 hl.bind("XF86AudioMedia", hl.dsp.exec_cmd("~/.config/hypr/Scripts/powermode.sh"))
 
+local MAX_ZOOM = 10
+local MIN_ZOOM = 1
+local ZOOM_TOGGLE_FACTOR = 1.5
+local function zoom(offset)
+    local current = hl.get_config("cursor.zoom_factor")
+    if offset ~= nil then
+        current = current + offset
+    elseif current ~= MIN_ZOOM then
+        current = MIN_ZOOM
+    else
+        current = ZOOM_TOGGLE_FACTOR
+    end
+    current = math.max(MIN_ZOOM, math.min(MAX_ZOOM, current))
+    hl.config({ cursor = { zoom_factor = current } })
+end
+
+hl.bind("SUPER + mouse_down", function()
+    zoom(-0.5)
+end)
+hl.bind("SUPER + mouse_up", function()
+    zoom(0.5)
+end)
+
+
+
 -----------------------------
 --------  GESTURES  ---------
 -----------------------------
@@ -45,12 +70,30 @@ hl.gesture({
 	fingers = 3, 
 	direction = "vertical", 
 	action = function()
-		hl.exec_cmd("quickshell ipc -p ~/.config/hypr/Scripts/qs-hyprview/ call expose toggle")
+		hl.exec_cmd("quickshell ipc -p ~/.config/quickshell/ call expose toggle")
 	end
  })
 
 hl.gesture({ fingers = 3, direction = "pinchin", action = "cursorZoom", zoom_level = 1, scale=1, mode = "live" })
 hl.gesture({ fingers = 3, direction = "pinchout", action = "cursorZoom" })
+
+
+hl.gesture({fingers=4, direction="right",action=function() hl.exec_cmd("swayosd-client --playerctl previous") end})
+hl.gesture({fingers=4, direction="left",action=function() hl.exec_cmd("swayosd-client --playerctl next") end})
+
+local volume_gesture = function(change)
+	hl.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ " .. math.abs(change) .. "%" .. (change<0 and "-" or "+"))
+	hl.exec_cmd("swayosd-client --output-volume 0")
+end
+hl.gesture({
+  fingers = 4,
+  direction = "vertical",
+  action = {
+    start = function(e) volume_gesture(-0.1*e.delta.y) end,
+    update = function(e) volume_gesture(-0.1*e.delta.y) end
+  },
+})
+
 
 -----------------------------
 ------  SCREENSHOTTING  -----
@@ -74,16 +117,16 @@ hl.bind("SHIFT + F2", hl.dsp.pass({ window = "class:^(com\\.obsproject\\.Studio)
 
 -- Expose / overview
 hl.bind(SUPER .. " + Tab",
-    hl.dsp.exec_cmd("quickshell ipc -p ~/.config/hypr/Scripts/qs-hyprview/ call expose toggle"))
+    hl.dsp.exec_cmd("quickshell ipc -p ~/.config/quickshell/ call expose toggle"))
 
 
-hl.bind("ALT + Tab",hl.dsp.exec_cmd("snappy-switcher next --mod alt"),{bypass=true,repeating=true})
-hl.bind("ALT + SHIFT + Tab",hl.dsp.exec_cmd("snappy-switcher prev --mod alt"),{bypass=true,repeating=true})
+--hl.bind("ALT + Tab",hl.dsp.exec_cmd("snappy-switcher next --mod alt"),{bypass=true,repeating=true})
+--hl.bind("ALT + SHIFT + Tab",hl.dsp.exec_cmd("snappy-switcher prev --mod alt"),{bypass=true,repeating=true})
 
 -- App launcher
-hl.bind(SUPER .. " + SUPER_L", hl.dsp.exec_cmd("pkill wofi || wofi --style ~/.config/wofi/style/style.css --show drun"),
-    { release = true })
--- hl.bind(SUPER .. " + SUPER_L", hl.dsp.exec_cmd("krunner"), { release = true })
+--hl.bind(SUPER .. " + SUPER_L", hl.dsp.exec_cmd("pkill wofi || wofi --style ~/.config/wofi/style/style.css --show drun"),{ release = true })
+--hl.bind(SUPER .. " + SUPER_L", hl.dsp.exec_cmd("krunner"), { release = true })
+hl.bind(SUPER .. " + R", hl.dsp.global('quickshell:Spotlight'))
 
 -- Night mode
 hl.bind(SUPER .. " + M", hl.dsp.exec_cmd("pkill hyprsunset || hyprsunset -t 4000"))
@@ -101,6 +144,12 @@ hl.bind(SUPER .. " + T", hl.dsp.exec_cmd("foot"))
 hl.bind("CTRL + SHIFT + escape", hl.dsp.exec_cmd("foot -e btop", { float = true }))
 hl.bind(SUPER_SHIFT .. " + T", hl.dsp.exec_cmd("foot", { float = true }))
 hl.bind(SUPER_SHIFT .. " + L", hl.dsp.exec_cmd("hyprlock"))
+
+hl.bind(SUPER_SHIFT .. " + L",function()
+  hl.timer(function()
+    hl.dispatch(hl.dsp.dpms({ action = "disable" }))
+  end, {timeout = 1000, type = "oneshot"})
+end)
 
 -----------------------------
 ---- SPECIAL WORKSPACES  ----

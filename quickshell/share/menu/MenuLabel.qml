@@ -1,8 +1,10 @@
 // MenuItem.qml
 import QtQuick
 import QtQuick.Layouts
+import "../.."
 
 Rectangle {
+    Variables { id: v }
     id: item
     property alias labelElement: labelText
     property alias secondaryElement: labelSecondary
@@ -29,7 +31,7 @@ Rectangle {
         Text {
             id: labelText
             text: item.label
-            color: "#202020"
+            color: v.textColor
             font.family: "SF Pro"
             font.pixelSize: 18
             Layout.fillWidth: true
@@ -37,7 +39,6 @@ Rectangle {
         }
         Text {
             id: labelSecondary
-
             visible: item.secondary !== ""
             text: item.secondary
             color: "#808080"

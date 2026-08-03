@@ -2,8 +2,10 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import qs.popups.clock
+import ".."
 
 Item {
+    Variables { id: v }
     id: root
     Layout.leftMargin: 6
 
@@ -18,7 +20,7 @@ Item {
     Rectangle {
         anchors.fill: parent
         radius: 6
-        color: clockPopup.visible ? "#20000000" : "transparent"
+        color: clockPopup.visible ? v.widgetHighlight : "transparent"
     }
 
     Text {
@@ -31,7 +33,7 @@ Item {
         text: Qt.formatDateTime(sysClock.date, "ddd MMM d   hh:mm AP")
         font.family: "SF Pro"
         font.pixelSize: 20
-        color: "#202020"
+        color: v.textColor
         renderType: Text.NativeRendering
     }
 

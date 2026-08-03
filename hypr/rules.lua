@@ -5,7 +5,7 @@
 
 hl.layer_rule({
     name    = "No Anims",
-    match   = { namespace = "hyprpicker|selection|hyprpaper|qs:screencorners|qs:screenshot| " },
+    match   = { namespace = "hyprpicker|selection|hyprpaper|qs:screencorners|qs:screenshot" },
     no_anim = true,
     blur    = false,
 })
@@ -24,8 +24,8 @@ hl.layer_rule({
 })
 
 hl.layer_rule({
-    name         = "Blur QS-SwayNC",
-    match        = { namespace = "swaync-notification-window|snappy-switcher" },
+    name         = "Blur SwayNC",
+    match        = { namespace = "swaync-notification-window|snappy-switcher|qs:spotlight" },
     blur         = true,
     ignore_alpha = 0.5,
     no_anim      = true,
@@ -140,13 +140,13 @@ hl.window_rule({
 hl.window_rule({
     name                   = "Thorium Unfocused",
     match                  = { class = "thorium-browser|chromium|google-chrome", focus = false },
-    ["hyprbars:bar_color"] = "rgb(dde3e9)",
+    ["hyprbars:bar_color"] = "rgb(2b2b2b)",
 })
 
 hl.window_rule({
     name                   = "Thorium",
     match                  = { class = "thorium-browser|chromium|google-chrome", focus = true },
-    ["hyprbars:bar_color"] = "rgb(d3e3fd)",
+    ["hyprbars:bar_color"] = "rgb(1f2020)",
 })
 
 hl.window_rule({
@@ -180,7 +180,9 @@ hl.window_rule({
 hl.window_rule({
     name                   = "Teams",
     match                  = { class = "teams-for-linux" },
-    ["hyprbars:bar_color"] = "rgb(eaeaea)",
+    --["hyprbars:bar_color"] = "rgb(eaeaea)", -- Light
+    ["hyprbars:bar_color"] = "rgb(0a0a0a)", -- Dark
+
 })
 
 hl.window_rule({
@@ -254,13 +256,18 @@ hl.window_rule({
     -- Default --hyprbars style for unfocused windows not covered by a more specific rule
     name                     = "Unfocused Bar Color",
     match                    = { class = "negative:vesktop|foot|floatterm|fusion360.exe|thorium-browser|dev.zed.Zed|spotify||teams-for-linux|com.obsproject.Studio|org.kde.kdenlive|gimp|google-chrome|chromium|zoom|Spotify|org.kde.krita", focus = false },
+
+	-- Light Breeze
     ["hyprbars:bar_color"]   = "rgb(eff0f1)",
+	-- Dark Breeze
+    ["hyprbars:bar_color"]   = "rgb(212429)",
+    
     ["hyprbars:title_color"] = "rgb(808080)",
 })
 
 hl.window_rule({
 	name = "CSD Windows",
-	match = {class="com.github.flxzt.rnote|io.github.vani_tty1.memerist|firefox|org.gnome.World.PikaBackup|org.pipewire.Helvum|io.missioncenter.MissionCenter|dev.deedles.Trayscale|org.gnome.gitg|xyz.tytanium.DoorKnocker|localsend"},
+	match = {class="com.github.flxzt.rnote|io.github.vani_tty1.memerist|firefox|org.gnome.World.PikaBackup|org.pipewire.Helvum|io.missioncenter.MissionCenter|dev.deedles.Trayscale|org.gnome.gitg|xyz.tytanium.DoorKnocker|localsend|de.haeckerfelix.Fragments"},
 	["hyprbars:no_bar"] = true
 })
 

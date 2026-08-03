@@ -1,8 +1,10 @@
 // MenuItem.qml
 import QtQuick
 import QtQuick.Layouts
+import "../.."
 
 Rectangle {
+    Variables { id: v }
     id: item
     property alias labelElement: labelText
     property alias mouseArea: mouseArea
@@ -32,7 +34,7 @@ Rectangle {
         Text {
             id: labelText
             text: item.label
-            color: item.hovered ? "#ffffff" : "#202020"
+            color: item.hovered ? "#ffffff" : v.textColor
             font.family: "SF Pro"
             font.pixelSize: 18
             Layout.fillWidth: true
@@ -42,14 +44,14 @@ Rectangle {
         Text {
             visible: item.hasSubmenu
             text: "›"
-            color: item.hovered ? "#ffffff" : "#606060"
+            color: item.hovered ? "#ffffff" : v.textColor
             font.pixelSize: 16
         }
 
         Text {
             visible: item.shortcut !== ""
             text: item.shortcut
-            color: item.hovered ? "#ddeeff" : "#808080"
+            color: item.hovered ? "#ddeeff" : v.textSecondary
             font.family: "SF Pro"
             font.pixelSize: 16
         }

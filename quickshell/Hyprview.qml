@@ -5,8 +5,8 @@ import Quickshell.Io
 import Quickshell.Widgets
 import Quickshell.Wayland
 import Quickshell.Hyprland
-import "../layouts"
-import "."
+import "hyprview"
+import "hyprview/layouts"
 
 PanelWindow {
     id: root
@@ -252,26 +252,8 @@ PanelWindow {
             z: -4
             bottomRightRadius: 16
             bottomLeftRadius: 16
-            color: Qt.rgba(0.3, 0.3, 0.3)
+            color: Qt.rgba(0.2, 0.2, 0.2)
         }
-        //Image {
-        //    id: wallpaperBackground
-        //    anchors.topMargin: 40
-        //    visible: false
-        //    anchors.fill: parent
-        //    fillMode: Image.PreserveAspectCrop
-        //    source: root.wallpaperPath
-        //}
-        //MultiEffect {
-        //    anchors.fill: parent
-        //    anchors.topMargin: 40
-        //    source: wallpaperBackground
-        //    blurEnabled: true
-        //    autoPaddingEnabled: true
-        //    blur: 1
-        //    blurMax: 32
-        //    blurMultiplier: 2
-        //}
 
         Rectangle {
             anchors.left: parent.left

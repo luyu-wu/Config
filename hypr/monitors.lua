@@ -6,5 +6,15 @@ hl.monitor({
     mode     = "2256x1504@60",
     position = "0x0",
     --bitdepth = 8,
+   	--disabled = true,
+    scale    = 1,
+})
+
+hl.monitor({
+    output   = "DP-3",
+    mode     = "3840x2160@120.00Hz",
+    position = "0x0",--"-792x-2160",
+    --bitdepth = 8,
+    --disabled = true,
     scale    = 1,
 })

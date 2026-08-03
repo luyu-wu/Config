@@ -2,8 +2,10 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import qs.share.menu
+import "../.."
 
 Rectangle {
+    Variables { id: v }
     id: root
     property QsMenuHandle menuHandle
     property PopupWindow dropdown
@@ -48,7 +50,7 @@ Rectangle {
             Text {
                 id: labelText
                 text: menuHandle.text
-                color: item.hovered ? "#ffffff" : "#202020"
+                color: item.hovered ? "#ffffff" : v.textColor
                 font.family: "SF Pro"
                 font.pixelSize: 18
                 Layout.fillWidth: true
@@ -74,7 +76,7 @@ Rectangle {
             }
             Text {
                 text: ""
-                color: item.hovered ? "#ffffff" : "#444"
+                color: item.hovered ? "#ffffff" : v.textSecondary
                 visible: menuHandle.hasChildren
             }
         }
