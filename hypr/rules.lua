@@ -48,7 +48,7 @@ hl.layer_rule({
 
 hl.layer_rule({
     name       = "QS-Expose",
-    match      = { namespace = "quickshell:expose" },
+    match      = { namespace = "qs:expose" },
     blur    = false,
     --xray = true,
     no_anim = true,
@@ -211,6 +211,8 @@ hl.window_rule({
     name     = "WeChat",
     match    = { class = "wechat" },
     decorate = true,
+   	["hyprbars:no_bar"] = true
+
 })
 hl.window_rule({
 	name="WeChat Popups",
@@ -267,7 +269,7 @@ hl.window_rule({
 
 hl.window_rule({
 	name = "CSD Windows",
-	match = {class="com.github.flxzt.rnote|io.github.vani_tty1.memerist|firefox|org.gnome.World.PikaBackup|org.pipewire.Helvum|io.missioncenter.MissionCenter|dev.deedles.Trayscale|org.gnome.gitg|xyz.tytanium.DoorKnocker|localsend|de.haeckerfelix.Fragments"},
+	match = {class="com.github.flxzt.rnote|io.github.vani_tty1.memerist|firefox|org.gnome.World.PikaBackup|org.pipewire.Helvum|io.missioncenter.MissionCenter|dev.deedles.Trayscale|org.gnome.gitg|xyz.tytanium.DoorKnocker|localsend|de.haeckerfelix.Fragments|ONLYOFFICE"},
 	["hyprbars:no_bar"] = true
 })
 

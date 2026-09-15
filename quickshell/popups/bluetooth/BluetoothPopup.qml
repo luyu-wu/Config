@@ -113,14 +113,14 @@ PopupWindow {
 
                 implicitWidth: 48
                 implicitHeight: 28
-                color: defaultAdapter.enabled ? "#1687ff" : "#afb0b5"
+                color: defaultAdapter.enabled ? v.accentColor : v.accentMuted
                 radius: 16
                 Rectangle {
                     anchors.verticalCenter: parent.verticalCenter
                     x: defaultAdapter.enabled ? 22 : 2
                     implicitWidth: 24
                     implicitHeight: 24
-                    color: "#fff"
+                    color: v.accentForeground
                     radius: 12
                     Behavior on x {
                         NumberAnimation {
@@ -156,7 +156,7 @@ PopupWindow {
                 Text {
                     anchors.centerIn: parent
                     text: "No Bluetooth adapter found"
-                    color: "#70000000"
+                    color: v.textPlaceholder
                     font.pixelSize: 13
                 }
             }
@@ -166,7 +166,7 @@ PopupWindow {
         MenuLabel {
             label: "Paired"
             labelElement.font.weight: 600
-            labelElement.color: "#90000000"
+            labelElement.color: v.textHeader
             visible: defaultAdapter && defaultAdapter.enabled
         }
 
@@ -197,7 +197,7 @@ PopupWindow {
         MenuLabel {
             label: "Available"
             labelElement.font.weight: 600
-            labelElement.color: "#90000000"
+            labelElement.color: v.textHeader
             visible: {
                 if (!defaultAdapter || !defaultAdapter.enabled)
                     return false;

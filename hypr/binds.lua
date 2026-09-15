@@ -65,17 +65,18 @@ end)
 --------  GESTURES  ---------
 -----------------------------
 
-hl.gesture({ fingers = 3, direction = "horizontal", action = "workspace" })
+hl.gesture({ fingers = 3, direction = "horizontal", action = "workspace",disable_inhibit=true})
 hl.gesture({ 
 	fingers = 3, 
 	direction = "vertical", 
 	action = function()
 		hl.exec_cmd("quickshell ipc -p ~/.config/quickshell/ call expose toggle")
-	end
+	end,
+	disable_inhibit=true
  })
 
 hl.gesture({ fingers = 3, direction = "pinchin", action = "cursorZoom", zoom_level = 1, scale=1, mode = "live" })
-hl.gesture({ fingers = 3, direction = "pinchout", action = "cursorZoom" })
+hl.gesture({ fingers = 3, direction = "pinchout", action = "cursorZoom"})
 
 
 hl.gesture({fingers=4, direction="right",action=function() hl.exec_cmd("swayosd-client --playerctl previous") end})
@@ -92,6 +93,7 @@ hl.gesture({
     start = function(e) volume_gesture(-0.1*e.delta.y) end,
     update = function(e) volume_gesture(-0.1*e.delta.y) end
   },
+  disable_inhibit = true
 })
 
 
@@ -100,7 +102,7 @@ hl.gesture({
 -----------------------------
 
 hl.bind(SUPER_SHIFT .. " + C", hl.dsp.exec_cmd("hyprpicker -a"))
-hl.bind(SUPER .. " + A", hl.dsp.exec_cmd("scrcpy -S -K"))
+hl.bind(SUPER .. " + A", hl.dsp.exec_cmd("scrcpy -w -S -K"))
 hl.bind(SUPER_SHIFT .. " + S", hl.dsp.exec_cmd("qs -p ~/.config/hypr/Scripts/HyprQuickFrame/ -n"))
 hl.bind("Print", hl.dsp.exec_cmd("hyprquickframe"), { locked = true })
 

@@ -19,7 +19,7 @@ Rectangle {
     Layout.rightMargin: 4
     implicitHeight: 32
     radius: 4
-    color: hovered ? "#1071db" : "transparent"
+    color: hovered ? v.accentColor : "transparent"
 
     property bool hovered: false
 
@@ -34,7 +34,7 @@ Rectangle {
         Text {
             id: labelText
             text: item.label
-            color: item.hovered ? "#ffffff" : v.textColor
+            color: item.hovered ? v.accentForeground : v.textColor
             font.family: "SF Pro"
             font.pixelSize: 18
             Layout.fillWidth: true
@@ -44,7 +44,7 @@ Rectangle {
         Text {
             visible: item.hasSubmenu
             text: "›"
-            color: item.hovered ? "#ffffff" : v.textColor
+            color: item.hovered ? v.accentForeground : v.textColor
             font.pixelSize: 16
         }
 

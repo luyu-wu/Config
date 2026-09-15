@@ -28,10 +28,25 @@ QtObject {
     //readonly property color popupBorder: "#A0A0A0"
     readonly property color popupBorder: "#C0909090"
 
+    // ── Menu colors ─────────────────────────────────────────────────
+    // Menu divider / separator line
+    //readonly property color menuDividerColor: "#33000000"
+    readonly property color menuDividerColor: "#33ffffff"
+
     // ── Widget highlight ───────────────────────────────────────────
     // Active/pressed/hovered widget background overlay
     //readonly property color widgetHighlight: "#20000000"
     readonly property color widgetHighlight: "#20ffffff"
+
+    // ── Accent ─────────────────────────────────────────────────────
+    // Active/selected accent fill (toggles, selected items, highlights)
+    readonly property color accentColor: "#1071db"
+
+    // Muted/track fill for inactive toggles
+    readonly property color accentMuted: "#afb0b5"
+
+    // Foreground (knob/icon) drawn on top of accent fills
+    readonly property color accentForeground: "#ffffff"
 
     // ── Shadow & outer border ───────────────────────────────────────
     // Drop shadow color

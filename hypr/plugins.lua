@@ -49,5 +49,5 @@ hl.plugin.hyprbars.add_button({
     fg_color = "rgb(000000)",
     size = 16,
     icon = "󰘖",
-    action = "hyprctl dispatch 'hl.dsp.window.fullscreen_state({internal = 1, client = 0})'"
-})
+    action = [[hyprctl dispatch 'hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" })']],
+ })

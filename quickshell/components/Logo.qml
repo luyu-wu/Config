@@ -16,7 +16,7 @@ Item {
 
     Rectangle {
         anchors.fill: parent
-        color: logoMenu.visible ? "#1071db" : "transparent"
+        color: logoMenu.visible ? v.accentColor : "transparent"
     }
 
     Text {
@@ -25,7 +25,7 @@ Item {
         text: ""
         font.family: "FiraCode Nerd Font"
         font.pixelSize: 30
-        color: logoMenu.visible ? "#fff" : v.textColor
+        color: logoMenu.visible ? v.accentForeground : v.textColor
     }
 
     MouseArea {

@@ -1,6 +1,8 @@
 import Quickshell
 import QtQuick
 import QtQuick.Layouts
+import Quickshell.Wayland
+import qs.share.app
 import "components"
 
 Variants {
@@ -16,6 +18,7 @@ Variants {
         anchors.right: true
         implicitHeight: 56  // 40px bar + 16px shadow
         exclusiveZone: 50
+        WlrLayershell.layer: HyprlandExt.exposeOpen ? WlrLayer.Overlay : WlrLayer.Top
         color: "transparent"
 
         // ── Shadow gradient below the bar ─────────────

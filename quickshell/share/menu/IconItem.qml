@@ -33,7 +33,7 @@ Rectangle {
         Rectangle {
             implicitWidth: 32
             implicitHeight: 32
-            color: selected ? "#097aff" : "#30303030"
+            color: selected ? v.accentColor : "#20A0A0A0"
 
             radius: 16
             Button {
@@ -42,7 +42,7 @@ Rectangle {
                 implicitHeight: 32
 
                 icon.name: "headphone"
-                icon.color: selected ? "#fff" : "#888"
+                icon.color: selected ? v.accentForeground : "#888"
                 flat: true
             }
         }

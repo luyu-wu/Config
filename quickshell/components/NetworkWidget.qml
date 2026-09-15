@@ -61,7 +61,7 @@ Item {
             return "network-wireless-signal-none-symbolic";
         }
         if (ethernetConnected)
-            return "network-wired";
+            return "network-wired-activated";
         return "network-offline";
     }
     MouseArea {

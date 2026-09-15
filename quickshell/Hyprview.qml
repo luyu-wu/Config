@@ -5,6 +5,7 @@ import Quickshell.Io
 import Quickshell.Widgets
 import Quickshell.Wayland
 import Quickshell.Hyprland
+import qs.share.app
 import "hyprview"
 import "hyprview/layouts"
 
@@ -14,7 +15,6 @@ PanelWindow {
     // --- SETTINGS ---
     property string layoutAlgorithm: "smartgrid"
     property string lastLayoutAlgorithm: ""
-    property bool moveCursorToActiveWindow: false
     property bool liveCapture: false
 
     // --- INTERNAL STATE ---
@@ -54,8 +54,8 @@ PanelWindow {
     // LayerShell Configs
     WlrLayershell.layer: WlrLayer.Overlay
     WlrLayershell.exclusiveZone: -1
-    WlrLayershell.keyboardFocus: (isActive && !closing) ? 1 : 0
-    WlrLayershell.namespace: "quickshell:expose"
+    WlrLayershell.keyboardFocus: WlrKeyboardFocus.None //(isActive && !closing) ? 1 : 0
+    WlrLayershell.namespace: "qs:expose"
 
     // --- IPC & EVENTS ---
     IpcHandler {
@@ -115,6 +115,7 @@ PanelWindow {
         } else if (!root.isActive) {
             // Opening
             root.isActive = true;
+            HyprlandExt.exposeOpen = true;
             wallpaperProc.running = true;
             root.lastLayoutAlgorithm = root.layoutAlgorithm;
             exposeArea.currentIndex = -1;
@@ -128,6 +129,7 @@ PanelWindow {
         interval: 400
         onTriggered: {
             root.isActive = false;
+            HyprlandExt.exposeOpen = false;
             root.closing = false;
             root.closingWorkspace = null;
             root.animateWindows = false;
@@ -248,30 +250,10 @@ PanelWindow {
         // Dim background
         Rectangle {
             anchors.fill: parent
-            anchors.topMargin: 40
             z: -4
             bottomRightRadius: 16
             bottomLeftRadius: 16
             color: Qt.rgba(0.2, 0.2, 0.2)
-        }
-
-        Rectangle {
-            anchors.left: parent.left
-            anchors.right: parent.right
-            anchors.top: parent.top
-            anchors.topMargin: 40
-            height: 16
-            z: 1
-            gradient: Gradient {
-                GradientStop {
-                    position: 0.0
-                    color: Qt.rgba(0, 0, 0, 0.15)
-                }
-                GradientStop {
-                    position: 1.0
-                    color: Qt.rgba(0, 0, 0, 0.0)
-                }
-            }
         }
 
         Rectangle {
@@ -301,7 +283,6 @@ PanelWindow {
             RectangularShadow {
                 id: bgShadow
                 anchors.fill: parent
-                anchors.topMargin: 40
                 z: -2
                 color: Qt.rgba(0, 0, 0, 0.3)
 
@@ -328,7 +309,6 @@ PanelWindow {
                 color: "transparent"
                 radius: visualActive ? bgRect.targetRadius : 8
                 z: -1
-                anchors.topMargin: 40
                 Behavior on radius {
                     NumberAnimation {
                         duration: 400
@@ -337,8 +317,6 @@ PanelWindow {
                 }
 
                 Image {
-                    anchors.topMargin: -40
-
                     anchors.fill: parent
                     fillMode: Image.PreserveAspectCrop
                     source: root.wallpaperPath
@@ -451,7 +429,6 @@ PanelWindow {
                             targetRotation: modelData.rotation || 0
 
                             hovered: visible && (exposeArea.currentIndex === index)
-                            moveCursorToActiveWindow: root.moveCursorToActiveWindow
                         }
                     }
                 }

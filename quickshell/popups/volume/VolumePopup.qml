@@ -106,6 +106,7 @@ PopupWindow {
             Layout.fillWidth: true
             Layout.leftMargin: 18
             Layout.rightMargin: 18
+            Layout.bottomMargin: 14
             from: 0
             to: 1
             value: Pipewire.defaultAudioSink.audio.volume

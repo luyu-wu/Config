@@ -128,14 +128,14 @@ PopupWindow {
 
                 implicitWidth: 48
                 implicitHeight: 28
-                color: Networking.wifiEnabled ? "#1687ff" : "#afb0b5"
+                color: Networking.wifiEnabled ? v.accentColor : v.accentMuted
                 radius: 16
                 Rectangle {
                     anchors.verticalCenter: parent.verticalCenter
                     x: Networking.wifiEnabled ? 22 : 2
                     implicitWidth: 24
                     implicitHeight: 24
-                    color: "#fff"
+                    color: v.accentForeground
                     radius: 12
                     Behavior on x {
                         NumberAnimation {

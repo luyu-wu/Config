@@ -14,7 +14,7 @@ hl.curve("menu_accel", { type = "bezier", points = { { 0.38, 0.04 }, { 1, 0.07 }
 hl.curve("spring_menu", { type = "spring", mass = 1, stiffness = 800, dampening = 50 })
 hl.curve("spring_window", { type = "spring", mass = 1, stiffness = 240, dampening = 20 })
 hl.curve("spring_open", {type="spring",mass=1,stiffness=300,dampening=24})
-hl.curve("spring_workspace", { type = "spring", mass = 1.2, stiffness = 300, dampening = 30 })
+hl.curve("spring_workspace", { type = "spring", mass = 1, stiffness = 500, dampening = 40 })
 hl.curve("spring_special", { type = "spring", mass = 1, stiffness = 400, dampening = 28 })
 
 

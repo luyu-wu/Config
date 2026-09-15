@@ -30,7 +30,7 @@ Rectangle {
         anchors.fill: parent
 
         radius: 4
-        color: hovered ? "#1071db" : "transparent"
+        color: hovered ? v.accentColor : "transparent"
 
         property bool hovered: false
 
@@ -50,7 +50,7 @@ Rectangle {
             Text {
                 id: labelText
                 text: menuHandle.text
-                color: item.hovered ? "#ffffff" : v.textColor
+                color: item.hovered ? v.accentForeground : v.textColor
                 font.family: "SF Pro"
                 font.pixelSize: 18
                 Layout.fillWidth: true
@@ -70,13 +70,13 @@ Rectangle {
                     anchors.fill: parent
                     anchors.margins: 3
                     radius: 8
-                    color: "#198aff"
+                    color: v.accentColor
                     visible: menuHandle.checkState != 0
                 }
             }
             Text {
                 text: ""
-                color: item.hovered ? "#ffffff" : v.textSecondary
+                color: item.hovered ? v.accentForeground : v.textSecondary
                 visible: menuHandle.hasChildren
             }
         }

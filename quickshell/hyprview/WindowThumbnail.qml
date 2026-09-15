@@ -26,8 +26,6 @@ Item {
     property real targetZ: 0
     property real targetRotation: 0
 
-    property bool moveCursorToActiveWindow: false
-
     width: thumbW
     height: thumbH
 
@@ -276,22 +274,20 @@ Item {
         var targetIsSpecial = (hWin?.workspace ?? 0) < 0 || (hWin?.workspace?.name ?? "").startsWith("special");
 
         if (root.specialActive && !targetIsSpecial) {
-            Hyprland.dispatch("togglespecialworkspace");
+            Hyprland.dispatch('hl.dsp.workspace.toggle_special()');
         }
 
         if (hWin.workspace) {
             root.closingWorkspace = hWin.workspace;
             hWin.workspace.activate();
         }
-
         root.toggleExpose();
-        Hyprland.dispatch("focuswindow address:0x" + hWin.address);
-        Hyprland.dispatch("alterzorder top");
-        if (thumbContainer.moveCursorToActiveWindow) {
-            var cx = clientInfo.at[0] + (clientInfo.size[0] / 2);
-            var cy = clientInfo.at[1] + (clientInfo.size[1] / 2);
-            Hyprland.dispatch("movecursor " + cx + " " + cy);
-        }
+
+        Hyprland.dispatch(
+            'hl.dsp.focus({ window = "address:0x' + hWin.address + '"})'
+        );
+        Hyprland.dispatch(
+             'hl.dsp.window.alter_zorder({ mode = "top" })');
     }
 
     Item {
@@ -352,7 +348,7 @@ Item {
                     anchors.fill: parent
                     color: "transparent"
                     border.width: thumbContainer.hovered ? 4 : 1
-                    border.color: thumbContainer.hovered ? "#1071db" : "#444"
+                    border.color: thumbContainer.hovered ? v.accentColor : "#444"
                     radius: 12
                 }
             }
@@ -368,7 +364,7 @@ Item {
             y: card.height - height - (card.height * 0.08)
 
             radius: 4
-            color: thumbContainer.hovered ? "#1071db" : "#e4e7ef"
+            color: thumbContainer.hovered ? v.accentColor : "#e4e7ef"
 
             Text {
                 id: titleText

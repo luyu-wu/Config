@@ -29,6 +29,7 @@
     "enable_feedback": false,
     "play_sound_when_agent_done": "never",
     "sandbox_permissions": {
+      "allow_unsandboxed": true,
       "network_hosts": [
         "github.com",
         "raw.githubusercontent.com",
@@ -74,7 +75,7 @@
       "effort": "high",
       "provider": "deepseek",
       "model": "deepseek-v4-flash",
-      "enable_thinking": true
+      "enable_thinking": false
     },
     "favorite_models": [
       {

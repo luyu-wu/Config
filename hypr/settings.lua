@@ -70,7 +70,7 @@ hl.config({
         allow_session_lock_restore = true,
         focus_on_activate          = true,
         animate_manual_resizes     = false,
-        vrr                        = 1,
+        vrr                        = 0,
         initial_workspace_tracking = 0,
         middle_click_paste         = false,
         font_family                = "SF Pro",
@@ -135,6 +135,6 @@ hl.config({
     debug = {
         error_position = 1,
         overlay = false,
-        suppress_errors = true,
+        suppress_errors = false,
     }
 })

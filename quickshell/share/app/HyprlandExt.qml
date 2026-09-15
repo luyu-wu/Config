@@ -8,6 +8,7 @@ import qs.share.app
 Singleton {
     id: root
     property bool appInFullscreen: false
+    property bool exposeOpen: false
     property string applicationName: ""
     Connections {
         target: Hyprland
