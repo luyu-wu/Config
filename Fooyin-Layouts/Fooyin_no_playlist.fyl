@@ -1,0 +1,134 @@
+{
+    "Name": "Fooyin_no_playlist",
+    "Options": {
+        "ApplyTheme": true,
+        "ApplyWindowSize": false,
+        "ThemeOptions": 3
+    },
+    "Version": 1,
+    "Widgets": [
+        {
+            "SplitterVertical": {
+                "State": "AAAA/wAAAAEAAAACAAADoQAAABwA/////wEAAAACAA==",
+                "Widgets": [
+                    {
+                        "SplitterHorizontal": {
+                            "State": "AAAA/wAAAAEAAAACAAABggAAATUA/////wEAAAABAA==",
+                            "Widgets": [
+                                {
+                                    "Playlist": {
+                                        "Columns": "1|2",
+                                        "HeaderState": "AAAANXjaY2BgYGJgYJgPxJ8ZIGwQYASx7T8wYIL/////BwBsRAbF",
+                                        "ID": "048715e2315d49eab7d91b3aeed5b074",
+                                        "Preset": 0,
+                                        "SingleMode": false
+                                    }
+                                },
+                                {
+                                    "SplitterVertical": {
+                                        "State": "AAAA/wAAAAEAAAACAAABMwAAAQwA/////wEAAAACAA==",
+                                        "Widgets": [
+                                            {
+                                                "ArtworkPanel": {
+                                                    "CoverAlignment": 132,
+                                                    "CoverType": 0,
+                                                    "FadeCoverChanges": false,
+                                                    "FadeDurationMs": 1000,
+                                                    "KeepAspectRatio": true
+                                                }
+                                            },
+                                            {
+                                                "TabStack": {
+                                                    "LastTab": 2,
+                                                    "Position": "North",
+                                                    "RememberLastTab": true,
+                                                    "State": "Selection Info\u001fLyrics\u001fPlaylist Organizer",
+                                                    "Widgets": [
+                                                        {
+                                                            "SelectionInfo": {
+                                                                "AlternatingRows": true,
+                                                                "Options": 87,
+                                                                "ShowHeader": true,
+                                                                "ShowHorizontalScrollbar": false,
+                                                                "ShowVerticalScrollbar": true,
+                                                                "State": "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARoAAAACAAAAAAAAAAAAAAAAAAAAAGT/////AAAAhAAAAAAAAAACAAAAZAAAAAEAAAAAAAAAtgAAAAEAAAACAAAD6AAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=="
+                                                            }
+                                                        },
+                                                        {
+                                                            "Lyrics": {
+                                                                "Alignment": 132,
+                                                                "BaseFont": "Liberation Sans,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,Regular,0,0",
+                                                                "BottomMargin": 20,
+                                                                "CentreFirstSyncedLine": false,
+                                                                "CentreLastSyncedLine": true,
+                                                                "EdgeFadeMode": 1,
+                                                                "EdgeFadeSize": 25,
+                                                                "LeftMargin": 20,
+                                                                "LineFont": "Liberation Sans,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,Regular,0,0",
+                                                                "LineSpacing": 12,
+                                                                "NoLyricsScript": "[Artist: %artist%$crlf(2)][Album: %album%$crlf(2)]Title: %title%",
+                                                                "ProgressFill": 0,
+                                                                "RightMargin": 20,
+                                                                "ScrollDuration": 500,
+                                                                "ScrollMode": 1,
+                                                                "SeekOnClick": true,
+                                                                "ShowScrollbar": false,
+                                                                "TopMargin": 20,
+                                                                "UseCustomColours": false,
+                                                                "WordFont": "",
+                                                                "WordLineFont": ""
+                                                            }
+                                                        },
+                                                        {
+                                                            "PlaylistOrganiser": {
+                                                                "LeftScript": "%node_name%$if(%is_group%, \\[%count%\\],)",
+                                                                "PlayingBackgroundColour": "",
+                                                                "PlayingTextColour": "",
+                                                                "RightScript": "$if($not(%is_group%),%count%)"
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "SplitterHorizontal": {
+                            "State": "AAAA/wAAAAEAAAAEAAAAiQAABk8AAABHAAAAZwD/////AQAAAAEA",
+                            "Widgets": [
+                                {
+                                    "PlayerControls": {
+                                        "ShowNext": true,
+                                        "ShowPlayPause": true,
+                                        "ShowPrevious": true,
+                                        "ShowRandomTrack": false,
+                                        "ShowStop": true
+                                    }
+                                },
+                                {
+                                    "SeekBar": {
+                                        "ShowLabels": true,
+                                        "ShowRemainingTime": false
+                                    }
+                                },
+                                {
+                                    "PlaylistControls": {
+                                    }
+                                },
+                                {
+                                    "VolumeControls": {
+                                        "Mode": 3
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

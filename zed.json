@@ -75,7 +75,7 @@
       "effort": "high",
       "provider": "deepseek",
       "model": "deepseek-v4-flash",
-      "enable_thinking": false
+      "enable_thinking": true
     },
     "favorite_models": [
       {

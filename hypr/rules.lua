@@ -56,7 +56,7 @@ hl.layer_rule({
 
 hl.layer_rule({
     name         = "Quickshell Popups",
-    match        = { namespace = "qs:popup|quickshell" },
+    match        = { namespace = "qs:popup|quickshell|qs:osd" },
     no_anim      = false,
     blur         = true,
     blur_popups  = true,

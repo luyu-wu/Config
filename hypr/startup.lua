@@ -1,9 +1,3 @@
-
-
------------------------------
----- ENVIRONMENT VARIABLES --
------------------------------
-
 hl.env("QT_QPA_PLATFORM", "wayland;xcb")
 hl.env("QT_QPA_PLATFORMTHEME", "kde")
 hl.env("GDK_BACKEND", "wayland,x11,*")
@@ -28,10 +22,6 @@ hl.env("QT_IM_MODULE", "fcitx")
 hl.env("XMODIFIERS", "@im=fcitx")
 hl.env("QT_LOGGING_RULES", "*.debug=false")
 
------------------------------
--------- AUTOSTART ----------
------------------------------
-
 hl.on("hyprland.start", function()
     hl.exec_cmd(
         "dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY HYPRLAND_INSTANCE_SIGNATURE XDG_CURRENT_DESKTOP")
@@ -47,6 +37,5 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("play /home/chrysanthemum/.config/hypr/Assets/startup.mp3")
     --hl.exec_cmd("snappy-switcher --daemon")
     hl.exec_cmd("gsettings set org.gnome.desktop.wm.preferences button-layout 'close,minimize,maximize:'")
-    hl.exec_cmd("swayosd-server")
     hl.exec_cmd("wl-clip-persist --clipboard regular")
 end)

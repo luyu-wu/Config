@@ -27,6 +27,33 @@ PopupWindow {
     }
     color: "transparent"
 
+    // ── pipewire nodes ───────────────────────────────────────────────────────
+    // Every audio node currently in the graph. Node type/name/description are
+    // parsed from the registry global before the node lands in `nodes`, so
+    // filtering on them here is safe.
+    readonly property var audioNodes: Pipewire.nodes ? Pipewire.nodes.values.filter(node => node.audio !== null) : []
+
+    // Device subsets. PwNodeType flags are bitwise, so a duplex device (both
+    // sink and source) legitimately shows up in both lists. Streams are the
+    // applications playing/capturing audio and are excluded here.
+    readonly property var outputNodes: audioNodes.filter(node => (node.type & PwNodeType.AudioSink) === PwNodeType.AudioSink && (node.type & PwNodeType.Stream) === 0)
+    readonly property var inputNodes: audioNodes.filter(node => (node.type & PwNodeType.AudioSource) === PwNodeType.AudioSource && (node.type & PwNodeType.Stream) === 0)
+
+    readonly property PwNode sink: Pipewire.defaultAudioSink
+    readonly property PwNode source: Pipewire.defaultAudioSource
+
+    // Device names can be arbitrarily long; keep every row inside the popup.
+    readonly property int maxLabelLength: 30
+    function deviceLabel(node) {
+        const name = node.description || node.nickname || node.name || "Unknown";
+        return name.length > maxLabelLength ? name.substring(0, maxLabelLength - 1) + "…" : name;
+    }
+
+    // Bind the nodes so volume/mute/properties stay live.
+    PwObjectTracker {
+        objects: root.audioNodes
+    }
+
     Item {
         id: mask
         anchors.fill: parent
@@ -109,7 +136,8 @@ PopupWindow {
             Layout.bottomMargin: 14
             from: 0
             to: 1
-            value: Pipewire.defaultAudioSink.audio.volume
+            value: root.sink && root.sink.audio ? root.sink.audio.volume : 0
+            enabled: root.sink !== null
             height: 40
             background: Rectangle {
                 x: seekSlider.leftPadding
@@ -152,20 +180,70 @@ PopupWindow {
                 border.color: "#30606060"
             }
             onMoved: {
-                Pipewire.defaultAudioSink.audio.volume = seekSlider.visualPosition;
+                if (root.sink && root.sink.audio)
+                    root.sink.audio.volume = seekSlider.visualPosition;
             }
         }
 
         MenuDiv {}
+
+        // ── no devices placeholder ───────────────────────────────────────
+        Loader {
+            Layout.fillWidth: true
+            visible: root.audioNodes.length === 0
+            sourceComponent: Item {
+                implicitHeight: 36
+                Text {
+                    anchors.centerIn: parent
+                    text: "No audio devices found"
+                    color: v.textPlaceholder
+                    font.pixelSize: 13
+                }
+            }
+        }
+
+        // ── output devices (pipewire sinks) ──────────────────────────────
         MenuLabel {
             label: "Output"
             labelElement.font.weight: 600
             labelElement.color: v.textPlaceholder
+            visible: root.outputNodes.length > 0
         }
-        IconItem {
-            label: Pipewire.defaultAudioSink.description
-            iconName: "headphone"
-            selected: true
+        Repeater {
+            model: root.outputNodes
+
+            delegate: IconItem {
+                required property var modelData
+                readonly property PwNode node: modelData
+
+                label: root.deviceLabel(node)
+                iconName: "audio-speakers-symbolic"
+                selected: node === root.sink
+
+                onTriggered: Pipewire.preferredDefaultAudioSink = node
+            }
+        }
+
+        // ── input devices (pipewire sources) ─────────────────────────────
+        MenuLabel {
+            label: "Input"
+            labelElement.font.weight: 600
+            labelElement.color: v.textPlaceholder
+            visible: root.inputNodes.length > 0
+        }
+        Repeater {
+            model: root.inputNodes
+
+            delegate: IconItem {
+                required property var modelData
+                readonly property PwNode node: modelData
+
+                label: root.deviceLabel(node)
+                iconName: "audio-input-microphone-symbolic"
+                selected: node === root.source
+
+                onTriggered: Pipewire.preferredDefaultAudioSource = node
+            }
         }
 
         MenuDiv {}

@@ -38,6 +38,37 @@ workflow is build to be intuitive and easily customizeable :)
 - Custom binaries for manipulating hyprland (CTM <3)
 - Tons of other stuff!!
 
+## Screenshot overlay
+
+`SUPER SHIFT S` opens the region screenshot overlay. It is a module of the main
+quickshell instance (`quickshell/screenshot/`) rather than a separate
+quickshell process, so it costs nothing when idle and shares the running
+compositor connection.
+
+It is bound through Hyprland's global shortcut protocol, so the key dispatches
+straight into the running shell with no process spawn and no IPC round trip:
+
+| Bind | Global shortcut | Behaviour |
+| --- | --- | --- |
+| `SUPER SHIFT S` | `quickshell:region` | Save to `~/Pictures/Screenshots`, copy to clipboard |
+| `Print` | `quickshell:regionTemp` | Copy to clipboard only |
+| - | `quickshell:regionEdit` | Open satty to annotate before saving |
+
+Inside the overlay:
+
+| Key | Behaviour |
+| --- | --- |
+| drag | Capture the dragged region |
+| click | Capture the whole focused screen |
+| `S` | Capture the whole focused screen |
+| `E` | Toggle the satty/annotation mode |
+| `T` | Toggle copy-only mode |
+| `Esc` / `Q` / right-click | Dismiss without saving |
+
+The frozen desktop is grabbed with `grim` once at startup, replacing the
+`screencopy` view the standalone version used (a screencopy surface cannot
+render a shader on top of itself).
+
 ## Packages
 in the packages.txt or smth, flatpaks r in the flatpak one! (this hasn't been updated in years, best bet is just finding what you need the hard way)
 

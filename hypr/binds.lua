@@ -4,36 +4,34 @@
 local SUPER       = "SUPER"
 local SUPER_SHIFT = "SUPER + SHIFT"
 
------------------------------
-------  FUNCTION KEYS  ------
------------------------------
 
 -- Brightness
-hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("swayosd-client --brightness raise"), { repeating = true, locked = true })
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("swayosd-client --brightness lower"),
+hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("quickshell ipc -p ~/.config/quickshell call osd brightnessUp"),
     { repeating = true, locked = true })
-hl.bind("SHIFT + XF86MonBrightnessUp", hl.dsp.exec_cmd("swayosd-client --brightness +1"),
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("quickshell ipc -p ~/.config/quickshell call osd brightnessDown"),
     { repeating = true, locked = true })
-hl.bind("SHIFT + XF86MonBrightnessDown", hl.dsp.exec_cmd("swayosd-client --brightness -1"),
+hl.bind("SHIFT + XF86MonBrightnessUp", hl.dsp.exec_cmd("quickshell ipc -p ~/.config/quickshell call osd brightnessUpFine"),
+    { repeating = true, locked = true })
+hl.bind("SHIFT + XF86MonBrightnessDown", hl.dsp.exec_cmd("quickshell ipc -p ~/.config/quickshell call osd brightnessDownFine"),
     { repeating = true, locked = true })
 
 -- Volume
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("swayosd-client --output-volume raise --max-volume 100"),
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("quickshell ipc -p ~/.config/quickshell call osd volumeUp"),
     { repeating = true, locked = true })
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("swayosd-client --output-volume lower"),
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("quickshell ipc -p ~/.config/quickshell call osd volumeDown"),
     { repeating = true, locked = true })
-hl.bind("SHIFT + XF86AudioRaiseVolume", hl.dsp.exec_cmd("swayosd-client --output-volume +1 --max-volume 100"),
+hl.bind("SHIFT + XF86AudioRaiseVolume", hl.dsp.exec_cmd("quickshell ipc -p ~/.config/quickshell call osd volumeUpFine"),
     { repeating = true, locked = true })
-hl.bind("SHIFT + XF86AudioLowerVolume", hl.dsp.exec_cmd("swayosd-client --output-volume -1"),
+hl.bind("SHIFT + XF86AudioLowerVolume", hl.dsp.exec_cmd("quickshell ipc -p ~/.config/quickshell call osd volumeDownFine"),
     { repeating = true, locked = true })
 
 -- Mute / Power / Media
-hl.bind("XF86AudioMute", hl.dsp.exec_cmd("swayosd-client --output-volume mute-toggle"), { locked = true })
+hl.bind("XF86AudioMute", hl.dsp.exec_cmd("quickshell ipc -p ~/.config/quickshell call osd volumeMute"), { locked = true })
 hl.bind("XF86PowerOff", hl.dsp.exec_cmd("pkill wleave || wleave -m 500 -c 50 -f"), { locked = true })
 hl.bind("SHIFT + XF86PowerOff", hl.dsp.exec_cmd("systemctl suspend"), { locked = true })
-hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("swayosd-client --playerctl play-pause"))
-hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("swayosd-client --playerctl previous"))
-hl.bind("XF86AudioNext", hl.dsp.exec_cmd("swayosd-client --playerctl next"))
+hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"))
+hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"))
+hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"))
 hl.bind("XF86AudioMedia", hl.dsp.exec_cmd("~/.config/hypr/Scripts/powermode.sh"))
 
 local MAX_ZOOM = 10
@@ -59,16 +57,10 @@ hl.bind("SUPER + mouse_up", function()
     zoom(0.5)
 end)
 
-
-
------------------------------
---------  GESTURES  ---------
------------------------------
-
 hl.gesture({ fingers = 3, direction = "horizontal", action = "workspace",disable_inhibit=true})
-hl.gesture({ 
-	fingers = 3, 
-	direction = "vertical", 
+hl.gesture({
+	fingers = 3,
+	direction = "vertical",
 	action = function()
 		hl.exec_cmd("quickshell ipc -p ~/.config/quickshell/ call expose toggle")
 	end,
@@ -79,12 +71,12 @@ hl.gesture({ fingers = 3, direction = "pinchin", action = "cursorZoom", zoom_lev
 hl.gesture({ fingers = 3, direction = "pinchout", action = "cursorZoom"})
 
 
-hl.gesture({fingers=4, direction="right",action=function() hl.exec_cmd("swayosd-client --playerctl previous") end})
-hl.gesture({fingers=4, direction="left",action=function() hl.exec_cmd("swayosd-client --playerctl next") end})
+hl.gesture({fingers=4, direction="right",action=function() hl.exec_cmd("playerctl previous") end})
+hl.gesture({fingers=4, direction="left",action=function() hl.exec_cmd("playerctl next") end})
 
 local volume_gesture = function(change)
 	hl.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ " .. math.abs(change) .. "%" .. (change<0 and "-" or "+"))
-	hl.exec_cmd("swayosd-client --output-volume 0")
+	hl.exec_cmd("quickshell ipc -p ~/.config/quickshell call osd volumeRefresh")
 end
 hl.gesture({
   fingers = 4,
@@ -96,26 +88,20 @@ hl.gesture({
   disable_inhibit = true
 })
 
-
------------------------------
-------  SCREENSHOTTING  -----
------------------------------
-
 hl.bind(SUPER_SHIFT .. " + C", hl.dsp.exec_cmd("hyprpicker -a"))
 hl.bind(SUPER .. " + A", hl.dsp.exec_cmd("scrcpy -w -S -K"))
-hl.bind(SUPER_SHIFT .. " + S", hl.dsp.exec_cmd("qs -p ~/.config/hypr/Scripts/HyprQuickFrame/ -n"))
-hl.bind("Print", hl.dsp.exec_cmd("hyprquickframe"), { locked = true })
+-- Region screenshot overlay. Bound as a global shortcut so it dispatches
+-- straight into the running quickshell instance instead of spawning `qs -p`
+-- (see quickshell/screenshot/):
+--   quickshell:region      -> save to ~/Pictures/Screenshots and copy
+--   quickshell:regionTemp  -> copy to clipboard only
+--   quickshell:regionEdit  -> open satty to annotate before saving
+hl.bind(SUPER_SHIFT .. " + S", hl.dsp.global("quickshell:region"))
+hl.bind("Print", hl.dsp.global("quickshell:regionTemp"), { locked = true })
 
------------------------------
-------  GLOBAL KEYBINDS  ----
------------------------------
 
 -- Pass F2 to OBS (push-to-talk / global shortcut)
 hl.bind("SHIFT + F2", hl.dsp.pass({ window = "class:^(com\\.obsproject\\.Studio)$" }), { non_consuming = true })
-
------------------------------
---------  LAUNCHERS  --------
------------------------------
 
 -- Expose / overview
 hl.bind(SUPER .. " + Tab",
