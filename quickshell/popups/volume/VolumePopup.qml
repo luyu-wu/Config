@@ -27,15 +27,7 @@ PopupWindow {
     }
     color: "transparent"
 
-    // ── pipewire nodes ───────────────────────────────────────────────────────
-    // Every audio node currently in the graph. Node type/name/description are
-    // parsed from the registry global before the node lands in `nodes`, so
-    // filtering on them here is safe.
     readonly property var audioNodes: Pipewire.nodes ? Pipewire.nodes.values.filter(node => node.audio !== null) : []
-
-    // Device subsets. PwNodeType flags are bitwise, so a duplex device (both
-    // sink and source) legitimately shows up in both lists. Streams are the
-    // applications playing/capturing audio and are excluded here.
     readonly property var outputNodes: audioNodes.filter(node => (node.type & PwNodeType.AudioSink) === PwNodeType.AudioSink && (node.type & PwNodeType.Stream) === 0)
     readonly property var inputNodes: audioNodes.filter(node => (node.type & PwNodeType.AudioSource) === PwNodeType.AudioSource && (node.type & PwNodeType.Stream) === 0)
 

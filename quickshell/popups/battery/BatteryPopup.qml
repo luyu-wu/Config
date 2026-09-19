@@ -121,7 +121,7 @@ PopupWindow {
         }
 
         IconItem {
-            label: "High Power"
+            label: "Performance"
             selected: (PowerProfiles.profile == 2)
             onTriggered: PowerProfiles.profile = 2
             iconName: "battery-profile-performance"

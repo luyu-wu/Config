@@ -24,11 +24,11 @@ hl.layer_rule({
 })
 
 hl.layer_rule({
-    name         = "Blur SwayNC",
-    match        = { namespace = "swaync-notification-window|snappy-switcher|qs:spotlight" },
+    name         = "Blur Spotlight",
+    match        = { namespace = "snappy-switcher|qs:spotlight" },
     blur         = true,
     ignore_alpha = 0.5,
-    no_anim      = true,
+    no_anim      = false,
 })
 
 hl.layer_rule({
@@ -39,18 +39,18 @@ hl.layer_rule({
 })
 
 hl.layer_rule({
-    name         = "SwayNC-Center",
-    match        = { namespace = "swaync-control-center|swayosd$" },
+    name         = "Quickshell Notifications",
+    match        = { namespace = "qs:notifications" },
     blur         = true,
+    blur_popups  = true,
+    no_anim      = true,
     ignore_alpha = 0.5,
-    animation    = "slide top",
 })
 
 hl.layer_rule({
     name       = "QS-Expose",
     match      = { namespace = "qs:expose" },
     blur    = false,
-    --xray = true,
     no_anim = true,
 })
 
@@ -60,7 +60,6 @@ hl.layer_rule({
     no_anim      = false,
     blur         = true,
     blur_popups  = true,
-    animation    = "slide top",
     ignore_alpha = 0.5,
 })
 

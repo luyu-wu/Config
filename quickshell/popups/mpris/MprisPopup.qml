@@ -285,10 +285,11 @@ PanelWindow {
 
                     // Play / Pause
                     ControlButton {
-                        icon: root.playing ? "⏸" : "▶"
+                        icon: root.playing ? "⏸" : "▶️"
                         size: 64
                         onActivated: root.playing ? root.player?.pause() : root.player?.play()
                     }
+
 
                     // Next
                     ControlButton {

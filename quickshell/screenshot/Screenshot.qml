@@ -174,6 +174,10 @@ Singleton {
     property string tempPath: ""
     property string lastSavedPath: ""
     property string lastTimestamp: ""
+    // The snip file the most recent temp notification points at. It has to
+    // outlive its command so the toast can load the image; the next capture
+    // drops it, so at most one snip is ever left in /tmp.
+    property string lastSnipPath: ""
 
     function saveScreenshot(x, y, width, height, screenName) {
         if (!root.tempPath)
@@ -194,16 +198,26 @@ Singleton {
         const eTempPath = root.shellEscape(root.tempPath);
         // Temp shots live in /tmp rather than quickshell's cache dir; the main
         // instance is long-lived, so nothing would ever clean up cache files.
-        const eTempSnip = root.shellEscape(`/tmp/hqs-snip-${timestamp}.png`);
+        const snipPath = `/tmp/hqs-snip-${timestamp}.png`;
+        const eTempSnip = root.shellEscape(snipPath);
+
+        // The snip is handed to notify-send as the notification's image, and the
+        // toast loads it asynchronously, so unlinking it in the same command
+        // would race the loader. Keep it and drop the previous one instead.
+        const previousSnip = root.lastSnipPath && root.lastSnipPath !== snipPath ? root.lastSnipPath : "";
+        const ePreviousSnip = previousSnip ? root.shellEscape(previousSnip) : "";
+        root.lastSnipPath = root.tempActive ? snipPath : "";
 
         const mkdirCmd = `mkdir -p ${ePicturesDir}`;
         const cropCmd = `magick ${eTempPath} -crop ${crop.scaledWidth}x${crop.scaledHeight}+${crop.cropX}+${crop.cropY} +repage`;
+        const cleanupCmd = `rm -f ${eTempPath}${ePreviousSnip ? " " + ePreviousSnip : ""}`;
 
-        const sattyCommand = `${mkdirCmd} && ${cropCmd} png:- | satty --filename - --output-filename ${eOutputPath} --early-exit --init-tool brush && wl-copy --type image/png < ${eOutputPath}; rm -f ${eTempPath}`;
-        const gradiaCommand = `${mkdirCmd} && ${cropCmd} ${eOutputPath} && hyprctl dispatch exec -- "gradia ${eOutputPath} || flatpak run be.alexandervanhee.gradia ${eOutputPath}"; sleep 0.5; rm -f ${eTempPath}`;
-        const defaultSaveCommand = `${mkdirCmd} && ${cropCmd} ${eOutputPath} && wl-copy --type image/png < ${eOutputPath} && notify-send -a "HyprQuickFrame" -i ${eOutputPath} -h string:image-path:${eOutputPath} "Screenshot Saved" "Saved to ${picturesDir}"; rm -f ${eTempPath}`;
-        // The copied image has to be read before the snip is unlinked.
-        const defaultTempCommand = `${cropCmd} ${eTempSnip} && wl-copy --type image/png < ${eTempSnip} && notify-send -a "HyprQuickFrame" "Screenshot Copied" "Copied to clipboard"; rm -f ${eTempPath} ${eTempSnip}`;
+        const sattyCommand = `${mkdirCmd} && ${cropCmd} png:- | satty --filename - --output-filename ${eOutputPath} --early-exit --init-tool brush && wl-copy --type image/png < ${eOutputPath}; ${cleanupCmd}`;
+        const gradiaCommand = `${mkdirCmd} && ${cropCmd} ${eOutputPath} && hyprctl dispatch exec -- "gradia ${eOutputPath} || flatpak run be.alexandervanhee.gradia ${eOutputPath}"; sleep 0.5; ${cleanupCmd}`;
+        const defaultSaveCommand = `${mkdirCmd} && ${cropCmd} ${eOutputPath} && wl-copy --type image/png < ${eOutputPath} && notify-send -a "Screenshot" -i ${eOutputPath} -h string:image-path:${eOutputPath} "Screenshot Saved" "Saved to ${picturesDir}"; ${cleanupCmd}`;
+        // The copied image has to be read before the snip is unlinked, and the
+        // snip stays put afterwards as the notification's attached image.
+        const defaultTempCommand = `${cropCmd} ${eTempSnip} && wl-copy --type image/png < ${eTempSnip} && notify-send -a "Screenshot" -i ${eTempSnip} -h string:image-path:${eTempSnip} "Screenshot Copied" "Copied to clipboard"; ${cleanupCmd}`;
 
         let cmd;
         if (root.editActive)

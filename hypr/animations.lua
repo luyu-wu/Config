@@ -29,15 +29,16 @@ hl.animation({ leaf = "borderangle", enabled = false })
 
 -- Fade
 hl.animation({ leaf = "fade", enabled = true, speed = 3, bezier = "md3_decel" })
+hl.animation({ leaf = "fadeDpms", enabled = true, speed = 1, bezier = "md3_decel" })
 
 -- Zoom cursor
 hl.animation({ leaf = "zoomFactor", enabled = true, speed = 6, bezier = "md3_decel" })
 
 -- Layer animations
-hl.animation({ leaf = "layersIn", enabled = true, speed = 1, spring = "spring_menu", style = "slide" })
-hl.animation({ leaf = "layersOut", enabled = true, speed = 1, bezier = "menu_accel", style = "slide" })
-hl.animation({ leaf = "fadeLayersIn", enabled = true, speed = 2, bezier = "menu_decel" })
-hl.animation({ leaf = "fadeLayersOut", enabled = true, speed = 2, bezier = "menu_accel" })
+hl.animation({ leaf = "layersIn", enabled = true, speed = 1, spring = "spring_menu", style = "popin 90%" })
+hl.animation({ leaf = "layersOut", enabled = true, speed = 1, bezier = "menu_accel", style = "popin 90%" })
+hl.animation({ leaf = "fadeLayersIn", enabled = true, speed = 6, bezier = "menu_decel" })
+hl.animation({ leaf = "fadeLayersOut", enabled = true, speed = 1, bezier = "menu_accel" })
 
 -- Workspace animations
 hl.animation({ leaf = "workspaces", enabled = true, speed = 1, spring = "spring_workspace", style = "slide" })

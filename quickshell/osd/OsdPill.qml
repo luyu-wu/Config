@@ -96,25 +96,30 @@ Item {
         id: track
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: icon.right
-        anchors.leftMargin: 16
+        anchors.leftMargin: 12
         anchors.right: card.right
-        anchors.rightMargin: 14
+        anchors.rightMargin: 20
         height: 10
         radius: 5
         color: v.widgetHighlight
 
-        ClippingRectangle {
+        Rectangle {
             anchors.fill: parent
             anchors.margins: 0
-            radius: parent.radius
-            color: "transparent"
-
+            color: 'transparent'
             Rectangle {
                 width: root.progress * parent.width
                 height: parent.height
                 radius: 18
                 color: root.accent
+                RectangularShadow{
+                    anchors.fill: parent
+                    color: 'white'
+                    blur: 8
+                    visible: false //root.progress > 0.005
+                }
             }
+
         }
     }
 }
