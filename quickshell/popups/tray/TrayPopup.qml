@@ -12,7 +12,13 @@ PopupWindow {
     id: root
 
     property QsMenuHandle menuHandle
-    property MouseArea anchorPoint
+    property Item anchorPoint
+    // Popup that opened this one, when this popup is a submenu.
+    property var parentMenu: null
+    // True when this popup is a submenu of another TrayPopup.
+    property bool submenu: false
+    // Topmost popup of the chain, so the whole menu can be dismissed at once.
+    readonly property var topMenu: parentMenu ? parentMenu.topMenu : root
 
     QsMenuOpener {
         id: opener
@@ -20,14 +26,33 @@ PopupWindow {
     }
     implicitWidth: 240
     implicitHeight: menuColumn.implicitHeight + 16
+    // Submenus must also be grabbing popups (Qt::Popup). A non-grabbing
+    // (Qt::ToolTip) window is not registered in the parent popup's input chain
+    // on Wayland, so it would never receive hover or clicks.
     grabFocus: true
 
     anchor {
-        item: anchorPoint
-        rect.y: 38
-        rect.x: -12
+        item: root.anchorPoint
+        // Submenus overlap the parent's 8px shadow margin and the row's 4px
+        // inset so their visible panel sits flush against the parent panel's
+        // right edge instead of leaving a gap.
+        rect.x: root.submenu ? root.anchorPoint.width - 4 : -12
+        rect.y: root.submenu ? -4 : 38
+        adjustment: root.submenu
+            ? (PopupAdjustment.FlipX | PopupAdjustment.SlideY)
+            : PopupAdjustment.Slide
     }
     color: "transparent"
+
+    // Close every submenu opened by the rows of this popup, except the row
+    // that is currently requesting one.
+    function closeSubmenus(exceptItem) {
+        for (let i = 0; i < menuRepeater.count; i++) {
+            const entry = menuRepeater.itemAt(i);
+            if (entry && entry !== exceptItem && entry.closeSubmenu)
+                entry.closeSubmenu();
+        }
+    }
 
     Item {
         id: mask
@@ -95,6 +120,7 @@ PopupWindow {
         }
         spacing: 0
         Repeater {
+            id: menuRepeater
             model: opener.children
 
             delegate: TrayMenuItem {

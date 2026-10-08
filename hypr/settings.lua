@@ -6,12 +6,12 @@ hl.config({
         border_size      = 1,
         col              = {
         	-- Light
-            --active_border   = "rgb(708080)",
-            --inactive_border = "rgb(90a0a0)",
+            active_border   = "rgb(708080)",
+            inactive_border = "rgb(90a0a0)",
 
 			-- Dark
-            active_border   = "rgb(606060)",
-            inactive_border = "rgb(303030)",
+            --active_border   = "rgb(606060)",
+            --inactive_border = "rgb(303030)",
 
         },
         resize_on_border = true,

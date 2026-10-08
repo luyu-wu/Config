@@ -7,14 +7,11 @@ import Quickshell.Wayland
 import Quickshell.Hyprland
 import qs.share.app
 import "hyprview"
-import "hyprview/layouts"
 
 PanelWindow {
     id: root
 
     // --- SETTINGS ---
-    property string layoutAlgorithm: "smartgrid"
-    property string lastLayoutAlgorithm: ""
     property bool liveCapture: false
 
     // --- INTERNAL STATE ---
@@ -117,7 +114,6 @@ PanelWindow {
             root.isActive = true;
             HyprlandExt.exposeOpen = true;
             wallpaperProc.running = true;
-            root.lastLayoutAlgorithm = root.layoutAlgorithm;
             exposeArea.currentIndex = -1;
             root.animateWindows = true;
             Hyprland.refreshToplevels();
@@ -253,7 +249,7 @@ PanelWindow {
             z: -4
             bottomRightRadius: 16
             bottomLeftRadius: 16
-            color: Qt.rgba(0.2, 0.2, 0.2)
+            color: "#808080"
         }
 
         Rectangle {
@@ -317,6 +313,7 @@ PanelWindow {
                 }
 
                 Image {
+                    id: wallpaperImage
                     anchors.fill: parent
                     fillMode: Image.PreserveAspectCrop
                     source: root.wallpaperPath
@@ -354,7 +351,6 @@ PanelWindow {
 
                         property int areaW: exposeArea.width
                         property int areaH: exposeArea.height
-                        property string algo: root.lastLayoutAlgorithm
                         property var rawToplevels: Hyprland.toplevels.values
 
                         values: {
@@ -406,7 +402,7 @@ PanelWindow {
                                 return 0;
                             });
 
-                            return LayoutsManager.doLayout(algo, windowList, areaW, areaH);
+                            return LayoutsManager.doLayout(windowList, areaW, areaH);
                         }
                     }
 

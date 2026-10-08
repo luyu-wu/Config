@@ -18,6 +18,83 @@ Rectangle {
     Layout.bottomMargin: menuHandle.isSeparator ? 4 : 0
 
     color: "transparent"
+
+    // ── submenu ──────────────────────────────────────────────────────────────
+    // Loaded lazily through a string URL. TrayPopup instantiates TrayMenuItem,
+    // so referencing TrayPopup directly here would be a cyclic component
+    // dependency that QML refuses to resolve.
+    property bool submenuOpen: false
+    property bool pendingSubmenuOpen: false
+
+    Loader {
+        id: submenuLoader
+        active: false
+        source: "TrayPopup.qml"
+
+        onLoaded: {
+            item.menuHandle = root.menuHandle;
+            item.anchorPoint = row;
+            item.submenu = true;
+            item.parentMenu = root.dropdown;
+            if (root.pendingSubmenuOpen) {
+                root.pendingSubmenuOpen = false;
+                item.visible = true;
+            }
+        }
+    }
+
+    // A grabbing submenu can be dismissed by the compositor (clicking outside
+    // it), so the toggle state has to follow the popup's real visibility.
+    Connections {
+        target: submenuLoader.item
+        function onVisibleChanged() {
+            if (submenuLoader.item && !submenuLoader.item.visible)
+                root.submenuOpen = false;
+        }
+    }
+
+    function openSubmenu() {
+        if (!menuHandle.hasChildren)
+            return;
+        if (dropdown && dropdown.closeSubmenus)
+            dropdown.closeSubmenus(root);
+        submenuOpen = true;
+        submenuLoader.active = true;
+        if (submenuLoader.item) {
+            submenuLoader.item.visible = true;
+        } else {
+            pendingSubmenuOpen = true;
+        }
+    }
+
+    function closeSubmenu() {
+        pendingSubmenuOpen = false;
+        submenuOpen = false;
+        if (submenuLoader.item)
+            submenuLoader.item.visible = false;
+        // Release the child menu so the app is told the submenu was closed.
+        submenuLoader.active = false;
+    }
+
+    function toggleSubmenu() {
+        if (submenuOpen)
+            closeSubmenu();
+        else
+            openSubmenu();
+    }
+
+    // Hiding the menu this row belongs to (or a submenu further up the chain)
+    // must also take this row's submenu down with it.
+    Connections {
+        target: root.dropdown
+        function onVisibleChanged() {
+            if (!root.dropdown.visible)
+                root.closeSubmenu();
+        }
+    }
+
+    onMenuHandleChanged: root.closeSubmenu()
+
     Rectangle {
         anchors.fill: parent
         color: "#33000000"
@@ -25,14 +102,16 @@ Rectangle {
     }
 
     Rectangle {
-        id: item
+        id: row
         visible: !menuHandle.isSeparator
         anchors.fill: parent
 
         radius: 4
-        color: hovered ? v.accentColor : "transparent"
+        color: active ? v.accentColor : "transparent"
 
         property bool hovered: false
+        // The row stays highlighted while its submenu is open.
+        readonly property bool active: hovered || root.submenuOpen
 
         RowLayout {
             anchors {
@@ -50,7 +129,7 @@ Rectangle {
             Text {
                 id: labelText
                 text: menuHandle.text
-                color: item.hovered ? v.accentForeground : v.textColor
+                color: row.active ? v.accentForeground : v.textColor
                 font.family: "SF Pro"
                 font.pixelSize: 18
                 Layout.fillWidth: true
@@ -76,43 +155,28 @@ Rectangle {
             }
             Text {
                 text: ""
-                color: item.hovered ? v.accentForeground : v.textSecondary
+                color: row.active ? v.accentForeground : v.textSecondary
                 visible: menuHandle.hasChildren
             }
         }
-        // Loader {
-        //     id: childMenuLoader
-        //     active: false
-        // }
-        // QsMenuOpener {
-        //     id: menuOpener
-        //     menu: menuHandle
-        // }
-        //TrayPopup {
-        //id: childMenu
-        //anchorPoint: mouseArea
-        //}
-        //childMenu.menuHandle: menuHandle
-        //QsMenuOpener {
-        //    id: childOpener
-        //    menu: menuHandle
-        //}
-        //TrayPopup {
-        //    id: child
-        //    anchorPoint: item
-        //    menuHandle: childOpener.chilren
-        // }
 
         MouseArea {
             id: mouseArea
             anchors.fill: parent
             hoverEnabled: true
-            onEntered: item.hovered = true
-            onExited: item.hovered = false
+            onEntered: row.hovered = true
+            onExited: row.hovered = false
             onClicked: {
-                menuHandle.triggered();
-                dropdown.visible = menuHandle.hasChildren || (menuHandle.buttonType !== 0);
-                //childMenu.visible = menuHandle.hasChildren;
+                if (menuHandle.hasChildren) {
+                    // Parents toggle their submenu instead of running an action.
+                    root.toggleSubmenu();
+                } else {
+                    menuHandle.triggered();
+                    // Leaf items dismiss the whole chain; toggles stay open so
+                    // the user can keep interacting with the menu.
+                    if (menuHandle.buttonType === 0)
+                        dropdown.topMenu.visible = false;
+                }
             }
             cursorShape: Qt.PointingHandCursor
         }

@@ -47,7 +47,7 @@ Scope {
             }
 
             exclusionMode: ExclusionMode.Ignore
-            WlrLayershell.layer: WlrLayer.Top
+            WlrLayershell.layer: WlrLayer.Overlay
             WlrLayershell.namespace: "qs:notifications"
             WlrLayershell.keyboardFocus: WlrKeyboardFocus.None
 

@@ -13,19 +13,22 @@ hl.config({
             bar_precedence_over_border = true,
 
             -- Light Mode
-            --bar_color                  = "rgb(dee0e2)",
+            bar_color                  = "rgb(dee0e2)",
             -- Dark Mode
-            bar_color                  = "rgb(292c31)",
+            --bar_color                  = "rgb(292c31)",
 
             col                        = {
                 -- Light Mode
-                --text = "rgb(606060)",
+                text = "rgb(404040)",
                 -- Dark Mode
-                text = "rgb(e0e0e0)",
+                --text = "rgb(e0e0e0)",
             },
 
             icon_on_hover              = true,
-            inactive_button_color      = "rgb(c5c5c5)",
+			-- Light Mode #e4e4e4
+            inactive_button_color      = "rgb(c4c4c4)",
+			-- Dark Mode
+           	--inactive_button_color      = "rgb(5d5d5d)",
             on_double_click            = "hyprctl dispatch 'hl.dsp.window.fullscreen_state({internal = 1, client = 0})'"
         },
     },

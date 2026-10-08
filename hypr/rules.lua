@@ -140,12 +140,18 @@ hl.window_rule({
     name                   = "Thorium Unfocused",
     match                  = { class = "thorium-browser|chromium|google-chrome", focus = false },
     ["hyprbars:bar_color"] = "rgb(2b2b2b)",
+
+    --["hyprbars:bar_color"] = "rgb(2b2b2b)",
+    ["hyprbars:bar_color"] = "rgb(dde3e9)",
+
 })
 
 hl.window_rule({
     name                   = "Thorium",
     match                  = { class = "thorium-browser|chromium|google-chrome", focus = true },
-    ["hyprbars:bar_color"] = "rgb(1f2020)",
+    --["hyprbars:bar_color"] = "rgb(1f2020)",
+    ["hyprbars:bar_color"] = "rgb(d3e3fd)",
+
 })
 
 hl.window_rule({
@@ -180,7 +186,7 @@ hl.window_rule({
     name                   = "Teams",
     match                  = { class = "teams-for-linux" },
     --["hyprbars:bar_color"] = "rgb(eaeaea)", -- Light
-    ["hyprbars:bar_color"] = "rgb(0a0a0a)", -- Dark
+    ["hyprbars:bar_color"] = "rgb(ebebeb)", -- Dark
 
 })
 
@@ -261,14 +267,14 @@ hl.window_rule({
 	-- Light Breeze
     ["hyprbars:bar_color"]   = "rgb(eff0f1)",
 	-- Dark Breeze
-    ["hyprbars:bar_color"]   = "rgb(212429)",
+    --["hyprbars:bar_color"]   = "rgb(212429)",
     
     ["hyprbars:title_color"] = "rgb(808080)",
 })
 
 hl.window_rule({
 	name = "CSD Windows",
-	match = {class="com.github.flxzt.rnote|io.github.vani_tty1.memerist|firefox|org.gnome.World.PikaBackup|org.pipewire.Helvum|io.missioncenter.MissionCenter|dev.deedles.Trayscale|org.gnome.gitg|xyz.tytanium.DoorKnocker|localsend|de.haeckerfelix.Fragments|ONLYOFFICE"},
+	match = {class="com.github.flxzt.rnote|io.github.vani_tty1.memerist|org.gnome.World.PikaBackup|org.pipewire.Helvum|io.missioncenter.MissionCenter|dev.deedles.Trayscale|org.gnome.gitg|xyz.tytanium.DoorKnocker|localsend|de.haeckerfelix.Fragments|ONLYOFFICE|org.gnome.Meld"},
 	["hyprbars:no_bar"] = true
 })
 
@@ -280,13 +286,13 @@ hl.window_rule({
 
 hl.window_rule({
     name                = "Fake Fullscreen",
-    match               = { fullscreen_state_client = 3 },
+    match               = { fullscreen_state_client = 2 },
     ["hyprbars:no_bar"] = true
 })
 
 hl.window_rule({
     name       = "Fullscreen",
-    match      = { class = "osu!|dev.zed.Zed|SiYuan|virt-viewer|com.obsproject.Studio" },
+    match      = { class = "osu!|dev.zed.Zed|SiYuan|virt-viewer" },
     fullscreen = true,
 })
 

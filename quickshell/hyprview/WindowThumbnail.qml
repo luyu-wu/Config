@@ -324,7 +324,7 @@ Item {
             active: root.isActive && !!thumbContainer.wHandle
             Rectangle{
                 anchors.fill: parent
-                color: "#333333"
+                color: "#ffffff"
                 radius: 12
             }
             sourceComponent: ScreencopyView {

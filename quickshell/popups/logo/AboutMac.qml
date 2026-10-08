@@ -15,7 +15,7 @@ FloatingWindow {
     visible: false
     color: "#f6f6f6"
 
-    readonly property string imagePath: "file:///home/chrysanthemum/.config/waybar/scripts/sierra.jpg"
+    readonly property string imagePath: "file:///home/chrysanthemum/Assets/Pictures/Wallpapers/sierra.jpg"
 
     function show() {
         root.visible = true;
@@ -144,7 +144,6 @@ FloatingWindow {
         }
     }
 
-    // ── Bottom row: buttons + copyright ─────────────────────────────────────
     ColumnLayout {
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 16
@@ -171,7 +170,6 @@ FloatingWindow {
         }
     }
 
-    // ── Reusable spec row ───────────────────────────────────────────────────
     component SpecRow: RowLayout {
         required property string label
         property alias value: valueText.text
@@ -207,7 +205,6 @@ FloatingWindow {
         }
     }
 
-    // ── Reusable button ─────────────────────────────────────────────────────
     component AboutButton: Rectangle {
         property alias text: btnLabel.text
 

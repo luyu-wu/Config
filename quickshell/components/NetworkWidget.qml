@@ -50,6 +50,9 @@ Item {
     }
 
     readonly property string iconName: {
+	    if (ethernetConnected)
+	        return "network-wired-activated";
+
         if (activeWifiNetwork) {
             let s = activeWifiNetwork.signalStrength;
             if (s > 0.75)
@@ -60,8 +63,6 @@ Item {
                 return "network-wireless-signal-weak-symbolic";
             return "network-wireless-signal-none-symbolic";
         }
-        if (ethernetConnected)
-            return "network-wired-activated";
         return "network-offline";
     }
     MouseArea {
