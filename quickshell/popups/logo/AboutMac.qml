@@ -1,6 +1,5 @@
 import QtQuick
 import QtQuick.Layouts
-import QtQuick.Controls
 import Quickshell
 import Quickshell.Widgets
 
@@ -12,7 +11,7 @@ FloatingWindow {
     implicitHeight: 315
     minimumSize: Qt.size(510, 315)
     maximumSize: Qt.size(510, 315)
-    visible: false
+    visible: true
     color: "#f6f6f6"
 
     readonly property string imagePath: "file:///home/chrysanthemum/Assets/Pictures/Wallpapers/sierra.jpg"

@@ -1,9 +1,6 @@
 pragma Singleton
 import Quickshell
 import QtQuick
-import QtQuick.Controls
-import Qt.labs.folderlistmodel
-import QtQuick.Dialogs
 
 Singleton {
   function getAppName(wmclass) {

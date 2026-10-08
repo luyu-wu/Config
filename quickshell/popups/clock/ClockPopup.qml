@@ -33,11 +33,19 @@ PanelWindow {
     readonly property var weekdayHeaders: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"]
 
     // ── Tick timer ──────────────────────────────────────────────
+    // The clock face only shows hh:mm, so a tick is only interesting once the
+    // minute rolls over. Reassigning `today` unconditionally would invalidate
+    // `calendarModel` (a ~35-object rebuild) and the date/time bindings every
+    // second; the guard drops that to once a minute.
     Timer {
         running: root.visible
         interval: 1000
         repeat: true
-        onTriggered: root.today = new Date()
+        onTriggered: {
+            const now = new Date();
+            if (now.getMinutes() !== root.today.getMinutes())
+                root.today = now;
+        }
     }
     ColumnLayout {
         id: outerLayout

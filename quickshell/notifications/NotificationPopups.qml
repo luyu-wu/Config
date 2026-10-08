@@ -70,6 +70,13 @@ Scope {
                 // is why it stays trimmed to the stack.
                 property int pendingHeight: 0
 
+                // A single toast change fires both onHeightChanged and
+                // onClosingChanged, and a burst of notifications fires count and
+                // every delegate at once. Coalesce those into one relayout per
+                // event loop turn: relayout() writes toast.y, which every toast
+                // animates, so running it repeatedly re-drives the whole stack.
+                property bool relayoutPending: false
+
                 Timer {
                     id: settleHeight
                     interval: 250
@@ -77,6 +84,15 @@ Scope {
                 }
 
                 function relayout() {
+                    if (column.relayoutPending)
+                        return;
+                    column.relayoutPending = true;
+                    Qt.callLater(column.doRelayout);
+                }
+
+                function doRelayout() {
+                    column.relayoutPending = false;
+
                     let offset = 0;
                     for (let i = repeater.count - 1; i >= 0; --i) {
                         const toast = repeater.itemAt(i);
@@ -87,7 +103,8 @@ Scope {
                         // slides away.
                         if (toast.closing)
                             continue;
-                        toast.y = offset;
+                        if (toast.y !== offset)
+                            toast.y = offset;
                         offset += toast.height;
                     }
 

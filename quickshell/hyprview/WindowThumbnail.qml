@@ -1,14 +1,14 @@
 import QtQuick
 import QtQuick.Effects
-import Quickshell
-import Quickshell.Io
-import Quickshell.Widgets
 import Quickshell.Wayland
 import Quickshell.Hyprland
 import Qt5Compat.GraphicalEffects
+import ".."
 
 Item {
     id: thumbContainer
+
+    Variables { id: v }
 
     property var hWin: null
     property var wHandle: null
@@ -347,8 +347,8 @@ Item {
                 Rectangle {
                     anchors.fill: parent
                     color: "transparent"
-                    border.width: thumbContainer.hovered ? 4 : 1
-                    border.color: thumbContainer.hovered ? v.accentColor : "#444"
+                    border.width: 1
+                    border.color: thumbContainer.hovered ? v.accentColor : "#e4e7ef"
                     radius: 12
                 }
             }

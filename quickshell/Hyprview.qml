@@ -25,6 +25,10 @@ PanelWindow {
     property var lastPositions: {}
     property string wallpaperPath: ""
 
+    // Refreshing toplevels re-enters the layout model, so guard against a
+    // refresh being requested while one is already in flight.
+    property bool refreshingToplevels: false
+
     Process {
         id: wallpaperProc
         command: ["sh", "-c", "hyprctl hyprpaper listactive | awk -F': ' '{print $2}'"]
@@ -84,7 +88,7 @@ PanelWindow {
             case "closewindow":
             case "changefloatingmode":
             case "movewindow":
-                Hyprland.refreshToplevels();
+                root.requestToplevelsRefresh();
                 return;
             case "activespecial":
                 var dataStr = String(ev.data);
@@ -96,6 +100,19 @@ PanelWindow {
                 return;
             }
         }
+    }
+
+    // Kick the layout model once the refreshed toplevels list has landed. Doing
+    // it here (rather than binding to Hyprland.toplevels.values) is what keeps
+    // unrelated Hyprland events from rebuilding the expose layout.
+    onRefreshingToplevelsChanged: {
+        if (!refreshingToplevels)
+            windowLayoutModel.requestRefresh();
+    }
+
+    function requestToplevelsRefresh() {
+        root.refreshingToplevels = true;
+        Hyprland.refreshToplevels();
     }
 
     function toggleExpose() {
@@ -116,7 +133,7 @@ PanelWindow {
             wallpaperProc.running = true;
             exposeArea.currentIndex = -1;
             root.animateWindows = true;
-            Hyprland.refreshToplevels();
+            root.requestToplevelsRefresh();
         }
     }
 
@@ -138,6 +155,70 @@ PanelWindow {
         id: mainScope
         anchors.fill: parent
         focus: true
+        // Hoisted out of Keys.onPressed: the handler redefined both on every
+        // keypress, and they close over the same winRepeater/exposeArea state.
+        function moveSelectionHorizontal(delta) {
+            const total = winRepeater.count;
+            if (total <= 0)
+                return;
+            var start = exposeArea.currentIndex;
+            for (var step = 1; step <= total; ++step) {
+                var candidate = (start + delta * step + total) % total;
+                var it = winRepeater.itemAt(candidate);
+                if (it && it.visible) {
+                    exposeArea.currentIndex = candidate;
+                    return;
+                }
+            }
+        }
+
+        function moveSelectionVertical(dir) {
+            const total = winRepeater.count;
+            if (total <= 0)
+                return;
+            var startIndex = exposeArea.currentIndex;
+            var currentItem = winRepeater.itemAt(startIndex);
+
+            if (!currentItem || !currentItem.visible) {
+                moveSelectionHorizontal(dir > 0 ? 1 : -1);
+                return;
+            }
+
+            var curCx = currentItem.x + currentItem.width / 2;
+            var curCy = currentItem.y + currentItem.height / 2;
+
+            var bestIndex = -1;
+            var bestDy = 99999999;
+            var bestDx = 99999999;
+
+            for (var i = 0; i < total; ++i) {
+                var it = winRepeater.itemAt(i);
+                if (!it || !it.visible || i === startIndex)
+                    continue;
+                var cx = it.x + it.width / 2;
+                var cy = it.y + it.height / 2;
+                var dy = cy - curCy;
+
+                // Direction filtering
+                if (dir > 0 && dy <= 0)
+                    continue;
+                if (dir < 0 && dy >= 0)
+                    continue;
+                var absDy = Math.abs(dy);
+                var absDx = Math.abs(cx - curCx);
+
+                // Search for nearest thumb (first in vertical, then horizontal distance)
+                if (absDy < bestDy || (absDy === bestDy && absDx < bestDx)) {
+                    bestDy = absDy;
+                    bestDx = absDx;
+                    bestIndex = i;
+                }
+            }
+
+            if (bestIndex >= 0) {
+                exposeArea.currentIndex = bestIndex;
+            }
+        }
 
         Keys.onPressed: event => {
             if (!root.isActive || root.closing)
@@ -151,65 +232,6 @@ PanelWindow {
             const total = winRepeater.count;
             if (total <= 0)
                 return;
-
-            // Helper for horizontal navigation
-            function moveSelectionHorizontal(delta) {
-                var start = exposeArea.currentIndex;
-                for (var step = 1; step <= total; ++step) {
-                    var candidate = (start + delta * step + total) % total;
-                    var it = winRepeater.itemAt(candidate);
-                    if (it && it.visible) {
-                        exposeArea.currentIndex = candidate;
-                        return;
-                    }
-                }
-            }
-
-            // Helper for vertical navigation
-            function moveSelectionVertical(dir) {
-                var startIndex = exposeArea.currentIndex;
-                var currentItem = winRepeater.itemAt(startIndex);
-
-                if (!currentItem || !currentItem.visible) {
-                    moveSelectionHorizontal(dir > 0 ? 1 : -1);
-                    return;
-                }
-
-                var curCx = currentItem.x + currentItem.width / 2;
-                var curCy = currentItem.y + currentItem.height / 2;
-
-                var bestIndex = -1;
-                var bestDy = 99999999;
-                var bestDx = 99999999;
-
-                for (var i = 0; i < total; ++i) {
-                    var it = winRepeater.itemAt(i);
-                    if (!it || !it.visible || i === startIndex)
-                        continue;
-                    var cx = it.x + it.width / 2;
-                    var cy = it.y + it.height / 2;
-                    var dy = cy - curCy;
-
-                    // Direction filtering
-                    if (dir > 0 && dy <= 0)
-                        continue;
-                    if (dir < 0 && dy >= 0)
-                        continue;
-                    var absDy = Math.abs(dy);
-                    var absDx = Math.abs(cx - curCx);
-
-                    // Search for nearest thumb (first in vertical, then horizontal distance)
-                    if (absDy < bestDy || (absDy === bestDy && absDx < bestDx)) {
-                        bestDy = absDy;
-                        bestDx = absDx;
-                        bestIndex = i;
-                    }
-                }
-
-                if (bestIndex >= 0) {
-                    exposeArea.currentIndex = bestIndex;
-                }
-            }
 
             if (event.key === Qt.Key_Right || event.key === Qt.Key_Tab) {
                 moveSelectionHorizontal(1);
@@ -351,9 +373,42 @@ PanelWindow {
 
                         property int areaW: exposeArea.width
                         property int areaH: exposeArea.height
-                        property var rawToplevels: Hyprland.toplevels.values
+                        // Deliberately NOT a binding on Hyprland.toplevels.values.
+                        // That list is rebuilt on every window event, which would
+                        // re-run the whole sort + doLayout even for events that do
+                        // not change the windows we show. The list is instead
+                        // refreshed only when the expose overlay opens or a
+                        // window appears/disappears, via refreshToplevels().
+                        property var rawToplevels: []
+                        // Bumped by requestToplevelsRefresh so the binding below
+                        // still re-runs after a refresh; an unchanged toplevel set
+                        // produces an identical result, so the Repeater is left
+                        // alone and the thumbnails never restart their animations.
+                        property int topRev: 0
+
+                        // Drop anything derived from the previous window set.
+                        function invalidateCache() {
+                            if (rawToplevels === Hyprland.toplevels.values)
+                                return;
+                            rawToplevels = Hyprland.toplevels.values;
+                        }
+
+                        function requestRefresh() {
+                            invalidateCache();
+                            topRev += 1;
+                        }
 
                         values: {
+                            // Recompute the layout only when something that can change
+                            // its result actually changes. Binding to the window
+                            // list identity, the count, and the per-window size /
+                            // workspace means unrelated events (focus, title, a
+                            // refresh returning the same windows) no longer rebuild
+                            // the whole expose layout.
+                            topRev;
+                            invalidateCache();
+                            var _ = areaW + areaH;
+
                             // Bailout on wrong screen size
                             if (areaW <= 0 || areaH <= 0)
                                 return [];
