@@ -1,11 +1,11 @@
 import QtQuick
 
 QtObject {
-    // ── Theme mode ──────────────────────────────────────────────────
+    //  Theme mode
     // Toggle this to switch between light and dark palettes.
     readonly property bool darkMode: false
 
-    // ── Shared text colors ──────────────────────────────────────────
+    //  Shared text colors
     //
     // Primary text color used across all labels and text elements
     readonly property color textColor: darkMode ? "#E0E0E0" : "#202020"
@@ -19,22 +19,29 @@ QtObject {
     // Placeholder / disabled text
     readonly property color textPlaceholder: darkMode ? "#909090" : "#70000000"
 
-    // ── Shared popup colors ─────────────────────────────────────────
+    //  Shared popup colors ─
     // Popup dropdown / card background
     readonly property color popupBackground: darkMode ? "#80303030" : "#b1e4e7ef"
 
-    // Popup dropdown / card border
-    readonly property color popupBorder: darkMode ? "#C0909090" : "#A0A0A0"
+    // Opaque popup background, for cards shown over a dimmed backdrop where a
+    // translucent fill would let the blur underneath show through the card.
+    readonly property color popupBackgroundOpaque: darkMode ? "#303030" : "#e4e7ef"
 
-    // ── Menu colors ─────────────────────────────────────────────────
+    // Popup dropdown / card border
+    readonly property color popupBorder: darkMode ? "#C0909090" : "#c0ffffff"
+
+    // Outer contour border (1px outside card fill)
+    readonly property color outerBorderColor: darkMode ? "#90303030" : "#20404040"
+
+    //  Menu colors ─
     // Menu divider / separator line
     readonly property color menuDividerColor: darkMode ? "#33ffffff" : "#33000000"
 
-    // ── Widget highlight ───────────────────────────────────────────
+    //  Widget highlight ─
     // Active/pressed/hovered widget background overlay
     readonly property color widgetHighlight: darkMode ? "#20ffffff" : "#20000000"
 
-    // ── Accent ─────────────────────────────────────────────────────
+    //  Accent ─
     // Active/selected accent fill (toggles, selected items, highlights)
     readonly property color accentColor: "#1071db"
 
@@ -44,15 +51,13 @@ QtObject {
     // Foreground (knob/icon) drawn on top of accent fills
     readonly property color accentForeground: "#ffffff"
 
-    // ── Shadow & outer border ───────────────────────────────────────
+    //  Shadow ─
     // Drop shadow color
     readonly property color shadowColor: "#70000000"
 
-    // Outer contour border (1px outside card fill)
-    readonly property color outerBorderColor: darkMode ? "#90303030" : "transparent"
 
 
-    // ── Bar colors ──────────────────────────────────────────────────
+    //  Bar colors
     // Top bar background
     readonly property color barBackground: darkMode ? "#8034373f" : "#b1e4e7ef"
     // Bottom bar borderc

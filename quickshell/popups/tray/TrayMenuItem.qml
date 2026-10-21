@@ -19,7 +19,7 @@ Rectangle {
 
     color: "transparent"
 
-    // ── submenu ──────────────────────────────────────────────────────────────
+    //  submenu
     // Loaded lazily through a string URL. TrayPopup instantiates TrayMenuItem,
     // so referencing TrayPopup directly here would be a cyclic component
     // dependency that QML refuses to resolve.

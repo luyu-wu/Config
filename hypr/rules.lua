@@ -25,10 +25,18 @@ hl.layer_rule({
 
 hl.layer_rule({
     name         = "Blur Spotlight",
-    match        = { namespace = "snappy-switcher|qs:spotlight" },
+    match        = { namespace = "qs:spotlight" },
     blur         = true,
     ignore_alpha = 0.5,
-    no_anim      = false,
+})
+
+hl.layer_rule({
+	name         = "Blur AI",
+	match        = { namespace = "qs:ai" },
+	blur         = true,
+	ignore_alpha = 0.5,
+	animation = "slide"
+
 })
 
 hl.layer_rule({
@@ -113,6 +121,13 @@ hl.window_rule({
     match           = { class = "dev.zed.Zed|org.gnome.Papers|wechat|com.github.flxzt.rnote" },
     scroll_touchpad = 0.3,
 })
+hl.window_rule({
+    name            = "Even Faster Touchpad",
+    match           = { class = "ai.storyteller.wordcraft" },
+    scroll_touchpad = 1,
+})
+
+
 
 hl.window_rule({
     name            = "Slower Touchpad",
@@ -142,7 +157,7 @@ hl.window_rule({
     ["hyprbars:bar_color"] = "rgb(2b2b2b)",
 
     --["hyprbars:bar_color"] = "rgb(2b2b2b)",
-    ["hyprbars:bar_color"] = "rgb(dde3e9)",
+    ["hyprbars:bar_color"] = "rgb(e2e3dd)",
 
 })
 
@@ -150,7 +165,7 @@ hl.window_rule({
     name                   = "Thorium",
     match                  = { class = "thorium-browser|chromium|google-chrome", focus = true },
     --["hyprbars:bar_color"] = "rgb(1f2020)",
-    ["hyprbars:bar_color"] = "rgb(d3e3fd)",
+    ["hyprbars:bar_color"] = "rgb(dee5d8)",
 
 })
 
@@ -203,6 +218,13 @@ hl.window_rule({
     ["hyprbars:bar_color"]   = "rgb(3c3c3c)",
     ["hyprbars:title_color"] = "rgb(E0E0E0)",
 })
+
+hl.window_rule({
+    name                     = "Wordcraft",
+    match                    = { class = "ai.storyteller.wordcraft" },
+    ["hyprbars:bar_color"]   = "rgb(f0f0f0)",
+})
+
 
 hl.window_rule({
     name  = "Spotify",
@@ -262,7 +284,7 @@ hl.window_rule({
 hl.window_rule({
     -- Default --hyprbars style for unfocused windows not covered by a more specific rule
     name                     = "Unfocused Bar Color",
-    match                    = { class = "negative:vesktop|foot|floatterm|fusion360.exe|thorium-browser|dev.zed.Zed|spotify||teams-for-linux|com.obsproject.Studio|org.kde.kdenlive|gimp|google-chrome|chromium|zoom|Spotify|org.kde.krita", focus = false },
+    match                    = { class = "negative:vesktop|foot|floatterm|fusion360.exe|thorium-browser|dev.zed.Zed|spotify||teams-for-linux|com.obsproject.Studio|org.kde.kdenlive|gimp|google-chrome|chromium|zoom|Spotify|org.kde.krita|ai.storyteller.wordcraft", focus = false },
 
 	-- Light Breeze
     ["hyprbars:bar_color"]   = "rgb(eff0f1)",

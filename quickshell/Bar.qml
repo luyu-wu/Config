@@ -21,7 +21,7 @@ Variants {
         WlrLayershell.layer: HyprlandExt.exposeOpen ? WlrLayer.Overlay : WlrLayer.Top
         color: "transparent"
 
-        // ── Shadow gradient below the bar ─────────────
+        //  Shadow gradient below the bar ─
         Rectangle {
             anchors.left: parent.left
             anchors.right: parent.right
@@ -39,7 +39,7 @@ Variants {
             }
         }
 
-        // ── Bar background ────────────────────────────
+        //  Bar background
         Rectangle {
             id: barBackground
             anchors.top: parent.top
@@ -56,17 +56,17 @@ Variants {
                 }
                 spacing: 0
 
-                // ── Left ──────────────────────────────
+                //  Left
                 Logo {}
                 WindowTitle {}
                 AppMenu {}
 
-                // ── Spacer ────────────────────────────
+                //  Spacer
                 Item {
                     Layout.fillWidth: true
                 }
 
-                // ── Right ─────────────────────────────
+                //  Right ─
                 TrayWidget {}
                 StocksWidget {}
                 MprisWidget {}

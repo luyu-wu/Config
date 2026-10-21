@@ -24,7 +24,7 @@ PanelWindow {
     updatesEnabled: false
     color: "transparent"
 
-    // ── Date state ──────────────────────────────────────────────
+    //  Date state
     property date today: new Date()
     property int viewYear: today.getFullYear()
     property int viewMonth: today.getMonth()  // 0‑based
@@ -32,7 +32,7 @@ PanelWindow {
     readonly property var monthNames: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     readonly property var weekdayHeaders: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"]
 
-    // ── Tick timer ──────────────────────────────────────────────
+    //  Tick timer
     // The clock face only shows hh:mm, so a tick is only interesting once the
     // minute rolls over. Reassigning `today` unconditionally would invalidate
     // `calendarModel` (a ~35-object rebuild) and the date/time bindings every
@@ -121,7 +121,7 @@ PanelWindow {
                 }
                 spacing: 0
 
-                // ── Time ─────────────────────────────────────────────
+                //  Time ─
                 Item {
                     Layout.fillWidth: true
                     Layout.preferredHeight: timeColumn.implicitHeight
@@ -150,7 +150,7 @@ PanelWindow {
                     }
                 }
 
-                // ── Full date ────────────────────────────────────────
+                //  Full date
                 Text {
                     Layout.fillWidth: true
                     Layout.topMargin: 0
@@ -162,14 +162,14 @@ PanelWindow {
                     horizontalAlignment: Text.AlignHCenter
                 }
 
-                // ── Separator ────────────────────────────────────────
+                //  Separator
                 Rectangle {
                     Layout.fillWidth: true
                     Layout.preferredHeight: 1
                     color: "#22000000"
                 }
 
-                // ── Month navigation ─────────────────────────────────
+                //  Month navigation ─
                 Item {
                     Layout.fillWidth: true
                     Layout.preferredHeight: 32
@@ -254,7 +254,7 @@ PanelWindow {
                     }
                 }
 
-                // ── Weekday headers ──────────────────────────────────
+                //  Weekday headers
                 RowLayout {
                     Layout.fillWidth: true
                     Layout.preferredHeight: 22
@@ -273,7 +273,7 @@ PanelWindow {
                     }
                 }
 
-                // ── Calendar grid ────────────────────────────────────
+                //  Calendar grid
                 GridLayout {
                     id: calendarGrid
                     Layout.fillWidth: true
@@ -401,7 +401,7 @@ PanelWindow {
                 }
                 spacing: 0
 
-                // ── Heading ───────────────────────────────────────
+                //  Heading ─
                 Text {
                     Layout.fillWidth: true
                     Layout.topMargin: 16
@@ -413,7 +413,7 @@ PanelWindow {
                     horizontalAlignment: Text.AlignHCenter
                 }
 
-                // ── Empty state ───────────────────────────────────
+                //  Empty state ─
                 Text {
                     Layout.fillWidth: true
                     Layout.bottomMargin: 16
@@ -426,7 +426,7 @@ PanelWindow {
                     visible: true
                 }
 
-                // ── Notification list ─────────────────────────────
+                //  Notification list ─
                 ColumnLayout {
                     id: notifList
                     Layout.fillWidth: true
@@ -438,7 +438,7 @@ PanelWindow {
         }
     }
 
-    // ── Calendar data model ─────────────────────────────────────
+    //  Calendar data model ─
     property var calendarModel: {
         var days = [];
         var firstDay = new Date(viewYear, viewMonth, 1);

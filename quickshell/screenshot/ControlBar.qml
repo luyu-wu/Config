@@ -32,8 +32,8 @@ Rectangle {
     implicitHeight: 50
     implicitWidth: visibleModes.length * tabItemSize + 8
     radius: height / 2
-    color: "#303030"
-    border.color: v.popupBorder
+    color: v.barBackground
+    border.color: v.barBorder
     border.width: 1
 
     Behavior on implicitWidth {

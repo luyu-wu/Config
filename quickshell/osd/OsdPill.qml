@@ -19,7 +19,7 @@ Item {
     implicitWidth: 300
     implicitHeight: 64
 
-    // ── At-limit spring ─────────────────────────────────────────────
+    //  At-limit spring ─
     property int bumpToken: 0
     // +1 when pushed past the top, -1 when pushed past the bottom.
     property int bumpDirection: 1
@@ -91,7 +91,7 @@ Item {
     }
 
 
-    // ── Progress track ───────────────────────────────────────────
+    //  Progress track ─
     Rectangle {
         id: track
         anchors.verticalCenter: parent.verticalCenter

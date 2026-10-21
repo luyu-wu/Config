@@ -48,7 +48,7 @@ PanelWindow {
         }
     }
 
-    // ── card (shadow + border, same recipe as the other popups) ─────
+    //  card (shadow + border, same recipe as the other popups) ─
     Rectangle {
         id: card
         anchors.fill: parent
@@ -101,7 +101,7 @@ PanelWindow {
             border.width: 1
         }
 
-        // ── contents ───────────────────────────────────────────────
+        //  contents ─
         ColumnLayout {
             id: contentColumn
             anchors {

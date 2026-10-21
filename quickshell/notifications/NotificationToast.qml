@@ -48,7 +48,7 @@ Item {
         }
     }
 
-    // ── Entry / exit ────────────────────────────────────────────────
+    //  Entry / exit
     // Slide in from the right when a toast is added to the stack. The surface is
     // exactly as wide as a toast, so starting one width to the right parks the
     // toast just off the right edge. `width`, not `implicitWidth`: the delegate
@@ -100,7 +100,7 @@ Item {
             root.notification.dismiss();
     }
 
-    // ── Icon ────────────────────────────────────────────────────────
+    //  Icon
     readonly property string iconSource: {
         const image = root.notification.image;
         if (image) {
@@ -122,7 +122,7 @@ Item {
         return Quickshell.iconPath("dialog-information", true);
     }
 
-    // ── Actions ─────────────────────────────────────────────────────
+    //  Actions ─
     // The "default" action is invoked by clicking the toast body, so it isn't
     // shown as a button alongside the rest.
     readonly property var defaultAction: {
@@ -140,7 +140,7 @@ Item {
             root.close(false);
     }
 
-    // ── Auto dismiss ────────────────────────────────────────────────
+    //  Auto dismiss
     // Hovering pins the toast open until the pointer leaves.
     Timer {
         id: expiry
@@ -153,7 +153,7 @@ Item {
         id: hover
     }
 
-    // ── Card ────────────────────────────────────────────────────────
+    //  Card
     Rectangle {
         id: card
         x: root.popupMargin

@@ -16,7 +16,7 @@ import "."
 Singleton {
     id: root
 
-    // ── Configuration ───────────────────────────────────────────────
+    //  Configuration ─
     // Auto-dismiss fallbacks in milliseconds, mirroring the values swaync used
     // (its timeout / timeout-low / timeout-critical, in seconds).
     readonly property int timeoutNormal: 8000
@@ -26,7 +26,7 @@ Singleton {
     // Never let a client keep a toast on screen for longer than a minute.
     readonly property int maxTimeout: 60000
 
-    // ── Do Not Disturb ──────────────────────────────────────────────
+    //  Do Not Disturb
     // While set, incoming notifications are discarded instead of displayed.
     property bool dnd: false
 
@@ -55,7 +55,7 @@ Singleton {
         }
     }
 
-    // ── Toast lifetime ──────────────────────────────────────────────
+    //  Toast lifetime
     // Quickshell passes the client's D-Bus expire_timeout through unchanged, so
     // a positive value is a request in milliseconds. Zero means "never expire";
     // a negative value means "use the server default".
@@ -81,7 +81,7 @@ Singleton {
             notification.dismiss();
     }
 
-    // ── IPC ─────────────────────────────────────────────────────────
+    //  IPC ─
     //   quickshell ipc call notifications toggleDnd
     IpcHandler {
         target: "notifications"

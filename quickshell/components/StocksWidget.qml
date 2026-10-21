@@ -13,7 +13,7 @@ Item {
     Layout.fillHeight: true
     implicitWidth: stocksLabel.implicitWidth + 20
 
-    // ── shared stock data ────────────────────────────────────────────
+    //  shared stock data
     property var quotes: []
     property bool loading: false
     property date lastUpdated: new Date(0)

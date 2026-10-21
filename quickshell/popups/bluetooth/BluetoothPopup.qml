@@ -80,7 +80,7 @@ PopupWindow {
         border.width: 1
     }
 
-    // ── menu contents ────────────────────────────────────────────────────────
+    //  menu contents
     ColumnLayout {
         id: menuColumn
         anchors {
@@ -147,7 +147,7 @@ PopupWindow {
             color: "transparent"
         }
         MenuDiv {}
-        // ── no adapter placeholder ────────────────────────────────────
+        //  no adapter placeholder
         Loader {
             Layout.fillWidth: true
             visible: !defaultAdapter
@@ -162,7 +162,7 @@ PopupWindow {
             }
         }
 
-        // ── paired devices ─────────────────────────────────────────────
+        //  paired devices ─
         MenuLabel {
             label: "Paired"
             labelElement.font.weight: 600
@@ -193,7 +193,7 @@ PopupWindow {
             }
         }
 
-        // ── available devices (unpaired, with a real name) ─────────────
+        //  available devices (unpaired, with a real name) ─
         MenuLabel {
             label: "Available"
             labelElement.font.weight: 600

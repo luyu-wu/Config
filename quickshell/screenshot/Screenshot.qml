@@ -19,7 +19,7 @@ import Quickshell.Io
 Singleton {
     id: root
 
-    // ── State ───────────────────────────────────────────────
+    //  State ─
     // True from the moment a capture starts until the overlay is dismissed.
     property bool active: false
     // The overlay surface only exists once the freeze frame has been grabbed,
@@ -42,7 +42,7 @@ Singleton {
         return Quickshell.screens.length > 0 ? Quickshell.screens[0].name : "";
     }
 
-    // ── Toggles ─────────────────────────────────────────────────────
+    //  Toggles ─
     function setEditActive(value) {
         root.editActive = !!value;
         if (root.editActive)
@@ -67,7 +67,7 @@ Singleton {
         root.mode = root.mode === "edit" ? "region" : "edit";
     }
 
-    // ── Entry points ────────────────────────────────────────
+    //  Entry points
     function start(mode, action): void {
         if (root.active)
             return;
@@ -106,7 +106,7 @@ Singleton {
         root.overlayVisible = false;
     }
 
-    // ── Global shortcuts ────────────────────────────────────
+    //  Global shortcuts
     // Registered with Hyprland's global shortcut protocol, so the keybinds
     // dispatch straight into the running shell with no process spawn and no IPC
     // round trip:
@@ -131,7 +131,7 @@ Singleton {
         onPressed: root.start("region", "edit")
     }
 
-    // ── Region → full screen ──────────────────────────────────────────
+    //  Region → full screen
     // Maps a selection on one monitor into a crop of the stitched
     // all-monitors layout, in physical pixels.
     function calculateCrop(x, y, width, height, screenName) {
@@ -170,7 +170,7 @@ Singleton {
         return "'" + String(s).replace(/'/g, "'\\''") + "'";
     }
 
-    // ── Saving ──────────────────────────────────────────────────────
+    //  Saving
     property string tempPath: ""
     property string lastSavedPath: ""
     property string lastTimestamp: ""
@@ -231,7 +231,7 @@ Singleton {
         screenshotProcess.running = true;
     }
 
-    // ── Configuration ───────────────────────────────────────────────
+    //  Configuration ─
     // Mirrors the standalone theme. `satty` matches the value that actually
     // took effect before, where the theme was a bare object with no fields.
     property string annotationTool: "satty"

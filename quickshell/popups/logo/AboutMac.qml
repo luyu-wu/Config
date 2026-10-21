@@ -11,7 +11,7 @@ FloatingWindow {
     implicitHeight: 315
     minimumSize: Qt.size(510, 315)
     maximumSize: Qt.size(510, 315)
-    visible: true
+    visible: false
     color: "#f6f6f6"
 
     readonly property string imagePath: "file:///home/chrysanthemum/Assets/Pictures/Wallpapers/sierra.jpg"
@@ -20,14 +20,14 @@ FloatingWindow {
         root.visible = true;
     }
 
-    // ── Content ─────────────────────────────────────────────────────────────
+    //  Content ─
     RowLayout {
         anchors.fill: parent
         anchors.margins: 24
         anchors.bottomMargin: 16
         spacing: 20
 
-        // ── Left: circular image ────────────────────────────────────────────
+        //  Left: circular image
         Item {
             Layout.preferredWidth: 140
             Layout.preferredHeight: 140
@@ -61,13 +61,13 @@ FloatingWindow {
             }
         }
 
-        // ── Right: info column ──────────────────────────────────────────────
+        //  Right: info column
         ColumnLayout {
             Layout.fillWidth: true
             Layout.fillHeight: true
             spacing: 2
 
-            // ── OS title ────────────────────────────────────────────────────
+            //  OS title
             Text {
                 text: "hyprOS High Sierra"
                 font.pixelSize: 20
@@ -86,7 +86,7 @@ FloatingWindow {
                 Layout.preferredHeight: 10
             }
 
-            // ── Model ───────────────────────────────────────────────────────
+            //  Model ─
             Text {
                 text: "Framework (13-inch, 2024, Four USB 4 Ports)"
                 font.pixelSize: 12
@@ -99,7 +99,7 @@ FloatingWindow {
                 Layout.preferredHeight: 4
             }
 
-            // ── Spec rows ───────────────────────────────────────────────────
+            //  Spec rows ─
             SpecRow {
                 label: "Processor"
                 value: "5.1 GHz AMD Ryzen R7"

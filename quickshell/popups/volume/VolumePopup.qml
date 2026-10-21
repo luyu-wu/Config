@@ -98,7 +98,7 @@ PopupWindow {
             border.width: 1
         }
 
-    // ── menu contents ────────────────────────────────────────────────────────
+    //  menu contents
     ColumnLayout {
         id: menuColumn
         anchors {
@@ -179,7 +179,7 @@ PopupWindow {
 
         MenuDiv {}
 
-        // ── no devices placeholder ───────────────────────────────────────
+        //  no devices placeholder ─
         Loader {
             Layout.fillWidth: true
             visible: root.audioNodes.length === 0
@@ -194,7 +194,7 @@ PopupWindow {
             }
         }
 
-        // ── output devices (pipewire sinks) ──────────────────────────────
+        //  output devices (pipewire sinks)
         MenuLabel {
             label: "Output"
             labelElement.font.weight: 600
@@ -216,7 +216,7 @@ PopupWindow {
             }
         }
 
-        // ── input devices (pipewire sources) ─────────────────────────────
+        //  input devices (pipewire sources) ─
         MenuLabel {
             label: "Input"
             labelElement.font.weight: 600

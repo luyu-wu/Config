@@ -11,12 +11,12 @@ Item {
 
     Variables { id: v }
 
-    // ── Theme ───────────────────────────────────────────────
+    //  Theme ─
     // `dimOpacity` is folded into `dimColor`, and `borderRadius` went away with
     // the shader, which was its only consumer.
     property real outlineThickness: 1
 
-    // ── Input ───────────────────────────────────────
+    //  Input ─
     // Not named `enabled`, which would shadow Item.enabled.
     property bool inputEnabled: true
     property point startPos
@@ -50,7 +50,7 @@ Item {
         root.mouseY = y;
     }
 
-    // ── Dimming ─────────────────────────────────────
+    //  Dimming ─
     property color dimColor: v.shadowColor
 
     readonly property real bandTop: Math.max(0, root.selectionY)
@@ -101,7 +101,7 @@ Item {
         z: 2
     }
 
-    // ── Pointer input ───────────────────────────────────────
+    //  Pointer input ─
     MouseArea {
         id: mouseArea
 
@@ -162,7 +162,7 @@ Item {
         }
     }
 
-    // ── Size readout ────────────────────────────────────────────────
+    //  Size readout
     Rectangle {
         id: dimLabel
 

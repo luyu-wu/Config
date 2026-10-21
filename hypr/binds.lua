@@ -115,6 +115,7 @@ hl.bind(SUPER .. " + Tab",
 --hl.bind(SUPER .. " + SUPER_L", hl.dsp.exec_cmd("pkill wofi || wofi --style ~/.config/wofi/style/style.css --show drun"),{ release = true })
 --hl.bind(SUPER .. " + SUPER_L", hl.dsp.exec_cmd("krunner"), { release = true })
 hl.bind(SUPER .. " + R", hl.dsp.global('quickshell:Spotlight'))
+hl.bind(SUPER_SHIFT .. " + A", hl.dsp.global('quickshell:Intelligence'))
 
 -- Night mode
 hl.bind(SUPER .. " + M", hl.dsp.exec_cmd("pkill hyprsunset || hyprsunset -t 4000"))

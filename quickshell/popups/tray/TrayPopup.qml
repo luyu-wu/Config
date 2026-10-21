@@ -106,7 +106,7 @@ PopupWindow {
             border.width: 1
         }
 
-    // ── menu contents ────────────────────────────────────────────────────────
+    //  menu contents
     ColumnLayout {
         id: menuColumn
         anchors {

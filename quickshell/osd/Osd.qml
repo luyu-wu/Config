@@ -16,7 +16,7 @@ import "."
 Singleton {
     id: root
 
-    // ── Configuration ───────────────────────────────────────────────
+    //  Configuration ─
     // Maximum volume, mirroring swayosd's max_volume = 100
     readonly property real maxVolume: 1.0
 
@@ -33,7 +33,7 @@ Singleton {
     // from the pill, not from the surface's edge.
     property real topMargin: 60
 
-    // ── State ───────────────────────────────────────────────────────
+    //  State ─
     // "volume" | "brightness" | ""
     property string kind: ""
     property real value: 0
@@ -65,7 +65,7 @@ Singleton {
         return "";
     }
 
-    // ── Show / hide ─────────────────────────────────────────────────
+    //  Show / hide ─
     function show(what) {
         if (what === "volume") {
             root.value = root.hasSink ? root.sink.audio.volume : 0;
@@ -99,7 +99,7 @@ Singleton {
         onTriggered: root.hide()
     }
 
-    // ── Volume control ──────────────────────────────────────────────
+    //  Volume control
     function setVolume(value) {
         if (!root.hasSink)
             return;
@@ -135,7 +135,7 @@ Singleton {
         root.show("volume");
     }
 
-    // ── IPC ─────────────────────────────────────────────────────────
+    //  IPC ─
     // All functions take no arguments so the keybinds stay simple:
     //   quickshell ipc -p ~/.config/quickshell call osd volumeUp
     IpcHandler {

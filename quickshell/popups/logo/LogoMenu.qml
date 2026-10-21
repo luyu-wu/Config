@@ -87,7 +87,7 @@ PopupWindow {
         running: false
     }
 
-    // ── menu contents ────────────────────────────────────────────────────────
+    //  menu contents
     ColumnLayout {
         id: menuColumn
         anchors {
@@ -130,7 +130,7 @@ PopupWindow {
 
         MenuSep {}
 
-        // ── Force Quit ───────────────────────────────────────────────────────
+        //  Force Quit ─
         MenuItem {
             label: "Force Quit…"
             shortcut: "⌃Q"
@@ -145,11 +145,17 @@ PopupWindow {
         }
         MenuItem {
             label: "Restart…"
-            onTriggered: root.exec("systemctl reboot")
+            onTriggered: {
+                root.visible = false;
+                powerDialog.openDialog("reboot");
+            }
         }
         MenuItem {
             label: "Shut Down…"
-            onTriggered: root.exec("systemctl poweroff")
+            onTriggered: {
+                root.visible = false;
+                powerDialog.openDialog("poweroff");
+            }
         }
 
         MenuSep {}
@@ -173,5 +179,9 @@ PopupWindow {
 
     AboutMac {
         id: aboutMac
+    }
+
+    PowerDialog {
+        id: powerDialog
     }
 }

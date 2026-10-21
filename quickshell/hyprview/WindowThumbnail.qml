@@ -347,8 +347,8 @@ Item {
                 Rectangle {
                     anchors.fill: parent
                     color: "transparent"
-                    border.width: 1
-                    border.color: thumbContainer.hovered ? v.accentColor : "#e4e7ef"
+                    border.width: 3
+                    border.color: thumbContainer.hovered ? v.accentColor : "transparent"
                     radius: 12
                 }
             }

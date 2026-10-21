@@ -9,12 +9,8 @@ import QtQuick.Effects
 Scope {
     id: root
 
-    // ── Whether spotlight is open (shared across all screen variants) ─
     property bool open: false
 
-    // ── Global shortcut ───────────────────────────────────────────────
-    // Bind in hyprland.conf:
-    //   bind = SUPER, Space, global, quickshell:Spotlight
     GlobalShortcut {
         name: "Spotlight"
         description: "Toggle Spotlight search"
@@ -61,7 +57,7 @@ Scope {
 
             Variables { id: v }
 
-            // ── Focus grab for click-outside-to-dismiss ────────────────
+            //  Focus grab for click-outside-to-dismiss
             HyprlandFocusGrab {
                 id: focusGrab
                 windows: [panelWindow]
@@ -71,7 +67,7 @@ Scope {
                 }
             }
 
-            // ── Reset state when opened ────────────────────────────────
+            //  Reset state when opened
             onVisibleChanged: {
                 if (visible) {
                     searchInput.text = "";
@@ -80,17 +76,6 @@ Scope {
                 }
             }
 
-            // ── Dimming background ────────────────────────────────────
-            Rectangle {
-                anchors.fill: parent
-                color: 'transparent'
-
-                TapHandler {
-                    onTapped: root.open = false
-                }
-            }
-
-            // ── Search card (transparent container for shadow) ────────
             Rectangle {
                 id: card
                 property real contentWidth: Math.min(640, parent.width - 80)
@@ -103,10 +88,10 @@ Scope {
                     top: parent.top
                     topMargin: parent.height * 0.35
                 }
-                radius: 16
+                radius: 24
                 color: "transparent"
 
-                // ── Shadow mask ────────────────────────────────────────
+                //  Shadow mask
                 Item {
                     id: mask
                     anchors.fill: card
@@ -120,12 +105,12 @@ Scope {
                     }
                 }
 
-                // ── Shadow ─────────────────────────────────────────────
+                //  Shadow ─
                 RectangularShadow {
                     id: outerShadow
                     anchors.fill: card
-                    radius: card.radius
-                    blur: 12
+                    radius: 30
+                    blur: 16
                     color: v.shadowColor
                     spread: -12
                     visible: false
@@ -138,7 +123,7 @@ Scope {
                     maskInverted: true
                 }
 
-                // ── Visible card background ────────────────────────────
+                //  Visible card background
                 Rectangle {
                     id: cardBg
                     anchors.fill: parent
@@ -159,7 +144,7 @@ Scope {
                 }
 
 
-                // ── Card content ───────────────────────────────────────
+                //  Card content ─
                 ColumnLayout {
                     id: cardLayout
                     anchors {
@@ -168,7 +153,7 @@ Scope {
                     }
                     spacing: 6
 
-                    // ── Search bar ────────────────────────────────────
+                    //  Search bar
                     Rectangle {
                         id: searchBar
                         Layout.fillWidth: true
@@ -183,13 +168,6 @@ Scope {
                                 rightMargin: 12
                             }
                             spacing: 10
-
-                            // Magnifying glass icon
-                            //Text {
-                            //    text: "\uD83D\uDD0D"  // 🔍
-                            //    font.pixelSize: 16
-                            //    Layout.alignment: Qt.AlignVCenter
-                            //}
 
                             TextInput {
                                 id: searchInput
@@ -237,7 +215,7 @@ Scope {
                         }
                     }
 
-                    // ── Results list ──────────────────────────────────
+                    //  Results list
                     ListView {
                         id: resultsList
                         Layout.fillWidth: true
@@ -315,7 +293,7 @@ Scope {
                 }
             }
 
-            // ── Filtered model ────────────────────────────────────────
+            //  Filtered model
             ScriptModel {
                 id: filteredModel
 

@@ -17,10 +17,9 @@ ShellRoot {
 
     OsdWindow {}
 
-    // Desktop notifications (daemon + toasts), replacing swaync.
     NotificationPopups {}
 
-    // Region screenshot overlay, driven by the global shortcuts declared in
-    // Screenshot.qml (quickshell:region, quickshell:regionTemp, quickshell:regionEdit).
     ScreenshotOverlay {}
+
+    AI {}
 }

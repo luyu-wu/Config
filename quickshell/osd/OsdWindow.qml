@@ -47,7 +47,7 @@ Scope {
 
             visible: Osd.visible && Osd.kind !== ""
 
-            // ── Shadow mask ──────────────────────────────────────────
+            //  Shadow mask
             // Fills the whole layer surface; the inner rectangle is inset by
             // shadowMargin so it matches the pill exactly. Inverting this mask
             // hides the part of the shadow that falls under the pill.
@@ -64,7 +64,7 @@ Scope {
                 }
             }
 
-            // ── Shadow ───────────────────────────────────────────────
+            //  Shadow ─
             // Also fills the whole surface, so the blur has the transparent
             // margins to spread into instead of being cut off at the pill.
             RectangularShadow {
@@ -84,7 +84,7 @@ Scope {
                 maskInverted: true
             }
 
-            // ── The visible pill ─────────────────────────────────────
+            //  The visible pill ─
             OsdPill {
                 id: pill
                 anchors.centerIn: parent
