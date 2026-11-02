@@ -11,30 +11,15 @@ hl.layer_rule({
 })
 
 hl.layer_rule({
-    name      = "Popin",
-    match     = { namespace = "ch.wysbd.hyprland-preview-screen-picker" },
-    animation = "popin",
-})
-
-hl.layer_rule({
     name         = "Enable Blur",
-    match        = { namespace = "wofi|krunner|notifications" },
+    match        = { namespace = "wofi|krunner|notifications|qs:spotlight|qs:ai|qs:screenshot" },
     blur         = true,
-    ignore_alpha = 0.5,
+    --ignore_alpha = 0.5,
 })
 
 hl.layer_rule({
-    name         = "Blur Spotlight",
-    match        = { namespace = "qs:spotlight" },
-    blur         = true,
-    ignore_alpha = 0.5,
-})
-
-hl.layer_rule({
-	name         = "Blur AI",
+	name         = "AI Slide",
 	match        = { namespace = "qs:ai" },
-	blur         = true,
-	ignore_alpha = 0.5,
 	animation = "slide"
 
 })
@@ -43,7 +28,6 @@ hl.layer_rule({
     name         = "Cairo",
     match        = { namespace = "cairo-dock-_MainDock_" },
     blur         = true,
-    ignore_alpha = 0.3,
 })
 
 hl.layer_rule({
@@ -52,7 +36,6 @@ hl.layer_rule({
     blur         = true,
     blur_popups  = true,
     no_anim      = true,
-    ignore_alpha = 0.5,
 })
 
 hl.layer_rule({
@@ -68,7 +51,6 @@ hl.layer_rule({
     no_anim      = false,
     blur         = true,
     blur_popups  = true,
-    ignore_alpha = 0.5,
 })
 
 
@@ -123,7 +105,7 @@ hl.window_rule({
 })
 hl.window_rule({
     name            = "Even Faster Touchpad",
-    match           = { class = "ai.storyteller.wordcraft" },
+    match           = { class = "ai.storyteller.wordcraft|ai.storyteller.pdfcraft" },
     scroll_touchpad = 1,
 })
 
@@ -296,7 +278,7 @@ hl.window_rule({
 
 hl.window_rule({
 	name = "CSD Windows",
-	match = {class="com.github.flxzt.rnote|io.github.vani_tty1.memerist|org.gnome.World.PikaBackup|org.pipewire.Helvum|io.missioncenter.MissionCenter|dev.deedles.Trayscale|org.gnome.gitg|xyz.tytanium.DoorKnocker|localsend|de.haeckerfelix.Fragments|ONLYOFFICE|org.gnome.Meld"},
+	match = {class="com.github.flxzt.rnote|io.github.vani_tty1.memerist|org.gnome.World.PikaBackup|org.pipewire.Helvum|io.missioncenter.MissionCenter|dev.deedles.Trayscale|org.gnome.gitg|xyz.tytanium.DoorKnocker|localsend|de.haeckerfelix.Fragments|ONLYOFFICE|org.gnome.Meld|moe.launcher.the-honkers-railway-launcher"},
 	["hyprbars:no_bar"] = true
 })
 

@@ -11,6 +11,10 @@ import "hyprview"
 PanelWindow {
     id: root
 
+    // Shared with the desktop backdrop so expose shows the same image.
+    // Set by shell.qml, since a component's file name is not addressable.
+    property url wallpaperSource: ""
+
     // --- SETTINGS ---
     property bool liveCapture: false
 
@@ -23,25 +27,10 @@ PanelWindow {
     property string specialWorkspaceName: ""
     property bool animateWindows: false
     property var lastPositions: {}
-    property string wallpaperPath: ""
 
     // Refreshing toplevels re-enters the layout model, so guard against a
     // refresh being requested while one is already in flight.
     property bool refreshingToplevels: false
-
-    Process {
-        id: wallpaperProc
-        command: ["sh", "-c", "hyprctl hyprpaper listactive | awk -F': ' '{print $2}'"]
-
-        stdout: SplitParser {
-            onRead: data => {
-                var path = data.trim();
-                if (path) {
-                    root.wallpaperPath = "file://" + path;
-                }
-            }
-        }
-    }
 
     anchors {
         top: true
@@ -130,7 +119,6 @@ PanelWindow {
             // Opening
             root.isActive = true;
             HyprlandExt.exposeOpen = true;
-            wallpaperProc.running = true;
             exposeArea.currentIndex = -1;
             root.animateWindows = true;
             root.requestToplevelsRefresh();
@@ -338,7 +326,7 @@ PanelWindow {
                     id: wallpaperImage
                     anchors.fill: parent
                     fillMode: Image.PreserveAspectCrop
-                    source: root.wallpaperPath
+                    source: root.wallpaperSource
                 }
             }
         }

@@ -7,13 +7,19 @@ import "screenshot"
 import "notifications"
 
 ShellRoot {
+    Wallpaper {
+        id: wallpaper
+    }
+
     Corners {}
 
     Bar {}
 
     Spotlight {}
 
-    Hyprview {}
+    Hyprview {
+        wallpaperSource: wallpaper.source
+    }
 
     OsdWindow {}
 

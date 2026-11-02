@@ -51,7 +51,7 @@ hl.config({
         inactive_timeout  = 0,
         use_cpu_buffer    = false,
         no_warps          = false,
-        zoom_disable_aa	  = true
+        zoom_disable_aa	  = false
     },
 
     gestures = {
@@ -93,7 +93,7 @@ hl.config({
     },
 
     decoration = {
-        rounding     = 12,
+        rounding     = 14,
 
         shadow       = {
             enabled        = true,
@@ -113,23 +113,33 @@ hl.config({
             special        = false,
             popups         = false,
             input_methods  = false,
-            xray           = true,
+            xray           = false,
             ignore_opacity = false,
             size           = 6,
-            passes         = 3,
+            passes         = 2,
             contrast       = 1,
             brightness     = 1,
-            vibrancy       = 0,
-            noise          = 0.02,
+            vibrancy       = 0.17,
+            noise          = 0,
+            proportional = true,
+            variant = "kawase",
         },
         motion_blur = {
         	enabled = false,
         	samples = 20,
+        },
+        wobble = {
+        	enabled = false,
+        	mesh = 6,
+        	stiffness = 200,
+        	damping = 10,
         }
+ 
     },
 
     render = {
         new_render_scheduling = true,
+        use_shader_blur_blend = true
     },
 
     debug = {
