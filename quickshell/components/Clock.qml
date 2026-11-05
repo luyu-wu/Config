@@ -17,11 +17,6 @@ Item {
         id: sysClock
         precision: SystemClock.Minutes
     }
-    Rectangle {
-        anchors.fill: parent
-        radius: 6
-        color: clockPopup.visible ? v.widgetHighlight : "transparent"
-    }
 
     Text {
         id: clockLabel
@@ -35,19 +30,5 @@ Item {
         font.pixelSize: 20
         color: v.textColor
         renderType: Text.NativeRendering
-    }
-
-    MouseArea {
-        anchors.fill: parent
-        hoverEnabled: true
-        cursorShape: Qt.PointingHandCursor
-        onClicked: {
-            clockPopup.visible = !clockPopup.visible;
-            clockPopup.updatesEnabled = clockPopup.visible;
-        }
-    }
-    ClockPopup {
-        id: clockPopup
-        visible: false
     }
 }
