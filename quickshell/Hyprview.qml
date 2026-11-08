@@ -10,10 +10,7 @@ import "hyprview"
 
 PanelWindow {
     id: root
-
-    // Shared with the desktop backdrop so expose shows the same image.
-    // Set by shell.qml, since a component's file name is not addressable.
-    property url wallpaperSource: Wallpaper.source
+    readonly property url wallpaperSource: "file:///home/chrysanthemum/.config/quickshell/wallpaper"
 
     // --- SETTINGS ---
     property bool liveCapture: false

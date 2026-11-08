@@ -7,9 +7,7 @@ import Quickshell.Wayland
 Item {
     id: root
 
-    readonly property string imagePath: "/home/chrysanthemum/Pictures/Wallpapers/tahoe-light.jpeg"
-    readonly property url source: "file://" + imagePath
-
+    readonly property url source: "file:///home/chrysanthemum/.config/quickshell/wallpaper"
 
     PanelWindow {
         anchors {
