@@ -1,26 +1,46 @@
 import Quickshell
 import Quickshell.Hyprland
 import Quickshell.Wayland
+import Quickshell.Widgets
 import QtQuick
 import QtQuick.Layouts
-import QtQuick.Controls
 import QtQuick.Effects
+import "share/spotlight"
 
 Scope {
     id: root
 
     property bool open: false
+    property bool showCard: false
+    property int currentIndex: 0
+    property int blurTransitionTime: 500
+    readonly property int maxResults: 5
 
+    Timer {
+        id: revealTimer
+        interval: blurTransitionTime + 10
+        onTriggered: root.showCard = true
+    }
+
+    //  Show the real card immediately, skipping the blur transition. Typing
+    //  should not be queued behind the expensive blur rasterization.
+    function revealNow() {
+        revealTimer.stop();
+        root.showCard = true;
+    }
     GlobalShortcut {
         name: "Spotlight"
         description: "Toggle Spotlight search"
         onPressed: {
             root.open = !root.open;
+            if (root.open) {
+                root.showCard = false;
+                revealTimer.restart();
+            }
         }
     }
 
     Variants {
-        id: variants
         model: Quickshell.screens
 
         PanelWindow {
@@ -51,20 +71,16 @@ Scope {
                 return sm && sm.name === fm.name;
             }
 
-            function forceSearchFocus() {
-                searchInput.forceActiveFocus();
-            }
+            //  First root.maxResults matches, plus the full match count for sizing.
+            readonly property var shown: results.slice(0, root.maxResults)
 
             Variables { id: v }
 
             //  Focus grab for click-outside-to-dismiss
             HyprlandFocusGrab {
-                id: focusGrab
                 windows: [panelWindow]
                 active: panelWindow.visible
-                onCleared: {
-                    root.open = false;
-                }
+                onCleared: root.open = false
             }
 
             //  Reset state when opened
@@ -72,17 +88,39 @@ Scope {
                 if (visible) {
                     searchInput.text = "";
                     searchInput.forceActiveFocus();
-                    resultsList.currentIndex = 0;
+                    applyFilter();
+                }
+            }
+
+            MultiEffect {
+                id: searchPanelBlur
+                anchors.fill: card
+                visible: !root.showCard
+                source: card
+                blurEnabled: true
+                blurMax: 64
+                opacity: root.open ? 1.0 : 0.0
+                blur: root.open ? 0.0 : 1.0
+                Behavior on blur {
+                    NumberAnimation {
+                        duration: root.blurTransitionTime
+                        easing.type: Easing.OutCubic
+                    }
+                }
+                Behavior on opacity {
+                    NumberAnimation {
+                        duration: root.blurTransitionTime - 50
+                        easing.type: Easing.OutCubic
+                    }
                 }
             }
 
             Rectangle {
                 id: card
-                property real contentWidth: Math.min(640, parent.width - 80)
-                property real contentHeight: Math.min(cardLayout.implicitHeight + 16, parent.height - 160)
+                visible: root.showCard
 
-                width: contentWidth + 24
-                height: contentHeight + 24
+                width: Math.min(640, parent.width - 80) + 24
+                height: Math.min(cardLayout.implicitHeight + 16, parent.height - 160) + 24
                 anchors {
                     horizontalCenter: parent.horizontalCenter
                     top: parent.top
@@ -104,7 +142,6 @@ Scope {
                         color: "#fff"
                     }
                 }
-
                 //  Shadow ─
                 RectangularShadow {
                     id: outerShadow
@@ -124,7 +161,7 @@ Scope {
                 }
 
                 //  Visible card background
-                Rectangle {
+                ClippingRectangle {
                     id: cardBg
                     anchors.fill: parent
                     anchors.margins: 12
@@ -132,9 +169,19 @@ Scope {
                     color: v.popupBackground
                     border.color: v.popupBorder
                     border.width: 1
+
+                    clip: true
+                    RectangularShadow {
+                        anchors.bottom: parent.bottom
+                        anchors.left: parent.left
+                        anchors.right: parent.right
+                        blur: 24
+                        implicitHeight: 1
+                        color: "#60ffffff"
+                    }
+
                 }
                 Rectangle {
-                    id: cardOuterBorder
                     anchors.fill: parent
                     anchors.margins: 11
                     radius: card.radius
@@ -143,38 +190,45 @@ Scope {
                     border.width: 1
                 }
 
-
-                //  Card content ─
                 ColumnLayout {
                     id: cardLayout
                     anchors {
-                        fill: cardBg
+                        top: cardBg.top
+                        left: cardBg.left
+                        right: cardBg.right
                         margins: 10
                     }
                     spacing: 6
 
                     //  Search bar
                     Rectangle {
-                        id: searchBar
                         Layout.fillWidth: true
                         Layout.preferredHeight: 42
                         radius: 10
-                        color: Qt.rgba(1, 1, 1, 0.06)
+                        color: 'transparent'
 
                         RowLayout {
                             anchors {
                                 fill: parent
-                                leftMargin: 12
+                                leftMargin: 6
                                 rightMargin: 12
+                                bottomMargin: 6
                             }
                             spacing: 10
+
+                            IconImage {
+                                source: "image://icon/file-search-symbolic"
+                                opacity: 0.5
+                                implicitSize: 30
+                                Layout.alignment: Qt.AlignVCenter
+                            }
 
                             TextInput {
                                 id: searchInput
                                 Layout.fillWidth: true
                                 Layout.fillHeight: true
                                 color: v.textColor
-                                font.pixelSize: 16
+                                font.pixelSize: 28
                                 verticalAlignment: TextInput.AlignVCenter
                                 activeFocusOnPress: true
 
@@ -184,154 +238,90 @@ Scope {
                                     text: "Search applications…"
                                     color: v.textPlaceholder
                                     font: searchInput.font
-                                    visible: !searchInput.text && !searchInput.activeFocus
+                                    //  Shown whenever there is no query; the input is
+                                    //  always focused, so focus must not hide it.
+                                    visible: searchInput.text === ""
                                 }
 
                                 onTextChanged: {
+                                    root.revealNow();
                                     applyFilter();
-                                    resultsList.currentIndex = 0;
                                 }
 
                                 Keys.onPressed: (event) => {
                                     if (event.key === Qt.Key_Escape) {
                                         root.open = false;
-                                        event.accepted = true;
                                     } else if (event.key === Qt.Key_Return || event.key === Qt.Key_Enter) {
                                         launchCurrent();
-                                        event.accepted = true;
                                     } else if (event.key === Qt.Key_Down) {
-                                        if (resultsList.count > 0) {
-                                            resultsList.incrementCurrentIndex();
-                                        }
-                                        event.accepted = true;
+                                        if (root.currentIndex < shown.length - 1)
+                                            root.currentIndex++;
                                     } else if (event.key === Qt.Key_Up) {
-                                        if (resultsList.currentIndex > 0) {
-                                            resultsList.decrementCurrentIndex();
-                                        }
-                                        event.accepted = true;
+                                        if (root.currentIndex > 0)
+                                            root.currentIndex--;
+                                    } else {
+                                        return;
                                     }
+                                    event.accepted = true;
                                 }
                             }
                         }
                     }
 
-                    //  Results list
-                    ListView {
-                        id: resultsList
+                    ColumnLayout {
                         Layout.fillWidth: true
-                        Layout.fillHeight: true
-                        Layout.preferredHeight: Math.min(count * 44, 396)
-                        clip: true
+                        Layout.preferredHeight: shown.length > 0 ? shown.length * 46 - 2 : 0
                         spacing: 2
-                        model: filteredModel
-                        keyNavigationEnabled: false
-                        boundsBehavior: Flickable.StopAtBounds
+                        visible: shown.length > 0
 
-                        delegate: ItemDelegate {
-                            id: delegateItem
-                            width: resultsList.width
-                            height: 44
-                            highlighted: index === resultsList.currentIndex
+                        Repeater {
+                            model: shown
 
-                            required property int index
-                            required property var modelData
+                            delegate: SpotlightResult {
+                                required property int index
+                                required property var modelData
 
-                            background: Rectangle {
-                                radius: 6
-                                color: delegateItem.highlighted
-                                    ? v.widgetHighlight
-                                    : "transparent"
-                            }
-
-                            contentItem: RowLayout {
-                                spacing: 10
-
-                                Image {
-                                    source: {
-                                        var path = Quickshell.iconPath(modelData.icon, true);
-                                        return path ? path : Quickshell.iconPath("application-x-executable");
-                                    }
-                                    sourceSize.width: 28
-                                    sourceSize.height: 28
-                                    Layout.preferredWidth: 28
-                                    Layout.preferredHeight: 28
-                                    asynchronous: true
-                                    fillMode: Image.PreserveAspectFit
+                                entry: modelData
+                                selected: index === root.currentIndex
+                                onActivated: {
+                                    modelData.execute();
+                                    root.open = false;
                                 }
-
-                                ColumnLayout {
-                                    Layout.fillWidth: true
-                                    spacing: 1
-
-                                    Text {
-                                        Layout.fillWidth: true
-                                        text: modelData.name
-                                        color: v.textColor
-                                        font.pixelSize: 14
-                                        elide: Text.ElideRight
-                                        maximumLineCount: 1
-                                    }
-
-                                    Text {
-                                        Layout.fillWidth: true
-                                        text: modelData.genericName || ""
-                                        color: v.textSecondary
-                                        font.pixelSize: 11
-                                        elide: Text.ElideRight
-                                        maximumLineCount: 1
-                                        visible: text !== ""
-                                    }
-                                }
-                            }
-
-                            onClicked: {
-                                modelData.execute();
-                                root.open = false;
                             }
                         }
                     }
                 }
             }
 
-            //  Filtered model
-            ScriptModel {
-                id: filteredModel
-
-                function filter(text) {
-                    if (!text || text.trim() === "") {
-                        return [...DesktopEntries.applications.values].sort(
-                            (a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase())
-                        );
-                    }
-
-                    const lower = text.toLowerCase();
-                    return DesktopEntries.applications.values.filter(entry => {
-                        return entry.name.toLowerCase().includes(lower)
-                            || (entry.genericName && entry.genericName.toLowerCase().includes(lower))
-                            || (entry.comment && entry.comment.toLowerCase().includes(lower))
-                            || entry.keywords.some(kw => kw.toLowerCase().includes(lower));
-                    }).sort((a, b) => {
-                        const aStarts = a.name.toLowerCase().startsWith(lower);
-                        const bStarts = b.name.toLowerCase().startsWith(lower);
-                        if (aStarts && !bStarts) return -1;
-                        if (!aStarts && bStarts) return 1;
-                        return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
-                    });
-                }
-
-                Component.onCompleted: {
-                    applyFilter();
-                }
-            }
+            property var results: []
 
             function applyFilter() {
-                filteredModel.values = filteredModel.filter(searchInput.text);
+                const query = searchInput.text.trim().toLowerCase();
+                const entries = DesktopEntries.applications.values;
+
+                //  Nothing typed, nothing listed.
+                results = query === "" ? [] : entries.filter(entry =>
+                    entry.name.toLowerCase().includes(query)
+                    || (entry.genericName || "").toLowerCase().includes(query)
+                    || (entry.comment || "").toLowerCase().includes(query)
+                    || (entry.keywords || []).some(kw => kw.toLowerCase().includes(query))
+                ).sort((a, b) => {
+                    //  Prefix matches first, then alphabetical.
+                    const aName = a.name.toLowerCase();
+                    const bName = b.name.toLowerCase();
+                    const aStarts = aName.startsWith(query);
+                    const bStarts = bName.startsWith(query);
+                    if (aStarts !== bStarts) return aStarts ? -1 : 1;
+                    return aName.localeCompare(bName);
+                });
+
+                root.currentIndex = 0;
             }
 
             function launchCurrent() {
-                var idx = resultsList.currentIndex;
-                if (idx >= 0 && idx < filteredModel.values.length) {
-                    filteredModel.values[idx].execute();
+                const entry = results[root.currentIndex];
+                if (entry) {
+                    entry.execute();
                     root.open = false;
                 }
             }

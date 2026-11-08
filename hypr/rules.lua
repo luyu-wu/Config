@@ -1,3 +1,16 @@
+local darkMode = _G.darkMode
+
+local bar_bg_breeze_unf = "rgb(eff0f1)"
+local bar_bg_teams = "rgb(ebebeb)"
+local bar_bg_chromium = "rgb(dee5d8)"
+local bar_bg_chromium_unf = "rgb(e2e3dd)"
+
+if darkMode then
+	bar_bg_breeze_unf = "rgb(212429)"
+	bar_bg_teams = "rgb(0A0A0A)"
+	bar_bg_chromium_unf = "rgb(282C26)"
+	bar_bg_chromium =  "rgb(1B211A)"
+end
 
 -----------------------------
 ------  LAYER RULES  --------
@@ -5,7 +18,7 @@
 
 hl.layer_rule({
     name    = "No Anims",
-    match   = { namespace = "hyprpicker|selection|hyprpaper|qs:screencorners|qs:screenshot" },
+    match   = { namespace = "hyprpicker|selection|hyprpaper|qs:screencorners|qs:screenshot|qs:wallpaper" },
     no_anim = true,
     blur    = false,
 })
@@ -14,7 +27,6 @@ hl.layer_rule({
     name         = "Enable Blur",
     match        = { namespace = "wofi|krunner|notifications|qs:spotlight|qs:ai|qs:screenshot" },
     blur         = true,
-    --ignore_alpha = 0.5,
 })
 
 hl.layer_rule({
@@ -136,18 +148,14 @@ hl.window_rule({
 hl.window_rule({
     name                   = "Thorium Unfocused",
     match                  = { class = "thorium-browser|chromium|google-chrome", focus = false },
-    ["hyprbars:bar_color"] = "rgb(2b2b2b)",
-
-    --["hyprbars:bar_color"] = "rgb(2b2b2b)",
-    ["hyprbars:bar_color"] = "rgb(e2e3dd)",
+    ["hyprbars:bar_color"] = bar_bg_chromium_unf,
 
 })
 
 hl.window_rule({
     name                   = "Thorium",
     match                  = { class = "thorium-browser|chromium|google-chrome", focus = true },
-    --["hyprbars:bar_color"] = "rgb(1f2020)",
-    ["hyprbars:bar_color"] = "rgb(dee5d8)",
+    ["hyprbars:bar_color"] = bar_bg_chromium,
 
 })
 
@@ -182,8 +190,7 @@ hl.window_rule({
 hl.window_rule({
     name                   = "Teams",
     match                  = { class = "teams-for-linux" },
-    --["hyprbars:bar_color"] = "rgb(eaeaea)", -- Light
-    ["hyprbars:bar_color"] = "rgb(ebebeb)", -- Dark
+    ["hyprbars:bar_color"] = bar_bg_teams
 
 })
 
@@ -242,37 +249,13 @@ hl.window_rule({
     --hyprbars          = { no_bar = true },
 })
 
-hl.window_rule({
-    name  = "Zoom",
-    match = { class = "zoom" },
-    --hyprbars = { bar_color = "rgb(dfe3e8)" },
-})
-
-hl.window_rule({
-    name  = "Zoom Meeting",
-    match = { class = "zoom", title = "Meeting" },
-    --hyprbars = { bar_color = "rgb(2a2b2d)", title_color = "rgb(2a2b2d)" },
-})
-
-hl.window_rule({
-    name     = "Zoom Share",
-    match    = { class = "zoom", title = "zoom_linux_float_video_window|as_toolbar|annotate_toolbar|ZoomAnnoArrowWindow|Annotation - Zoom|Presenter layout" },
-    pin      = false,
-    decorate = false,
-    no_anim  = true,
-    --hyprbars = { no_bar = true },
-})
 
 hl.window_rule({
     -- Default --hyprbars style for unfocused windows not covered by a more specific rule
     name                     = "Unfocused Bar Color",
     match                    = { class = "negative:vesktop|foot|floatterm|fusion360.exe|thorium-browser|dev.zed.Zed|spotify||teams-for-linux|com.obsproject.Studio|org.kde.kdenlive|gimp|google-chrome|chromium|zoom|Spotify|org.kde.krita|ai.storyteller.wordcraft", focus = false },
 
-	-- Light Breeze
-    ["hyprbars:bar_color"]   = "rgb(eff0f1)",
-	-- Dark Breeze
-    --["hyprbars:bar_color"]   = "rgb(212429)",
-    
+    ["hyprbars:bar_color"]   = bar_bg_breeze_unf,
     ["hyprbars:title_color"] = "rgb(808080)",
 })
 

@@ -13,7 +13,7 @@ PanelWindow {
 
     // Shared with the desktop backdrop so expose shows the same image.
     // Set by shell.qml, since a component's file name is not addressable.
-    property url wallpaperSource: ""
+    property url wallpaperSource: Wallpaper.source
 
     // --- SETTINGS ---
     property bool liveCapture: false
@@ -401,6 +401,11 @@ PanelWindow {
                             if (areaW <= 0 || areaH <= 0)
                                 return [];
 
+                            // Special workspaces have no numeric id in `clients`, only a
+                            // name ("special:foo"). Sort them after every numbered
+                            // workspace so the regular order is unchanged.
+                            var SPECIAL_WORKSPACE_SORT_OFFSET = 10000;
+
                             var windowList = [];
                             var idx = 0;
 
@@ -411,7 +416,10 @@ PanelWindow {
                                 var w = it;
                                 var clientInfo = w && w.lastIpcObject ? w.lastIpcObject : {};
                                 var workspace = clientInfo && clientInfo.workspace ? clientInfo.workspace : null;
-                                var workspaceId = workspace && workspace.id !== undefined ? workspace.id : undefined;
+
+                                var workspaceId = workspace ? workspace.id : undefined;
+                                if (workspaceId === undefined || workspaceId === null)
+                                    workspaceId = workspace && workspace.name ? SPECIAL_WORKSPACE_SORT_OFFSET : undefined;
 
                                 // Filter invalid workspace or offscreen windows
                                 if (workspaceId === undefined || workspaceId === null)

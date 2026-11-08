@@ -4,13 +4,12 @@ import subprocess
 import sys
 import time
 
-# Edit this list to change the tickers shown in the widget.
-SYMBOLS = ["XEQT.TO", "BMO.TO", "XIU.TO"]
+SYMBOLS = ["XEQT.TO"]
 
 USER_AGENT = "Mozilla/5.0"
 CHART_URL = (
     "https://{host}/v8/finance/chart/"
-    "{symbol}?interval=1d&range=1mo"
+    "{symbol}?interval=1d&range=5d"
 )
 HOSTS = ["query1.finance.yahoo.com", "query2.finance.yahoo.com"]
 
@@ -42,16 +41,14 @@ def fetch_quote(symbol):
         raise ValueError(last_error)
 
     payload = json.loads(proc.stdout)
-    result = payload["chart"]["result"][0]
-    meta = result["meta"]
-    closes = [
-        c for c in (result["indicators"]["quote"][0].get("close") or []) if c is not None
-    ]
-    if len(closes) < 2:
-        raise ValueError("not enough price data")
+    meta = payload["chart"]["result"][0]["meta"]
 
-    price, previous = closes[-1], closes[-2]
-    change = price - previous
+    price = meta.get("regularMarketPrice")
+    previous = meta.get("chartPreviousClose") or meta.get("previousClose")
+    if price is None:
+        raise ValueError("no price data")
+
+    change = price - previous if previous is not None else 0.0
     change_percent = change / previous * 100.0 if previous else 0.0
 
     raw_symbol = meta.get("symbol") or symbol
@@ -65,14 +62,12 @@ def fetch_quote(symbol):
         "price": round(price, 4),
         "change": round(change, 4),
         "changePercent": round(change_percent, 4),
-        "currency": meta.get("currency", "USD"),
-        "sparkline": [round(c, 4) for c in closes[-20:]],
+        "currency": meta.get("currency", "CAD"),
     }
 
 
 def main():
     quotes = []
-    # Fetch sequentially with a small stagger to stay under Yahoo's rate limits.
     for symbol in SYMBOLS:
         try:
             quotes.append(fetch_quote(symbol))

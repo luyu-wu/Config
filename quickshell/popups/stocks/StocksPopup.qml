@@ -1,7 +1,6 @@
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Effects
-import QtQuick.Shapes
 import Quickshell
 import Quickshell.Wayland
 import Quickshell.Widgets
@@ -48,11 +47,53 @@ PanelWindow {
         }
     }
 
-    //  card (shadow + border, same recipe as the other popups) ─
+    //  Entrance transition ─
+    //  The real card stays hidden until the blurred, fading snapshot has
+    //  finished sharpening, matching Spotlight's reveal.
+    readonly property int blurTransitionTime: 360
+    property bool revealed: false
+
+    onVisibleChanged: {
+        root.revealed = false
+        if (visible)
+            revealTimer.restart()
+        else
+            revealTimer.stop()
+    }
+    Timer {
+        id: revealTimer
+        interval: root.blurTransitionTime + 10
+        onTriggered: root.revealed = true
+    }
+
+    MultiEffect {
+        source: card
+        anchors.fill: parent
+        visible: !root.revealed
+
+        blurEnabled: true
+        blurMax: 64
+        opacity: root.visible ? 1.0 : 0.0
+        blur: root.visible ? 0.0: 1.0
+        Behavior on blur {
+            NumberAnimation {
+                duration: root.blurTransitionTime
+                easing.type: Easing.OutCubic
+            }
+        }
+        Behavior on opacity {
+            NumberAnimation {
+                duration: 200
+                easing.type: Easing.OutCubic
+            }
+        }
+
+    }
     Rectangle {
         id: card
         anchors.fill: parent
         radius: 16
+        visible: root.revealed
         color: "transparent"
 
         Item {
@@ -206,27 +247,6 @@ PanelWindow {
                             }
                         }
 
-                        Shape {
-                            id: sparkShape
-                            Layout.preferredWidth: 66
-                            Layout.preferredHeight: 24
-                            Layout.alignment: Qt.AlignVCenter
-                            visible: (row.quote.sparkline?.length ?? 0) >= 2
-                            preferredRendererType: Shape.CurveRenderer
-
-                            ShapePath {
-                                strokeColor: row.rowColor
-                                strokeWidth: 1.5
-                                fillColor: "transparent"
-                                startX: 0
-                                startY: 0
-
-                                PathPolyline {
-                                    path: root.sparkPoints(row.quote.sparkline, sparkShape.Layout.preferredWidth, sparkShape.Layout.preferredHeight)
-                                }
-                            }
-                        }
-
                         Item {
                             Layout.fillWidth: true
                         }
@@ -276,22 +296,5 @@ PanelWindow {
         if (root.quotes.length === 0)
             return "Failed to load quotes";
         return "Updated " + Qt.formatTime(root.lastUpdated, "hh:mm AP");
-    }
-
-    function sparkPoints(closes, w, h) {
-        if (!closes || closes.length < 2)
-            return [];
-        let min = Infinity, max = -Infinity;
-        for (let i = 0; i < closes.length; i++) {
-            if (closes[i] < min) min = closes[i];
-            if (closes[i] > max) max = closes[i];
-        }
-        const range = max - min || 1;
-        const n = closes.length - 1;
-        const pts = [];
-        for (let i = 0; i < closes.length; i++) {
-            pts.push(Qt.point(i * w / n, h - (closes[i] - min) / range * h));
-        }
-        return pts;
     }
 }

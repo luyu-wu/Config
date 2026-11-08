@@ -133,7 +133,7 @@ Scope {
                     anchors.margins: 16
                     radius: card.radius
                     color: v.popupBackground
-                    border.color: "#fff"
+                    border.color: v.popupBorder
                     border.width: 1
 
                     ClippingRectangle {
@@ -141,6 +141,16 @@ Scope {
                         color: "transparent"
                         radius: cardBg.radius
                         clip: true
+
+                        //  Light passthrough: the card is translucent, so in
+                        //  light mode the compositor shows through. Paint an
+                        //  opaque layer here instead so the text stays legible.
+                        Rectangle {
+                            anchors.fill: parent
+                            color: v.popupBackgroundOpaque
+                            opacity: v.darkMode ? 0 : 1
+                            z: -2
+                        }
 
                         NumberAnimation {
                             target: waves
@@ -155,6 +165,9 @@ Scope {
                         WaveBackground {
                             id: waves
                             anchors.fill: parent
+                            // The shader lives in its own file, so dim it from
+                            // outside rather than teaching it about the theme.
+                            opacity: v.darkMode ? 0.6 : 1
                         }
 
                         Rectangle {
@@ -169,7 +182,7 @@ Scope {
                                 }
                                 GradientStop {
                                     position: 1.0
-                                    color: "#60ffffff"
+                                    color: v.darkMode ? "#60ffffff" : "#40ffffff"
                                 }
                             }
                             z: 8
@@ -183,7 +196,10 @@ Scope {
                             gradient: Gradient {
                                 GradientStop {
                                     position: 0.0
-                                    color: "#e0ffffff"
+                                    // A white wash fades the header into the
+                                    // light card; in dark mode the card is dark,
+                                    // so there is nothing to fade into.
+                                    color: v.darkMode ? "#00ffffff" : "#e0ffffff"
                                 }
                                 GradientStop {
                                     position: 1.0
@@ -195,7 +211,7 @@ Scope {
                                 anchors.fill: windowTitle
                                 blur: 6
                                 radius: 18
-                                color: "#60000000"
+                                color: v.shadowColor
                             }
                             Rectangle {
                             	id: windowTitle
@@ -206,14 +222,15 @@ Scope {
                                 anchors.rightMargin: 150
                                 anchors.topMargin: 16
                                 implicitHeight: 36
-                                border.color: "#20404040"
+                                color: v.popupBackgroundOpaque
+                                border.color: v.outerBorderColor
                                 border.width: 1
 
                                 radius: 18
                                 Text {
                                     anchors.fill: parent
                                     text: "帮手"
-                                    color: "#666"
+                                    color: v.textSecondary
                                     font.weight: 600
                                     font.pixelSize: 20
                                     horizontalAlignment: Text.AlignHCenter
@@ -311,9 +328,9 @@ Scope {
                                         width: bubble.isUser ? Math.min(bubbleText.implicitWidth + 20, bubble.maxWidth) : bubble.maxWidth
                                         height: bubbleText.implicitHeight + 16
                                         radius: 12
-                                        color: bubble.isUser ? v.accentColor : "#60ffffff"
+                                        color: bubble.isUser ? v.accentColor : v.widgetHighlight
                                         border.width: 1
-                                        border.color: bubble.isUser ? v.accentColor : "#d0ffffff"
+                                        border.color: bubble.isUser ? v.accentColor : v.menuDividerColor
                                         Text {
                                             id: bubbleText
                                             anchors.centerIn: parent
@@ -339,9 +356,9 @@ Scope {
                             anchors.left: parent.left
                             anchors.right: parent.right
                             anchors.margins: 12
-                            color: "#70ffffff"
+                            color: v.popupBackground
                             border.width: 1
-                            border.color: "#d0ffffff"
+                            border.color: v.menuDividerColor
 
                             radius: 16
                             implicitHeight: 64
@@ -359,7 +376,7 @@ Scope {
                                 anchors.fill: parent
                                 autoScroll: true
                                 padding: 14
-                                color: "#333" //v.textColor
+                                color: v.textColor
                                 font.bold: false
                                 font.pixelSize: 16
                                 activeFocusOnPress: true
@@ -375,14 +392,14 @@ Scope {
                                 anchors.left: parent.left
                                 anchors.right: parent.right
                                 implicitHeight: 1
-                                color: "#fff"
+                                color: "#60ffffff"
                             }
                             RectangularShadow {
                                 anchors.top: parent.top
                                 anchors.left: parent.left
                                 anchors.right: parent.right
                                 implicitHeight: 1
-                                color: "#80ffffff"
+                                color: "#60ffffff"
                             }
                         }
                         Rectangle{
@@ -394,7 +411,7 @@ Scope {
                             implicitHeight: parent.height
                             implicitWidth: 300
                             radius: 24
-                            color: "#eee"
+                            color: v.popupBackgroundOpaque
                             // Above the transcript *and* the input box: the
                             // sidebar slides over the whole panel.
                             z: 7
@@ -502,7 +519,7 @@ Scope {
                         }
                         RectangularShadow{
                             anchors.fill: sidebar
-                            color: "#60000000"
+                            color: v.shadowColor
                             blur: 12
                             radius: 24
                             z: 6
@@ -527,8 +544,8 @@ Scope {
                             implicitWidth: 36
                             implicitHeight: 36
                             radius: 18
-                            color: newSessionHover.hovered ? "#e0e6ee" : "#f0f3f5"
-                            border.color: "#20404040"
+                            color: newSessionHover.containsMouse ? v.widgetHighlight : v.popupBackgroundOpaque
+                            border.color: v.outerBorderColor
                             border.width: 1
                             z: 8
 
@@ -536,7 +553,6 @@ Scope {
                                 id: newSessionHover
                                 anchors.fill: parent
                                 cursorShape: Qt.PointingHandCursor
-                                hoverEnabled: true
                                 onClicked: {
                                     Goose.newSession();
                                     root.sidebarVisible = false;
@@ -552,14 +568,14 @@ Scope {
                                     width: 16
                                     height: 3
                                     radius: 2
-                                    color: "#888"
+                                    color: v.textSecondary
                                 }
                                 Rectangle {
                                     anchors.centerIn: parent
                                     width: 3
                                     height: 16
                                     radius: 2
-                                    color: "#888"
+                                    color: v.textSecondary
                                 }
                             }
                         }
@@ -572,8 +588,8 @@ Scope {
                             implicitWidth: 36
                             implicitHeight: 36
                             radius: 18
-                            color: root.sidebarVisible ? v.accentColor : "#f0f3f5"
-                            border.color: "#20404040"
+                            color: root.sidebarVisible ? v.accentColor : v.popupBackgroundOpaque
+                            border.color: v.outerBorderColor
                             border.width: 1
                             z: 8
                             MouseArea {
@@ -596,7 +612,7 @@ Scope {
                                     width: 16
                                     height: 3
                                     radius: 2
-                                    color: root.sidebarVisible ? "#ffffff" : "#888"
+                                    color: root.sidebarVisible ? v.accentForeground : v.textSecondary
                                 }
                                 Rectangle {
                                     anchors.horizontalCenter: parent.horizontalCenter
@@ -604,7 +620,7 @@ Scope {
                                     width: 16
                                     height: 3
                                     radius: 2
-                                    color: root.sidebarVisible ? "#ffffff" : "#888"
+                                    color: root.sidebarVisible ? v.accentForeground : v.textSecondary
                                 }
                                 Rectangle {
                                     anchors.horizontalCenter: parent.horizontalCenter
@@ -612,7 +628,7 @@ Scope {
                                     width: 16
                                     height: 3
                                     radius: 2
-                                    color: root.sidebarVisible ? "#ffffff" : "#888"
+                                    color: root.sidebarVisible ? v.accentForeground : v.textSecondary
                                 }
                             }
                         }

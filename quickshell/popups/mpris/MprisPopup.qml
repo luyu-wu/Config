@@ -1,73 +1,111 @@
+import Quickshell
+import Quickshell.Services.Mpris
+import Quickshell.Wayland
+import Quickshell.Widgets
 import QtQuick
-import QtQuick.Layouts
 import QtQuick.Controls
 import QtQuick.Effects
-import Quickshell
-import Quickshell.Wayland
-import Quickshell.Services.Mpris
-import Quickshell.Widgets
+import QtQuick.Layouts
 import "../.."
 
 PanelWindow {
-    Variables { id: v }
     id: root
+    Variables { id: v }
 
+    //  Window ─
     implicitWidth: 340
     implicitHeight: contentColumn.implicitHeight + 64
-    exclusionMode: "Ignore"
+    exclusionMode: ExclusionMode.Ignore
     WlrLayershell.namespace: "qs:popup"
-    //grabFocus: true
+    updatesEnabled: false
+    color: "transparent"
     anchors {
         top: true
         left: true
-        //item: parent
-        //edges: Edges.Bottom
-        //rect.x: mprisLabel.mapToItem(null, 0, 0).x + mprisLabel.width / 2 - width / 2
-        //rect.y: 32
     }
     margins.top: 32
     margins.left: popupX
-    updatesEnabled: false
-    color: "transparent"
-    property real popupX: mprisLabel.mapToItem(null, 0, 0).x + mprisLabel.width / 2 - width / 2
-    property string albumPlaceholder: "image://theme/media-album-cover"
+
+    //  Player state ─
     property var player: null
+    readonly property string albumPlaceholder: "image://theme/media-album-cover"
     readonly property string artUrl: player?.trackArtUrl ?? ""
     readonly property string title: player?.trackTitle ?? "没有歌在播放"
     readonly property string artist: player?.trackArtist ?? ""
     readonly property string album: player?.trackAlbum ?? ""
-    readonly property bool canPlay: player?.canPlay ?? false
-    readonly property bool canPause: player?.canPause ?? false
-    readonly property bool canNext: player?.canGoNext ?? false
-    readonly property bool canPrev: player?.canGoPrevious ?? false
-    readonly property bool canSeek: player?.canSeek ?? false
     readonly property real position: player?.position ?? 0
-    readonly property bool playing: player?.playbackState === MprisPlaybackState.Playing
     readonly property real length: player?.length ?? 0
+    readonly property bool playing: player?.playbackState === MprisPlaybackState.Playing
+
+    //  Placement ─
+    property real popupX: mprisLabel.mapToItem(null, 0, 0).x + mprisLabel.width / 2 - width / 2
 
     Connections {
         target: mprisLabel
         function onWidthChanged() {
-            repositionTimer.restart();
+            repositionTimer.restart()
         }
     }
     Timer {
         id: repositionTimer
         interval: 1
-        repeat: false
         onTriggered: {
-            root.popupX = mprisLabel.mapToItem(null, 0, 0).x + mprisLabel.width / 2 - root.width / 2;
+            root.popupX = mprisLabel.mapToItem(null, 0, 0).x + mprisLabel.width / 2 - root.width / 2
         }
     }
+
+    //  Entrance transition ─
+    //  The real card stays hidden until the blurred, fading snapshot has
+    //  finished sharpening, matching Spotlight's reveal.
+    readonly property int blurTransitionTime: 300
+    property bool revealed: false
+
+    onVisibleChanged: {
+        root.revealed = false
+        if (visible)
+            revealTimer.restart()
+        else
+            revealTimer.stop()
+    }
+    Timer {
+        id: revealTimer
+        interval: root.blurTransitionTime + 10
+        onTriggered: root.revealed = true
+    }
+
+    MultiEffect {
+        anchors.fill: card
+        visible: !root.revealed
+        source: card
+        blurEnabled: true
+        blurMax: 128
+        blur: root.visible ? 0.0 : 1.0
+        opacity: root.visible ? 1.0 : 0.0
+        Behavior on blur {
+            NumberAnimation {
+                duration: root.blurTransitionTime
+                easing.type: Easing.OutCubic
+            }
+        }
+        Behavior on opacity {
+            NumberAnimation {
+                duration: root.blurTransitionTime - 50
+                easing.type: Easing.OutCubic
+            }
+        }
+    }
+
     Rectangle {
         id: card
         anchors.fill: parent
+        visible: root.revealed
         radius: 16
         color: "transparent"
 
+        //  Rounded mask so the outer shadow does not bleed into the corners.
         Item {
             id: mask
-            anchors.fill: card
+            anchors.fill: parent
             visible: false
             layer.enabled: true
             Rectangle {
@@ -79,7 +117,7 @@ PanelWindow {
         }
         RectangularShadow {
             id: outerShadow
-            anchors.fill: card
+            anchors.fill: parent
             radius: card.radius
             blur: 16
             color: v.shadowColor
@@ -94,26 +132,34 @@ PanelWindow {
             maskInverted: true
         }
 
-        Rectangle {
-            id: mprisBorder
+        //  Card background ─
+        ClippingRectangle {
             anchors.fill: parent
             anchors.margins: 16
-            radius: parent.radius
+            radius: card.radius
             color: v.popupBackground
             border.color: v.popupBorder
             border.width: 1
+            clip: true
+            RectangularShadow {
+                anchors.bottom: parent.bottom
+                anchors.left: parent.left
+                anchors.right: parent.right
+                blur: 24
+                implicitHeight: 1
+                color: "#60ffffff"
+            }
         }
         Rectangle {
-            id: cardOuterBorder
             anchors.fill: parent
             anchors.margins: 15
             radius: card.radius
-            color: 'transparent'
+            color: "transparent"
             border.color: v.outerBorderColor
             border.width: 1
         }
 
-
+        //  Content ─
         ColumnLayout {
             id: contentColumn
             anchors {
@@ -124,10 +170,10 @@ PanelWindow {
             }
             spacing: 0
 
+            //  Album art ─
             Rectangle {
-                visible: true
                 Layout.fillWidth: true
-                Layout.preferredHeight: width    // square; image adapts
+                Layout.preferredHeight: width
                 Layout.topMargin: 4
                 Layout.leftMargin: 4
                 Layout.rightMargin: 4
@@ -142,8 +188,8 @@ PanelWindow {
                 }
                 ClippingRectangle {
                     anchors.fill: parent
-                    color: "transparent"
                     radius: 10
+                    color: "transparent"
                     Image {
                         id: artImage
                         anchors.fill: parent
@@ -160,16 +206,16 @@ PanelWindow {
                     color: "#333"
                 }
                 MouseArea {
-                    id: mouseArea
                     anchors.fill: parent
-                    hoverEnabled: true
-                    cursorShape: enabled ? Qt.PointingHandCursor : Qt.ArrowCursor
+                    cursorShape: Qt.PointingHandCursor
                     onClicked: {
-                        root.player?.raise();
-                        root.visible = false;
+                        root.player?.raise()
+                        root.visible = false
                     }
                 }
             }
+
+            //  Track info ─
             ColumnLayout {
                 Layout.fillWidth: true
                 Layout.topMargin: 20
@@ -178,40 +224,43 @@ PanelWindow {
                 Text {
                     Layout.fillWidth: true
                     text: root.title
-                    color: palette.windowText
+                    color: v.textColor
                     font.pixelSize: 14
                     font.weight: Font.DemiBold
                     elide: Text.ElideRight
                     horizontalAlignment: Text.AlignHCenter
                 }
-
                 Text {
                     Layout.fillWidth: true
                     visible: root.artist.length > 0 || root.album.length > 0
                     text: [root.artist, root.album].filter(Boolean).join("  ·  ")
-                    color: "#666"
+                    color: v.textSecondary
                     font.pixelSize: 12
                     elide: Text.ElideRight
                     horizontalAlignment: Text.AlignHCenter
                 }
             }
+
+            //  Position ticker ─
             Timer {
-                running: playing && root.visible && !seekSlider.pressed
+                running: root.playing && root.visible && !seekSlider.pressed
                 interval: 1000
                 repeat: true
-                onTriggered: player.positionChanged()
+                onTriggered: {
+                    if (root.player)
+                        root.player.positionChanged()
+                }
             }
+
+            //  Seek bar ─
             Slider {
                 id: seekSlider
                 Layout.fillWidth: true
                 Layout.topMargin: 12
-
-                Layout.leftMargin: 0
-                Layout.rightMargin: 0
+                Layout.preferredHeight: 20
                 from: 0
-                to: player.length
-                value: player.position
-                height: 20
+                to: root.length
+                value: root.position
                 background: Rectangle {
                     x: seekSlider.leftPadding
                     y: seekSlider.topPadding + seekSlider.availableHeight / 2 - height / 2
@@ -226,9 +275,8 @@ PanelWindow {
                         anchors.margins: 1
                         radius: 7
                         color: "transparent"
-
                         Rectangle {
-                            width: seekSlider.visualPosition * (parent.width)
+                            width: seekSlider.visualPosition * parent.width
                             height: parent.height
                             color: "#ffffff"
                         }
@@ -237,22 +285,21 @@ PanelWindow {
                 handle: Rectangle {
                     color: "transparent"
                 }
-
                 onMoved: {
-                    player.position = player.length * seekSlider.visualPosition;
+                    if (root.player)
+                        root.player.position = root.length * seekSlider.visualPosition
                 }
             }
 
+            //  Elapsed / total ─
             RowLayout {
                 Layout.fillWidth: true
                 Layout.topMargin: 2
                 Layout.bottomMargin: 6
-
                 Layout.leftMargin: 4
                 Layout.rightMargin: 4
-
                 Text {
-                    text: formatMs(root.position)
+                    text: root.formatTime(root.position)
                     color: v.textSecondary
                     font.pixelSize: 10
                 }
@@ -260,51 +307,38 @@ PanelWindow {
                     Layout.fillWidth: true
                 }
                 Text {
-                    text: root.length > 0 ? formatMs(root.length) : "-:--"
+                    text: root.length > 0 ? root.formatTime(root.length) : "-:--"
                     color: v.textSecondary
                     font.pixelSize: 10
                 }
             }
 
-            Item {
+            //  Transport controls ─
+            RowLayout {
                 Layout.alignment: Qt.AlignHCenter
-                Layout.preferredHeight: controlRow.implicitHeight
-
-                RowLayout {
-                    id: controlRow
-                    width: implicitWidth
-                    anchors.centerIn: parent
-                    spacing: 4
-
-                    // Previous
-                    ControlButton {
-                        icon: "⏮"
-                        size: 64
-                        onActivated: root.player?.previous()
-                    }
-
-                    // Play / Pause
-                    ControlButton {
-                        icon: root.playing ? "⏸" : "▶️"
-                        size: 64
-                        onActivated: root.playing ? root.player?.pause() : root.player?.play()
-                    }
-
-
-                    // Next
-                    ControlButton {
-                        icon: "⏭"
-                        size: 64
-                        onActivated: root.player?.next()
-                    }
+                spacing: 4
+                ControlButton {
+                    icon: "⏮"
+                    size: 64
+                    onActivated: root.player?.previous()
+                }
+                ControlButton {
+                    icon: root.playing ? "⏸" : "▶️"
+                    size: 64
+                    onActivated: root.playing ? root.player?.pause() : root.player?.play()
+                }
+                ControlButton {
+                    icon: "⏭"
+                    size: 64
+                    onActivated: root.player?.next()
                 }
             }
-        } // ColumnLayout
-    } // card Rectangle
+        }
+    }
 
-    function formatMs(totalSec) {
-        const m = Math.floor(totalSec / 60);
-        const s = Math.floor(totalSec % 60);
-        return m + ":" + String(s).padStart(2, "0");
+    function formatTime(seconds) {
+        const minutes = Math.floor(seconds / 60)
+        const remainder = Math.floor(seconds % 60)
+        return minutes + ":" + String(remainder).padStart(2, "0")
     }
 }

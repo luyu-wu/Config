@@ -11,7 +11,7 @@ QtObject {
     readonly property color textColor: darkMode ? "#E0E0E0" : "#202020"
 
     // Secondary / muted text
-    readonly property color textSecondary: darkMode ? "#B0B0B0" : "#666666"
+    readonly property color textSecondary: darkMode ? "#909090" : "#666666"
 
     // Section header text (semi-transparent)
     readonly property color textHeader: darkMode ? "#90FFFFFF" : "#90000000"
@@ -21,7 +21,7 @@ QtObject {
 
     //  Shared popup colors ─
     // Popup dropdown / card background
-    readonly property color popupBackground: darkMode ? "#80303030" : "#b1e4e7ef"
+    readonly property color popupBackground: darkMode ? "#b1303030" : "#b1e4e7ef"
 
     // Opaque popup background, for cards shown over a dimmed backdrop where a
     // translucent fill would let the blur underneath show through the card.
@@ -53,13 +53,11 @@ QtObject {
 
     //  Shadow ─
     // Drop shadow color
-    readonly property color shadowColor: "#70000000"
-
-
+    readonly property color shadowColor: darkMode ? "#80000000" : "#60000000"
 
     //  Bar colors
     // Top bar background
-    readonly property color barBackground: darkMode ? "#8034373f" : "#b1e4e7ef"
+    readonly property color barBackground: darkMode ? "#b134373f" : "#b1e4e7ef"
     // Bottom bar borderc
     readonly property color barBorder: darkMode ? "#60606060" : "#a0a0a0"
 

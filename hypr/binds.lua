@@ -134,12 +134,13 @@ hl.bind("CTRL + SHIFT + escape", hl.dsp.exec_cmd("foot -e btop", { float = true 
 hl.bind(SUPER_SHIFT .. " + T", hl.dsp.exec_cmd("foot", { float = true }))
 hl.bind(SUPER_SHIFT .. " + L", hl.dsp.exec_cmd("hyprlock"))
 
+--[[
 hl.bind(SUPER_SHIFT .. " + L",function()
   hl.timer(function()
     hl.dispatch(hl.dsp.dpms({ action = "disable" }))
   end, {timeout = 1000, type = "oneshot"})
 end)
-
+--]]
 -----------------------------
 ---- SPECIAL WORKSPACES  ----
 -----------------------------

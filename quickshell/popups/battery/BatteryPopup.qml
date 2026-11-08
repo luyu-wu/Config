@@ -100,16 +100,15 @@ PopupWindow {
         MenuLabel {
             label: "Battery"
             secondary: String(Math.round(battery.percentage * 100)) + "%"
-            secondaryElement.color: "#444"
             labelElement.font.weight: 600
         }
         MenuLabel {
             label: "Power Source:  " + (battery.state != 2 ? "Power Adapter" : "Battery")
-            labelElement.color: "#666"
+            labelElement.color: v.textSecondary
         }
         MenuLabel {
             label: battery.state != 2 ? (battery.changeRate > 2 ? "Charging (" + Math.floor(battery.changeRate * 10) / 10 + " W)" : "Fully Charged") : String(Math.round(battery.timeToEmpty / 60)) + " min Remaining (" + String(Math.round(battery.changeRate * 10) / 10) + " W)"
-            labelElement.color: "#666"
+            labelElement.color: v.textSecondary
         }
 
         MenuDiv {}

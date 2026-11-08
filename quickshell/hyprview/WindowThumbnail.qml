@@ -36,9 +36,9 @@ Item {
 
     RectangularShadow {
         anchors.fill: card
-        radius: 4
-        color: Qt.rgba(0, 0, 0, 0.35)
-        blur: 16
+        radius: 8
+        color: Qt.rgba(0, 0, 0, 0.6)
+        blur: 8
         spread: 0
         visible: true
     }
@@ -149,7 +149,7 @@ Item {
             return false;
         // When a special workspace is active, match its windows by name
         if (root.specialActive && root.specialWorkspaceName)
-            return hWin.workspace.name === root.specialWorkspaceName;
+            return hWin.workspace.address === root.specialWorkspaceName;
         var focused = Hyprland.focusedWorkspace;
         if (!focused)
             return false;
@@ -164,12 +164,12 @@ Item {
         if (cw) {
             // Explicit target: if it's a special workspace, match by name
             if (cw.id < 0)
-                return hWin.workspace.name === cw.name;
+                return hWin.workspace.address === cw.name;
             return hWin.workspace.id === cw.id;
         }
         // No explicit target: use current state
         if (root.specialActive && root.specialWorkspaceName)
-            return hWin.workspace.name === root.specialWorkspaceName;
+            return hWin.workspace.address === root.specialWorkspaceName;
         var focused = Hyprland.focusedWorkspace;
         if (!focused)
             return false;
@@ -324,7 +324,7 @@ Item {
             active: root.isActive && !!thumbContainer.wHandle
             Rectangle{
                 anchors.fill: parent
-                color: "#ffffff"
+                color: v.DarkMode ? "#ffffff" : "#333333"
                 radius: 12
             }
             sourceComponent: ScreencopyView {

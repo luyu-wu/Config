@@ -1,3 +1,13 @@
+local darkMode = _G.darkMode
+bar_bg_breeze = "rgb(dee0e2)"
+tc_breeze = "rgb(404040)"
+ia_icon_color = "rgb(c4c4c4)"
+if darkMode then
+	bar_bg_breeze = "rgb(292c31)"
+	tc_breeze = "rgb(e0e0e0)"
+	ia_icon_color = "rgb(5d5d5d)"
+end
+
 hl.config({
     plugin = {
         hyprbars = {
@@ -13,22 +23,16 @@ hl.config({
             bar_precedence_over_border = true,
 
             -- Light Mode
-            bar_color                  = "rgb(dee0e2)",
-            -- Dark Mode
-            --bar_color                  = "rgb(292c31)",
+            bar_color                  = bar_bg_breeze,
 
             col                        = {
                 -- Light Mode
-                text = "rgb(404040)",
-                -- Dark Mode
-                --text = "rgb(e0e0e0)",
+                text = tc_breeze
             },
 
             icon_on_hover              = true,
 			-- Light Mode #e4e4e4
-            inactive_button_color      = "rgb(c4c4c4)",
-			-- Dark Mode
-           	--inactive_button_color      = "rgb(5d5d5d)",
+            inactive_button_color      = ia_icon_color,
             on_double_click            = "hyprctl dispatch 'hl.dsp.window.fullscreen_state({internal = 1, client = 0})'"
         },
     },

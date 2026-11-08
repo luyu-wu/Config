@@ -1,3 +1,13 @@
+_G.darkMode = false
+local darkMode = _G.darkMode
+activeBor = "rgb(708080)"
+inactiveBor =  "rgb(90a0a0)"
+blurPasses = 2
+if darkMode then
+	activeBor = "rgb(606060)"
+	inactiveBor = "rgb(303030)"
+	blurPasses = 3
+end
 hl.config({
     general = {
         gaps_in          = 12,
@@ -5,14 +15,8 @@ hl.config({
         gaps_workspaces  = 0,
         border_size      = 1,
         col              = {
-        	-- Light
-            active_border   = "rgb(708080)",
-            inactive_border = "rgb(90a0a0)",
-
-			-- Dark
-            --active_border   = "rgb(606060)",
-            --inactive_border = "rgb(303030)",
-
+            active_border   = activeBor,
+            inactive_border = inactiveBor,
         },
         resize_on_border = true,
     },
@@ -116,7 +120,7 @@ hl.config({
             xray           = false,
             ignore_opacity = false,
             size           = 6,
-            passes         = 2,
+            passes         = blurPasses,
             contrast       = 1,
             brightness     = 1,
             vibrancy       = 0.17,

@@ -41,7 +41,7 @@ Rectangle {
             id: labelSecondary
             visible: item.secondary !== ""
             text: item.secondary
-            color: "#808080"
+            color: v.textSecondary
             font.family: "SF Pro"
             font.pixelSize: 16
         }
