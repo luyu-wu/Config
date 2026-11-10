@@ -16,7 +16,9 @@ Item {
             left: parent.left
             leftMargin: 14
         }
+        //text: "文件     编辑     显示     前往     窗口     帮助"
         text: "File     Edit     View     Go     Window     Help"
+
         font.family: "SF Pro"
         font.pixelSize: 21
         color: v.textColor

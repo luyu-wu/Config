@@ -122,7 +122,7 @@ hl.config({
             size           = 6,
             passes         = blurPasses,
             contrast       = 1,
-            brightness     = 1,
+            brightness     = 1.2,
             vibrancy       = 0.17,
             noise          = 0,
             proportional = true,

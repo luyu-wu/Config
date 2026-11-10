@@ -57,7 +57,7 @@ QtObject {
 
     //  Bar colors
     // Top bar background
-    readonly property color barBackground: darkMode ? "#b134373f" : "#b1e4e7ef"
+    readonly property color barBackground: darkMode ? "#b134373f" : "#a0e4e7ef"
     // Bottom bar borderc
     readonly property color barBorder: darkMode ? "#60606060" : "#a0a0a0"
 

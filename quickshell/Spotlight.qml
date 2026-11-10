@@ -13,12 +13,12 @@ Scope {
     property bool open: false
     property bool showCard: false
     property int currentIndex: 0
-    property int blurTransitionTime: 500
+    property int blurTransitionTime: 400
     readonly property int maxResults: 5
 
     Timer {
         id: revealTimer
-        interval: blurTransitionTime + 10
+        interval: blurTransitionTime
         onTriggered: root.showCard = true
     }
 
@@ -104,12 +104,12 @@ Scope {
                 Behavior on blur {
                     NumberAnimation {
                         duration: root.blurTransitionTime
-                        easing.type: Easing.OutCubic
+                        easing.type: Easing.Linear
                     }
                 }
                 Behavior on opacity {
                     NumberAnimation {
-                        duration: root.blurTransitionTime - 50
+                        duration: root.blurTransitionTime
                         easing.type: Easing.OutCubic
                     }
                 }
@@ -146,7 +146,7 @@ Scope {
                 RectangularShadow {
                     id: outerShadow
                     anchors.fill: card
-                    radius: 30
+                    radius: 36
                     blur: 16
                     color: v.shadowColor
                     spread: -12

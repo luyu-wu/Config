@@ -18,7 +18,7 @@ end
 
 hl.layer_rule({
     name    = "No Anims",
-    match   = { namespace = "hyprpicker|selection|hyprpaper|qs:screencorners|qs:screenshot|qs:wallpaper" },
+    match   = { namespace = "hyprpicker|selection|hyprpaper|qs:screencorners|qs:screenshot|qs:expose"},
     no_anim = true,
     blur    = false,
 })
@@ -50,12 +50,6 @@ hl.layer_rule({
     no_anim      = true,
 })
 
-hl.layer_rule({
-    name       = "QS-Expose",
-    match      = { namespace = "qs:expose" },
-    blur    = false,
-    no_anim = true,
-})
 
 hl.layer_rule({
     name         = "Quickshell Popups",
@@ -220,7 +214,13 @@ hl.window_rule({
     match = { class = "Spotify|spotify" },
     ["hyprbars:bar_color"]   = "rgb(000000)",
     ["hyprbars:title_color"] = "rgb(E0E0E0)",
+})
 
+hl.window_rule({
+    name  = "Photocraft",
+    match = { class = "ai.storyteller.photocraft" },
+    ["hyprbars:bar_color"]   = "rgb(535353)",
+    ["hyprbars:title_color"] = "rgb(E0E0E0)",
 })
 
 hl.window_rule({
@@ -253,7 +253,7 @@ hl.window_rule({
 hl.window_rule({
     -- Default --hyprbars style for unfocused windows not covered by a more specific rule
     name                     = "Unfocused Bar Color",
-    match                    = { class = "negative:vesktop|foot|floatterm|fusion360.exe|thorium-browser|dev.zed.Zed|spotify||teams-for-linux|com.obsproject.Studio|org.kde.kdenlive|gimp|google-chrome|chromium|zoom|Spotify|org.kde.krita|ai.storyteller.wordcraft", focus = false },
+    match                    = { class = "negative:vesktop|foot|floatterm|fusion360.exe|thorium-browser|dev.zed.Zed|spotify||teams-for-linux|com.obsproject.Studio|org.kde.kdenlive|gimp|google-chrome|chromium|zoom|Spotify|org.kde.krita|ai.storyteller.wordcraft|ai.storyteller.photocraft", focus = false },
 
     ["hyprbars:bar_color"]   = bar_bg_breeze_unf,
     ["hyprbars:title_color"] = "rgb(808080)",

@@ -46,7 +46,6 @@ Variants {
             anchors.left: parent.left
             anchors.right: parent.right
             implicitHeight: 40
-            //color: "#d1e4e7ef"
             color: v.barBackground
 
             RowLayout {
@@ -86,6 +85,37 @@ Variants {
                 implicitHeight: 1
                 color: v.barBorder
             }
+
+            // Gradient Bar
+            Rectangle {
+                anchors.top: parent.top
+                anchors.left: parent.left
+                anchors.right: parent.right
+                visible: false
+                z: -1
+                implicitHeight: 60
+                gradient: Gradient {
+                    GradientStop {
+                        position: 0
+                        color: "#b1e4e7ef"
+                    }
+                    GradientStop {
+                        position: 0.5
+                        color: "#51e4e7ef"
+                    }
+                    GradientStop {
+                        position: 0.8
+                        color: "#10e4e7ef"
+                    }
+
+
+                    GradientStop {
+                        position: 1.0
+                        color: "#00e4e7ef"
+                    }
+                }
+            }
+
         }
     }
 }

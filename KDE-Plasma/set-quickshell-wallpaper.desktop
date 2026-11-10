@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=KonqPopupMenu/Plugin
+MimeType=image/jpeg;image/png;image/webp;image/gif;image/bmp;image/tiff;image/avif;
+Actions=SetQuickshellWallpaper;
+X-KDE-StartupNotify=false
+
+[Desktop Action SetQuickshellWallpaper]
+Name=Set Wallpaper
+Icon=preferences-desktop-wallpaper
+Exec=sh -c 'cp -- "%f" ~/.config/quickshell/wallpaper && quickshell ipc -p ~/.config/quickshell call wallpaper reload'

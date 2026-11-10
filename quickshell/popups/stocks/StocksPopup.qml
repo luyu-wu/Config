@@ -47,53 +47,10 @@ PanelWindow {
         }
     }
 
-    //  Entrance transition ─
-    //  The real card stays hidden until the blurred, fading snapshot has
-    //  finished sharpening, matching Spotlight's reveal.
-    readonly property int blurTransitionTime: 360
-    property bool revealed: false
-
-    onVisibleChanged: {
-        root.revealed = false
-        if (visible)
-            revealTimer.restart()
-        else
-            revealTimer.stop()
-    }
-    Timer {
-        id: revealTimer
-        interval: root.blurTransitionTime + 10
-        onTriggered: root.revealed = true
-    }
-
-    MultiEffect {
-        source: card
-        anchors.fill: parent
-        visible: !root.revealed
-
-        blurEnabled: true
-        blurMax: 64
-        opacity: root.visible ? 1.0 : 0.0
-        blur: root.visible ? 0.0: 1.0
-        Behavior on blur {
-            NumberAnimation {
-                duration: root.blurTransitionTime
-                easing.type: Easing.OutCubic
-            }
-        }
-        Behavior on opacity {
-            NumberAnimation {
-                duration: 200
-                easing.type: Easing.OutCubic
-            }
-        }
-
-    }
     Rectangle {
         id: card
         anchors.fill: parent
         radius: 16
-        visible: root.revealed
         color: "transparent"
 
         Item {

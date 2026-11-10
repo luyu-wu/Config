@@ -10,7 +10,7 @@ import "hyprview"
 
 PanelWindow {
     id: root
-    readonly property url wallpaperSource: "file:///home/chrysanthemum/.config/quickshell/wallpaper"
+    readonly property url wallpaperSource: WallpaperState.source
 
     // --- SETTINGS ---
     property bool liveCapture: false
