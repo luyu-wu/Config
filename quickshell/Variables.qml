@@ -3,7 +3,7 @@ import QtQuick
 QtObject {
     //  Theme mode
     // Toggle this to switch between light and dark palettes.
-    readonly property bool darkMode: false
+    readonly property bool darkMode: true
 
     //  Shared text colors
     //

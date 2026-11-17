@@ -1,0 +1,207 @@
+{
+    "Name": "Default",
+    "Options": {
+        "ApplyWindowSize": true
+    },
+    "ToolbarState": "AAAA/wAAAAH9AAAAAAAAAsQAAAJpAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAE0AZQBuAHUAVABvAG8AbABiAGEAcgAAAAAA/////wAAAAAAAAAA",
+    "Toolbars": [
+    ],
+    "Version": 1,
+    "Widgets": [
+        {
+            "SplitterVertical": {
+                "State": "AAAA/wAAAAEAAAACAAADoQAAABwA/////wEAAAACAA==",
+                "Widgets": [
+                    {
+                        "SplitterHorizontal": {
+                            "State": "AAAA/wAAAAEAAAACAAABdAAAAUMA/////wEAAAABAA==",
+                            "Widgets": [
+                                {
+                                    "Playlist": {
+                                        "AlternatingRows": true,
+                                        "ArtworkCornerRadius": 0,
+                                        "ArtworkReflection": false,
+                                        "ArtworkReflectionGap": 3,
+                                        "ArtworkReflectionHeight": 33,
+                                        "ArtworkReflectionOpacity": 35,
+                                        "BackgroundBlur": 42,
+                                        "BackgroundCoverType": 0,
+                                        "BackgroundCustomImage": "",
+                                        "BackgroundFadeDuration": 0,
+                                        "BackgroundImageMode": 0,
+                                        "BackgroundMaxSize": 0,
+                                        "BackgroundOpacity": 40,
+                                        "BackgroundPosition": 4,
+                                        "BackgroundScaling": 0,
+                                        "BackgroundTrackPreference": 0,
+                                        "Columns": "1|2",
+                                        "CustomColumns": false,
+                                        "DoubleClickAction": 5,
+                                        "HeaderState": "AAAANXjaY2BgYGJgYHgHxKkMEDYIMILY9h8YMMH/////AwBjKgaG",
+                                        "ID": "048715e2315d49eab7d91b3aeed5b074",
+                                        "ImagePadding": 0,
+                                        "ImagePaddingTop": 0,
+                                        "MiddleClickAction": 0,
+                                        "Preset": 0,
+                                        "ShowHeader": true,
+                                        "ShowScrollbar": true,
+                                        "SingleMode": false,
+                                        "StartPlaybackOnSend": false,
+                                        "StickyArtwork": false,
+                                        "StickyHeaders": false,
+                                        "StickySubheaders": false
+                                    }
+                                },
+                                {
+                                    "SplitterVertical": {
+                                        "State": "AAAA/wAAAAEAAAACAAABQQAAAP4A/////wEAAAACAA==",
+                                        "Widgets": [
+                                            {
+                                                "ArtworkPanel": {
+                                                    "ArtworkScaling": 0,
+                                                    "CoverAlignment": 132,
+                                                    "CoverType": 0,
+                                                    "DoubleClickAction": 1,
+                                                    "FadeCoverChanges": false,
+                                                    "FadeDurationMs": 1000,
+                                                    "MiddleClickAction": 3,
+                                                    "TrackPreference": 0
+                                                }
+                                            },
+                                            {
+                                                "TabStack": {
+                                                    "LastTab": 2,
+                                                    "Position": "South",
+                                                    "RememberLastTab": true,
+                                                    "State": "信息\u001f歌词\u001f歌单\u001f队列",
+                                                    "Widgets": [
+                                                        {
+                                                            "SelectionInfo": {
+                                                                "AlternatingRows": true,
+                                                                "Options": 87,
+                                                                "ShowHeader": true,
+                                                                "ShowHorizontalScrollbar": false,
+                                                                "ShowVerticalScrollbar": true,
+                                                                "State": "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASgAAAACAAAAAAAAAAAAAAAAAAAAAGT/////AAAAhAAAAAAAAAACAAAAZAAAAAEAAAAAAAAAxAAAAAEAAAACAAAD6AAAAAAAAAAAAAAAAAAAAAAAAAAAAQ==",
+                                                                "TrackPreference": 0
+                                                            }
+                                                        },
+                                                        {
+                                                            "Lyrics": {
+                                                                "Alignment": 132,
+                                                                "BackgroundBlur": 64,
+                                                                "BackgroundCoverType": 0,
+                                                                "BackgroundCustomImage": "",
+                                                                "BackgroundFadeDuration": 0,
+                                                                "BackgroundImageMode": 0,
+                                                                "BackgroundMaxSize": 0,
+                                                                "BackgroundOpacity": 25,
+                                                                "BackgroundPosition": 4,
+                                                                "BackgroundScaling": 0,
+                                                                "BackgroundTrackPreference": 0,
+                                                                "BaseFont": "Liberation Sans,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,Regular,0,0",
+                                                                "BottomMargin": 20,
+                                                                "CentreFirstSyncedLine": false,
+                                                                "CentreLastSyncedLine": true,
+                                                                "EdgeFadeMode": 1,
+                                                                "EdgeFadeSize": 25,
+                                                                "LeftMargin": 20,
+                                                                "LineFont": "Liberation Sans,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,Regular,0,0",
+                                                                "LineSpacing": 12,
+                                                                "NoLyricsScript": "[Artist: %artist%$crlf(2)][Album: %album%$crlf(2)]Title: %title%",
+                                                                "ProgressFill": 0,
+                                                                "RightMargin": 20,
+                                                                "ScrollDuration": 500,
+                                                                "ScrollMode": 1,
+                                                                "SeekOnClick": true,
+                                                                "ShowScrollbar": false,
+                                                                "TopMargin": 20,
+                                                                "UseCustomColours": false,
+                                                                "WordFont": "",
+                                                                "WordLineFont": ""
+                                                            }
+                                                        },
+                                                        {
+                                                            "PlaylistOrganiser": {
+                                                                "DisplayScript": "<left>\n%node_name%$if(%is_group%, \\[%count%\\],)\n</left>\n<right>\n$if($not(%is_group%),%count%)\n</right>\n",
+                                                                "PlayingBackgroundColour": "",
+                                                                "PlayingTextColour": ""
+                                                            }
+                                                        },
+                                                        {
+                                                            "PlaybackQueue": {
+                                                                "AlternatingRows": false,
+                                                                "ArtworkCornerRadius": 0,
+                                                                "BackgroundBlur": 0,
+                                                                "BackgroundCoverType": 0,
+                                                                "BackgroundCustomImage": "",
+                                                                "BackgroundFadeDuration": 0,
+                                                                "BackgroundImageMode": 0,
+                                                                "BackgroundMaxSize": 0,
+                                                                "BackgroundOpacity": 40,
+                                                                "BackgroundPosition": 4,
+                                                                "BackgroundScaling": 0,
+                                                                "BackgroundTrackPreference": 0,
+                                                                "DisplayMode": 0,
+                                                                "DisplayScript": "%title%$crlf()%album%<right>%duration%",
+                                                                "IconHeight": 36,
+                                                                "IconWidth": 36,
+                                                                "ShowCurrent": true,
+                                                                "ShowHeader": true,
+                                                                "ShowIcon": true,
+                                                                "ShowScrollbar": true
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "SplitterHorizontal": {
+                            "State": "AAAA/wAAAAEAAAAEAAAAiQAABk8AAABHAAAAZwD/////AQAAAAEA",
+                            "Widgets": [
+                                {
+                                    "PlayerControls": {
+                                        "ShowNext": true,
+                                        "ShowPause": false,
+                                        "ShowPlay": false,
+                                        "ShowPlayPause": true,
+                                        "ShowPrevious": true,
+                                        "ShowRandomTrack": false,
+                                        "ShowStop": true
+                                    }
+                                },
+                                {
+                                    "SeekBar": {
+                                        "ShowLabels": true,
+                                        "ShowPlayedThreshold": false,
+                                        "ShowRemainingTime": false
+                                    }
+                                },
+                                {
+                                    "PlaylistControls": {
+                                    }
+                                },
+                                {
+                                    "VolumeControls": {
+                                        "Curve": 4,
+                                        "Mode": 3
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "WindowSize": {
+        "Height": 645,
+        "Width": 708
+    }
+}

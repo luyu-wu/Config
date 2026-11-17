@@ -58,14 +58,56 @@ hl.bind("SUPER + mouse_up", function()
 end)
 
 hl.gesture({ fingers = 3, direction = "horizontal", action = "workspace",disable_inhibit=true})
+-- Line format: "<active> <travel>"
+local EXPOSE_PROG = "/dev/shm/qs-expose"
+local EXPOSE_SCALE = 400
+local exposeFile = io.open(EXPOSE_PROG, "w")
+
+local exposeVelocity, exposeLastTime = 0, nil
+local exposeTravel = 0
+
+local function publish_expose(active, value)
+	if not exposeFile then
+		return
+	end
+	exposeFile:seek("set", 0)
+	exposeFile:write(string.format("%d %.4f\n", active and 1 or 0, value))
+	exposeFile:flush()
+end
+
+publish_expose(false, 0)
+
 hl.gesture({
 	fingers = 3,
 	direction = "vertical",
-	action = function()
-		hl.exec_cmd("quickshell ipc -p ~/.config/quickshell/ call expose toggle")
-	end,
-	disable_inhibit=true
- })
+	disable_inhibit = true,
+	action = {
+		start = function(e)
+			exposeTravel = 0
+			exposeVelocity = 0
+			exposeLastTime = e and e.time_ms or nil
+			publish_expose(true, 0)
+		end,
+		update = function(e)
+			local delta = (e and e.delta and e.delta.y) or 0
+			local now = e and e.time_ms
+			if now and exposeLastTime then
+				local dt = (now - exposeLastTime) / 1000
+				if dt > 0.001 then
+					local instant = -delta / (EXPOSE_SCALE * dt)
+					exposeVelocity = exposeVelocity + 0.35 * (instant - exposeVelocity)
+				end
+			end
+			exposeLastTime = now
+
+			exposeTravel = exposeTravel - delta / EXPOSE_SCALE
+			publish_expose(true, exposeTravel)
+		end,
+		finish = function()
+			publish_expose(false, exposeVelocity)
+		end,
+	},
+})
 
 hl.gesture({ fingers = 3, direction = "pinchin", action = "cursorZoom", zoom_level = 1, scale=1, mode = "live" })
 hl.gesture({ fingers = 3, direction = "pinchout", action = "cursorZoom"})
@@ -90,12 +132,6 @@ hl.gesture({
 
 hl.bind(SUPER_SHIFT .. " + C", hl.dsp.exec_cmd("hyprpicker -a"))
 hl.bind(SUPER .. " + A", hl.dsp.exec_cmd("scrcpy -w -S -K"))
--- Region screenshot overlay. Bound as a global shortcut so it dispatches
--- straight into the running quickshell instance instead of spawning `qs -p`
--- (see quickshell/screenshot/):
---   quickshell:region      -> save to ~/Pictures/Screenshots and copy
---   quickshell:regionTemp  -> copy to clipboard only
---   quickshell:regionEdit  -> open satty to annotate before saving
 hl.bind(SUPER_SHIFT .. " + S", hl.dsp.global("quickshell:region"))
 hl.bind("Print", hl.dsp.global("quickshell:regionTemp"), { locked = true })
 
@@ -104,16 +140,8 @@ hl.bind("Print", hl.dsp.global("quickshell:regionTemp"), { locked = true })
 hl.bind("SHIFT + F2", hl.dsp.pass({ window = "class:^(com\\.obsproject\\.Studio)$" }), { non_consuming = true })
 
 -- Expose / overview
-hl.bind(SUPER .. " + Tab",
-    hl.dsp.exec_cmd("quickshell ipc -p ~/.config/quickshell/ call expose toggle"))
+hl.bind(SUPER .. " + Tab",hl.dsp.exec_cmd("quickshell ipc -p ~/.config/quickshell/ call expose toggle"))
 
-
---hl.bind("ALT + Tab",hl.dsp.exec_cmd("snappy-switcher next --mod alt"),{bypass=true,repeating=true})
---hl.bind("ALT + SHIFT + Tab",hl.dsp.exec_cmd("snappy-switcher prev --mod alt"),{bypass=true,repeating=true})
-
--- App launcher
---hl.bind(SUPER .. " + SUPER_L", hl.dsp.exec_cmd("pkill wofi || wofi --style ~/.config/wofi/style/style.css --show drun"),{ release = true })
---hl.bind(SUPER .. " + SUPER_L", hl.dsp.exec_cmd("krunner"), { release = true })
 hl.bind(SUPER .. " + R", hl.dsp.global('quickshell:Spotlight'))
 hl.bind(SUPER_SHIFT .. " + A", hl.dsp.global('quickshell:Intelligence'))
 
@@ -196,20 +224,33 @@ hl.bind(SUPER .. " + left", function()
 end)
 
 -- Workspace navigation
-hl.bind(SUPER .. " + 1", hl.dsp.focus({ workspace = "-1" }))
-hl.bind(SUPER .. " + 2", hl.dsp.focus({ workspace = "+1" }))
-hl.bind(SUPER_SHIFT .. " + 1", hl.dsp.window.move({ workspace = "-1" }))
-hl.bind(SUPER_SHIFT .. " + 2", hl.dsp.window.move({ workspace = "+1" }))
+local function ws_rel(dir)
+    local cur = hl.get_active_workspace()
+    for _, ws in ipairs(hl.get_workspaces()) do
+        if not ws.special and ws.monitor and ws.monitor.id == cur.monitor.id
+            and ws.windows > 0 and (ws.id - cur.id) * dir > 0 then
+            return "m" .. (dir > 0 and "+1" or "-1")
+        end
+    end
+    return dir > 0 and "+1" or "-1"
+end
+
+hl.bind(SUPER .. " + 1", function()
+    hl.dispatch(hl.dsp.focus({ workspace = ws_rel(-1), on_current_monitor = true }))
+end)
+hl.bind(SUPER .. " + 2", function()
+    hl.dispatch(hl.dsp.focus({ workspace = ws_rel(1), on_current_monitor = true }))
+end)
+hl.bind(SUPER_SHIFT .. " + 1", function()
+    hl.dispatch(hl.dsp.window.move({ workspace = ws_rel(-1) }))
+end)
+hl.bind(SUPER_SHIFT .. " + 2", function()
+    hl.dispatch(hl.dsp.window.move({ workspace = ws_rel(1) }))
+end)
 
 -- Move window to empty workspace with SUPER+SHIFT+RMB
-hl.bind(SUPER_SHIFT .. " + mouse:273", hl.dsp.window.move({ workspace = "empty" }))
+hl.bind(SUPER_SHIFT .. " + mouse:273", hl.dsp.focus({ workspace = "emptynm"}))
 
 -- Move / resize with mouse
 hl.bind(SUPER .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(SUPER .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
-
--- Resize with keyboard
-hl.bind(SUPER_SHIFT .. " + right", hl.dsp.window.resize({ x = 100, y = 0, relative = true }))
-hl.bind(SUPER_SHIFT .. " + left", hl.dsp.window.resize({ x = -100, y = 0, relative = true }))
-hl.bind(SUPER_SHIFT .. " + up", hl.dsp.window.resize({ x = 0, y = -100, relative = true }))
-hl.bind(SUPER_SHIFT .. " + down", hl.dsp.window.resize({ x = 0, y = 100, relative = true }))

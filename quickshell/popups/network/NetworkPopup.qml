@@ -19,7 +19,7 @@ PopupWindow {
     anchor {
         item: networkWidget
         edges: Edges.Bottom
-        rect.y: 38
+        rect.y: 48
         rect.x: 16 - networkWidget.width / 2
     }
     color: "transparent"

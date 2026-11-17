@@ -177,7 +177,7 @@ Scope {
                         anchors.right: parent.right
                         blur: 24
                         implicitHeight: 1
-                        color: "#60ffffff"
+                        color: "#40ffffff"
                     }
 
                 }

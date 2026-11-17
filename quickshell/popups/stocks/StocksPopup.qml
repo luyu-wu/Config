@@ -18,7 +18,7 @@ PanelWindow {
         top: true
         left: true
     }
-    margins.top: 32
+    margins.top: 42
     margins.left: popupX
     updatesEnabled: false
     color: "transparent"

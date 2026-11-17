@@ -23,7 +23,7 @@ PanelWindow {
         top: true
         left: true
     }
-    margins.top: 32
+    margins.top: 42
     margins.left: popupX
 
     //  Player state ─
@@ -103,9 +103,9 @@ PanelWindow {
                 anchors.bottom: parent.bottom
                 anchors.left: parent.left
                 anchors.right: parent.right
-                blur: 24
+                blur: 36
                 implicitHeight: 1
-                color: "#60ffffff"
+                color: "#30ffffff"
             }
         }
         Rectangle {

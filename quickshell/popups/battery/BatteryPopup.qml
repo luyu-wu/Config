@@ -22,7 +22,7 @@ PopupWindow {
     anchor {
         item: batteryWidget
         edges: Edges.Bottom
-        rect.y: 38
+        rect.y: 48
         rect.x: 18 - batteryWidget.width / 2
     }
     color: "transparent"

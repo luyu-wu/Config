@@ -37,7 +37,7 @@ PopupWindow {
         // inset so their visible panel sits flush against the parent panel's
         // right edge instead of leaving a gap.
         rect.x: root.submenu ? root.anchorPoint.width - 4 : -12
-        rect.y: root.submenu ? -4 : 38
+        rect.y: root.submenu ? -4 : 44
         adjustment: root.submenu
             ? (PopupAdjustment.FlipX | PopupAdjustment.SlideY)
             : PopupAdjustment.Slide

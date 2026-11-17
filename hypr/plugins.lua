@@ -16,11 +16,12 @@ hl.config({
             bar_buttons_alignment      = "left",
             bar_button_padding         = 10,
             bar_blur                   = false,
-            bar_padding                = 12	,
+            bar_padding                = 16	,
             bar_text_font              = "SF Pro",
             --bar_text_weight			   = 800,
             bar_text_size			   = 14,
             bar_precedence_over_border = true,
+            respect_csd = true,
 
             -- Light Mode
             bar_color                  = bar_bg_breeze,

@@ -4,12 +4,14 @@ local bar_bg_breeze_unf = "rgb(eff0f1)"
 local bar_bg_teams = "rgb(ebebeb)"
 local bar_bg_chromium = "rgb(dee5d8)"
 local bar_bg_chromium_unf = "rgb(e2e3dd)"
+local bar_bg_wordcraft = "rgb(f0f0f0)"
 
 if darkMode then
 	bar_bg_breeze_unf = "rgb(212429)"
 	bar_bg_teams = "rgb(0A0A0A)"
-	bar_bg_chromium_unf = "rgb(282C26)"
-	bar_bg_chromium =  "rgb(1B211A)"
+	bar_bg_chromium_unf = "rgb(252B37)"
+	bar_bg_chromium =  "rgb(172030)"
+	bar_bg_wordcraft = "rgb(1E1E1E)"
 end
 
 -----------------------------
@@ -21,6 +23,7 @@ hl.layer_rule({
     match   = { namespace = "hyprpicker|selection|hyprpaper|qs:screencorners|qs:screenshot|qs:expose"},
     no_anim = true,
     blur    = false,
+    order   = 3,
 })
 
 hl.layer_rule({
@@ -40,6 +43,7 @@ hl.layer_rule({
     name         = "Cairo",
     match        = { namespace = "cairo-dock-_MainDock_" },
     blur         = true,
+    order        = 0,
 })
 
 hl.layer_rule({
@@ -56,7 +60,8 @@ hl.layer_rule({
     match        = { namespace = "qs:popup|quickshell|qs:osd" },
     no_anim      = false,
     blur         = true,
-    blur_popups  = true,
+    blur_popups = true,
+    order = 1,
 })
 
 
@@ -205,7 +210,7 @@ hl.window_rule({
 hl.window_rule({
     name                     = "Wordcraft",
     match                    = { class = "ai.storyteller.wordcraft" },
-    ["hyprbars:bar_color"]   = "rgb(f0f0f0)",
+    ["hyprbars:bar_color"]   = bar_bg_wordcraft,
 })
 
 
@@ -224,20 +229,9 @@ hl.window_rule({
 })
 
 hl.window_rule({
-    name     = "WeChat",
-    match    = { class = "wechat" },
-    decorate = true,
-   	["hyprbars:no_bar"] = true
-
-})
-hl.window_rule({
 	name="WeChat Popups",
 	match={title="wechat"},
 	no_anim  = true,
-	decorate = false,
-	["hyprbars:no_bar"] = true
-
-
 })
 
 hl.window_rule({
@@ -258,13 +252,13 @@ hl.window_rule({
     ["hyprbars:bar_color"]   = bar_bg_breeze_unf,
     ["hyprbars:title_color"] = "rgb(808080)",
 })
-
+--[[
 hl.window_rule({
 	name = "CSD Windows",
 	match = {class="com.github.flxzt.rnote|io.github.vani_tty1.memerist|org.gnome.World.PikaBackup|org.pipewire.Helvum|io.missioncenter.MissionCenter|dev.deedles.Trayscale|org.gnome.gitg|xyz.tytanium.DoorKnocker|localsend|de.haeckerfelix.Fragments|ONLYOFFICE|org.gnome.Meld|moe.launcher.the-honkers-railway-launcher"},
 	["hyprbars:no_bar"] = true
 })
-
+--]]
 hl.window_rule({
     name  = "Pinned",
     match = { pin = true },
@@ -301,6 +295,7 @@ hl.window_rule({
     workspace                = "special:code",
     ["hyprbars:bar_color"]   = "rgb(323232)",
     ["hyprbars:title_color"] = "rgb(F0F0F0)",
+    ["hyprbars:no_bar"] = false,
 })
 hl.window_rule({
     name                     = "Zed Unfocused",
@@ -308,6 +303,7 @@ hl.window_rule({
     workspace                = "special:code",
     ["hyprbars:bar_color"]   = "rgb(222221)",
     ["hyprbars:title_color"] = "rgb(F0F0F0)",
+    ["hyprbars:no_bar"] = false,
 })
 
 

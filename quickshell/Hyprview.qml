@@ -10,23 +10,18 @@ import "hyprview"
 
 PanelWindow {
     id: root
+    Variables { id: v }
+
     readonly property url wallpaperSource: WallpaperState.source
 
-    // --- SETTINGS ---
-    property bool liveCapture: false
+    // 0..1 scalar: 0 = collapsed onto the
+    // desktop, 1 = fully expanded
+    property real progress: 0
 
-    // --- INTERNAL STATE ---
-    property bool isActive: false
-    property bool closing: false
-    property var closingWorkspace: null
-    property bool visualActive: isActive && !closing
+    readonly property bool isActive: progress > 0 || gestureActive
+
     property bool specialActive: false
     property string specialWorkspaceName: ""
-    property bool animateWindows: false
-    property var lastPositions: {}
-
-    // Refreshing toplevels re-enters the layout model, so guard against a
-    // refresh being requested while one is already in flight.
     property bool refreshingToplevels: false
 
     anchors {
@@ -36,15 +31,14 @@ PanelWindow {
         right: true
     }
     color: "transparent"
-    visible: isActive || closing
+    visible: isActive
 
     // LayerShell Configs
-    WlrLayershell.layer: WlrLayer.Overlay
+    WlrLayershell.layer: WlrLayer.Top
     WlrLayershell.exclusiveZone: -1
-    WlrLayershell.keyboardFocus: WlrKeyboardFocus.None //(isActive && !closing) ? 1 : 0
+    WlrLayershell.keyboardFocus: WlrKeyboardFocus.None
     WlrLayershell.namespace: "qs:expose"
 
-    // --- IPC & EVENTS ---
     IpcHandler {
         target: "expose"
         function toggle() {
@@ -62,12 +56,19 @@ PanelWindow {
                 return;
             root.toggleExpose();
         }
+
+        // Scrub the overlay from the command line, 0..100. Used to evaluate
+        // follow-finger rendering without a gesture source:
+        //   quickshell ipc -p ~/.config/quickshell call expose progress 50
+        function progress(percent: int): void {
+            root.setProgress(percent / 100, 0);
+        }
     }
 
     Connections {
         target: Hyprland
         function onRawEvent(ev) {
-            if ((!root.isActive || root.closing) && ev.name !== "activespecial")
+            if (!root.isActive && ev.name !== "activespecial")
                 return;
             switch (ev.name) {
             case "openwindow":
@@ -88,12 +89,83 @@ PanelWindow {
         }
     }
 
-    // Kick the layout model once the refreshed toplevels list has landed. Doing
-    // it here (rather than binding to Hyprland.toplevels.values) is what keeps
-    // unrelated Hyprland events from rebuilding the expose layout.
     onRefreshingToplevelsChanged: {
         if (!refreshingToplevels)
             windowLayoutModel.requestRefresh();
+    }
+
+    // Gesture bridge. hypr/binds.lua writes into this shm
+    // file: <travel> is the absolute fraction of a full reveal
+    // velocity (reveals per second) used for the flick projection.
+    FileView {
+        id: gestureFile
+        path: "/dev/shm/qs-expose"
+        blockLoading: true
+        watchChanges: true
+        onFileChanged: reload()
+        onTextChanged: {
+            // The blocking initial load reports whatever the last gesture left
+            // behind; never act on it, only on samples written after startup.
+            if (!root.gesturePrimed) {
+                root.gesturePrimed = true;
+                return;
+            }
+            root.applyGestureSample(gestureFile.text());
+        }
+    }
+
+    Timer {
+        id: gestureSettle
+        interval: 300
+        onTriggered: root.finishGesture(0)
+    }
+
+    property bool gestureActive: false
+    property bool gesturePrimed: false
+    property real gestureBase: 0
+
+    function applyGestureSample(text) {
+        var parts = String(text).trim().split(/\s+/);
+        if (parts.length < 2)
+            return;
+        var value = parseFloat(parts[1]);
+        if (isNaN(value))
+            return;
+
+        if (parts[0] !== "1") {
+            // Release: the value is the velocity the finger left with.
+            root.finishGesture(value);
+            return;
+        }
+
+        if (!root.gestureActive) {
+            // Wake the surface before the first sample lands, so the layer
+            // exists while the finger is still moving.
+            root.gestureActive = true;
+            root.gestureBase = root.progress;
+            root.beginReveal();
+            if (root.progress <= 0)
+                root.progress = 0.0001;
+        }
+        root.setProgress(root.gestureBase + value, 0);
+        gestureSettle.restart();
+    }
+
+    function finishGesture(velocity) {
+        if (!root.gestureActive)
+            return;
+        root.gestureActive = false;
+        gestureSettle.stop();
+
+        var projected = root.progress + velocity * 0.18;
+        var target = projected >= 0.5 ? 1 : 0;
+
+        if (target === 0 && root.progress <= 0)
+            root.endReveal();
+
+        var speed = Math.abs(velocity);
+        var distance = Math.abs(target - root.progress);
+        root.setProgress(target, Math.max(120, Math.min(320, distance / speed * 1000)));
     }
 
     function requestToplevelsRefresh() {
@@ -101,162 +173,64 @@ PanelWindow {
         Hyprland.refreshToplevels();
     }
 
+    function setProgress(value, duration) {
+        var v = Math.max(0, Math.min(1, value));
+        if (v > 0 && root.progress <= 0)
+            root.beginReveal();
+        if (duration > 0) {
+            progressAnim.stop();
+            progressAnim.duration = duration;
+            progressAnim.to = v;
+            progressAnim.start();
+        } else {
+            progressAnim.stop();
+            root.progress = v;
+        }
+    }
+
     function toggleExpose() {
-        if (root.isActive && !root.closing) {
-            // Closing: animate out
-            root.closing = true;
-            for (var i = 0; i < winRepeater.count; i++) {
-                var item = winRepeater.itemAt(i);
-                if (item && item.startCloseAnimation) {
-                    item.startCloseAnimation();
-                }
-            }
-            closeTimer.start();
-        } else if (!root.isActive) {
-            // Opening
-            root.isActive = true;
-            HyprlandExt.exposeOpen = true;
-            exposeArea.currentIndex = -1;
-            root.animateWindows = true;
-            root.requestToplevelsRefresh();
-        }
+        root.setProgress(root.progress > 0 ? 0 : 1, 400);
     }
 
-    Timer {
-        id: closeTimer
-        interval: 400
-        onTriggered: {
-            root.isActive = false;
-            HyprlandExt.exposeOpen = false;
-            root.closing = false;
-            root.closingWorkspace = null;
-            root.animateWindows = false;
-            root.lastPositions = {};
-        }
+    function beginReveal() {
+        exposeArea.currentIndex = -1;
+        root.requestToplevelsRefresh();
     }
 
-    // --- USER INTERFACE ---
-    FocusScope {
-        id: mainScope
+    function endReveal() {
+        exposeArea.currentIndex = -1;
+    }
+
+    onProgressChanged: {
+        if (!root.isActive)
+            root.endReveal();
+    }
+
+    NumberAnimation {
+        id: progressAnim
+        target: root
+        property: "progress"
+        duration: 250
+        easing.type: Easing.OutCubic
+    }
+
+    Item {
         anchors.fill: parent
-        focus: true
-        // Hoisted out of Keys.onPressed: the handler redefined both on every
-        // keypress, and they close over the same winRepeater/exposeArea state.
-        function moveSelectionHorizontal(delta) {
-            const total = winRepeater.count;
-            if (total <= 0)
-                return;
-            var start = exposeArea.currentIndex;
-            for (var step = 1; step <= total; ++step) {
-                var candidate = (start + delta * step + total) % total;
-                var it = winRepeater.itemAt(candidate);
-                if (it && it.visible) {
-                    exposeArea.currentIndex = candidate;
-                    return;
-                }
-            }
-        }
-
-        function moveSelectionVertical(dir) {
-            const total = winRepeater.count;
-            if (total <= 0)
-                return;
-            var startIndex = exposeArea.currentIndex;
-            var currentItem = winRepeater.itemAt(startIndex);
-
-            if (!currentItem || !currentItem.visible) {
-                moveSelectionHorizontal(dir > 0 ? 1 : -1);
-                return;
-            }
-
-            var curCx = currentItem.x + currentItem.width / 2;
-            var curCy = currentItem.y + currentItem.height / 2;
-
-            var bestIndex = -1;
-            var bestDy = 99999999;
-            var bestDx = 99999999;
-
-            for (var i = 0; i < total; ++i) {
-                var it = winRepeater.itemAt(i);
-                if (!it || !it.visible || i === startIndex)
-                    continue;
-                var cx = it.x + it.width / 2;
-                var cy = it.y + it.height / 2;
-                var dy = cy - curCy;
-
-                // Direction filtering
-                if (dir > 0 && dy <= 0)
-                    continue;
-                if (dir < 0 && dy >= 0)
-                    continue;
-                var absDy = Math.abs(dy);
-                var absDx = Math.abs(cx - curCx);
-
-                // Search for nearest thumb (first in vertical, then horizontal distance)
-                if (absDy < bestDy || (absDy === bestDy && absDx < bestDx)) {
-                    bestDy = absDy;
-                    bestDx = absDx;
-                    bestIndex = i;
-                }
-            }
-
-            if (bestIndex >= 0) {
-                exposeArea.currentIndex = bestIndex;
-            }
-        }
-
-        Keys.onPressed: event => {
-            if (!root.isActive || root.closing)
-                return;
-            if (event.key === Qt.Key_Escape) {
-                root.toggleExpose();
-                event.accepted = true;
-                return;
-            }
-
-            const total = winRepeater.count;
-            if (total <= 0)
-                return;
-
-            if (event.key === Qt.Key_Right || event.key === Qt.Key_Tab) {
-                moveSelectionHorizontal(1);
-                event.accepted = true;
-            } else if (event.key === Qt.Key_Left || event.key === Qt.Key_Backtab) {
-                moveSelectionHorizontal(-1);
-                event.accepted = true;
-            } else if (event.key === Qt.Key_Down) {
-                moveSelectionVertical(1);
-                event.accepted = true;
-            } else if (event.key === Qt.Key_Up) {
-                moveSelectionVertical(-1);
-                event.accepted = true;
-            } else if (event.key === Qt.Key_Return || event.key === Qt.Key_Enter) {
-                var item = winRepeater.itemAt(exposeArea.currentIndex);
-                if (item && item.activateWindow) {
-                    item.activateWindow();
-                    event.accepted = true;
-                }
-            }
-        }
 
         MouseArea {
             anchors.fill: parent
             hoverEnabled: false
             z: 0
-            onClicked: {
-                if (!root.closing) {
-                    root.toggleExpose();
-                }
-            }
+            onClicked: root.toggleExpose()
         }
 
-        // Dim background
+        // Backdrop
         Rectangle {
             anchors.fill: parent
             z: -4
             bottomRightRadius: 16
             bottomLeftRadius: 16
-            color: "#808080"
+            color: v.darkMode ? "#333" : "#808080"
         }
 
         Rectangle {
@@ -265,23 +239,9 @@ PanelWindow {
             color: "transparent"
 
             property int targetMargins: 128
-            property int targetRadius: 64
+            property int targetRadius: 48
 
-            anchors.margins: visualActive ? targetMargins : 0
-            //opacity: visualActive ? 1 : 0
-            Behavior on opacity {
-                NumberAnimation {
-                    duration: 400
-                    easing.type: Easing.OutCubic
-                }
-            }
-
-            Behavior on anchors.margins {
-                NumberAnimation {
-                    duration: 400
-                    easing.type: Easing.OutCubic
-                }
-            }
+            anchors.margins: targetMargins * root.progress
 
             RectangularShadow {
                 id: bgShadow
@@ -289,35 +249,16 @@ PanelWindow {
                 z: -2
                 color: Qt.rgba(0, 0, 0, 0.3)
 
-                radius: visualActive ? bgRect.targetRadius : 8
+                radius: bgRect.targetRadius
                 blur: 30
                 spread: 10
-                opacity: visualActive ? 1 : 0
-                Behavior on opacity {
-                    NumberAnimation {
-                        duration: 200
-                        easing.type: Easing.OutCubic
-                    }
-                }
-                Behavior on radius {
-                    NumberAnimation {
-                        duration: 400
-                        easing.type: Easing.OutCubic
-                    }
-                }
             }
 
             ClippingRectangle {
                 anchors.fill: parent
                 color: "transparent"
-                radius: visualActive ? bgRect.targetRadius : 8
+                radius: 8 + (bgRect.targetRadius - 8) * root.progress
                 z: -1
-                Behavior on radius {
-                    NumberAnimation {
-                        duration: 400
-                        easing.type: Easing.OutCubic
-                    }
-                }
 
                 Image {
                     id: wallpaperImage
@@ -326,18 +267,20 @@ PanelWindow {
                     source: root.wallpaperSource
                 }
             }
+
+            Rectangle {
+                anchors.fill: parent
+                radius: 8 + (bgRect.targetRadius - 8) * root.progress
+                color: "black"
+                visible: opacity > 0.001
+                opacity: root.specialActive ? 0.3 * (1 - root.progress) : 0
+            }
         }
 
         Item {
             id: layoutContainer
             anchors.fill: parent
             anchors.margins: 32
-            Behavior on opacity {
-                NumberAnimation {
-                    duration: 200
-                    easing.type: Easing.OutCubic
-                }
-            }
 
             Column {
                 id: layoutRoot
@@ -358,20 +301,9 @@ PanelWindow {
 
                         property int areaW: exposeArea.width
                         property int areaH: exposeArea.height
-                        // Deliberately NOT a binding on Hyprland.toplevels.values.
-                        // That list is rebuilt on every window event, which would
-                        // re-run the whole sort + doLayout even for events that do
-                        // not change the windows we show. The list is instead
-                        // refreshed only when the expose overlay opens or a
-                        // window appears/disappears, via refreshToplevels().
                         property var rawToplevels: []
-                        // Bumped by requestToplevelsRefresh so the binding below
-                        // still re-runs after a refresh; an unchanged toplevel set
-                        // produces an identical result, so the Repeater is left
-                        // alone and the thumbnails never restart their animations.
                         property int topRev: 0
 
-                        // Drop anything derived from the previous window set.
                         function invalidateCache() {
                             if (rawToplevels === Hyprland.toplevels.values)
                                 return;
@@ -385,22 +317,14 @@ PanelWindow {
 
                         values: {
                             // Recompute the layout only when something that can change
-                            // its result actually changes. Binding to the window
-                            // list identity, the count, and the per-window size /
-                            // workspace means unrelated events (focus, title, a
-                            // refresh returning the same windows) no longer rebuild
-                            // the whole expose layout.
+                            // its result actually changes.
                             topRev;
                             invalidateCache();
-                            var _ = areaW + areaH;
 
                             // Bailout on wrong screen size
                             if (areaW <= 0 || areaH <= 0)
                                 return [];
 
-                            // Special workspaces have no numeric id in `clients`, only a
-                            // name ("special:foo"). Sort them after every numbered
-                            // workspace so the regular order is unchanged.
                             var SPECIAL_WORKSPACE_SORT_OFFSET = 10000;
 
                             var windowList = [];
@@ -461,7 +385,6 @@ PanelWindow {
                         delegate: WindowThumbnail {
                             hWin: modelData.win
                             wHandle: hWin.wayland
-                            winKey: String(hWin.address)
                             thumbW: modelData.width
                             thumbH: modelData.height
                             clientInfo: hWin.lastIpcObject
@@ -469,10 +392,7 @@ PanelWindow {
                             // Layout-generated coordinates
                             targetX: modelData.x
                             targetY: modelData.y
-                            targetZ: (visible && (exposeArea.currentIndex === index)) ? 1000 : modelData.zIndex || 0
-                            targetRotation: modelData.rotation || 0
-
-                            hovered: visible && (exposeArea.currentIndex === index)
+                            targetZ: (visible && (exposeArea.currentIndex === index)) ? 1000 : 0
                         }
                     }
                 }

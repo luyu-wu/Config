@@ -22,7 +22,7 @@ PopupWindow {
     anchor {
         item: volumeWidget
         edges: Edges.Bottom
-        rect.y: 38
+        rect.y: 48
         rect.x: 16 - volumeWidget.width / 2
     }
     color: "transparent"

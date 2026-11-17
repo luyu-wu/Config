@@ -1,4 +1,4 @@
-_G.darkMode = false
+_G.darkMode = true
 local darkMode = _G.darkMode
 activeBor = "rgb(708080)"
 inactiveBor =  "rgb(90a0a0)"
@@ -22,7 +22,7 @@ hl.config({
     },
 
     layout = {
-        single_window_aspect_ratio = { 4, 3 },
+        single_window_aspect_ratio = { 7, 6 },
     },
 
     dwindle = {
@@ -97,14 +97,15 @@ hl.config({
     },
 
     decoration = {
-        rounding     = 14,
+        rounding     = 16,
+        rounding_power = 3,
 
         shadow       = {
             enabled        = true,
-            range          = 24,
+            range          = 36,
             render_power   = 4,
-            color          = "rgba(00000040)",
-            color_inactive = "rgba(00000025)",
+            color          = "rgba(00000030)",
+            color_inactive = "rgba(00000020)",
         },
         dim_inactive = false,
         dim_strength = 0,
@@ -135,8 +136,8 @@ hl.config({
         wobble = {
         	enabled = false,
         	mesh = 6,
-        	stiffness = 200,
-        	damping = 10,
+        	stiffness = 400,
+        	damping = 16,
         }
  
     },

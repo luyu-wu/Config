@@ -16,9 +16,13 @@ Variants {
         anchors.top: true
         anchors.left: true
         anchors.right: true
-        implicitHeight: 56  // 40px bar + 16px shadow
-        exclusiveZone: 50
-        WlrLayershell.layer: HyprlandExt.exposeOpen ? WlrLayer.Overlay : WlrLayer.Top
+        implicitHeight: 64  // 48px bar + 16px shadow
+        exclusiveZone: 56
+        // Stays in the top layer. Changing WlrLayershell.layer at runtime makes
+        // Quickshell recreate the surface, which flickered and could leave the
+        // bar stuck above the expose overlay. The overlay reserves the strip
+        // above its own content instead (see Hyprview's top margin).
+        WlrLayershell.layer: WlrLayer.Top
         color: "transparent"
 
         //  Shadow gradient below the bar ─
@@ -45,7 +49,7 @@ Variants {
             anchors.top: parent.top
             anchors.left: parent.left
             anchors.right: parent.right
-            implicitHeight: 40
+            implicitHeight: 48
             color: v.barBackground
 
             RowLayout {

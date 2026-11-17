@@ -22,7 +22,7 @@ PopupWindow {
     anchor {
         item: bluetoothWidget
         edges: Edges.Bottom
-        rect.y: 38
+        rect.y: 48
         rect.x: 16 - bluetoothWidget.width / 2
     }
     color: "transparent"
@@ -113,11 +113,11 @@ PopupWindow {
 
                 implicitWidth: 48
                 implicitHeight: 28
-                color: defaultAdapter.enabled ? v.accentColor : v.accentMuted
+                color: defaultAdapter && defaultAdapter.enabled ? v.accentColor : v.accentMuted
                 radius: 16
                 Rectangle {
                     anchors.verticalCenter: parent.verticalCenter
-                    x: defaultAdapter.enabled ? 22 : 2
+                    x: defaultAdapter && defaultAdapter.enabled ? 22 : 2
                     implicitWidth: 24
                     implicitHeight: 24
                     color: v.accentForeground
@@ -131,6 +131,7 @@ PopupWindow {
                 }
                 MouseArea {
                     anchors.fill: parent
+                    enabled: defaultAdapter !== null
                     onClicked: defaultAdapter.enabled = !defaultAdapter.enabled
                 }
                 Behavior on color {

@@ -20,7 +20,7 @@ PopupWindow {
     anchor {
         item: parent
         edges: Edges.Bottom
-        rect.y: 38
+        rect.y: 48
         rect.x: 0
     }
     color: "transparent"
