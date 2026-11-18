@@ -11,6 +11,7 @@ end
 hl.config({
     plugin = {
         hyprbars = {
+        	enabled 				   = false,
             bar_height                 = 32,
             bar_part_of_window         = true,
             bar_buttons_alignment      = "left",

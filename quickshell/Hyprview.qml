@@ -30,6 +30,10 @@ PanelWindow {
         left: true
         right: true
     }
+
+    implicitWidth: screen ? screen.width : 0
+    implicitHeight: screen ? screen.height : 0
+
     color: "transparent"
     visible: isActive
 
@@ -68,7 +72,8 @@ PanelWindow {
     Connections {
         target: Hyprland
         function onRawEvent(ev) {
-            if (!root.isActive && ev.name !== "activespecial")
+            if (!root.isActive && ev.name !== "activespecial"
+                    && ev.name !== "openwindow" && ev.name !== "closewindow")
                 return;
             switch (ev.name) {
             case "openwindow":
@@ -114,11 +119,6 @@ PanelWindow {
         }
     }
 
-    Timer {
-        id: gestureSettle
-        interval: 300
-        onTriggered: root.finishGesture(0)
-    }
 
     property bool gestureActive: false
     property bool gesturePrimed: false
@@ -148,14 +148,12 @@ PanelWindow {
                 root.progress = 0.0001;
         }
         root.setProgress(root.gestureBase + value, 0);
-        gestureSettle.restart();
     }
 
     function finishGesture(velocity) {
         if (!root.gestureActive)
             return;
         root.gestureActive = false;
-        gestureSettle.stop();
 
         var projected = root.progress + velocity * 0.18;
         var target = projected >= 0.5 ? 1 : 0;
@@ -265,6 +263,7 @@ PanelWindow {
                     anchors.fill: parent
                     fillMode: Image.PreserveAspectCrop
                     source: root.wallpaperSource
+
                 }
             }
 
@@ -301,6 +300,20 @@ PanelWindow {
 
                         property int areaW: exposeArea.width
                         property int areaH: exposeArea.height
+
+                        property int lastAreaW: 0
+                        property int lastAreaH: 0
+
+                        onAreaWChanged: {
+                            if (areaW > 0)
+                                lastAreaW = areaW;
+                        }
+
+                        onAreaHChanged: {
+                            if (areaH > 0)
+                                lastAreaH = areaH;
+                        }
+
                         property var rawToplevels: []
                         property int topRev: 0
 
@@ -322,7 +335,9 @@ PanelWindow {
                             invalidateCache();
 
                             // Bailout on wrong screen size
-                            if (areaW <= 0 || areaH <= 0)
+                            var layoutW = areaW > 0 ? areaW : lastAreaW;
+                            var layoutH = areaH > 0 ? areaH : lastAreaH;
+                            if (layoutW <= 0 || layoutH <= 0)
                                 return [];
 
                             var SPECIAL_WORKSPACE_SORT_OFFSET = 10000;
@@ -361,7 +376,6 @@ PanelWindow {
                                 });
                             }
 
-                            // Sort by workspaceId, then originalIndex
                             windowList.sort(function (a, b) {
                                 if (a.workspaceId < b.workspaceId)
                                     return -1;
@@ -374,7 +388,7 @@ PanelWindow {
                                 return 0;
                             });
 
-                            return LayoutsManager.doLayout(windowList, areaW, areaH);
+                            return LayoutsManager.doLayout(windowList, layoutW, layoutH);
                         }
                     }
 
@@ -389,7 +403,6 @@ PanelWindow {
                             thumbH: modelData.height
                             clientInfo: hWin.lastIpcObject
 
-                            // Layout-generated coordinates
                             targetX: modelData.x
                             targetY: modelData.y
                             targetZ: (visible && (exposeArea.currentIndex === index)) ? 1000 : 0

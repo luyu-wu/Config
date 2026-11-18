@@ -139,13 +139,7 @@ hl.window_rule({
 })
 
 hl.window_rule({
-    name                   = "Fusion",
-    match                  = { class = "fusion360.exe" },
-    ["hyprbars:bar_color"] = "rgb(d9d9d9)",
-})
-
-hl.window_rule({
-    name                   = "Thorium Unfocused",
+    name                   = "Chromium Unfocused",
     match                  = { class = "thorium-browser|chromium|google-chrome", focus = false },
     ["hyprbars:bar_color"] = bar_bg_chromium_unf,
 
@@ -156,20 +150,6 @@ hl.window_rule({
     match                  = { class = "thorium-browser|chromium|google-chrome", focus = true },
     ["hyprbars:bar_color"] = bar_bg_chromium,
 
-})
-
-hl.window_rule({
-    name                     = "Libadwaita",
-    match                    = { class = "com.github.flxzt.rnote|io.github.vani_tty1.memerist", focus = true },
-    ["hyprbars:bar_color"]   = "rgb(ffffff)",
-    ["hyprbars:title_color"] = "rgb(ffffff)",
-})
-
-hl.window_rule({
-    name                     = "Libadwaita-Unfocus",
-    match                    = { class = "com.github.flxzt.rnote|io.github.vani_tty1.memerist", focus = false },
-    ["hyprbars:bar_color"]   = "rgb(fafafb)",
-    ["hyprbars:title_color"] = "rgb(fafafa)",
 })
 
 hl.window_rule({
@@ -197,13 +177,6 @@ hl.window_rule({
     name                     = "OBS",
     match                    = { class = "com.obsproject.Studio" },
     ["hyprbars:bar_color"]   = "rgb(212121)",
-    ["hyprbars:title_color"] = "rgb(E0E0E0)",
-})
-
-hl.window_rule({
-    name                     = "GIMP",
-    match                    = { class = "gimp" },
-    ["hyprbars:bar_color"]   = "rgb(3c3c3c)",
     ["hyprbars:title_color"] = "rgb(E0E0E0)",
 })
 
@@ -252,13 +225,7 @@ hl.window_rule({
     ["hyprbars:bar_color"]   = bar_bg_breeze_unf,
     ["hyprbars:title_color"] = "rgb(808080)",
 })
---[[
-hl.window_rule({
-	name = "CSD Windows",
-	match = {class="com.github.flxzt.rnote|io.github.vani_tty1.memerist|org.gnome.World.PikaBackup|org.pipewire.Helvum|io.missioncenter.MissionCenter|dev.deedles.Trayscale|org.gnome.gitg|xyz.tytanium.DoorKnocker|localsend|de.haeckerfelix.Fragments|ONLYOFFICE|org.gnome.Meld|moe.launcher.the-honkers-railway-launcher"},
-	["hyprbars:no_bar"] = true
-})
---]]
+
 hl.window_rule({
     name  = "Pinned",
     match = { pin = true },
@@ -273,7 +240,7 @@ hl.window_rule({
 
 hl.window_rule({
     name       = "Fullscreen",
-    match      = { class = "osu!|dev.zed.Zed|SiYuan|virt-viewer" },
+    match      = { class = "osu!|dev.zed.Zed|virt-viewer" },
     fullscreen = true,
 })
 

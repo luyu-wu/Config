@@ -2,7 +2,7 @@ import QtQuick
 import QtQuick.Effects
 import Quickshell.Wayland
 import Quickshell.Hyprland
-import Qt5Compat.GraphicalEffects
+import Quickshell.Widgets
 import ".."
 
 Item {
@@ -23,6 +23,29 @@ Item {
     property real targetZ: 0
 
     readonly property real p: root.progress
+
+    readonly property bool thumbReady: thumbLoader.item !== null
+        && (thumbLoader.item as ScreencopyView).hasContent
+
+    property bool reloading: false
+
+    Timer {
+        id: contentCheck
+        interval: 5
+        onTriggered: {
+            if (!root.isActive || thumbContainer.thumbReady || !thumbContainer.wHandle)
+                return;
+            thumbContainer.reloading = true;
+            Qt.callLater(function () { thumbContainer.reloading = false; });
+        }
+    }
+    Connections {
+        target: root
+        function onIsActiveChanged() {
+            if (root.isActive)
+                contentCheck.restart();
+        }
+    }
 
     readonly property var wsCenter: (wHandle && isOnFocusedWorkspace()) ? workspaceToLocalCenter() : null
     readonly property bool hasWorkspaceRect: wsCenter !== null
@@ -55,6 +78,7 @@ Item {
         color: Qt.rgba(0, 0, 0, 0.6)
         blur: 16
         spread: 0
+        visible: thumbContainer.thumbReady
     }
 
     visible: !!wHandle
@@ -86,15 +110,6 @@ Item {
     function activateWindow() {
         if (!hWin)
             return;
-        var targetIsSpecial = (hWin?.workspace ?? 0) < 0 || (hWin?.workspace?.name ?? "").startsWith("special");
-
-        if (root.specialActive && !targetIsSpecial) {
-            Hyprland.dispatch('hl.dsp.workspace.toggle_special()');
-        }
-
-        if (hWin.workspace) {
-            hWin.workspace.activate();
-        }
         root.toggleExpose();
 
         Hyprland.dispatch(
@@ -107,46 +122,36 @@ Item {
     Item {
         id: card
         anchors.fill: parent
-
-        MouseArea {
+        ClippingRectangle{
             anchors.fill: parent
-            hoverEnabled: false
-            cursorShape: Qt.PointingHandCursor
-            acceptedButtons: Qt.LeftButton
+            color: "transparent"
+            radius: 12
+            border.width: 1
+            border.color: "#606060"
+            visible: root.isActive && thumbContainer.wHandle
 
-            onClicked: event => {
-                exposeArea.currentIndex = index;
-                thumbContainer.activateWindow();
-            }
-        }
-
-        Loader {
-            id: thumbLoader
-            anchors.fill: parent
-            active: root.isActive && !!thumbContainer.wHandle
-            Rectangle{
+            MouseArea {
                 anchors.fill: parent
-                color: v.darkMode ? "#333" : "#fff"
-                radius: 12
-                border.width: 1
-                border.color: "#606060"
+                hoverEnabled: false
+                cursorShape: Qt.PointingHandCursor
+                acceptedButtons: Qt.LeftButton
+                onClicked: event => {
+                    exposeArea.currentIndex = index;
+                    thumbContainer.activateWindow();
+                }
             }
-            sourceComponent: ScreencopyView {
-                id: thumb
-                anchors.fill: parent
-                anchors.margins: 1
-                captureSource: thumbContainer.wHandle
-                live: true
-                paintCursor: false
-                visible: root.isActive && thumbContainer.wHandle && hasContent
 
-                layer.enabled: true
-                layer.effect: OpacityMask {
-                    maskSource: Rectangle {
-                        width: thumb.width
-                        height: thumb.height
-                        radius: 12
-                    }
+            Loader {
+                id: thumbLoader
+                anchors.fill: parent
+                active: !!thumbContainer.wHandle && !thumbContainer.reloading
+                asynchronous: true
+                sourceComponent: ScreencopyView {
+                    id: thumb
+                    anchors.fill: parent
+                    anchors.margins: 1
+                    captureSource: thumbContainer.wHandle
+                    live: root.isActive
                 }
             }
         }
